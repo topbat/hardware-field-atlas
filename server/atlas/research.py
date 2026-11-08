@@ -321,7 +321,7 @@ def _facts_for_product(product: dict, request: RunRequest) -> list[dict]:
 
     def record(text: str, item: dict, area: str, key: str = "") -> None:
         links = [lookup[item_id] for item_id in dict.fromkeys(item.get("sourceIds", [])) if item_id in lookup]
-        if links:
+        if links or area == "build":
             facts.append({"text": text, "area": area, "key": key, "citations": links})
 
     parts = product.get("parts", [])
@@ -341,10 +341,10 @@ def _facts_for_product(product: dict, request: RunRequest) -> list[dict]:
 
     build = product.get("build")
     if request.workflow == "build" and build:
-        repo = build.get("repo")
-        links = [source_id for source_id, citation in lookup.items() if citation["url"].rstrip("/") == str(repo).rstrip("/")]
-        for index, instruction in enumerate(build.get("steps", []), start=1):
-            record(f"{index}. {instruction}", {"sourceIds": links}, "build")
+        step_sources = build.get("stepSourceIds") or []
+        for index, instruction in enumerate(build.get("steps", [])):
+            links = step_sources[index] if index < len(step_sources) else []
+            record(f"{index + 1}. {instruction}", {"sourceIds": links}, "build")
 
     query = _normalize(request.query)
     preferred = {
@@ -364,10 +364,12 @@ def _facts_for_product(product: dict, request: RunRequest) -> list[dict]:
 
 
 def _group_facts(selected: list[dict], request: RunRequest) -> list[dict]:
-    groups = [
-        {"id": product["id"], "name": product["name"], "facts": _facts_for_product(product, request)}
-        for product in selected
-    ]
+    groups = []
+    for product in selected:
+        group = {"id": product["id"], "name": product["name"], "facts": _facts_for_product(product, request)}
+        if request.workflow == "build" and product.get("build"):
+            group["buildNote"] = product["build"].get("note", "")
+        groups.append(group)
     if request.workflow != "compare" or len(groups) < 2:
         return [{**group, "facts": group["facts"][:6]} for group in groups]
     common_keys = set.intersection(*[
@@ -405,10 +407,16 @@ def _local_answer(groups: list[dict], request: RunRequest, citations: dict[str, 
             ids = [f'[{citation["id"]}]' for citation in fact["citations"] if citation["id"] in citations]
             if ids:
                 lines.append(f'• {fact["text"]} {" ".join(ids)}')
+            elif fact["area"] == "build":
+                lines.append(f'• {fact["text"]}（编辑建议）')
         if len(lines) == 1:
             lines.append("该范围暂无带出处的可核验资料。")
-        if request.workflow == "build" and not any(fact["area"] == "build" for fact in group["facts"]):
+        if request.workflow == "build" and not any(
+            fact["area"] == "build" and fact["citations"] for fact in group["facts"]
+        ):
             lines.append("目录暂未收录带出处的完整复现步骤。")
+        if group.get("buildNote"):
+            lines.append(group["buildNote"])
         blocks.append("\n".join(lines))
     return "\n\n".join(blocks)
 

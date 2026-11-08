@@ -11,7 +11,9 @@ from fastapi import Depends, FastAPI, Header, HTTPException, Query, Request, Res
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 
-from .catalog import CatalogStore, Category, Compute, Correction, Kind, Moderation, Product, filter_catalog
+from .catalog import (
+    CatalogStore, Category, Compute, Correction, Kind, Moderation, Product, StaleProduct, filter_catalog, product_etag,
+)
 
 ROOT = Path(__file__).resolve().parents[2]
 BODY_LIMIT = 3 * 1024 * 1024
@@ -112,8 +114,11 @@ def create_app(seed_path: Path | None = None, data_dir: Path | None = None,
         return filter_catalog(store.catalog()["products"], q, category, kind, compute, model, limit)
 
     @app.get("/api/products/{product_id}")
-    def detail(product_id: str):
-        return product_by_id(product_id)
+    def detail(product_id: str, response: Response):
+        product = product_by_id(product_id)
+        response.headers["ETag"] = product_etag(product)
+        response.headers["Cache-Control"] = "no-cache"
+        return product
 
     @app.get("/api/compare")
     def compare(ids: Annotated[str, Query(max_length=260)]):
@@ -179,11 +184,17 @@ def create_app(seed_path: Path | None = None, data_dir: Path | None = None,
         return {"id": identifier, "status": body.status}
 
     @app.put("/api/admin/products/{product_id}", dependencies=[Depends(require_admin)])
-    def update_product(product_id: str, product: Product):
+    def update_product(product_id: str, product: Product, response: Response,
+                       if_match: Annotated[str | None, Header()] = None):
         if product_id != product.id:
             raise HTTPException(422, "产品编号必须匹配")
         product_by_id(product_id)
-        return store.update(product_id, product)
+        try:
+            updated = store.update(product_id, product, expected=if_match)
+        except StaleProduct:
+            raise HTTPException(412, "当前档案已更新。请保留草稿，重新载入后合并。") from None
+        response.headers["ETag"] = product_etag(updated)
+        return updated
 
     @app.get("/api/admin/products/{product_id}/revisions", dependencies=[Depends(require_admin)])
     def revisions(product_id: str, limit: Annotated[int, Query(ge=1, le=100)] = 30,

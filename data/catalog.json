@@ -642,6 +642,7 @@
       },
       "build": {
         "repo": "https://github.com/78/xiaozhi-esp32",
+        "stepSourceIds": [["board"], ["flash"], ["server"], ["firmware", "server"], []],
         "steps": [
           "按立创硬件参数核对板型为实战派 S3。",
           "按立创烧录教程使用匹配固件，确认屏幕和音频输出。",

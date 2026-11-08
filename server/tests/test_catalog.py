@@ -56,12 +56,18 @@ def test_moderation_and_revisions_persist(seed, tmp_path, monkeypatch):
         assert client.get("/api/admin/corrections").status_code == 401
         assert client.patch(f"/api/admin/corrections/{report['id']}", headers=headers,
                             json={"status": "accepted"}).status_code == 200
-        update = client.get("/api/products/one").json()
+        original = client.get("/api/products/one")
+        update = original.json()
+        conditional = {**headers, "If-Match": original.headers["etag"]}
         update["parts"][0]["sourceIds"] = ["missing"]
         assert client.put("/api/admin/products/one", headers=headers, json=update).status_code == 422
         update["parts"][0]["sourceIds"] = ["s1"]
         update["name"] = "已修订眼镜"
-        assert client.put("/api/admin/products/one", headers=headers, json=update).status_code == 200
+        saved = client.put("/api/admin/products/one", headers=conditional, json=update)
+        assert saved.status_code == 200
+        assert saved.headers["etag"] != original.headers["etag"]
+        update["name"] = "过期草稿"
+        assert client.put("/api/admin/products/one", headers=conditional, json=update).status_code == 412
     with TestClient(create_app(seed, state, research=False)) as client:
         assert client.get("/api/products/one").json()["name"] == "已修订眼镜"
         assert client.get("/api/admin/corrections", headers=headers).json()["corrections"][0]["status"] == "accepted"

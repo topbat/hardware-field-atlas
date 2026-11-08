@@ -4,6 +4,7 @@ import sqlite3
 import unicodedata
 from contextlib import contextmanager
 from datetime import date
+from hashlib import sha256
 from pathlib import Path
 from typing import Literal
 from urllib.parse import urlsplit
@@ -18,6 +19,15 @@ Category = Literal["toy", "glasses", "speaker", "mirror", "cabinet", "desk"]
 Kind = Literal["commercial", "open", "reference", "module"]
 Compute = Literal["device", "phone", "lan", "cloud", "mixed", "unknown"]
 ID_PATTERN = r"^[a-z0-9][a-z0-9_-]{0,63}$"
+
+
+class StaleProduct(Exception):
+    pass
+
+
+def product_etag(product: dict) -> str:
+    encoded = json.dumps(product, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()
+    return '"' + sha256(encoded).hexdigest() + '"'
 
 
 def public_url(value: str) -> str:
@@ -101,6 +111,7 @@ class ImageAsset(Record):
 class BuildGuide(Record):
     repo: str = Field(max_length=1800)
     steps: list[str] = Field(max_length=24)
+    stepSourceIds: list[list[str]] | None = Field(default=None, max_length=24)
     note: str = Field(max_length=1800)
 
     _validate_url = field_validator("repo")(public_url)
@@ -142,6 +153,11 @@ class Product(Record):
         for part in self.parts:
             if part.status in {"confirmed", "observed"} and not part.sourceIds:
                 raise ValueError(f"部件 {part.id} 缺少证据")
+        if self.build and self.build.stepSourceIds is not None:
+            if len(self.build.stepSourceIds) != len(self.build.steps):
+                raise ValueError("复现步骤及来源列表长度必须一致")
+            if any(set(ids) - sources for ids in self.build.stepSourceIds):
+                raise ValueError("复现步骤存在未定义的来源编号")
         return self
 
 
@@ -202,14 +218,17 @@ class CatalogStore:
                          for row in conn.execute("SELECT id, content FROM overrides")}
         return {"products": [overrides.get(key, product) for key, product in self.seed.items()]}
 
-    def update(self, product_id: str, product: Product) -> dict:
+    def update(self, product_id: str, product: Product, expected: str | None = None) -> dict:
         updated = product.model_dump(mode="json")
         content = json.dumps(updated, ensure_ascii=False)
         with self.connect() as conn:
             conn.execute("BEGIN IMMEDIATE")
             row = conn.execute("SELECT content FROM overrides WHERE id = ?", (product_id,)).fetchone()
             previous = row["content"] if row else json.dumps(self.seed[product_id], ensure_ascii=False)
-            if json.loads(previous) != updated:
+            previous_product = json.loads(previous)
+            if expected is not None and expected != product_etag(previous_product):
+                raise StaleProduct
+            if previous_product != updated:
                 conn.execute("INSERT INTO revisions (productId, previous, current) VALUES (?, ?, ?)",
                              (product_id, previous, content))
                 conn.execute("INSERT INTO overrides VALUES (?, ?) ON CONFLICT(id) DO UPDATE SET content=excluded.content",

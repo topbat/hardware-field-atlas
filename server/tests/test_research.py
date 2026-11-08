@@ -20,13 +20,23 @@ PRODUCT = {
     "kind": "open",
     "aliases": ["语音机器人"],
     "tags": [],
-    "sources": [{"id": "source", "title": "固件", "url": "https://example.com/source"}],
+    "sources": [
+        {"id": "source", "title": "固件", "url": "https://example.com/source"},
+        {"id": "board", "title": "硬件规格", "url": "https://example.com/board"},
+        {"id": "backend", "title": "后端手册", "url": "https://example.com/backend"},
+    ],
     "specs": [],
     "abilities": [{"name": "语音唤醒", "input": "麦克风", "compute": "device", "output": "唤醒", "offline": "断网可用", "sourceIds": ["source"]}],
     "parts": [
         {"id": "mcu", "name": "主控", "mpn": "ESP32-S3", "manufacturer": "乐鑫", "role": "采集音频", "status": "observed", "sourceIds": ["source"]},
         {"id": "board", "name": "显示板", "mpn": "UNKNOWN-PART", "status": "unknown", "sourceIds": []},
     ],
+    "build": {
+        "repo": "https://example.com/source",
+        "steps": ["核对板型", "配置后端", "试装外壳"],
+        "stepSourceIds": [["board"], ["backend"], []],
+        "note": "编辑复现计划，尚待实物验证。",
+    },
 }
 OWNER = {"Authorization": "Bearer 938f73af-88fc-424c-a7b6-b92ff29d1602"}
 OTHER = {"Authorization": "Bearer b50dc462-8b4e-4b38-a73d-8941518aaf94"}
@@ -92,6 +102,15 @@ class ResearchTests(unittest.TestCase):
         self.assertEqual(result.status_code, 200, result.text)
         self.assertEqual(result.json()["citations"], [])
         self.assertEqual(result.json()["productIds"], [])
+
+    def test_build_workflow_preserves_exact_step_sources(self):
+        response = self.run_request(workflow="build", productIds=["example-toy"])
+        self.assertEqual(response.status_code, 200, response.text)
+        result = response.json()
+        self.assertIn("核对板型 [example-toy:board]", result["answer"])
+        self.assertIn("配置后端 [example-toy:backend]", result["answer"])
+        self.assertIn("试装外壳（编辑建议）", result["answer"])
+        self.assertNotIn("配置后端 [example-toy:source]", result["answer"])
 
     def test_notes_are_isolated_and_owner_can_delete(self):
         note = self.client.post("/api/research/notes", headers=OWNER, json={"text": "关注端侧语音"})

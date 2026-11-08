@@ -21,7 +21,7 @@
                   locator?: string, note?: string }],
       model: null | { url: string, type: "reconstruction"|"concept"|"official"|"scan", note: string },
       image?: { url: string, alt: string, type: "concept"|"official"|"teardown" },
-      build?: { repo: string, steps: string[], note: string }
+      build?: { repo: string, steps: string[], note: string, stepSourceIds?: string[][] }
     }
 
 Product ID 稳定，部件 ID 在产品内部唯一。给同一位置的替代样机证据不同部件 ID（例如 `storage-a`、`storage-b`）。规格 key 尽量对齐，例如 `weight`、`battery`、`connectivity`。3D 模型有 `part_id` extras，部件 ID 保留短横线。组件可同组多个对象。产品没有模型时 UI 可用部件清单和来源作为结构视图。三种模型 URL 与产品 id 对应。
@@ -30,11 +30,11 @@ Product ID 稳定，部件 ID 在产品内部唯一。给同一位置的替代�
 
 - `GET /api/health` → `{status:"ok"}`
 - `GET /api/catalog?q=&category=&kind=&compute=&model=&limit=100` → `{products:Product[], total:number, parts:[{productId, productName, part:Part}], categories:[{id,label,count}]}`。关键词可用型号、别名、厂商料号、零件、品牌、标签。未输入 q 时 parts 为空。model=true 筛有模型。
-- `GET /api/products/{id}` → Product
+- `GET /api/products/{id}` → Product，响应 `ETag` 可用于条件写入。
 - `GET /api/compare?ids=foo,bar` → `{products:Product[]}`，按照 ids 顺序返回 2–4 个唯一产品。
 - `GET /api/products/{id}/bom.csv` → UTF-8 BOM CSV。
 - `POST /api/corrections` 接收 `{productId, field, message, url?}`，返回 `{id,status:"pending"}`。
-- 管理接口使用环境变量 `ATLAS_ADMIN_TOKEN` 作为 Bearer Token。GET /api/admin/corrections、PATCH /api/admin/corrections/{id} 接收 `{status:"accepted"|"dismissed"}`。PUT /api/admin/products/{id} 接受已存在产品的完整 Product 对象并写入持久覆盖，保留每次修改快照。GET /api/admin/products/{id}/revisions 可查看快照。
+- 管理接口使用环境变量 `ATLAS_ADMIN_TOKEN` 作为 Bearer Token。GET /api/admin/corrections、PATCH /api/admin/corrections/{id} 接收 `{status:"accepted"|"dismissed"}`。PUT /api/admin/products/{id} 接受已存在产品的完整 Product 对象并写入持久覆盖，保留每次修改快照。带 `If-Match` 条件时在事务内核对版本，冲突返回 412。GET /api/admin/products/{id}/revisions 可查看快照。
 
 ## 研究室接口
 
