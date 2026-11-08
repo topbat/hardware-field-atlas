@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" id="xiaomi-glasses-root" viewBox="0 0 850 347" role="img"
+     aria-labelledby="xiaomi-glasses-title xiaomi-glasses-desc">
+<title id="xiaomi-glasses-title">小米 AI 眼镜结构总览</title>
+<desc id="xiaomi-glasses-desc">依据公开拆解整理位置关系，形状与比例为近似。 图例编号对应档案部件。</desc>
+<defs>
+  <pattern id="xiaomi-glasses-grid" width="18" height="18" patternUnits="userSpaceOnUse">
+    <path d="M18 0H0v18" fill="none" stroke="#e6dfd0" stroke-width="0.8"/>
+  </pattern>
+  <style>
+    #xiaomi-glasses-root text { font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif; fill: #262522; }
+    #xiaomi-glasses-root .legend { font-size: 16px; }
+    #xiaomi-glasses-root .serial { fill: #bf451d; font-family: "Consolas", monospace; font-size: 13px; font-weight: 700; }
+    #xiaomi-glasses-root .pin circle { fill: #f8f4ea; stroke: #bf451d; stroke-width: 1.4; }
+    #xiaomi-glasses-root .pin text { fill: #bf451d; font-family: "Consolas", monospace; font-size: 9px; font-weight: 700; text-anchor: middle; }
+    #xiaomi-glasses-root .object { stroke: #262522; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    #xiaomi-glasses-root .detail { fill: none; stroke: #80766b; stroke-width: 0.8; }
+    #xiaomi-glasses-root .trace { fill: none; stroke: #9a8d7b; stroke-width: 1; stroke-dasharray: 4 4; }
+  </style>
+</defs>
+<rect width="850" height="347" fill="#f8f4ea"/>
+<text x="26" y="29" class="serial">FIG. 01</text>
+<text x="112" y="30" font-size="21" font-weight="700">小米 AI 眼镜</text>
+<text x="823" y="29" text-anchor="end" font-size="13" font-weight="700" fill="#bf451d">重建示意</text>
+<path d="M26 46H824M26 308H824M615 59V296" stroke="#d8cbb8" fill="none"/>
+<rect x="26" y="61" width="574" height="236" fill="url(#xiaomi-glasses-grid)"/>
+<g aria-hidden="true">
+
+<g class="trace">
+  <path d="M154 170L184 228M532 170l-48 58M135 197l49 40M541 194l-58 44"/>
+  <path d="M159 107l30 96M507 107l-32 94"/>
+</g>
+<g class="object" fill="#dfd7c9">
+  <path d="M85 104l107 6 15 16-34 3-88-12q-10-6 0-13Z"/>
+  <path d="M585 104l-107 6-15 16 34 3 88-12q10-6 0-13Z"/>
+</g>
+<g class="object">
+  <path d="M142 139h58l11 7-8 11h-61l-8-7Z" fill="#f0c6b2"/>
+  <path d="M148 144h11v7h-11m20-7h18v7h-18m25-7h7" fill="none"/>
+  <rect x="475" y="140" width="63" height="16" rx="7" fill="#dfd7c9"/>
+  <path d="M485 144v8m45-8v8" class="detail"/>
+  <rect x="128" y="184" width="26" height="15" rx="6" fill="#d9d0c0"/>
+  <rect x="523" y="184" width="26" height="15" rx="6" fill="#d9d0c0"/>
+  <path d="M134 190h14m381 0h14" class="detail"/>
+</g>
+<path d="M182 221h-19l-12 12m33-19 27-18h102l24 11 24-11h99l30 17 25 16" fill="none" stroke="#bf451d" stroke-width="3" stroke-dasharray="4 4"/>
+<path class="object" fill="#e4dbcc" fill-rule="evenodd"
+ d="M177 226q4-13 20-15 43-6 92 0 29 3 47 18 18-15 47-18 49-6 92 0 17 2 20 15l-9 39q-5 16-22 19-38 6-78 0-26-4-35-26l-8-14q-7-8-14 0l-8 14q-9 22-35 26-40 6-78 0-17-3-22-19Zm19 2q-6 2-5 8l6 24q3 12 14 13 37 5 72 0 19-3 26-18l7-14q-11-11-29-13-51-7-91 0Zm280 0q-40-7-91 0-18 2-29 13l7 14q7 15 26 18 35 5 72 0 11-1 14-13l6-24q1-6-5-8Z"/>
+<g class="object" fill="#f1c2ad">
+  <rect x="481" y="207" width="17" height="16" rx="4"/>
+  <circle cx="489.5" cy="215" r="4.5" fill="#f8f4ea"/>
+</g>
+
+</g>
+<g data-part-id="frame" class="pin"><title>镜框与铰链</title><circle cx="273" cy="224" r="10"/><text x="273" y="227.8">01</text></g><g data-part-id="left-arm" class="pin"><title>左镜腿壳体</title><circle cx="109" cy="111" r="10"/><text x="109" y="114.8">02</text></g><g data-part-id="right-arm" class="pin"><title>右镜腿壳体</title><circle cx="563" cy="111" r="10"/><text x="563" y="114.8">03</text></g><g data-part-id="camera" class="pin"><title>摄像头模组</title><circle cx="485" cy="212" r="10"/><text x="485" y="215.8">04</text></g><g data-part-id="board" class="pin"><title>左镜腿主板</title><circle cx="165" cy="148" r="10"/><text x="165" y="151.8">05</text></g><g data-part-id="battery" class="pin"><title>右镜腿电池组</title><circle cx="518" cy="148" r="10"/><text x="518" y="151.8">06</text></g><g data-part-id="flex" class="pin"><title>镜框排线</title><circle cx="347" cy="196" r="10"/><text x="347" y="199.8">07</text></g><g data-part-id="speakers" class="pin"><title>镜腿扬声器</title><circle cx="158" cy="194" r="10"/><text x="158" y="197.8">08</text></g>
+<text x="635" y="79" font-size="14" font-weight="700">部件索引</text>
+<g><text class="serial" x="635" y="110">01</text><text class="legend" x="664" y="110">镜框与铰链</text></g><g><text class="serial" x="635" y="137">02</text><text class="legend" x="664" y="137">左镜腿壳体</text></g><g><text class="serial" x="635" y="164">03</text><text class="legend" x="664" y="164">右镜腿壳体</text></g><g><text class="serial" x="635" y="191">04</text><text class="legend" x="664" y="191">摄像头模组</text></g><g><text class="serial" x="635" y="218">05</text><text class="legend" x="664" y="218">左镜腿主板</text></g><g><text class="serial" x="635" y="245">06</text><text class="legend" x="664" y="245">右镜腿电池组</text></g><g><text class="serial" x="635" y="272">07</text><text class="legend" x="664" y="272">镜框排线</text></g><g><text class="serial" x="635" y="299">08</text><text class="legend" x="664" y="299">镜腿扬声器</text></g>
+<text x="26" y="330" font-size="13" fill="#625b50">依据公开拆解整理位置关系，形状与比例为近似。</text>
+<text x="824" y="330" text-anchor="end" class="serial">HARDWARE ATLAS</text>
+</svg>

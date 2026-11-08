@@ -1,0 +1,1829 @@
+{
+  "products": [
+    {
+      "id": "xiaomi-glasses",
+      "name": "小米 AI 眼镜",
+      "brand": "小米",
+      "category": "glasses",
+      "kind": "commercial",
+      "origin": "中国",
+      "tagline": "将拍摄、拾音与语音助手放入镜框",
+      "description": "右侧镜腿放置电池，左侧镜腿放置主板，镜框内布置摄像头和排线。公开拆解对存储供应商的观察不同，分别保留样机记录。",
+      "aliases": [
+        "Xiaomi AI Glasses",
+        "小米AI智能眼镜"
+      ],
+      "tags": [
+        "第一视角",
+        "拍摄",
+        "双芯架构",
+        "实物拆解",
+        "样机差异"
+      ],
+      "revision": "2025 年发布款 · 样机 A / B 硬件修订未公开",
+      "checkedAt": "2026-11-08",
+      "specs": [
+        {
+          "key": "weight",
+          "label": "重量",
+          "value": "约 44.7 g（黑色出厂镜片拆解样机）",
+          "sourceIds": [
+            "teardown"
+          ]
+        },
+        {
+          "key": "battery",
+          "label": "电池",
+          "value": "255 mAh / 3.87 V / 0.99 Wh（样机 A 标签）",
+          "sourceIds": [
+            "battery-label"
+          ]
+        },
+        {
+          "key": "camera",
+          "label": "摄像头",
+          "value": "1200 万像素",
+          "sourceIds": [
+            "teardown"
+          ]
+        },
+        {
+          "key": "microphones",
+          "label": "麦克风",
+          "value": "5 颗，含骨传导麦克风",
+          "sourceIds": [
+            "teardown"
+          ]
+        },
+        {
+          "key": "storage",
+          "label": "ePoP 存储",
+          "value": "样机 A 与 B 报告了不同厂商，适用批次未知",
+          "sourceIds": [
+            "storage-a",
+            "storage-b"
+          ]
+        },
+        {
+          "key": "platform",
+          "label": "处理平台",
+          "value": "第一代骁龙 AR1 + 恒玄 BES2700H（拆解）",
+          "sourceIds": [
+            "soc",
+            "storage-b"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "第一视角拍摄",
+          "input": "摄像头、陀螺仪",
+          "compute": "device",
+          "output": "拍摄照片与视频",
+          "offline": "离线录制和同步限制待实测",
+          "sourceIds": [
+            "teardown"
+          ]
+        },
+        {
+          "name": "小爱语音和视觉问答",
+          "input": "麦克风、摄像头",
+          "compute": "unknown",
+          "output": "语音交互和视觉问答",
+          "offline": "断网状态与手机依赖待核验",
+          "sourceIds": [
+            "official",
+            "teardown"
+          ]
+        }
+      ],
+      "parts": [
+        {
+          "id": "frame",
+          "name": "镜框与铰链",
+          "role": "支撑镜片、摄像头与跨镜框排线",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "observed",
+          "sample": "我爱音频网拆解样机",
+          "sourceIds": [
+            "teardown"
+          ]
+        },
+        {
+          "id": "left-arm",
+          "name": "左镜腿壳体",
+          "role": "容纳主板、扬声器与排线",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "observed",
+          "sample": "我爱音频网拆解样机",
+          "sourceIds": [
+            "teardown"
+          ]
+        },
+        {
+          "id": "right-arm",
+          "name": "右镜腿壳体",
+          "role": "容纳电池、扬声器与按键小板",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "observed",
+          "sample": "我爱音频网拆解样机",
+          "sourceIds": [
+            "teardown"
+          ]
+        },
+        {
+          "id": "camera",
+          "name": "摄像头模组",
+          "role": "1200 万像素第一视角采集",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "observed",
+          "sample": "我爱音频网拆解样机",
+          "sourceIds": [
+            "teardown"
+          ]
+        },
+        {
+          "id": "board",
+          "name": "左镜腿主板",
+          "role": "主要计算与无线连接",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "observed",
+          "sample": "我爱音频网拆解样机",
+          "sourceIds": [
+            "teardown"
+          ]
+        },
+        {
+          "id": "battery",
+          "name": "右镜腿锂电池组",
+          "role": "255 mAh / 3.87 V / 0.99 Wh",
+          "mpn": null,
+          "manufacturer": "欣旺达电子股份有限公司",
+          "quantity": "1",
+          "status": "observed",
+          "sample": "我爱音频网拆解样机",
+          "sourceIds": [
+            "battery-label"
+          ]
+        },
+        {
+          "id": "flex",
+          "name": "镜框排线与连接器",
+          "role": "连接摄像头模组、镜腿电路和麦克风",
+          "mpn": "OK-128GM024/2-35",
+          "manufacturer": "亚奇科技 OCN",
+          "quantity": "1（摄像头公座）",
+          "status": "observed",
+          "sample": "我爱音频网拆解样机",
+          "sourceIds": [
+            "connector"
+          ]
+        },
+        {
+          "id": "speakers",
+          "name": "镜腿扬声器",
+          "role": "左右镜腿内的跑道型扬声器",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "2",
+          "status": "observed",
+          "sample": "我爱音频网拆解样机",
+          "sourceIds": [
+            "teardown"
+          ]
+        },
+        {
+          "id": "ar1",
+          "name": "视觉和系统处理器",
+          "role": "左镜腿主板 SoC",
+          "mpn": "第一代骁龙 AR1",
+          "manufacturer": "高通 Qualcomm",
+          "quantity": "1",
+          "status": "observed",
+          "sample": "我爱音频网拆解样机",
+          "sourceIds": [
+            "soc"
+          ]
+        },
+        {
+          "id": "bes2700h",
+          "name": "蓝牙音频处理器",
+          "role": "左镜腿音频和蓝牙相关处理",
+          "mpn": "BES2700H",
+          "manufacturer": "恒玄科技",
+          "quantity": "1",
+          "status": "observed",
+          "sample": "我爱音频网拆解样机",
+          "sourceIds": [
+            "soc"
+          ]
+        },
+        {
+          "id": "pmic",
+          "name": "电源管理芯片",
+          "role": "主板电源管理",
+          "mpn": "PMAR2130",
+          "manufacturer": "高通 Qualcomm",
+          "quantity": "1",
+          "status": "observed",
+          "sample": "我爱音频网拆解样机",
+          "sourceIds": [
+            "soc"
+          ]
+        },
+        {
+          "id": "wifi",
+          "name": "Wi-Fi 芯片",
+          "role": "主板无线连接",
+          "mpn": "WCN7851",
+          "manufacturer": "高通 Qualcomm",
+          "quantity": "1",
+          "status": "observed",
+          "sample": "我爱音频网拆解样机",
+          "sourceIds": [
+            "soc"
+          ]
+        },
+        {
+          "id": "charge-ic",
+          "name": "充电管理芯片",
+          "role": "右侧功能按键小板上的充电管理",
+          "mpn": "DA9168",
+          "manufacturer": "瑞萨 Renesas",
+          "quantity": "1",
+          "status": "observed",
+          "sample": "我爱音频网拆解样机",
+          "sourceIds": [
+            "teardown"
+          ]
+        },
+        {
+          "id": "fuel-gauge",
+          "name": "电池电量计",
+          "role": "右侧功能按键小板上的电量监测",
+          "mpn": "CW2215B",
+          "manufacturer": "赛微微电 Cellwise",
+          "quantity": "1",
+          "status": "observed",
+          "sample": "我爱音频网拆解样机",
+          "sourceIds": [
+            "teardown"
+          ]
+        },
+        {
+          "id": "storage-a",
+          "name": "ePoP 存储 · 样机 A",
+          "role": "主板存储颗粒，批次未知",
+          "mpn": "32EP32-M4NTC2W",
+          "manufacturer": "金士顿 Kingston",
+          "quantity": "1",
+          "status": "observed",
+          "sample": "样机 A · 我爱音频网黑色样机",
+          "sourceIds": [
+            "storage-a"
+          ]
+        },
+        {
+          "id": "storage-b",
+          "name": "ePoP 存储 · 样机 B",
+          "role": "主板存储方案，完整料号与批次未知",
+          "mpn": "ePOP4x",
+          "manufacturer": "江波龙",
+          "quantity": "1",
+          "status": "observed",
+          "sample": "样机 B · AR 圈标准版",
+          "sourceIds": [
+            "storage-b"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "official",
+          "title": "小米 2025 年中期发布材料",
+          "url": "https://ir.mi.com/static-files/6b037e23-508f-4fc5-88ee-d26ad68cdff3",
+          "type": "official",
+          "locator": "AI 眼镜发布"
+        },
+        {
+          "id": "teardown",
+          "title": "我爱音频网：小米 AI 眼镜拆解",
+          "url": "https://www.52audio.com/archives/245045.html",
+          "type": "teardown",
+          "locator": "第二节拆解，第三节总结"
+        },
+        {
+          "id": "battery-label",
+          "title": "电池标签与右镜腿",
+          "url": "https://www.52audio.com/archives/245045.html#:~:text=255mAh",
+          "type": "teardown",
+          "locator": "右侧镜腿，电池标签"
+        },
+        {
+          "id": "soc",
+          "title": "左镜腿主板与处理器",
+          "url": "https://www.52audio.com/archives/245045.html#:~:text=BES2700H",
+          "type": "teardown",
+          "locator": "左镜腿主板"
+        },
+        {
+          "id": "connector",
+          "title": "摄像头排线公座",
+          "url": "https://www.52audio.com/archives/245045.html#:~:text=OK-128GM024%2F2-35",
+          "type": "teardown",
+          "locator": "摄像头模组内侧"
+        },
+        {
+          "id": "storage-a",
+          "title": "样机 A：金士顿 ePoP 丝印",
+          "url": "https://www.52audio.com/archives/245045.html#:~:text=32EP32-M4NTC2W",
+          "type": "teardown",
+          "locator": "左侧主板，存储器特写"
+        },
+        {
+          "id": "storage-b",
+          "title": "样机 B：AR 圈标准版拆解",
+          "url": "https://news.qq.com/rain/a/20260321A03LRD00",
+          "type": "teardown",
+          "locator": "02 拆解洞察，亮点二"
+        }
+      ],
+      "model": {
+        "url": "/assets/models/xiaomi-glasses.glb",
+        "type": "reconstruction",
+        "note": "依据公开拆解重建部件位置，几何为示意。"
+      },
+      "image": {
+        "url": "/assets/diagrams/xiaomi-glasses.svg",
+        "alt": "小米 AI 眼镜结构示意图",
+        "type": "concept"
+      }
+    },
+    {
+      "id": "xiaozhi-esp32",
+      "name": "小智 ESP32 语音样机",
+      "brand": "小智开源项目 × 立创",
+      "category": "toy",
+      "kind": "open",
+      "origin": "中国",
+      "tagline": "可刷机、可换壳、可自建后端",
+      "description": "开源固件和立创实战派 S3 的参考组合。外壳用于展示装配思路，所列料件来自已明确的开发板型号。",
+      "aliases": [
+        "小智AI",
+        "xiaozhi",
+        "虾哥小智",
+        "实战派S3",
+        "ESP32-S3"
+      ],
+      "tags": [
+        "开源固件",
+        "局域网",
+        "自建后端",
+        "DIY",
+        "离线唤醒"
+      ],
+      "revision": "参考板 · 立创实战派 S3（ESP32-S3-WROOM-1-N16R8）",
+      "checkedAt": "2026-11-08",
+      "specs": [
+        {
+          "key": "platform",
+          "label": "主控模组",
+          "value": "ESP32-S3-WROOM-1-N16R8",
+          "sourceIds": [
+            "board"
+          ]
+        },
+        {
+          "key": "memory",
+          "label": "存储",
+          "value": "16 MB Flash + 8 MB PSRAM",
+          "sourceIds": [
+            "board"
+          ]
+        },
+        {
+          "key": "display",
+          "label": "显示屏",
+          "value": "2 英寸 IPS，320 × 240，ST7789",
+          "sourceIds": [
+            "board"
+          ]
+        },
+        {
+          "key": "microphones",
+          "label": "麦克风",
+          "value": "2 颗模拟麦克风",
+          "sourceIds": [
+            "board"
+          ]
+        },
+        {
+          "key": "connectivity",
+          "label": "连接",
+          "value": "2.4 GHz Wi-Fi，Bluetooth 5 LE",
+          "sourceIds": [
+            "board"
+          ]
+        },
+        {
+          "key": "dimensions",
+          "label": "参考板尺寸",
+          "value": "约 69 × 41 × 14 mm（立创 S3 文档）",
+          "sourceIds": [
+            "board"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "语音唤醒",
+          "input": "麦克风",
+          "compute": "device",
+          "output": "唤醒交互",
+          "offline": "上游固件支持兼容板型的离线唤醒",
+          "sourceIds": [
+            "firmware",
+            "flash"
+          ]
+        },
+        {
+          "name": "语音问答",
+          "input": "麦克风和后端服务",
+          "compute": "mixed",
+          "output": "语音应答",
+          "offline": "断开外网后是否可对话取决于自建后端及模型部署",
+          "sourceIds": [
+            "firmware",
+            "server"
+          ]
+        }
+      ],
+      "parts": [
+        {
+          "id": "shell",
+          "name": "原创外壳",
+          "role": "拟用于放置开发板和预留声孔；尺寸配合待验证",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "inferred",
+          "sample": "本站概念方案",
+          "sourceIds": [
+            "board"
+          ]
+        },
+        {
+          "id": "board",
+          "name": "立创实战派 S3 开发板",
+          "role": "集成主控与输入输出的参考板",
+          "mpn": "ESP32-S3-WROOM-1-N16R8",
+          "manufacturer": "乐鑫 Espressif",
+          "quantity": "1",
+          "status": "confirmed",
+          "sample": "立创实战派 S3",
+          "sourceIds": [
+            "board"
+          ]
+        },
+        {
+          "id": "mic",
+          "name": "模拟麦克风",
+          "role": "语音输入",
+          "mpn": "ZTS6216",
+          "manufacturer": null,
+          "quantity": "2",
+          "status": "confirmed",
+          "sample": "立创实战派 S3",
+          "sourceIds": [
+            "board"
+          ]
+        },
+        {
+          "id": "speaker",
+          "name": "音腔喇叭",
+          "role": "语音播放，文档标注 1 W",
+          "mpn": "DB1811AB50",
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "confirmed",
+          "sample": "立创实战派 S3",
+          "sourceIds": [
+            "board"
+          ]
+        },
+        {
+          "id": "display",
+          "name": "IPS 彩屏",
+          "role": "显示状态与交互界面",
+          "mpn": "ST7789",
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "confirmed",
+          "sample": "立创实战派 S3",
+          "sourceIds": [
+            "board"
+          ]
+        },
+        {
+          "id": "touch",
+          "name": "电容触控控制器",
+          "role": "触控输入",
+          "mpn": "FT6336",
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "confirmed",
+          "sample": "立创实战派 S3",
+          "sourceIds": [
+            "board"
+          ]
+        },
+        {
+          "id": "imu",
+          "name": "六轴姿态传感器",
+          "role": "加速度与陀螺仪",
+          "mpn": "QMI8658",
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "confirmed",
+          "sample": "立创实战派 S3",
+          "sourceIds": [
+            "board"
+          ]
+        },
+        {
+          "id": "dac",
+          "name": "音频 DAC",
+          "role": "单通道音频输出",
+          "mpn": "ES8311",
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "confirmed",
+          "sample": "立创实战派 S3",
+          "sourceIds": [
+            "board"
+          ]
+        },
+        {
+          "id": "adc",
+          "name": "音频 ADC",
+          "role": "采样麦克风输入",
+          "mpn": "ES7210",
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "confirmed",
+          "sample": "立创实战派 S3",
+          "sourceIds": [
+            "board"
+          ]
+        },
+        {
+          "id": "amp",
+          "name": "D 类音频功放",
+          "role": "驱动单声道扬声器",
+          "mpn": "NS4150B",
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "confirmed",
+          "sample": "立创实战派 S3",
+          "sourceIds": [
+            "board"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "firmware",
+          "title": "小智 ESP32 固件源码",
+          "url": "https://github.com/78/xiaozhi-esp32",
+          "type": "open",
+          "locator": "README 与自定义板型"
+        },
+        {
+          "id": "board",
+          "title": "立创实战派 S3 硬件规格",
+          "url": "https://wiki.lckfb.com/zh-hans/szpi-esp32s3/#%E7%A1%AC%E4%BB%B6%E5%8F%82%E6%95%B0",
+          "type": "manual",
+          "locator": "硬件参数表"
+        },
+        {
+          "id": "flash",
+          "title": "立创 S3 小智 AI 烧录与使用",
+          "url": "https://wiki.lckfb.com/zh-hans/szpi-esp32s3/xiaozhi-ai.html",
+          "type": "manual",
+          "locator": "固件获取、烧录、配网"
+        },
+        {
+          "id": "server",
+          "title": "小智 ESP32 自建后端",
+          "url": "https://github.com/xinnan-tech/xiaozhi-esp32-server",
+          "type": "open",
+          "locator": "部署及模型配置"
+        }
+      ],
+      "model": {
+        "url": "/assets/models/xiaozhi-esp32.glb",
+        "type": "concept",
+        "note": "原创外壳和装配示意。部件清单采用立创参考板资料，外壳未进行制造验证。"
+      },
+      "image": {
+        "url": "/assets/diagrams/xiaozhi-esp32.svg",
+        "alt": "小智 ESP32 语音样机装配概念图",
+        "type": "concept"
+      },
+      "build": {
+        "repo": "https://github.com/78/xiaozhi-esp32",
+        "steps": [
+          "按立创硬件参数核对板型为实战派 S3。",
+          "按立创烧录教程使用匹配固件，确认屏幕和音频输出。",
+          "按开源后端文档部署语音服务并配置设备接入。",
+          "分别测试有网问答和断网唤醒，记录固件和后端版本。",
+          "有实物尺寸后校核外壳、声孔、排线与固定点。"
+        ],
+        "note": "该条目是复现资料，不代表本站实物已制作或完成验收。"
+      }
+    },
+    {
+      "id": "xiaomi-speaker-pro",
+      "name": "Xiaomi 智能音箱 Pro",
+      "brand": "小米",
+      "category": "speaker",
+      "kind": "commercial",
+      "origin": "中国",
+      "tagline": "在一只音箱里观察远场拾音与家居控制",
+      "description": "2025 年型号 OH2P。拾音副板、音腔、主板和两片无源辐射器可由公开实拆定位。",
+      "aliases": [
+        "小米智能音箱Pro",
+        "Xiaomi Speaker Pro",
+        "OH2P",
+        "xiaomi.wifispeaker.oh2p"
+      ],
+      "tags": [
+        "语音助手",
+        "三麦阵列",
+        "红外遥控",
+        "米家",
+        "实物拆解"
+      ],
+      "revision": "OH2P · 2025 年款",
+      "checkedAt": "2026-11-08",
+      "specs": [
+        {
+          "key": "model",
+          "label": "型号",
+          "value": "OH2P",
+          "sourceIds": [
+            "mijia",
+            "teardown"
+          ]
+        },
+        {
+          "key": "power",
+          "label": "输入",
+          "value": "12 V / 2 A",
+          "sourceIds": [
+            "teardown"
+          ]
+        },
+        {
+          "key": "connectivity",
+          "label": "连接",
+          "value": "双频 Wi-Fi、Bluetooth 5.0",
+          "sourceIds": [
+            "teardown"
+          ]
+        },
+        {
+          "key": "microphones",
+          "label": "麦克风",
+          "value": "3 颗 MEMS 麦克风",
+          "sourceIds": [
+            "controls"
+          ]
+        },
+        {
+          "key": "audio",
+          "label": "声学结构",
+          "value": "全频扬声器与双无源辐射器",
+          "sourceIds": [
+            "acoustics"
+          ]
+        },
+        {
+          "key": "speaker-rating",
+          "label": "喇叭标签",
+          "value": "12 W / 4 Ω",
+          "sourceIds": [
+            "teardown"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "多轮语音交互",
+          "input": "顶部麦克风阵列",
+          "compute": "unknown",
+          "output": "超级小爱问答与语音播放",
+          "offline": "离线唤醒、对话和蓝牙播放边界待分别实测",
+          "sourceIds": [
+            "test",
+            "teardown"
+          ]
+        },
+        {
+          "name": "家居控制",
+          "input": "语音指令、红外",
+          "compute": "unknown",
+          "output": "米家设备联动与红外遥控",
+          "offline": "联网与本地红外操作分别待实测",
+          "sourceIds": [
+            "test",
+            "teardown"
+          ]
+        }
+      ],
+      "parts": [
+        {
+          "id": "shell",
+          "name": "外壳与织物罩",
+          "role": "包覆音腔，底座拆解可见 ABS 标记",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "observed",
+          "sample": "我爱音频网拆解样机",
+          "sourceIds": [
+            "teardown"
+          ]
+        },
+        {
+          "id": "top",
+          "name": "顶部副板与盖板",
+          "role": "麦克风、按键、灯带和红外元件",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "observed",
+          "sample": "我爱音频网拆解样机",
+          "sourceIds": [
+            "controls"
+          ]
+        },
+        {
+          "id": "board",
+          "name": "音频主板",
+          "role": "音腔背面的计算与功放主板",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "observed",
+          "sample": "我爱音频网拆解样机",
+          "sourceIds": [
+            "board"
+          ]
+        },
+        {
+          "id": "speaker",
+          "name": "全频扬声器",
+          "role": "样机喇叭标签 12 W / 4 Ω",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "observed",
+          "sample": "我爱音频网拆解样机",
+          "sourceIds": [
+            "acoustics"
+          ]
+        },
+        {
+          "id": "radiators",
+          "name": "无源辐射器",
+          "role": "音腔两侧各一片",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "2",
+          "status": "observed",
+          "sample": "我爱音频网拆解样机",
+          "sourceIds": [
+            "acoustics"
+          ]
+        },
+        {
+          "id": "mic-array",
+          "name": "MEMS 麦克风阵列",
+          "role": "顶部副板语音拾音；G503 为激光标记",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "3",
+          "status": "observed",
+          "sample": "我爱音频网拆解样机",
+          "sourceIds": [
+            "controls"
+          ]
+        },
+        {
+          "id": "a113x",
+          "name": "智能音频处理器",
+          "role": "音频主板 SoC",
+          "mpn": "A113X",
+          "manufacturer": "晶晨 Amlogic",
+          "quantity": "1",
+          "status": "observed",
+          "sample": "我爱音频网拆解样机",
+          "sourceIds": [
+            "board"
+          ]
+        },
+        {
+          "id": "power-amp",
+          "name": "数字输入 D 类功放",
+          "role": "驱动全频单元",
+          "mpn": "ACM8625P",
+          "manufacturer": "至盛 ACMESEMI",
+          "quantity": "1",
+          "status": "observed",
+          "sample": "我爱音频网拆解样机",
+          "sourceIds": [
+            "teardown"
+          ]
+        },
+        {
+          "id": "ble",
+          "name": "低功耗蓝牙芯片",
+          "role": "主板 BLE 与 Mesh 相关",
+          "mpn": "TLSR8236",
+          "manufacturer": "泰凌微 Telink",
+          "quantity": "1",
+          "status": "observed",
+          "sample": "我爱音频网拆解样机",
+          "sourceIds": [
+            "teardown"
+          ]
+        },
+        {
+          "id": "usb-phy",
+          "name": "USB PD PHY",
+          "role": "输入相关接口芯片",
+          "mpn": "AW35615",
+          "manufacturer": "上海艾为电子",
+          "quantity": "1",
+          "status": "observed",
+          "sample": "我爱音频网拆解样机",
+          "sourceIds": [
+            "teardown"
+          ]
+        },
+        {
+          "id": "led-driver",
+          "name": "RGB LED 驱动",
+          "role": "顶部灯带驱动",
+          "mpn": "AW21036",
+          "manufacturer": "上海艾为电子",
+          "quantity": "1",
+          "status": "observed",
+          "sample": "我爱音频网拆解样机",
+          "sourceIds": [
+            "controls"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "mijia",
+          "title": "米家产品档案 OH2P",
+          "url": "https://home.mi.com/webapp/content/baike/product/index.html?model=xiaomi.wifispeaker.oh2p",
+          "type": "official"
+        },
+        {
+          "id": "teardown",
+          "title": "我爱音频网：Xiaomi 智能音箱 Pro 拆解",
+          "url": "https://www.sohu.com/a/883906566_100193168",
+          "type": "teardown",
+          "locator": "作者在搜狐发布的同篇实物拆解"
+        },
+        {
+          "id": "acoustics",
+          "title": "全频喇叭与双无源辐射器",
+          "url": "https://www.sohu.com/a/883906566_100193168#:~:text=%E6%97%A0%E6%BA%90%E8%BE%90%E5%B0%84%E5%99%A8",
+          "type": "teardown",
+          "locator": "第二节，音腔和两侧辐射器"
+        },
+        {
+          "id": "board",
+          "title": "晶晨 A113X 主板",
+          "url": "https://www.sohu.com/a/883906566_100193168#:~:text=A113X",
+          "type": "teardown",
+          "locator": "第二节，主板芯片特写"
+        },
+        {
+          "id": "controls",
+          "title": "顶盖副板和拾音阵列",
+          "url": "https://www.sohu.com/a/883906566_100193168#:~:text=G503",
+          "type": "teardown",
+          "locator": "第二节，顶盖副板"
+        },
+        {
+          "id": "test",
+          "title": "我爱音频网：2025 款语音体验",
+          "url": "https://www.52audio.com/archives/232202.html",
+          "type": "other",
+          "locator": "实际使用与语音交互"
+        }
+      ],
+      "model": {
+        "url": "/assets/models/xiaomi-speaker-pro.glb",
+        "type": "reconstruction",
+        "note": "依据公开拆解重建结构。音腔和零件间距为示意。"
+      },
+      "image": {
+        "url": "/assets/diagrams/xiaomi-speaker-pro.svg",
+        "alt": "Xiaomi 智能音箱 Pro 结构示意图",
+        "type": "concept"
+      }
+    },
+    {
+      "id": "haivivi-bubblepal",
+      "name": "BubblePal 泡泡挂件",
+      "brand": "跃然创新 Haivivi",
+      "category": "toy",
+      "kind": "commercial",
+      "origin": "中国",
+      "tagline": "把语音对话做成可附着的玩具配件",
+      "description": "公开产品页说明互动方式。内部零件、数据处理位置和可更换性留待实物核验。",
+      "aliases": [
+        "泡泡Pal",
+        "AI玩具挂件",
+        "BubblePal"
+      ],
+      "tags": [
+        "语音陪伴",
+        "挂件"
+      ],
+      "revision": "公开资料档案",
+      "checkedAt": "2026-11-08",
+      "specs": [
+        {
+          "key": "form",
+          "label": "形态",
+          "value": "可附着玩偶的交互挂件",
+          "sourceIds": [
+            "official"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "角色对话",
+          "input": "语音",
+          "compute": "unknown",
+          "output": "互动对话",
+          "offline": "断网能力待核验",
+          "sourceIds": [
+            "official"
+          ]
+        }
+      ],
+      "parts": [],
+      "sources": [
+        {
+          "id": "official",
+          "title": "跃然创新 BubblePal 产品页",
+          "url": "https://www.haivivi.cn/product/bubblepal",
+          "type": "official"
+        }
+      ],
+      "model": null
+    },
+    {
+      "id": "folotoy-magicbox",
+      "name": "MagicBox 对话模组",
+      "brand": "FoloToy",
+      "category": "toy",
+      "kind": "module",
+      "origin": "中国",
+      "tagline": "将玩具外壳与语音模块拆开研究",
+      "description": "品牌将 MagicBox 作为适配自制外壳的硬件起点，另提供自建服务文档。各版本的接口、固件和电源规格需要按型号查证。",
+      "aliases": [
+        "FoloToy 魔匣",
+        "MagicBox"
+      ],
+      "tags": [
+        "模块化",
+        "DIY",
+        "语音对话",
+        "自建服务"
+      ],
+      "revision": "公开资料档案",
+      "checkedAt": "2026-11-08",
+      "specs": [
+        {
+          "key": "form",
+          "label": "形态",
+          "value": "对话模组，可作为自制玩具的交互核心",
+          "sourceIds": [
+            "official"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "语音对话",
+          "input": "麦克风",
+          "compute": "mixed",
+          "output": "语音回应",
+          "offline": "自建服务的断网边界取决于后端模型配置",
+          "sourceIds": [
+            "official",
+            "server"
+          ]
+        }
+      ],
+      "parts": [],
+      "sources": [
+        {
+          "id": "official",
+          "title": "FoloToy 产品与 DIY 硬件",
+          "url": "https://www.folotoy.com/zh/products/",
+          "type": "official",
+          "locator": "DIY 硬件 / MagicBox"
+        },
+        {
+          "id": "server",
+          "title": "FoloToy 自建服务文档",
+          "url": "https://docs.folotoy.com/",
+          "type": "manual"
+        }
+      ],
+      "model": null
+    },
+    {
+      "id": "sharge-a1",
+      "name": "闪极 A1 智能眼镜",
+      "brand": "闪极 SHARGE",
+      "category": "glasses",
+      "kind": "commercial",
+      "origin": "中国",
+      "tagline": "对比三麦阵列、可拆镜头盖与拍摄指示",
+      "description": "同一份实物拆解记录了包装标签、镜框结构、拾音和拍摄组件，可与小米眼镜对照。",
+      "aliases": [
+        "SHARGE A1",
+        "AI拍拍镜",
+        "闪极A1"
+      ],
+      "tags": [
+        "第一视角",
+        "实物拆解",
+        "三麦阵列"
+      ],
+      "revision": "A1 · 公开拆解样机",
+      "checkedAt": "2026-11-08",
+      "specs": [
+        {
+          "key": "battery",
+          "label": "电池",
+          "value": "450 mAh（包装标签）",
+          "sourceIds": [
+            "teardown"
+          ]
+        },
+        {
+          "key": "microphones",
+          "label": "麦克风",
+          "value": "3 颗阵列麦克风（包装标签）",
+          "sourceIds": [
+            "teardown"
+          ]
+        },
+        {
+          "key": "camera",
+          "label": "摄像头",
+          "value": "1600 万像素（包装标签）",
+          "sourceIds": [
+            "teardown"
+          ]
+        },
+        {
+          "key": "memory",
+          "label": "存储",
+          "value": "2 GB RAM + 32 GB ROM（包装标签）",
+          "sourceIds": [
+            "teardown"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "语音交互与闪记",
+          "input": "麦克风和摄像头",
+          "compute": "unknown",
+          "output": "语音问答和内容摘要",
+          "offline": "报告提到云存储，断网功能边界待测试",
+          "sourceIds": [
+            "teardown"
+          ]
+        }
+      ],
+      "parts": [
+        {
+          "id": "lens-cover",
+          "name": "磁吸镜头盖",
+          "role": "可遮盖镜头",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "observed",
+          "sample": "我爱音频网拆解样机",
+          "sourceIds": [
+            "teardown"
+          ]
+        },
+        {
+          "id": "speaker",
+          "name": "扬声器",
+          "role": "开放式音频输出",
+          "mpn": "DLS0920A",
+          "manufacturer": null,
+          "quantity": "2",
+          "status": "observed",
+          "sample": "我爱音频网拆解样机",
+          "sourceIds": [
+            "teardown"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "teardown",
+          "title": "我爱音频网：SHARGE 闪极 A1 智能眼镜拆解",
+          "url": "https://www.52audio.com/archives/228930.html",
+          "type": "teardown",
+          "locator": "包装标签、镜框开箱与拆解总结"
+        }
+      ],
+      "model": null
+    },
+    {
+      "id": "rokid-glasses-2",
+      "name": "Rokid Glasses 2",
+      "brand": "乐奇 Rokid",
+      "category": "glasses",
+      "kind": "commercial",
+      "origin": "中国",
+      "tagline": "面向显示、拍摄和随身助理的组合",
+      "description": "原厂中国区资料描述双芯架构和光学显示。国内固件、服务区域和零件供应商独立核验。",
+      "aliases": [
+        "乐奇 AI 眼镜 2",
+        "Rokid AI眼镜二代"
+      ],
+      "tags": [
+        "双芯",
+        "光学显示",
+        "随身助理"
+      ],
+      "revision": "Glasses 2 · 中国区产品资料",
+      "checkedAt": "2026-11-08",
+      "specs": [
+        {
+          "key": "platform",
+          "label": "处理架构",
+          "value": "双芯片架构（原厂描述）",
+          "sourceIds": [
+            "official"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "会议纪要与通话翻译",
+          "input": "语音",
+          "compute": "unknown",
+          "output": "纪要和译文",
+          "offline": "离线、地区和固件支持待核验",
+          "sourceIds": [
+            "official"
+          ]
+        }
+      ],
+      "parts": [],
+      "sources": [
+        {
+          "id": "official",
+          "title": "乐奇 Rokid Glasses 2 中国区产品页",
+          "url": "https://www.rokid.com/zh-CN/products/glasses-2",
+          "type": "official"
+        }
+      ],
+      "model": null
+    },
+    {
+      "id": "xiaomi-xiaoai-pro-legacy",
+      "name": "小米小爱音箱 Pro",
+      "brand": "小米",
+      "category": "speaker",
+      "kind": "commercial",
+      "origin": "中国",
+      "tagline": "早期小爱音箱的结构对照",
+      "description": "独立记录早期小爱音箱 Pro，方便与 2025 年 OH2P 的拾音、腔体、接口和功能进行对照。",
+      "aliases": [
+        "小爱音箱Pro",
+        "旧款小爱Pro"
+      ],
+      "tags": [
+        "实物拆解",
+        "红外遥控",
+        "语音控制"
+      ],
+      "revision": "早期「小爱音箱 Pro」产品档案",
+      "checkedAt": "2026-11-08",
+      "specs": [
+        {
+          "key": "form",
+          "label": "形态",
+          "value": "带语音控制的智能音箱",
+          "sourceIds": [
+            "official"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "语音和家居控制",
+          "input": "语音、红外",
+          "compute": "unknown",
+          "output": "音频播放、家电控制",
+          "offline": "版本与断网能力待核验",
+          "sourceIds": [
+            "official",
+            "teardown"
+          ]
+        }
+      ],
+      "parts": [],
+      "sources": [
+        {
+          "id": "official",
+          "title": "小米商城：小米小爱音箱 Pro",
+          "url": "https://www.mi.com/aispeaker-pro?cfrom=search&product_id=1193600021",
+          "type": "official"
+        },
+        {
+          "id": "teardown",
+          "title": "我爱音频网：小米小爱音箱 Pro 拆解",
+          "url": "https://www.52audio.com/archives/38303.html",
+          "type": "teardown"
+        }
+      ],
+      "model": null
+    },
+    {
+      "id": "seeed-respeaker-xvf3800",
+      "name": "reSpeaker XVF3800 四麦阵列",
+      "brand": "Seeed Studio 矽递科技",
+      "category": "speaker",
+      "kind": "module",
+      "origin": "中国",
+      "tagline": "将远场拾音从语音终端中拆成独立前端",
+      "description": "USB 语音前端可用于自建语音终端。模组自身处理音频前端任务，外部主机负责语音识别和更高层应用。",
+      "aliases": [
+        "XVF3800",
+        "reSpeaker",
+        "矽递四麦"
+      ],
+      "tags": [
+        "音频前端",
+        "回声消除",
+        "远场拾音",
+        "USB"
+      ],
+      "revision": "USB 4-Mic Array",
+      "checkedAt": "2026-11-08",
+      "specs": [
+        {
+          "key": "microphones",
+          "label": "麦克风",
+          "value": "四麦克风阵列",
+          "sourceIds": [
+            "wiki"
+          ]
+        },
+        {
+          "key": "connectivity",
+          "label": "接口",
+          "value": "USB，另有不同开发组合",
+          "sourceIds": [
+            "wiki"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "音频前端处理",
+          "input": "四麦克风阵列",
+          "compute": "device",
+          "output": "拾音方向检测与语音增强",
+          "offline": "前端处理由模组完成，终端应用另行配置",
+          "sourceIds": [
+            "wiki"
+          ]
+        }
+      ],
+      "parts": [
+        {
+          "id": "dsp",
+          "name": "音频处理器",
+          "role": "负责音频前端处理",
+          "mpn": "XVF3800",
+          "manufacturer": "XMOS",
+          "quantity": "1",
+          "status": "confirmed",
+          "sample": null,
+          "sourceIds": [
+            "wiki"
+          ]
+        },
+        {
+          "id": "mics",
+          "name": "麦克风阵列",
+          "role": "语音输入",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "4",
+          "status": "confirmed",
+          "sample": null,
+          "sourceIds": [
+            "wiki"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "wiki",
+          "title": "矽递：reSpeaker XVF3800 USB Mic Array 入门",
+          "url": "https://wiki.seeedstudio.com/cn/respeaker_xvf3800_introduction/",
+          "type": "manual",
+          "locator": "概述、产品参数与固件"
+        }
+      ],
+      "model": null
+    },
+    {
+      "id": "fiture-mini-plus",
+      "name": "FITURE Mini Plus 健身魔镜",
+      "brand": "沸彻科技 FITURE",
+      "category": "mirror",
+      "kind": "commercial",
+      "origin": "中国",
+      "tagline": "以镜面显示和动作反馈作为研究入口",
+      "description": "国内产品页提供型号锚点。品牌的 Motion Engine 技术说明适合研究动作识别交互，不能代替国内具体型号的规格与配置。",
+      "aliases": [
+        "FITURE 魔镜",
+        "沸彻魔镜",
+        "Mini Plus"
+      ],
+      "tags": [
+        "健身",
+        "动作识别",
+        "镜面显示"
+      ],
+      "revision": "公开资料档案",
+      "checkedAt": "2026-11-08",
+      "specs": [
+        {
+          "key": "form",
+          "label": "形态",
+          "value": "健身魔镜",
+          "sourceIds": [
+            "official"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "动作识别与反馈（品牌方案）",
+          "input": "运动传感输入",
+          "compute": "unknown",
+          "output": "计次与动作反馈",
+          "offline": "国内型号的能力与依赖待核验",
+          "sourceIds": [
+            "tech"
+          ]
+        }
+      ],
+      "parts": [],
+      "sources": [
+        {
+          "id": "official",
+          "title": "FITURE Mini Plus 国内产品页",
+          "url": "https://www.fiture.com/cn/mobile/product-mini-plus.html",
+          "type": "official"
+        },
+        {
+          "id": "tech",
+          "title": "FITURE 品牌 Motion Engine 技术说明",
+          "url": "https://www.fiture.com/us/questions",
+          "type": "official",
+          "locator": "产品技术和隐私章节；美国站，国内型号待核验"
+        }
+      ],
+      "model": null
+    },
+    {
+      "id": "xiaodu-tiantianscreen-2201",
+      "name": "小度添添智能屏健身镜",
+      "brand": "小度",
+      "category": "mirror",
+      "kind": "commercial",
+      "origin": "中国",
+      "tagline": "以型号标签追踪健身镜版本",
+      "description": "上海市监督抽查记录确认 XD-SDE00-2201 样本，并列出 2101 和 2301。当前档案只录入可从一手记录确认的型号和生产企业。",
+      "aliases": [
+        "添添健身镜",
+        "XD-SDE00-2201"
+      ],
+      "tags": [
+        "健身镜",
+        "历史型号",
+        "监督抽查"
+      ],
+      "revision": "XD-SDE00-2201 · 2023 年 6 月 29 日样品",
+      "checkedAt": "2026-11-08",
+      "specs": [
+        {
+          "key": "model",
+          "label": "型号",
+          "value": "XD-SDE00-2201",
+          "sourceIds": [
+            "inspection"
+          ]
+        },
+        {
+          "key": "maker",
+          "label": "生产企业",
+          "value": "上海小度技术有限公司",
+          "sourceIds": [
+            "inspection"
+          ]
+        }
+      ],
+      "abilities": [],
+      "parts": [],
+      "sources": [
+        {
+          "id": "inspection",
+          "title": "上海市智能健身镜产品质量监督抽查结果",
+          "url": "https://www.sqi.com.cn/sqi_web_new/SQI_Introduction_Details.aspx?ColumnGuid=sqiweb_QualityDynamics&NGUID=03b6b103916b4da281895c170eb989db",
+          "type": "other",
+          "locator": "符合相关标准的产品清单"
+        }
+      ],
+      "model": null
+    },
+    {
+      "id": "orvibo-round-mirror",
+      "name": "欧瑞博智能圆镜",
+      "brand": "欧瑞博 ORVIBO",
+      "category": "mirror",
+      "kind": "reference",
+      "origin": "中国",
+      "tagline": "卫浴镜面中的触控与智能家居控制",
+      "description": "作为相关智能硬件保存镜面、触控和主控资料，语音处理链路和个性化数据处理方式待核验。",
+      "aliases": [
+        "欧瑞博魔镜",
+        "ORVIBO 圆镜"
+      ],
+      "tags": [
+        "相关智能硬件",
+        "卫浴",
+        "触控",
+        "家居联动"
+      ],
+      "revision": "公开资料档案",
+      "checkedAt": "2026-11-08",
+      "specs": [
+        {
+          "key": "platform",
+          "label": "处理器",
+          "value": "四核 Cortex-A17，1.8 GHz",
+          "sourceIds": [
+            "official"
+          ]
+        },
+        {
+          "key": "control",
+          "label": "操作",
+          "value": "防水镜面多点触控、语音",
+          "sourceIds": [
+            "official"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "智能家居控制",
+          "input": "触控、语音",
+          "compute": "unknown",
+          "output": "控制灯光、音乐等设备",
+          "offline": "本地与联网能力待核验",
+          "sourceIds": [
+            "official"
+          ]
+        }
+      ],
+      "parts": [],
+      "sources": [
+        {
+          "id": "official",
+          "title": "欧瑞博智能圆镜产品和参数",
+          "url": "https://www.orvibo.com/cn/product/roundmirror.html",
+          "type": "official"
+        }
+      ],
+      "model": null
+    },
+    {
+      "id": "cloudpick-coolbinet",
+      "name": "Coolbinet 视觉贩售机",
+      "brand": "云拿科技 Cloudpick",
+      "category": "cabinet",
+      "kind": "commercial",
+      "origin": "中国",
+      "tagline": "由视觉识别支持开门取货后的结算",
+      "description": "公开产品方案可研究货品识别与结算流程。机内相机位置、识别模型、纠错和断网处理按具体硬件版本核验。",
+      "aliases": [
+        "云拿视觉售货柜",
+        "Coolbinet"
+      ],
+      "tags": [
+        "计算机视觉",
+        "售货柜",
+        "商品识别",
+        "零售"
+      ],
+      "revision": "公开资料档案",
+      "checkedAt": "2026-11-08",
+      "specs": [
+        {
+          "key": "form",
+          "label": "形态",
+          "value": "视觉贩售机",
+          "sourceIds": [
+            "official"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "商品识别与结算",
+          "input": "取货场景的视觉输入",
+          "compute": "unknown",
+          "output": "识别商品并进入结算流程",
+          "offline": "断网与识别异常流程待核验",
+          "sourceIds": [
+            "official"
+          ]
+        }
+      ],
+      "parts": [],
+      "sources": [
+        {
+          "id": "official",
+          "title": "云拿 Coolbinet 视觉贩售机产品页",
+          "url": "https://www.cloudpick.com/products-services/coolbinet",
+          "type": "official"
+        }
+      ],
+      "model": null
+    },
+    {
+      "id": "hibianli-hi1000",
+      "name": "HI1000 AI 视觉智能柜",
+      "brand": "嗨便利",
+      "category": "cabinet",
+      "kind": "commercial",
+      "origin": "中国",
+      "tagline": "用明确型号观察另一套视觉零售方案",
+      "description": "厂商产品页明确型号。识别算法介绍为厂商级资料，需要实机确认具体柜型的相机与部署选项。",
+      "aliases": [
+        "嗨便利视觉柜",
+        "HI1000"
+      ],
+      "tags": [
+        "视觉售货柜",
+        "商品识别",
+        "计算机视觉"
+      ],
+      "revision": "HI1000",
+      "checkedAt": "2026-11-08",
+      "specs": [
+        {
+          "key": "model",
+          "label": "型号",
+          "value": "HI1000",
+          "sourceIds": [
+            "official"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "商品视觉识别",
+          "input": "货品图像",
+          "compute": "unknown",
+          "output": "识别取放货品",
+          "offline": "断网能力和柜型算法部署待核验",
+          "sourceIds": [
+            "official",
+            "algorithm"
+          ]
+        }
+      ],
+      "parts": [],
+      "sources": [
+        {
+          "id": "official",
+          "title": "嗨便利 HI1000 产品页",
+          "url": "https://www.hibianli.cn/product-details/2117083958871281664.html",
+          "type": "official"
+        },
+        {
+          "id": "algorithm",
+          "title": "嗨便利识别算法介绍",
+          "url": "https://www.hibianli.cn/BUSINESS.html",
+          "type": "official",
+          "locator": "厂商级资料"
+        }
+      ],
+      "model": null
+    },
+    {
+      "id": "loctek-ai3",
+      "name": "乐歌 AI3 智能升降桌",
+      "brand": "乐歌 Loctek",
+      "category": "desk",
+      "kind": "reference",
+      "origin": "中国",
+      "tagline": "从原厂安装资料研究升降桌结构",
+      "description": "原厂安装清单列有智能升降桌 AI3。适合用来对照桌架安装和外观，具体 AI 功能、零件和数据路径待核验。",
+      "aliases": [
+        "乐歌AI3",
+        "Loctek AI3",
+        "升降电脑桌"
+      ],
+      "tags": [
+        "升降桌",
+        "安装资料",
+        "AI 能力待核验"
+      ],
+      "revision": "AI3 · 安装资料档案",
+      "checkedAt": "2026-11-08",
+      "specs": [
+        {
+          "key": "model",
+          "label": "型号",
+          "value": "AI3",
+          "sourceIds": [
+            "manual"
+          ]
+        }
+      ],
+      "abilities": [],
+      "parts": [],
+      "sources": [
+        {
+          "id": "manual",
+          "title": "乐歌安装资料：智能升降桌 AI3",
+          "url": "https://service.loctek.com/install/mounts",
+          "type": "manual",
+          "locator": "智能升降家居桌椅"
+        }
+      ],
+      "model": null
+    },
+    {
+      "id": "boshiyoucheng-space1",
+      "name": "太空一号 AI 智能学习桌",
+      "brand": "博士有成",
+      "category": "desk",
+      "kind": "commercial",
+      "origin": "中国",
+      "tagline": "把姿态感知和升降控制放到同一张桌面",
+      "description": "邻近电脑桌的学习桌整机。原厂公布语音交互、视觉算法坐姿提醒和遇阻回弹，检测端和驱动件规格留待核验。",
+      "aliases": [
+        "博士有成太空一号",
+        "AI学习桌"
+      ],
+      "tags": [
+        "姿态识别",
+        "语音",
+        "学习桌",
+        "相邻品类"
+      ],
+      "revision": "太空一号 · 学习桌",
+      "checkedAt": "2026-11-08",
+      "specs": [
+        {
+          "key": "control",
+          "label": "控制",
+          "value": "语音交互与一键启停（厂商资料）",
+          "sourceIds": [
+            "official"
+          ]
+        },
+        {
+          "key": "protection",
+          "label": "驱动保护",
+          "value": "遇阻回弹等保护（厂商资料）",
+          "sourceIds": [
+            "official"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "坐姿检测和提醒",
+          "input": "视觉输入",
+          "compute": "unknown",
+          "output": "矫姿提醒",
+          "offline": "离线检测、采集与存储边界待核验",
+          "sourceIds": [
+            "official"
+          ]
+        }
+      ],
+      "parts": [],
+      "sources": [
+        {
+          "id": "official",
+          "title": "博士有成太空一号产品页",
+          "url": "https://www.bs-yc.com/product/product114.html",
+          "type": "official"
+        }
+      ],
+      "model": null
+    },
+    {
+      "id": "9am-up",
+      "name": "9am UP 智能升降工位",
+      "brand": "9am",
+      "category": "desk",
+      "kind": "commercial",
+      "origin": "中国",
+      "tagline": "从桌面状态感知到久坐提醒",
+      "description": "原厂给出智能升降工位的久坐识别及多种反馈。传感器类型、部署位置和算法实现根据实际配置追踪。",
+      "aliases": [
+        "9am升降桌",
+        "9am UP",
+        "9am 工位"
+      ],
+      "tags": [
+        "办公工位",
+        "升降桌",
+        "久坐识别"
+      ],
+      "revision": "公开资料档案",
+      "checkedAt": "2026-11-08",
+      "specs": [
+        {
+          "key": "form",
+          "label": "形态",
+          "value": "数字化升降工位",
+          "sourceIds": [
+            "official"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "久坐识别与提醒",
+          "input": "工位状态",
+          "compute": "unknown",
+          "output": "屏幕、灯光、桌面微动或微信提醒",
+          "offline": "各反馈渠道与断网行为待核验",
+          "sourceIds": [
+            "official"
+          ]
+        }
+      ],
+      "parts": [],
+      "sources": [
+        {
+          "id": "official",
+          "title": "9am 智能升降工位",
+          "url": "https://cn.9amtech.com/updigi",
+          "type": "official",
+          "locator": "UP 智能交互系统"
+        }
+      ],
+      "model": null
+    }
+  ]
+}

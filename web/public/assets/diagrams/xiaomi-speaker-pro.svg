@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" id="xiaomi-speaker-pro-root" viewBox="0 0 850 347" role="img"
+     aria-labelledby="xiaomi-speaker-pro-title xiaomi-speaker-pro-desc">
+<title id="xiaomi-speaker-pro-title">Xiaomi 智能音箱 Pro结构总览</title>
+<desc id="xiaomi-speaker-pro-desc">依据 OH2P 公开拆解整理位置关系，音腔与零件比例为近似。 图例编号对应档案部件。</desc>
+<defs>
+  <pattern id="xiaomi-speaker-pro-grid" width="18" height="18" patternUnits="userSpaceOnUse">
+    <path d="M18 0H0v18" fill="none" stroke="#e6dfd0" stroke-width="0.8"/>
+  </pattern>
+  <style>
+    #xiaomi-speaker-pro-root text { font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif; fill: #262522; }
+    #xiaomi-speaker-pro-root .legend { font-size: 16px; }
+    #xiaomi-speaker-pro-root .serial { fill: #bf451d; font-family: "Consolas", monospace; font-size: 13px; font-weight: 700; }
+    #xiaomi-speaker-pro-root .pin circle { fill: #f8f4ea; stroke: #bf451d; stroke-width: 1.4; }
+    #xiaomi-speaker-pro-root .pin text { fill: #bf451d; font-family: "Consolas", monospace; font-size: 9px; font-weight: 700; text-anchor: middle; }
+    #xiaomi-speaker-pro-root .object { stroke: #262522; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    #xiaomi-speaker-pro-root .detail { fill: none; stroke: #80766b; stroke-width: 0.8; }
+    #xiaomi-speaker-pro-root .trace { fill: none; stroke: #9a8d7b; stroke-width: 1; stroke-dasharray: 4 4; }
+  </style>
+</defs>
+<rect width="850" height="347" fill="#f8f4ea"/>
+<text x="26" y="29" class="serial">FIG. 03</text>
+<text x="112" y="30" font-size="21" font-weight="700">Xiaomi 智能音箱 Pro</text>
+<text x="823" y="29" text-anchor="end" font-size="13" font-weight="700" fill="#bf451d">重建示意</text>
+<path d="M26 46H824M26 308H824M615 59V296" stroke="#d8cbb8" fill="none"/>
+<rect x="26" y="61" width="574" height="236" fill="url(#xiaomi-speaker-pro-grid)"/>
+<g aria-hidden="true">
+
+<g class="trace">
+  <path d="M177 134H531m-338 115h341M279 128v17m101-15v18m58 19h58m-52 54h56"/>
+</g>
+<g class="object">
+  <path d="M124 145q0-13 17-16h62q17 2 17 17v117q-1 16-19 18h-60q-17-3-17-17Z" fill="#dfd6c7"/>
+  <path d="M124 145q6 10 23 10h49q16-1 24-9m-96 117q6 8 22 8h49q17-1 25-8" class="detail"/>
+  <path d="M138 159v103m9-100v103m10-103v103m10-103v103m10-103v103m10-103v103m10-103v103m9-106v103" class="detail"/>
+</g>
+<g class="object">
+  <path d="M274 162q0-13 15-16h70q13 2 15 13v108q0 15-15 18h-70q-15-3-15-16Z" fill="#dfd6c7"/>
+  <path d="M274 163q8 9 22 10h55q15-2 23-11" class="detail"/>
+  <circle cx="324" cy="218" r="34" fill="#f0c6b2"/>
+  <circle cx="324" cy="218" r="28" fill="#e5ab90"/>
+  <circle cx="324" cy="218" r="15" fill="#cf8666"/>
+  <circle cx="324" cy="218" r="7" fill="#b96646"/>
+  <rect x="376" y="174" width="22" height="91" rx="10" fill="#d4c8b6"/>
+  <rect x="415" y="174" width="22" height="91" rx="10" fill="#d4c8b6"/>
+  <path d="M382 184v70m39-70v70" class="detail"/>
+</g>
+<g class="object">
+  <rect x="497" y="154" width="59" height="113" rx="5" fill="#e0d5c3"/>
+  <rect x="511" y="180" width="28" height="26" rx="3" fill="#f4eadb"/>
+  <path d="M508 164h36m-37 48h39m-37 9h22m-21 11h23m-25 18h39" class="detail"/>
+</g>
+<g class="object">
+  <path d="M279 100q0-12 14-12h67q13 0 14 12v10q-2 10-16 11h-66q-13-2-13-11Z" fill="#e7ddca"/>
+  <path d="M279 100q5 9 15 9h63q11-1 17-9" class="detail"/>
+  <path d="M299 98h55" stroke="#bf451d" stroke-width="2"/>
+  <circle cx="311" cy="102" r="2.5" fill="#262522"/>
+  <circle cx="325" cy="102" r="2.5" fill="#262522"/>
+  <circle cx="339" cy="102" r="2.5" fill="#262522"/>
+</g>
+
+</g>
+<g data-part-id="shell" class="pin"><title>外壳与织物罩</title><circle cx="154" cy="167" r="10"/><text x="154" y="170.8">01</text></g><g data-part-id="top" class="pin"><title>顶部副板与盖板</title><circle cx="348" cy="103" r="10"/><text x="348" y="106.8">02</text></g><g data-part-id="board" class="pin"><title>音频主板</title><circle cx="524" cy="198" r="10"/><text x="524" y="201.8">03</text></g><g data-part-id="speaker" class="pin"><title>全频扬声器</title><circle cx="318" cy="219" r="10"/><text x="318" y="222.8">04</text></g><g data-part-id="radiators" class="pin"><title>两侧无源辐射器</title><circle cx="409" cy="218" r="10"/><text x="409" y="221.8">05</text></g>
+<text x="635" y="79" font-size="14" font-weight="700">部件索引</text>
+<g><text class="serial" x="635" y="110">01</text><text class="legend" x="664" y="110">外壳与织物罩</text></g><g><text class="serial" x="635" y="137">02</text><text class="legend" x="664" y="137">顶部副板与盖板</text></g><g><text class="serial" x="635" y="164">03</text><text class="legend" x="664" y="164">音频主板</text></g><g><text class="serial" x="635" y="191">04</text><text class="legend" x="664" y="191">全频扬声器</text></g><g><text class="serial" x="635" y="218">05</text><text class="legend" x="664" y="218">两侧无源辐射器</text></g>
+<text x="26" y="330" font-size="13" fill="#625b50">依据 OH2P 公开拆解整理位置关系，音腔与零件比例为近似。</text>
+<text x="824" y="330" text-anchor="end" class="serial">HARDWARE ATLAS</text>
+</svg>
