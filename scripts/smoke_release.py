@@ -17,7 +17,7 @@ def smoke(base):
         try:
             assert json.loads(request("/api/health")[0]) == {"status": "ok"}
             break
-        except URLError:
+        except (URLError, ConnectionError, TimeoutError):
             if attempt == 29:
                 raise
             time.sleep(1)

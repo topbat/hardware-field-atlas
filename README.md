@@ -26,16 +26,16 @@
 有 Docker 时，直接下载已经构建好的镜像，无需配置模型密钥。镜像以 **Linux x86-64（amd64）** 为发布目标，Docker Desktop 用户使用 Linux 容器模式。
 
 ```sh
-docker pull ghcr.io/topbat/hardware-field-atlas:v0.1.0
+docker pull ghcr.io/topbat/hardware-field-atlas:v0.1.1
 docker run -d --name hardware-field-atlas --init \
   --read-only --tmpfs /tmp --cap-drop ALL --security-opt no-new-privileges:true \
   -p 127.0.0.1:8765:8765 -v hardware-atlas-data:/var/lib/atlas \
-  ghcr.io/topbat/hardware-field-atlas:v0.1.0
+  ghcr.io/topbat/hardware-field-atlas:v0.1.1
 ```
 
 Windows PowerShell 可将 `docker run` 命令写在一行。启动后访问 [目录](http://127.0.0.1:8765/)、[小米眼镜的部位与角度图](http://127.0.0.1:8765/products/xiaomi-glasses?view=illustration) 或 [API 文档](http://127.0.0.1:8765/api/docs)。
 
-如果需要离线分发，从 [Release](https://github.com/topbat/hardware-field-atlas/releases/latest) 下载 `hardware-field-atlas-v0.1.0-linux-amd64.tar.gz` 、`image-digest.txt` 和 `SHA256SUMS`，先执行 `sha256sum -c SHA256SUMS`（Windows 用 `Get-FileHash -Algorithm SHA256` 对照），再执行 `docker load -i hardware-field-atlas-v0.1.0-linux-amd64.tar.gz`，运行同一条 `docker run` 命令。
+如果需要离线分发，从 [Release](https://github.com/topbat/hardware-field-atlas/releases/latest) 下载 `hardware-field-atlas-v0.1.1-linux-amd64.tar.gz` 、`image-digest.txt` 和 `SHA256SUMS`，先执行 `sha256sum -c SHA256SUMS`（Windows 用 `Get-FileHash -Algorithm SHA256` 对照），再执行 `docker load -i hardware-field-atlas-v0.1.1-linux-amd64.tar.gz`，运行同一条 `docker run` 命令。
 
 ## 界面实拍
 
@@ -118,4 +118,4 @@ npm --prefix web run build
 
 ## English summary
 
-**Hardware Field Atlas** is an evidence-first, Chinese-language AI hardware research catalog. Explore 17 domestic-first hardware profiles, inspect sourced specifications and BOMs, rotate three Blender-based reconstructions, and follow citations through a local-first research workspace. The catalog works without model credentials. Run the published Linux/amd64 image at `ghcr.io/topbat/hardware-field-atlas:v0.1.0` or follow the source setup above.
+**Hardware Field Atlas** is an evidence-first, Chinese-language AI hardware research catalog. Explore 17 domestic-first hardware profiles, inspect sourced specifications and BOMs, rotate three Blender-based reconstructions, and follow citations through a local-first research workspace. The catalog works without model credentials. Run the published Linux/amd64 image at `ghcr.io/topbat/hardware-field-atlas:v0.1.1` or follow the source setup above.

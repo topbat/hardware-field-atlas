@@ -2,7 +2,18 @@
 
 本文记录面向用户的版本变化。版本号遵循语义化版本格式。
 
-## [0.1.0] · 首个公开版本
+## [0.1.1] · 首个可安装版本
+
+### 发布
+
+- 公开发布 Hardware Field Atlas 的 Linux amd64 镜像、离线包和 SHA-256 校验文件。
+- 安装后可以浏览全部 17 个硬件档案，查看 3D 重建模型、逐部位与逐角度图，并在无模型密钥时使用研究室。功能清单见下方初始版本记录。
+
+### 修复
+
+- 容器验收在服务启动期间会重试暂时的连接重置，服务就绪后再验证目录、视觉资产和研究工作流。
+
+## [0.1.0] · 初始源码标签
 
 ### 新增
 
@@ -13,7 +24,8 @@
 - 66 张关键部位图与 51 张独立角度图，均带中文说明并可单独打开。
 - 研究工作流、引用、按浏览器隔离的历史与主动记忆。模型未配置时可在本地目录模式运行。
 - 档案纠错、管理员审核与修订记录。
-- Docker 单机部署、GitHub Actions 验证、GHCR 镜像、离线包及 SHA-256 校验。
+- Docker 单机部署和 GitHub Actions 验证。
 - 中文项目指南、界面实拍、Apache 2.0 授权及素材署名。
 
-[0.1.0]: https://github.com/topbat/hardware-field-atlas/releases/tag/v0.1.0
+[0.1.1]: https://github.com/topbat/hardware-field-atlas/releases/tag/v0.1.1
+[0.1.0]: https://github.com/topbat/hardware-field-atlas/tree/v0.1.0
