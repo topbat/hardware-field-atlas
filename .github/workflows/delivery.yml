@@ -1,0 +1,119 @@
+name: Build and release
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Verify source and build web
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@37802adc94f370d6bfd71619e3f0bf239e1f3b78 # v7
+        with:
+          version: '0.12.17'
+          python-version: '3.12'
+          enable-cache: true
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - run: uv sync --locked
+      - run: uv run --no-sync pytest -q
+      - run: uv run --no-sync python scripts/verify_assets.py
+      - run: npm --prefix web ci --no-audit --no-fund
+      - run: npm --prefix web run build
+
+  release:
+    name: Smoke-test and publish Linux image
+    if: github.event_name == 'push' && github.ref_type == 'tag'
+    needs: verify
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    permissions:
+      contents: write
+      packages: write
+    concurrency:
+      group: release-${{ github.ref }}
+      cancel-in-progress: false
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Resolve version and artifact names
+        id: release
+        shell: bash
+        run: |
+          tag="$GITHUB_REF_NAME"
+          if [[ ! "$tag" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "::error::Use a release tag in the form vMAJOR.MINOR.PATCH"
+            exit 1
+          fi
+          project_version="$(python3 -c 'import tomllib; print(tomllib.load(open("pyproject.toml", "rb"))["project"]["version"])')"
+          test "$tag" = "v$project_version"
+          if gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "The release already exists." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          image="ghcr.io/${GITHUB_REPOSITORY,,}:$tag"
+          echo "ATLAS_IMAGE=$image" >> "$GITHUB_ENV"
+          echo "ATLAS_ARCHIVE=hardware-field-atlas-$tag-linux-amd64.tar.gz" >> "$GITHUB_ENV"
+      - name: Build container
+        if: steps.release.outputs.skip != 'true'
+        run: |
+          docker build --platform linux/amd64 --tag "$ATLAS_IMAGE" \
+            --label "org.opencontainers.image.source=${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}" \
+            --label "org.opencontainers.image.revision=${GITHUB_SHA}" \
+            --label "org.opencontainers.image.version=${GITHUB_REF_NAME#v}" \
+            --label "org.opencontainers.image.licenses=Apache-2.0" .
+      - name: Verify running release image
+        if: steps.release.outputs.skip != 'true'
+        run: |
+          trap 'docker logs atlas-smoke || true; docker rm -fv atlas-smoke || true' EXIT
+          docker run -d --name atlas-smoke --init --read-only --tmpfs /tmp \
+            --cap-drop ALL --security-opt no-new-privileges:true \
+            -p 127.0.0.1:8765:8765 -v /var/lib/atlas "$ATLAS_IMAGE"
+          python3 scripts/smoke_release.py http://127.0.0.1:8765
+      - name: Publish versioned image to GHCR
+        if: steps.release.outputs.skip != 'true'
+        run: |
+          printf '%s' "$GH_TOKEN" | docker login ghcr.io --username "$GITHUB_ACTOR" --password-stdin
+          docker push "$ATLAS_IMAGE"
+          docker image inspect --format '{{range .RepoDigests}}{{println .}}{{end}}' "$ATLAS_IMAGE" > image-digest.txt
+          test -s image-digest.txt
+      - name: Publish GitHub Release with offline image and checksums
+        if: steps.release.outputs.skip != 'true'
+        run: |
+          docker save "$ATLAS_IMAGE" | gzip -1 > "$ATLAS_ARCHIVE"
+          sha256sum "$ATLAS_ARCHIVE" image-digest.txt > SHA256SUMS
+          sha256sum -c SHA256SUMS
+          awk -v heading="## [${GITHUB_REF_NAME#v}]" '
+            index($0, heading) == 1 { active=1; next }
+            active && (/^## / || /^\[[^]]+\]: /) { exit }
+            active { print }
+          ' CHANGELOG.md > release-notes.md
+          grep -q '^### ' release-notes.md
+          {
+            printf '\n## 启动与校验\n\n'
+            printf '镜像：%s\n\n' "$ATLAS_IMAGE"
+            printf '离线镜像适用于 Linux x86-64。使用 SHA256SUMS 校验，再执行 docker load -i %s。\n\n' "$ATLAS_ARCHIVE"
+            printf '[安装与快速体验](%s/%s/blob/%s/README.md#三分钟启动)\n' "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" "$GITHUB_REF_NAME"
+          } >> release-notes.md
+          gh release create "$GITHUB_REF_NAME" "$ATLAS_ARCHIVE" SHA256SUMS image-digest.txt \
+            --repo "$GITHUB_REPOSITORY" --verify-tag --title "Hardware Field Atlas $GITHUB_REF_NAME" \
+            --notes-file release-notes.md

@@ -1,46 +1,121 @@
-# 硬件志 · Hardware Atlas
+# Hardware Field Atlas · 硬件志
 
-面向极客的中文 AI 硬件研究库。目录优先收录国内整机、开源项目和参考模组。通过型号、厂商或料号查找设备，按证据比较规格和运行方式，并在拆解台关联模型、BOM 和来源。
+**从一个零件料号，追到整机、拆解、3D 结构和原始证据。**
 
-## 本地运行
+[下载最新版](https://github.com/topbat/hardware-field-atlas/releases/latest) · [三分钟启动](#三分钟启动) · [看看界面](#界面实拍) · [版本记录](CHANGELOG.md) · [English summary](#english-summary)
 
-需要 Python 3.12、uv 和 Node.js 22.12+。在本项目目录运行以下命令。Windows PowerShell 可把 npm 写成 npm.cmd。
+[![CI](https://github.com/topbat/hardware-field-atlas/actions/workflows/delivery.yml/badge.svg?branch=main)](https://github.com/topbat/hardware-field-atlas/actions/workflows/delivery.yml) [![Release](https://img.shields.io/github/v/release/topbat/hardware-field-atlas)](https://github.com/topbat/hardware-field-atlas/releases/latest) [![License Apache 2.0](https://img.shields.io/badge/license-Apache%202.0-blue)](LICENSE)
+
+![硬件志首页，包含硬件与料号搜索和眼镜拆解概念示意](docs/screenshots/catalog.webp)
+
+想知道 AI 眼镜怎么塞进摄像头和电池、语音终端断网后还能做什么，或者两款设备到底差在哪？硬件志把散落在商品页、厂商资料、开源项目和拆解记录里的信息整理成可以搜索、比较、旋转和追溯的中文研究档案。首版收录 **17 款**以国内产品和开源方案为主的样本，横跨玩具、眼镜、音箱、镜子、柜子和电脑桌。
+
+## 可以怎么玩
+
+| 你想做什么 | 从哪里开始 |
+| --- | --- |
+| 从零件找到整机 | 搜 `ESP32-S3` 或 `BES2700H`，从料号结果进入部件详情，顺着引用看原始资料 |
+| 像拆机一样看产品 | 打开小米 AI 眼镜、小智 ESP32 参考硬件或小米智能音箱 Pro 的「结构检视」，旋转、展开模型，点选部件并查看对应 BOM |
+| 快速看懂一个陌生品类 | 打开「AI 图解」，逐张查看 66 张部位图、51 张独立角度图及各产品的规格图。实物图、重绘示意与已核验规格分开展示 |
+| 比较多个方案 | 把产品加入对比，查看硬件规格、AI 能力、计算位置和离线行为，并追溯字段出处 |
+| 把资料整理成一个问题 | 在研究室选定范围，使用证据问答或复现工作流；已有笔记经主动选择后可作为上下文。目录模式开箱即用 |
+| 补充一条新证据 | 在档案提交纠错，管理员在审核页处理并保存修订记录 |
+
+## 三分钟启动
+
+有 Docker 时，直接下载已经构建好的镜像，无需配置模型密钥。镜像以 **Linux x86-64（amd64）** 为发布目标，Docker Desktop 用户使用 Linux 容器模式。
 
 ```sh
+docker pull ghcr.io/topbat/hardware-field-atlas:v0.1.0
+docker run -d --name hardware-field-atlas --init \
+  --read-only --tmpfs /tmp --cap-drop ALL --security-opt no-new-privileges:true \
+  -p 127.0.0.1:8765:8765 -v hardware-atlas-data:/var/lib/atlas \
+  ghcr.io/topbat/hardware-field-atlas:v0.1.0
+```
+
+Windows PowerShell 可将 `docker run` 命令写在一行。启动后访问 [目录](http://127.0.0.1:8765/)、[小米眼镜的部位与角度图](http://127.0.0.1:8765/products/xiaomi-glasses?view=illustration) 或 [API 文档](http://127.0.0.1:8765/api/docs)。
+
+如果需要离线分发，从 [Release](https://github.com/topbat/hardware-field-atlas/releases/latest) 下载 `hardware-field-atlas-v0.1.0-linux-amd64.tar.gz` 、`image-digest.txt` 和 `SHA256SUMS`，先执行 `sha256sum -c SHA256SUMS`（Windows 用 `Get-FileHash -Algorithm SHA256` 对照），再执行 `docker load -i hardware-field-atlas-v0.1.0-linux-amd64.tar.gz`，运行同一条 `docker run` 命令。
+
+## 界面实拍
+
+以下截图来自运行中的站点。截图使用站内概念图和重建资产，实物图库仍保留原始来源入口。
+
+| 一张图只讲一个关键部位 | 部件与模型联动 |
+| --- | --- |
+| ![小米眼镜关键部位的独立图卡](docs/screenshots/product-gallery.webp) | ![可旋转的智能眼镜爆炸视图与部件详情](docs/screenshots/structure.webp) |
+
+![研究室证据问答，显示流程步骤、引用和原文入口](docs/screenshots/research.webp)
+
+## 从源码运行
+
+| 用途 | 环境 |
+| --- | --- |
+| 后端与测试 | Python 3.12、uv（发布使用 0.12.17） |
+| 前端 | Node.js 22.12+，推荐 Node.js 24，以及随 Node 安装的 npm |
+| 容器部署 | Docker Engine 或 Docker Desktop，使用 Compose 时需 Compose 2.24+ |
+| 资产重建（可选） | Blender 5.2、ImageMagick 7。浏览和运行站点使用仓库中已打包的资产 |
+| AI 文本与图像研究（可选） | 兼容 Chat Completions 的模型接口和相应权限 |
+
+```sh
+git clone https://github.com/topbat/hardware-field-atlas.git
+cd hardware-field-atlas
 uv sync --locked --python 3.12
 npm --prefix web ci
 npm --prefix web run build
-uv run --no-sync uvicorn atlas.main:create_app --factory --app-dir server --host 127.0.0.1 --port 8765
+uv run --no-sync uvicorn atlas.main:create_app --factory --app-dir server --host 127.0.0.1 --port 8765 --no-proxy-headers
 ```
 
-浏览器打开 http://127.0.0.1:8765 。API 文档位于 http://127.0.0.1:8765/api/docs 。
+Windows 可运行 `pwsh -File scripts/start.ps1 -Build`，之后省略 `-Build` 可复用前端构建，`-Port` 可改端口。前端联调时让后端留在 `8765`，另开终端运行 `npm --prefix web run dev`，访问 [Vite 开发页](http://127.0.0.1:5173/)。
 
-Windows 也可以运行 `pwsh -File scripts/start.ps1 -Build`，之后省略 `-Build` 可复用构建结果。
+也可以从源码运行 `docker compose up -d --build`，使用 `docker compose logs -f atlas` 查看日志。Compose 默认只监听本机回环地址，并把运行数据保存在命名卷。用于对外服务时，应使用实际部署环境的 HTTPS 反向代理与请求限流；已有数据可通过 SQLite 在线备份或停机后备份数据目录。
 
-前端开发时保留后端进程，再运行 `npm --prefix web run dev`。Vite 将 /api 转给本地后端。生产构建由 FastAPI 同源提供。
+### 配置与数据
 
-## 配置和数据
+可把 [环境配置示例](.env.example) 复制为 `.env`。Compose 和 PowerShell 启动脚本会读取该文件；手动启动时用 `uv run --no-sync --env-file .env uvicorn ...`。
 
-- 无模型凭据时，研究室使用本地目录、分步检索和可核对的证据。配置 `ATLAS_AI_BASE_URL`（含 /v1）、`ATLAS_AI_KEY`、`ATLAS_AI_MODEL` 后可接入兼容 Chat Completions 的模型，按需配置 `ATLAS_AI_VISION_MODEL` 启用图片检索。图片仅在用户明确同意后传给服务，应用不落盘。
-- 本地配置可将 .env.example 复制为 .env，再用 `uv run --no-sync --env-file .env uvicorn atlas.main:create_app --factory --app-dir server --host 127.0.0.1 --port 8765` 启动。模型调用会向所配置服务发送本次任务必要的目录和上下文。
-- 研究历史和主动记忆按浏览器随机凭证隔离。同一浏览器的站点存储需要保留，清除站点存储后原凭证无法从应用找回。工作区提供独立删除操作。
-- 使用 `ATLAS_ADMIN_TOKEN` 启用内容审核页 /admin 和审核 API。目录种子由 data/catalog.json 管理，线上产品修订、纠错和研究记录保存在 `ATLAS_DATA_DIR`（默认 runtime/）下的 SQLite 数据库。备份时使用 SQLite 在线备份，或停止应用后复制整个目录。
-- 三个 Blender 原件在 assets/blender，网页 GLB 和二维图在 web/public/assets。模型以近似结构或概念标注。脚本可用 Blender 5.2 运行 `blender --background --python-exit-code 1 --python scripts/build_models.py` 重建。
-- 实物、原厂及电商图在目录和照片图库标明来源。受限的拆解图保留原文入口。三张 ImageGen 剖视图按公开资料重绘，位于 web/public/assets/cutaways；建模的主要证据见 [旗舰视觉依据](docs/flagship-visual-evidence.md)。
-- 档案中的「AI 图解」提供总体图、硬件规格信息图、逐部位图和逐角度图。每个部位与角度各用一张带中文说明的独立图片，可单独打开。配图由 Codex ImageGen 生成，规格及图中文字取自档案资料。[逐款部位与角度清单](docs/product-visual-breakdowns.json) · [逐款资料约束](docs/illustration-briefs.json)
-- 首页概念图由 Codex ImageGen 生成。提示词指定通用深色 AI 摄像眼镜、分离的镜腿、电池和电路板、米白工程工作台和无品牌字样。商品样机信息以档案中的原始出处为准。
+| 变量 | 作用 |
+| --- | --- |
+| `ATLAS_AI_BASE_URL`、`ATLAS_AI_KEY`、`ATLAS_AI_MODEL` | 配置兼容模型接口，地址通常含 `/v1`。不配置时使用本地目录检索 |
+| `ATLAS_AI_VISION_MODEL` | 配置视觉模型。研究室在明确同意后发送上传的图片，应用不保存图片 |
+| `ATLAS_ADMIN_TOKEN` | 设置随机长值后启用 `/admin` 和内容审核 API |
+| `ATLAS_CATALOG` | 覆盖默认目录种子 `data/catalog.json` |
+| `ATLAS_DATA_DIR` | 自定义 SQLite 目录。源码运行默认 `runtime/`，镜像使用 `/var/lib/atlas` |
+| `ATLAS_RESEARCH_RUNS_PER_IP_PER_MINUTE`、`ATLAS_RESEARCH_RUNS_GLOBAL_PER_MINUTE` | 研究请求限额，默认 8 和 60 |
+| `ATLAS_RESEARCH_MAX_HISTORY`、`ATLAS_RESEARCH_MAX_NOTES` | 研究历史和笔记的全局记录上限，默认 3000 和 5000 |
 
-## 单机部署
+模型调用会发送本次研究所需的资料和上下文。研究历史和主动笔记按浏览器随机凭证隔离，工作区支持单独删除。清除站点存储后，应用无法找回旧凭证。部署、备份和限流按单节点设计。
+
+## 从调研到第一版
+
+1. **定范围。** 对照硬件拆解社区、开源板卡文档、3D 浏览工具与 AI 工作流，形成「目录 → 拆解台 → 研究室」三层结构。分别研究了[国产硬件](docs/research-catalog.md)、[交互体验](docs/research-experience.md)和[研究工作流](docs/research-intelligence.md)。
+2. **建证据链。** 按厂商、开源项目、拆解作者和具体样机记录来源。结构和 BOM 用稳定部件 ID 对齐，未知料号与样机差异单独保留。
+3. **并行落地。** 目录、交互与研究工作流分开实现并联调。React/Vite 提供界面，FastAPI 提供 API，SQLite 保存纠错、修订和研究数据。模型接口通过环境变量接入。
+4. **把硬件变成可看的资料。** 用公开参考资料和 Blender 5.2 做三套可编辑结构模型，GLB 与二维结构图共享部件编号。用 Codex ImageGen 制作剖视图、总体图及逐部位/角度视觉，再把可追溯的中文说明排入独立图卡。
+5. **交付可复现版本。** 自动化校验目录、视觉资产和构建，在版本标签上发布经过运行验证的容器镜像、离线包和校验文件。
+
+[实施计划](docs/plans/2026-11-08-atlas.md) · [数据和 API 契约](docs/api.md) · [实物照片来源](docs/source-photo-catalog.md) · [旗舰结构证据](docs/flagship-visual-evidence.md) · [逐款图卡清单](docs/product-visual-breakdowns.json)
+
+## 工程与发布
+
+- `server/atlas/` 后端、目录校验与研究工作流，`server/tests/` 测试。
+- `web/src/` 界面，`web/public/assets/` 已打包的 GLB、二维图和图卡。
+- `data/catalog.json` 版本化种子目录，`assets/blender/` 三个可编辑的 Blender 源文件。
+- `scripts/` 资产生成、核验和启动脚本。可用 `blender --background --python-exit-code 1 --python scripts/build_models.py` 重建 Blender/GLB，重新打包图卡需要已有 ImageGen 源图。
+- `.github/workflows/delivery.yml` 在主分支、PR 和版本标签校验项目。标签通过后测试容器并发布到 GHCR 和 GitHub Releases。自托管按需拉取指定版本。
 
 ```sh
-docker compose up -d --build
+uv run --locked pytest -q
+python scripts/verify_assets.py
+npm --prefix web run build
 ```
 
-默认端口绑定到主机回环地址。对外部署时由已有的 HTTPS 入口转发，并设置请求限流及模型费用配额。若启用代理传递真实客户端地址，仅信任实际反向代理的地址。部署与备份以单节点、同机持久卷为边界。
+欢迎用 [GitHub Issues](https://github.com/topbat/hardware-field-atlas/issues) 提交新设备、部件证据或使用反馈。补充硬件资料时，请附准确型号、原文出处和样机版本。
 
-## 验证与设计依据
+## 授权与素材
 
-- `uv run --locked pytest` 验证目录、审核和研究工作流。
-- `npm --prefix web run build` 验证前端生产构建。
-- `python scripts/verify_assets.py` 核对目录、三维部件与二维图编号。
-- [数据与接口](docs/api.md) · [原型体验调研](docs/research-experience.md) · [国产样本](docs/research-catalog.md) · [研究工作流](docs/research-intelligence.md)
+项目自有代码和文档按 [Apache License 2.0](LICENSE) 发布。第三方照片、品牌、商标、资料和依赖保留原权利与许可；第三方实物图片以原站链接引用。AI 图解和 3D 模型是研究示意，尺寸、布局与外观以实物及原始资料为准。[素材与署名说明](NOTICE)
+
+## English summary
+
+**Hardware Field Atlas** is an evidence-first, Chinese-language AI hardware research catalog. Explore 17 domestic-first hardware profiles, inspect sourced specifications and BOMs, rotate three Blender-based reconstructions, and follow citations through a local-first research workspace. The catalog works without model credentials. Run the published Linux/amd64 image at `ghcr.io/topbat/hardware-field-atlas:v0.1.0` or follow the source setup above.

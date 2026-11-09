@@ -13,6 +13,7 @@ COPY pyproject.toml uv.lock ./
 RUN uv sync --frozen --no-dev --no-install-project \
     && useradd --system --uid 10001 --create-home atlas \
     && install -d -o atlas -g atlas /var/lib/atlas
+COPY LICENSE NOTICE ./
 COPY server/ ./server/
 COPY data/ ./data/
 COPY --from=web /build/dist ./web/dist
