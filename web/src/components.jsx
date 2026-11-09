@@ -47,7 +47,11 @@ export function ProductVisual({ product }) {
   const Icon = category.icon;
   const photo = productPhotos(product).find(({ url }) => !failed.has(url));
   const illustration = ['concept', 'reconstruction'].includes(product.image?.type) ? product.image : null;
-  const graphic = photo || (illustration?.url && !failed.has(illustration.url) ? illustration : null);
+  const overview = product.illustration?.panels?.overview;
+  const generated = overview && !failed.has(overview) ? {
+    url: overview, alt: product.name + '总体示意', type: product.illustration.exterior === 'concept' ? 'concept' : 'reconstruction',
+  } : null;
+  const graphic = photo || (illustration?.url && !failed.has(illustration.url) ? illustration : generated);
   return (
     <figure className={`product-visual theme-${product.category}${photo ? ' has-photo' : ''}`}>
       {graphic

@@ -7,7 +7,7 @@
 `data/catalog.json` 为 UTF-8 对象 `{ "products": [Product, ...] }`。产品字段如下。未采集的值用空数组、null 或有说明的状态，保留出处，禁止猜值。
 
     Product = {
-      id: string, name: string, brand: string, category: "toy"|"glasses"|"speaker"|"mirror"|"cabinet"|"desk",
+      id: string, name: string, brand: string, category: Category,
       kind: "commercial"|"open"|"reference"|"module", origin: string,
       tagline: string, description: string, aliases: string[], tags: string[],
       revision: string, checkedAt: string,
@@ -29,6 +29,10 @@
       build?: { repo: string, steps: string[], note: string, stepSourceIds?: string[][] }
     }
 
+    Category = "toy"|"glasses"|"speaker"|"mirror"|"cabinet"|"desk"|"phone"|"tablet"|"computer"
+             |"wearable"|"earbuds"|"recorder"|"education"|"vacuum"|"security"|"vehicle"
+             |"edge"|"imaging"|"outdoor"|"pet"|"fabrication"|"xr"
+
     Photo = { url: string, alt: string, type: "concept"|"official"|"retail"|"photo"|"teardown", sourceId?: string }
 
 图解中的 `VisualCard` 含 `url`、`title`、`caption`、`sourceIds` 和可选的 `partId`。每个图卡 URL 对应一张带中文说明的独立图。
@@ -40,7 +44,7 @@ Product ID 稳定，部件 ID 在产品内部唯一。给同一位置的替代�
 ## 目录查询
 
 - `GET /api/health` → `{status:"ok"}`
-- `GET /api/catalog?q=&category=&kind=&compute=&model=&limit=100` → `{products:Product[], total:number, parts:[{productId, productName, part:Part}], categories:[{id,label,count}]}`。关键词可用型号、别名、厂商料号、零件、品牌、标签。未输入 q 时 parts 为空。model=true 筛有模型。
+- `GET /api/catalog?q=&category=&kind=&compute=&model=&limit=100&offset=0` → `{products:Product[], total:number, parts:[{productId, productName, part:Part}], categories:[{id,label,count}]}`。关键词可用型号、别名、厂商料号、零件、品牌、标签。未输入 q 时 parts 为空。model=true 筛有模型。
 - `GET /api/products/{id}` → Product，响应 `ETag` 可用于条件写入。
 - `GET /api/compare?ids=foo,bar` → `{products:Product[]}`，按照 ids 顺序返回 2–4 个唯一产品。
 - `GET /api/products/{id}/bom.csv` → UTF-8 BOM CSV。

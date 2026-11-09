@@ -47,6 +47,17 @@ def test_part_reverse_lookup_and_csv(seed, tmp_path):
         assert "https://example.com/tear" in rows[1]
 
 
+def test_catalog_pages_keep_filter_counts(seed, tmp_path):
+    with TestClient(create_app(seed, tmp_path / "state", research=False)) as client:
+        first = client.get("/api/catalog", params={"limit": 1}).json()
+        second = client.get("/api/catalog", params={"limit": 1, "offset": 1}).json()
+        assert [row["id"] for row in first["products"]] == ["one"]
+        assert [row["id"] for row in second["products"]] == ["two"]
+        assert first["total"] == second["total"] == 2
+        assert first["categories"] == second["categories"]
+        assert client.get("/api/catalog", params={"offset": -1}).status_code == 422
+
+
 def test_moderation_and_revisions_persist(seed, tmp_path, monkeypatch):
     monkeypatch.setenv("ATLAS_ADMIN_TOKEN", "example-test-token")
     state = tmp_path / "state"

@@ -1,5 +1,6 @@
 """Export the validated public catalog and BOM downloads for GitHub Pages."""
 
+import json
 import sys
 from pathlib import Path
 from tempfile import TemporaryDirectory
@@ -21,9 +22,15 @@ def export(output: Path):
             response = client.get("/api/catalog", params={"limit": 200})
             response.raise_for_status()
             catalog = response.json()
-            if catalog["total"] != len(catalog["products"]):
-                raise ValueError("Online demo catalog export would omit products.")
-            (output / "catalog.json").write_bytes(response.content)
+            products = catalog["products"]
+            while len(products) < catalog["total"]:
+                response = client.get("/api/catalog", params={"limit": 200, "offset": len(products)})
+                response.raise_for_status()
+                batch = response.json()["products"]
+                if not batch:
+                    raise ValueError("Online demo catalog export would omit products.")
+                products.extend(batch)
+            (output / "catalog.json").write_text(json.dumps(catalog, ensure_ascii=False), encoding="utf-8")
             for product in catalog["products"]:
                 product_id = product["id"]
                 response = client.get(f"/api/products/{product_id}/bom.csv")

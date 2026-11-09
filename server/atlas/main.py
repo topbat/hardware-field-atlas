@@ -110,8 +110,9 @@ def create_app(seed_path: Path | None = None, data_dir: Path | None = None,
     @app.get("/api/catalog")
     def catalog(q: Annotated[str, Query(max_length=160)] = "", category: Category | None = None,
                 kind: Kind | None = None, compute: Compute | None = None, model: bool | None = None,
-                limit: Annotated[int, Query(ge=1, le=200)] = 100):
-        return filter_catalog(store.catalog()["products"], q, category, kind, compute, model, limit)
+                limit: Annotated[int, Query(ge=1, le=200)] = 100,
+                offset: Annotated[int, Query(ge=0)] = 0):
+        return filter_catalog(store.catalog()["products"], q, category, kind, compute, model, limit, offset)
 
     @app.get("/api/products/{product_id}")
     def detail(product_id: str, response: Response):

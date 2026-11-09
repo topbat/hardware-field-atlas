@@ -3694,6 +3694,2026 @@
           ]
         }
       }
+    },
+    {
+      "id": "bambu-h2d-laser",
+      "name": "拓竹 Bambu Lab H2D Laser",
+      "brand": "拓竹 Bambu Lab",
+      "category": "fabrication",
+      "kind": "commercial",
+      "origin": "中国品牌",
+      "tagline": "看机器如何发现喷嘴堆料、空打和乱丝",
+      "description": "H2D Laser 版双喷嘴 FDM 设备。微距喷嘴相机观察挤出过程，厂商披露了多种异常检测场景。",
+      "aliases": [
+        "H2D",
+        "拓竹 H2D",
+        "Bambu Lab H2D"
+      ],
+      "tags": [
+        "3D 打印",
+        "机器视觉",
+        "喷嘴监控"
+      ],
+      "revision": "H2D Laser Full Combo，厂商英文规格",
+      "checkedAt": "2026-11-09",
+      "model": null,
+      "specs": [
+        {
+          "key": "technology",
+          "label": "打印工艺",
+          "value": "FDM 熔融沉积",
+          "sourceIds": [
+            "spec"
+          ]
+        },
+        {
+          "key": "build-volume",
+          "label": "双喷嘴打印空间",
+          "value": "300 × 320 × 325 mm",
+          "sourceIds": [
+            "spec"
+          ]
+        },
+        {
+          "key": "hotend",
+          "label": "喷嘴最高温度",
+          "value": "350 °C",
+          "sourceIds": [
+            "spec"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "喷嘴异常检测",
+          "input": "喷嘴微距相机图像",
+          "compute": "unknown",
+          "output": "识别堆料、空打及乱丝等挤出异常",
+          "offline": "完整离线行为未公开核验",
+          "sourceIds": [
+            "launch"
+          ]
+        }
+      ],
+      "parts": [
+        {
+          "id": "nozzle-camera",
+          "name": "喷嘴微距相机",
+          "role": "连续观察喷嘴尖端和材料挤出",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "confirmed",
+          "sample": null,
+          "sourceIds": [
+            "launch"
+          ]
+        },
+        {
+          "id": "hotend",
+          "name": "全金属热端",
+          "role": "加热和挤出打印耗材",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "confirmed",
+          "sample": null,
+          "sourceIds": [
+            "spec"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "launch",
+          "title": "拓竹 H2D 发布资料",
+          "url": "https://blog.bambulab.com/bambu-lab-launches-h2d-to-rethink-personal-manufacturing/",
+          "type": "official"
+        },
+        {
+          "id": "spec",
+          "title": "H2D Laser Full Combo 技术规格",
+          "url": "https://cdn1.bambulab.com/documentation/h2d/en/H2D_Laser_Full_Combo_20250305.pdf",
+          "type": "official"
+        }
+      ],
+      "image": {
+        "type": "official",
+        "sourceId": "launch",
+        "alt": "Bambu Lab H2D Laser 发布主图",
+        "url": "https://storage.ghost.io/c/8d/d9/8dd9f85b-21c3-4782-bba8-8778cd8f2f93/content/images/size/w1200/2025/03/Frame-1123863753.jpg"
+      }
+    },
+    {
+      "id": "pico-4-ultra",
+      "name": "PICO 4 Ultra",
+      "brand": "PICO",
+      "category": "xr",
+      "kind": "commercial",
+      "origin": "中国品牌",
+      "tagline": "用彩色透视、深度传感和环境追踪观察空间计算",
+      "description": "PICO 4 Ultra 混合现实头显具备彩色透视、深度感知和环境跟踪传感器。按新加坡版官方规格收录，具体应用条件以软件版本为准。",
+      "aliases": [
+        "PICO4 Ultra",
+        "PICO MR",
+        "XR 头显"
+      ],
+      "tags": [
+        "混合现实",
+        "深度感知",
+        "环境追踪"
+      ],
+      "revision": "PICO 4 Ultra 新加坡官网规格",
+      "checkedAt": "2026-11-09",
+      "model": null,
+      "specs": [
+        {
+          "key": "chip",
+          "label": "平台",
+          "value": "Snapdragon XR2 Gen 2",
+          "sourceIds": [
+            "spec"
+          ]
+        },
+        {
+          "key": "storage",
+          "label": "内存与存储",
+          "value": "12 GB LPDDR5 + 256 GB UFS 3.1",
+          "sourceIds": [
+            "spec"
+          ]
+        },
+        {
+          "key": "sensors",
+          "label": "混合现实传感器",
+          "value": "2 个 32 MP 彩色透视相机、1 个 iToF 深度相机、4 个环境跟踪相机",
+          "sourceIds": [
+            "spec"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "环境跟踪和深度感知",
+          "input": "跟踪相机和 iToF 深度传感器",
+          "compute": "unknown",
+          "output": "提供混合现实应用所用的环境跟踪与深度输入",
+          "offline": "完整离线行为未公开核验",
+          "sourceIds": [
+            "spec"
+          ]
+        }
+      ],
+      "parts": [
+        {
+          "id": "xr2",
+          "name": "XR 处理平台",
+          "role": "运行头显应用与图形处理",
+          "mpn": "Snapdragon XR2 Gen 2",
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "confirmed",
+          "sample": null,
+          "sourceIds": [
+            "spec"
+          ]
+        },
+        {
+          "id": "depth",
+          "name": "iToF 深度相机",
+          "role": "采集环境深度",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "confirmed",
+          "sample": null,
+          "sourceIds": [
+            "spec"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "spec",
+          "title": "PICO 4 Ultra 新加坡官方规格",
+          "url": "https://www.picoxr.com/sg/products/pico4-ultra/specs",
+          "type": "official"
+        }
+      ]
+    },
+    {
+      "id": "xiaomi-17-ultra",
+      "name": "小米 17 Ultra",
+      "brand": "小米",
+      "category": "phone",
+      "kind": "commercial",
+      "origin": "中国品牌",
+      "tagline": "从随身拍摄和录音，到图像编辑与文字整理",
+      "description": "全球版产品页列出 Xiaomi HyperAI 的写作、录音转写和相册编辑能力。芯片支持端侧 AI 加速，具体应用的联网条件由各功能单独标注。",
+      "aliases": [
+        "Xiaomi 17 Ultra",
+        "小米17 Ultra",
+        "HyperAI",
+        "Snapdragon 8 Elite Gen 5"
+      ],
+      "tags": [
+        "AI 手机",
+        "录音转写",
+        "图像编辑",
+        "地区差异"
+      ],
+      "revision": "全球版 · 小米 17 Ultra · HyperOS 3",
+      "checkedAt": "2026-11-09",
+      "specs": [
+        {
+          "key": "platform",
+          "label": "处理平台",
+          "value": "Snapdragon 8 Elite Gen 5",
+          "sourceIds": [
+            "specs"
+          ]
+        },
+        {
+          "key": "battery",
+          "label": "电池",
+          "value": "6,000 mAh（典型值，全球版）",
+          "sourceIds": [
+            "specs"
+          ]
+        },
+        {
+          "key": "display",
+          "label": "屏幕",
+          "value": "6.9 英寸 AMOLED",
+          "sourceIds": [
+            "specs"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "AI 写作和录音转写",
+          "input": "文本、录音",
+          "compute": "unknown",
+          "output": "改写、摘要或语音转文字",
+          "offline": "全球版官网列明需要互联网，且仅支持部分地区和语言。具体推理分工未披露。",
+          "sourceIds": [
+            "official"
+          ]
+        },
+        {
+          "name": "相册 AI 编辑",
+          "input": "相册中的图像与视频",
+          "compute": "unknown",
+          "output": "按工具编辑图片或生成短片",
+          "offline": "部分编辑工具要求联网，AI Film 需要互联网。可用性受软件版本和语言影响。",
+          "sourceIds": [
+            "official"
+          ]
+        }
+      ],
+      "parts": [
+        {
+          "id": "soc",
+          "name": "移动处理平台",
+          "role": "运行手机应用和多媒体处理。",
+          "mpn": "Snapdragon 8 Elite Gen 5",
+          "manufacturer": "Qualcomm",
+          "quantity": "1",
+          "status": "confirmed",
+          "sample": null,
+          "sourceIds": [
+            "specs"
+          ]
+        },
+        {
+          "id": "battery",
+          "name": "电池",
+          "role": "给手机供电，全球版典型容量为 6,000 mAh。",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "confirmed",
+          "sample": null,
+          "sourceIds": [
+            "specs"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "official",
+          "title": "Xiaomi 17 Ultra 全球产品页",
+          "url": "https://www.mi.com/global/product/xiaomi-17-ultra/",
+          "type": "official",
+          "locator": "HyperAI、Performance 和注释 8、9、21"
+        },
+        {
+          "id": "specs",
+          "title": "Xiaomi 17 Ultra 全球规格",
+          "url": "https://www.mi.com/global/product/xiaomi-17-ultra/specs/",
+          "type": "official",
+          "locator": "Processor、Display、Battery & charging"
+        }
+      ],
+      "model": null,
+      "image": {
+        "url": "https://i02.appmifile.com/645_operatorx_operatorx_xm/14/02/2026/df23386f3a67d3d5fdce72e4e1a18b96.png",
+        "alt": "小米 17 Ultra 全球版官网宣传图",
+        "type": "official",
+        "sourceId": "official"
+      }
+    },
+    {
+      "id": "huawei-matepad-pro-13-2",
+      "name": "华为 MatePad Pro 13.2 英寸 2025 款",
+      "brand": "华为",
+      "category": "tablet",
+      "kind": "commercial",
+      "origin": "中国品牌",
+      "tagline": "在手写笔记里提炼重点、整理内容",
+      "description": "通过触屏和手写笔采集学习或办公材料。华为支持文档列出了该型号的笔记整理与图中文字提取路径。",
+      "aliases": [
+        "HUAWEI MatePad Pro 13.2 2025",
+        "MatePad Pro 13.2",
+        "WEB-W00"
+      ],
+      "tags": [
+        "手写笔记",
+        "小艺识图",
+        "AI 平板",
+        "学习办公"
+      ],
+      "revision": "中国大陆 · WEB 系列 · 以适用的 HarmonyOS 版本为准",
+      "checkedAt": "2026-11-09",
+      "specs": [
+        {
+          "key": "display",
+          "label": "屏幕尺寸",
+          "value": "13.2 英寸",
+          "sourceIds": [
+            "manual"
+          ]
+        },
+        {
+          "key": "storage",
+          "label": "容量组合",
+          "value": "指南列有 12 GB + 256 GB、12 GB + 512 GB、16 GB + 1 TB 等配置",
+          "sourceIds": [
+            "manual"
+          ]
+        },
+        {
+          "key": "pen",
+          "label": "输入配件",
+          "value": "支持部分 HUAWEI M-Pencil，具体型号与系统版本见适配清单",
+          "sourceIds": [
+            "stylus"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "智能整理笔记",
+          "input": "华为笔记中选定的内容",
+          "compute": "unknown",
+          "output": "提炼笔记要点或整理内容",
+          "offline": "智能摘要需登录华为账号。按支持文档核对系统及笔记版本，离线行为未实测。",
+          "sourceIds": [
+            "notes"
+          ]
+        },
+        {
+          "name": "小艺识图",
+          "input": "图库图片",
+          "compute": "unknown",
+          "output": "识别并提取图片中的文字",
+          "offline": "需在支持的小艺和系统版本中使用，离线可用性未公开。",
+          "sourceIds": [
+            "vision"
+          ]
+        }
+      ],
+      "parts": [
+        {
+          "id": "display",
+          "name": "触控显示屏",
+          "role": "显示笔记与应用内容，承载触控和配套笔输入。",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "confirmed",
+          "sample": null,
+          "sourceIds": [
+            "manual",
+            "stylus"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "manual",
+          "title": "华为 MatePad Pro 13.2 英寸 2025 款用户指南",
+          "url": "https://consumer.huawei.com/cn/support/content/zh-cn16026186/",
+          "type": "official",
+          "locator": "适用型号 WEB-W00、WEB-W10、WEB-AL00"
+        },
+        {
+          "id": "notes",
+          "title": "华为支持 · 智能整理笔记内容",
+          "url": "https://consumer.huawei.com/cn/support/content/zh-cn16058392/",
+          "type": "official",
+          "locator": "适用产品、提炼要点及支持条件"
+        },
+        {
+          "id": "vision",
+          "title": "华为支持 · 使用小艺识别图中文字",
+          "url": "https://consumer.huawei.com/cn/support/content/zh-cn16075081/",
+          "type": "official",
+          "locator": "小艺识图支持机型和操作路径"
+        },
+        {
+          "id": "stylus",
+          "title": "华为手写笔适配清单",
+          "url": "https://consumer.huawei.com/cn/support/content/zh-cn00737675/",
+          "type": "official",
+          "locator": "MatePad Pro 13.2 英寸 2025，适配手写笔和软件版本"
+        }
+      ],
+      "model": null
+    },
+    {
+      "id": "thinkpad-x1-carbon-gen-13",
+      "name": "ThinkPad X1 Carbon Gen 13 Aura Edition",
+      "brand": "联想",
+      "category": "computer",
+      "kind": "commercial",
+      "origin": "中国品牌",
+      "tagline": "把视频会议画面处理交给本机 NPU",
+      "description": "Lunar Lake 配置的 NPU 可为 Windows 的端侧 AI 功能提供计算资源。同名系列存在不同处理器配置，本条以 268V 规格为参考。",
+      "aliases": [
+        "Lenovo ThinkPad X1 Carbon Gen 13",
+        "X1 Carbon 13",
+        "Core Ultra 7 268V",
+        "Copilot+ PC"
+      ],
+      "tags": [
+        "AI PC",
+        "NPU",
+        "本机处理",
+        "视频会议"
+      ],
+      "revision": "国际版 PSREF · Lunar Lake · Core Ultra 7 268V 配置",
+      "checkedAt": "2026-11-09",
+      "specs": [
+        {
+          "key": "platform",
+          "label": "处理器",
+          "value": "Intel Core Ultra 7 268V（Lunar Lake）",
+          "sourceIds": [
+            "specs"
+          ]
+        },
+        {
+          "key": "npu",
+          "label": "NPU",
+          "value": "Intel AI Boost，最高 48 TOPS（268V 配置，NPU 峰值）",
+          "sourceIds": [
+            "specs"
+          ]
+        },
+        {
+          "key": "battery",
+          "label": "电池",
+          "value": "57 Wh 可充电锂电池",
+          "sourceIds": [
+            "specs"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Windows Studio Effects",
+          "input": "兼容摄像头与麦克风输入",
+          "compute": "device",
+          "output": "支持的摄像头或音频效果可通过设备 NPU 处理",
+          "offline": "功能依赖 Windows、驱动和受支持的摄像头。具体 SKU 的断网使用未实测。",
+          "sourceIds": [
+            "specs",
+            "studio"
+          ]
+        }
+      ],
+      "parts": [
+        {
+          "id": "soc",
+          "name": "处理器与集成 NPU",
+          "role": "提供 Intel AI Boost 端侧计算。",
+          "mpn": "Core Ultra 7 268V",
+          "manufacturer": "Intel",
+          "quantity": "1",
+          "status": "confirmed",
+          "sample": null,
+          "sourceIds": [
+            "specs"
+          ]
+        },
+        {
+          "id": "battery",
+          "name": "电池",
+          "role": "提供 57 Wh 额定规格的便携供电。",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "confirmed",
+          "sample": null,
+          "sourceIds": [
+            "specs"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "specs",
+          "title": "Lenovo PSREF · ThinkPad X1 Carbon Gen 13 Aura Edition",
+          "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_Carbon_Gen_13_Aura_Edition/ThinkPad_X1_Carbon_Gen_13_Aura_Edition_Spec.PDF?v=33838092-ec24-43c8-9a44-84e933ccc43c",
+          "type": "official",
+          "locator": "Processor、AI、Battery"
+        },
+        {
+          "id": "studio",
+          "title": "Microsoft 支持 · Windows Studio Effects",
+          "url": "https://support.microsoft.com/en-au/windows/ai/ai-features/windows-studio-effects",
+          "type": "official",
+          "locator": "NPU 要求、相机效果和功能说明"
+        }
+      ],
+      "model": null
+    },
+    {
+      "id": "huawei-watch-gt-6",
+      "name": "华为 WATCH GT 6",
+      "brand": "华为",
+      "category": "wearable",
+      "kind": "commercial",
+      "origin": "中国品牌",
+      "tagline": "用腕上数据估算骑行强度",
+      "description": "手表把运动与传感数据转成骑行分析指标，并支持定位和运动记录。华为提供逐手机系统的配套兼容清单。 官方资料说明其估算输入，未披露是否采用学习模型。",
+      "aliases": [
+        "HUAWEI WATCH GT 6",
+        "WATCH GT6",
+        "华为 GT 6"
+      ],
+      "tags": [
+        "运动穿戴",
+        "模拟功率",
+        "传感器",
+        "骑行"
+      ],
+      "revision": "中国大陆 · GT 6 标准款 46 mm",
+      "checkedAt": "2026-11-09",
+      "specs": [
+        {
+          "key": "display",
+          "label": "屏幕",
+          "value": "1.47 英寸 AMOLED，466 × 466",
+          "sourceIds": [
+            "specs"
+          ]
+        },
+        {
+          "key": "weight",
+          "label": "重量",
+          "value": "约 51.3 g（不含表带）",
+          "sourceIds": [
+            "specs"
+          ]
+        },
+        {
+          "key": "sensors",
+          "label": "传感器",
+          "value": "加速度计、陀螺仪、光学心率传感器等",
+          "sourceIds": [
+            "specs"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "估算骑行功率",
+          "input": "骑行实时速度、海拔坡度与个人和车辆设置",
+          "compute": "unknown",
+          "output": "在骑行记录中显示模拟功率，供运动分析参考",
+          "offline": "与直接测量的功率计是不同数据来源。离线限制和同步条件按具体版本验证。",
+          "sourceIds": [
+            "cycling",
+            "compat"
+          ]
+        },
+        {
+          "name": "AI 运动解读",
+          "input": "运动状态、训练量等数据",
+          "compute": "unknown",
+          "output": "运动状态解读与训练建议",
+          "offline": "公开资料未说明离线条件，生成内容供参考。",
+          "sourceIds": [
+            "official"
+          ]
+        }
+      ],
+      "parts": [
+        {
+          "id": "optical-sensor",
+          "name": "光学心率传感器",
+          "role": "记录腕部光学测量信号。",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "confirmed",
+          "sample": null,
+          "sourceIds": [
+            "specs"
+          ]
+        },
+        {
+          "id": "display",
+          "name": "AMOLED 显示屏",
+          "role": "查看运动记录和控制手表。",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "confirmed",
+          "sample": null,
+          "sourceIds": [
+            "specs"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "official",
+          "title": "华为 WATCH GT 6 产品页",
+          "url": "https://consumer.huawei.com/cn/wearables/watch-gt6/",
+          "type": "official",
+          "locator": "46 mm 外观、骑行与定位"
+        },
+        {
+          "id": "specs",
+          "title": "华为 WATCH GT 6 规格",
+          "url": "https://consumer.huawei.com/cn/wearables/watch-gt6/specs/",
+          "type": "official",
+          "locator": "46 mm 规格、屏幕与传感器"
+        },
+        {
+          "id": "cycling",
+          "title": "华为支持 · 华为手表骑行",
+          "url": "https://consumer.huawei.com/cn/support/content/zh-cn16066713/",
+          "type": "official",
+          "locator": "模拟骑行功率和适用型号"
+        },
+        {
+          "id": "compat",
+          "title": "华为 WATCH GT 6 系列手机兼容清单",
+          "url": "https://consumer.huawei.com/cn/support/content/zh-cn16066413/",
+          "type": "official",
+          "locator": "运动、骑行和手机配套功能"
+        }
+      ],
+      "model": null,
+      "image": {
+        "url": "https://consumer.huawei.com/content/dam/huawei-cbg-site/cn/mkt/pdp/wearables/watch-gt6/list/46-black.png",
+        "alt": "华为 WATCH GT 6 46 mm 黑色款官方图",
+        "type": "official",
+        "sourceId": "official"
+      }
+    },
+    {
+      "id": "huawei-freebuds-pro-4",
+      "name": "华为 FreeBuds Pro 4",
+      "brand": "华为",
+      "category": "earbuds",
+      "kind": "commercial",
+      "origin": "中国品牌",
+      "tagline": "用骨传导和三路麦克风降低通话噪声",
+      "description": "华为支持文档说明耳机用骨传导拾音与三颗麦克风融合，再以深度神经网络辅助通话降噪。手机平台会影响部分配套功能。",
+      "aliases": [
+        "HUAWEI FreeBuds Pro 4",
+        "FreeBuds Pro4",
+        "Pure Voice"
+      ],
+      "tags": [
+        "通话降噪",
+        "骨传导",
+        "DNN",
+        "耳机"
+      ],
+      "revision": "FreeBuds Pro 4 · 中国大陆功能说明与英国规格页",
+      "checkedAt": "2026-11-09",
+      "specs": [
+        {
+          "key": "microphones",
+          "label": "通话拾音",
+          "value": "三颗麦克风与一颗骨声纹拾音麦克风融合",
+          "sourceIds": [
+            "voice"
+          ]
+        },
+        {
+          "key": "weight",
+          "label": "耳机重量",
+          "value": "单只约 5.8 g",
+          "sourceIds": [
+            "specs"
+          ]
+        },
+        {
+          "key": "connectivity",
+          "label": "连接",
+          "value": "蓝牙 5.2，支持蓝牙双设备连接",
+          "sourceIds": [
+            "specs",
+            "compat"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "DNN 通话降噪",
+          "input": "空气传播的语音与环境声、骨传导拾音信号",
+          "compute": "device",
+          "output": "降低通话中的背景噪声，增强语音可听度",
+          "offline": "通话仍依赖配对终端和相应通信服务。完整断网链路未实测。",
+          "sourceIds": [
+            "voice",
+            "compat"
+          ]
+        }
+      ],
+      "parts": [
+        {
+          "id": "air-mics",
+          "name": "空气拾音麦克风",
+          "role": "为通话降噪提供语音与环境声输入。",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "3（拾音方案）",
+          "status": "confirmed",
+          "sample": null,
+          "sourceIds": [
+            "voice"
+          ]
+        },
+        {
+          "id": "bone-mic",
+          "name": "骨声纹拾音麦克风",
+          "role": "提供骨传导拾音信号。",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "1（拾音方案）",
+          "status": "confirmed",
+          "sample": null,
+          "sourceIds": [
+            "voice"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "official",
+          "title": "HUAWEI FreeBuds Pro 4 官方产品页",
+          "url": "https://consumer.huawei.com/ie/headphones/freebuds-pro-4/",
+          "type": "official",
+          "locator": "产品外观和通话拾音方案"
+        },
+        {
+          "id": "specs",
+          "title": "HUAWEI FreeBuds Pro 4 英国规格",
+          "url": "https://consumer.huawei.com/uk/headphones/freebuds-pro-4/specs/",
+          "type": "official",
+          "locator": "Weight、Sensor、Connectivity"
+        },
+        {
+          "id": "voice",
+          "title": "华为支持 · 耳机静谧通话功能",
+          "url": "https://consumer.huawei.com/cn/support/content/zh-cn15972751/",
+          "type": "official",
+          "locator": "三颗麦克风、骨声纹拾音麦克风和 DNN"
+        },
+        {
+          "id": "compat",
+          "title": "华为 FreeBuds Pro 4 功能兼容清单",
+          "url": "https://consumer.huawei.com/cn/support/content/zh-cn16026156/",
+          "type": "official",
+          "locator": "多手机平台静谧通话和配套应用"
+        }
+      ],
+      "model": null,
+      "image": {
+        "url": "https://consumer.huawei.com/dam/content/dam/huawei-cbg-site/common/mkt/pdp/headphones/freebuds-pro-4/images/hero/huawei-freebuds-pro-4-appearance.jpg",
+        "alt": "华为 FreeBuds Pro 4 官方外观展示图",
+        "type": "official",
+        "sourceId": "official"
+      }
+    },
+    {
+      "id": "plaud-notepin-s",
+      "name": "Plaud NotePin S",
+      "brand": "Plaud",
+      "category": "recorder",
+      "kind": "commercial",
+      "origin": "国际市场样本",
+      "tagline": "把随身录音和联网转写分成两个步骤",
+      "description": "胶囊形设备在本机录音，使用实体按键开始录制和标记。通过配套软件同步后，可生成文字稿、摘要和其他结构化笔记。",
+      "aliases": [
+        "NotePin S",
+        "Plaud AI 录音",
+        "AI 录音夹"
+      ],
+      "tags": [
+        "会议纪要",
+        "离线录音",
+        "云端转写",
+        "穿戴录音"
+      ],
+      "revision": "NotePin S · 全球官网规格",
+      "checkedAt": "2026-11-09",
+      "specs": [
+        {
+          "key": "storage",
+          "label": "本机存储",
+          "value": "64 GB",
+          "sourceIds": [
+            "official",
+            "offline"
+          ]
+        },
+        {
+          "key": "weight",
+          "label": "重量",
+          "value": "17.4 g（不含磁吸别针）",
+          "sourceIds": [
+            "official"
+          ]
+        },
+        {
+          "key": "microphones",
+          "label": "麦克风",
+          "value": "2 颗 MEMS 麦克风",
+          "sourceIds": [
+            "official"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "本机录音",
+          "input": "MEMS 麦克风音频",
+          "compute": "device",
+          "output": "音频保存在本机",
+          "offline": "厂商支持文档明确可离线录音。",
+          "sourceIds": [
+            "offline"
+          ]
+        },
+        {
+          "name": "转写与摘要",
+          "input": "同步后的音频文件",
+          "compute": "cloud",
+          "output": "文字转写、摘要或思维导图",
+          "offline": "厂商说明通常需要互联网。转写额度按订阅方案核对。",
+          "sourceIds": [
+            "official",
+            "offline"
+          ]
+        }
+      ],
+      "parts": [
+        {
+          "id": "microphones",
+          "name": "MEMS 麦克风",
+          "role": "采集会议等场景的环境语音。",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "2",
+          "status": "confirmed",
+          "sample": null,
+          "sourceIds": [
+            "official"
+          ]
+        },
+        {
+          "id": "record-button",
+          "name": "实体录音键",
+          "role": "控制录音并标记重点。",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "confirmed",
+          "sample": null,
+          "sourceIds": [
+            "official"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "official",
+          "title": "Plaud NotePin S 全球产品页",
+          "url": "https://global.plaud.ai/pages/plaud-notepin-s",
+          "type": "official",
+          "locator": "Specification、实体按键、转写与订阅"
+        },
+        {
+          "id": "offline",
+          "title": "Plaud 支持 · NotePin S 离线行为",
+          "url": "https://support.plaud.ai/hc/en-us/articles/53771056805785-Does-Plaud-NotePin-S-work-offline",
+          "type": "official",
+          "locator": "本地录音、同步和 AI 处理"
+        }
+      ],
+      "model": null,
+      "image": {
+        "url": "https://global.plaud.ai/cdn/shop/files/plaud-notepin-s-black.webp?v=1766749749&width=640",
+        "alt": "黑色 Plaud NotePin S 官方产品图",
+        "type": "official",
+        "sourceId": "official"
+      }
+    },
+    {
+      "id": "iflytek-t30-ultra",
+      "name": "科大讯飞 AI 学习机 T30 Ultra",
+      "brand": "科大讯飞",
+      "category": "education",
+      "kind": "commercial",
+      "origin": "中国品牌",
+      "tagline": "采集纸面练习和坐姿，结合学习内容给反馈",
+      "description": "学习机为书写与语音交互提供独立终端。原厂资料列出翻转双目摄像头和独立坐姿摄像头，可用于对比教学辅助与一般平板的输入设计。",
+      "aliases": [
+        "iFLYTEK T30 Ultra",
+        "讯飞学习机 T30 Ultra",
+        "AI学习机"
+      ],
+      "tags": [
+        "学习辅助",
+        "纸面练习",
+        "坐姿识别",
+        "手写笔"
+      ],
+      "revision": "中国大陆 · T30 Ultra · 12 GB + 1 TB",
+      "checkedAt": "2026-11-09",
+      "specs": [
+        {
+          "key": "display",
+          "label": "屏幕",
+          "value": "14.7 英寸，3K，120 Hz",
+          "sourceIds": [
+            "official"
+          ]
+        },
+        {
+          "key": "storage",
+          "label": "存储",
+          "value": "12 GB + 1 TB",
+          "sourceIds": [
+            "official"
+          ]
+        },
+        {
+          "key": "camera",
+          "label": "摄像头",
+          "value": "1,600 万像素自动翻转双目、800 万像素前置、200 万像素坐姿摄像头",
+          "sourceIds": [
+            "official"
+          ]
+        },
+        {
+          "key": "battery",
+          "label": "电池",
+          "value": "12,000 mAh，45 W 快充",
+          "sourceIds": [
+            "official"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "坐姿守护",
+          "input": "坐姿摄像头采集的姿势信息",
+          "compute": "unknown",
+          "output": "识别并提醒部分不良坐姿，支持纸质书和学习机两种场景",
+          "offline": "官方资料未说明断网能否使用。",
+          "sourceIds": [
+            "official"
+          ]
+        },
+        {
+          "name": "学习路径辅助",
+          "input": "学情互动、练习和语音或手写输入",
+          "compute": "unknown",
+          "output": "基于系列方案提供分析和练习路径",
+          "offline": "功能受学段、内容、账户及软件版本影响，端云分工和离线条件待核实。",
+          "sourceIds": [
+            "official"
+          ]
+        }
+      ],
+      "parts": [
+        {
+          "id": "flip-camera",
+          "name": "自动翻转双目摄像头",
+          "role": "提供可朝向纸面或操作区域的视觉输入。",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "1 套",
+          "status": "confirmed",
+          "sample": null,
+          "sourceIds": [
+            "official"
+          ]
+        },
+        {
+          "id": "posture-camera",
+          "name": "坐姿摄像头",
+          "role": "为坐姿守护提供图像输入。",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "confirmed",
+          "sample": null,
+          "sourceIds": [
+            "official"
+          ]
+        },
+        {
+          "id": "microphones",
+          "name": "麦克风",
+          "role": "采集语音交互输入。",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "4",
+          "status": "confirmed",
+          "sample": null,
+          "sourceIds": [
+            "official"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "official",
+          "title": "科大讯飞智慧教育 · AI 学习机",
+          "url": "https://edu.iflytek.com/solution/family/learning-pad",
+          "type": "official",
+          "locator": "T30 Ultra 规格和坐姿守护，系列学习场景"
+        }
+      ],
+      "model": null,
+      "image": {
+        "url": "https://edu.iflytek.com/Public/Uploads/uploadfile/images/20250729/T30Ultrachanpintu.png",
+        "alt": "科大讯飞 T30 Ultra 官方产品图",
+        "type": "official",
+        "sourceId": "official"
+      }
+    },
+    {
+      "origin": "中国",
+      "kind": "commercial",
+      "checkedAt": "2026-11-09",
+      "model": null,
+      "id": "roborock-saros-10r",
+      "name": "石头 Saros 10R 扫拖机器人",
+      "brand": "石头科技 Roborock",
+      "category": "vacuum",
+      "tagline": "把深度感知和图像识别装进 79.8 mm 的扫拖机身",
+      "description": "Saros 10R 通过 StarSight 2.0 将双光源 3D ToF 与 RGB 图像结合，用于测距、导航和障碍识别。机身通过可升降底盘和伸展机构适配不同清扫位置。它与同系列 Saros 10 采用不同导航架构。",
+      "aliases": [
+        "Roborock Saros 10R",
+        "石头 Saros 10R"
+      ],
+      "tags": [
+        "室内清洁",
+        "3D ToF",
+        "RGB 视觉",
+        "避障",
+        "家庭自动化"
+      ],
+      "revision": "2025 年 CES 发布款 · 全球规格",
+      "specs": [
+        {
+          "key": "sensors",
+          "label": "导航传感器",
+          "value": "双光源 3D ToF 与 RGB 摄像头组成 StarSight 2.0",
+          "sourceIds": [
+            "launch"
+          ]
+        },
+        {
+          "key": "dimensions",
+          "label": "机身尺寸",
+          "value": "350 × 353 × 79.8 mm",
+          "sourceIds": [
+            "product"
+          ]
+        },
+        {
+          "key": "dock",
+          "label": "基站",
+          "value": "标准基站 381 × 475 × 488 mm，另有自动上下水组合",
+          "sourceIds": [
+            "product"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "深度导航与障碍识别",
+          "input": "3D ToF 深度与 RGB 图像",
+          "compute": "unknown",
+          "output": "用于室内导航、规划清扫路径和绕开障碍",
+          "offline": "公开产品页未说明完整断网功能矩阵。",
+          "sourceIds": [
+            "launch",
+            "product"
+          ]
+        }
+      ],
+      "parts": [
+        {
+          "id": "tof",
+          "name": "3D ToF 感知组件",
+          "role": "为 StarSight 2.0 提供空间测距",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "未公开",
+          "status": "confirmed",
+          "sample": null,
+          "sourceIds": [
+            "launch"
+          ]
+        },
+        {
+          "id": "rgb",
+          "name": "RGB 摄像头",
+          "role": "为障碍识别提供可见光图像",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "未公开",
+          "status": "confirmed",
+          "sample": null,
+          "sourceIds": [
+            "launch"
+          ]
+        },
+        {
+          "id": "chassis",
+          "name": "升降底盘",
+          "role": "调整底盘位置以通过地面落差",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "confirmed",
+          "sample": null,
+          "sourceIds": [
+            "product"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "product",
+          "title": "Roborock Saros 10R 全球产品页",
+          "url": "https://global.roborock.com/pages/roborock-saros-10r",
+          "type": "official",
+          "locator": "StarSight 2.0、规格与 Saros 10 对比"
+        },
+        {
+          "id": "launch",
+          "title": "Roborock Saros 10R 发布公告",
+          "url": "https://newsroom.roborock.com/gl/news/roborock-launches-saros-10r-at-ces-2025-ultra-slim-and-highly-intelligent-robotic-vacuum-flagship",
+          "type": "official",
+          "locator": "导航与障碍规避一节"
+        }
+      ],
+      "image": {
+        "url": "https://global.roborock.com/cdn/shop/files/Saro10R_section4_saros.jpg?v=11750952005501148566",
+        "alt": "Roborock 官方 Saros 10R 机身与基站",
+        "type": "official",
+        "sourceId": "product"
+      }
+    },
+    {
+      "origin": "中国",
+      "kind": "commercial",
+      "checkedAt": "2026-11-09",
+      "model": null,
+      "id": "aqara-g5-pro-poe",
+      "name": "Aqara Camera Hub G5 Pro（PoE）",
+      "brand": "Aqara 绿米",
+      "category": "security",
+      "tagline": "一台 PoE 摄像机兼顾端侧事件识别和智能家居联动",
+      "description": "PoE 版以本机 AI 对画面中的人、宠物、车辆与包裹等事件做识别，并提供局域网 RTSP。选型时应区分端侧检测、局域网存储和依赖互联网的远程功能。",
+      "aliases": [
+        "G5 Pro PoE",
+        "CH-C03E",
+        "CH-C03D",
+        "Aqara G5 Pro"
+      ],
+      "tags": [
+        "家居安防",
+        "端侧视觉",
+        "PoE",
+        "RTSP",
+        "Matter"
+      ],
+      "revision": "全球 PoE 版 · CH-C03E / CH-C03D",
+      "specs": [
+        {
+          "key": "camera",
+          "label": "摄像规格",
+          "value": "2688 × 1520，f/1.0，133° 对角视场",
+          "sourceIds": [
+            "specs"
+          ]
+        },
+        {
+          "key": "power",
+          "label": "供电方式",
+          "value": "IEEE 802.3af PoE，或 USB-C 5 V / 2 A",
+          "sourceIds": [
+            "specs"
+          ]
+        },
+        {
+          "key": "network",
+          "label": "网络与联动",
+          "value": "有线 Ethernet，支持 Zigbee 和 Thread",
+          "sourceIds": [
+            "specs"
+          ]
+        },
+        {
+          "key": "storage",
+          "label": "本机存储",
+          "value": "内置 eMMC，官方帮助页列有 32 GB 与部分机型 8 GB",
+          "sourceIds": [
+            "support"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "本机画面事件识别",
+          "input": "摄像头图像",
+          "compute": "device",
+          "output": "识别人、宠物、车辆、包裹等事件，可触发相关通知和自动化",
+          "offline": "厂商说明本机检测可在互联网断开时继续记录并触发本地自动化。RTSP 需要局域网，远程通知需另核对联网条件。",
+          "sourceIds": [
+            "product",
+            "support",
+            "release"
+          ]
+        }
+      ],
+      "parts": [
+        {
+          "id": "camera",
+          "name": "成像组件",
+          "role": "提供视频和用于事件识别的画面",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "confirmed",
+          "sample": null,
+          "sourceIds": [
+            "specs",
+            "support"
+          ]
+        },
+        {
+          "id": "pir",
+          "name": "PIR 传感器",
+          "role": "感知运动，规格给出水平和垂直检测角",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "confirmed",
+          "sample": null,
+          "sourceIds": [
+            "specs"
+          ]
+        },
+        {
+          "id": "emmc",
+          "name": "eMMC 存储",
+          "role": "保存本机视频，容量以对应 SKU 为准",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "confirmed",
+          "sample": null,
+          "sourceIds": [
+            "support"
+          ]
+        },
+        {
+          "id": "npu",
+          "name": "内置 NPU",
+          "role": "在设备端执行视觉及声音检测",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "未公开",
+          "status": "confirmed",
+          "sample": null,
+          "sourceIds": [
+            "release"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "product",
+          "title": "Aqara Camera Hub G5 Pro 产品页",
+          "url": "https://www.aqara.com/en/product/camera-hub-g5-pro/",
+          "type": "official",
+          "locator": "On-Device AI、局域网流媒体与存储"
+        },
+        {
+          "id": "specs",
+          "title": "Aqara Camera Hub G5 Pro 规格",
+          "url": "https://www.aqara.com/en/product/camera-hub-g5-pro-specs/",
+          "type": "official",
+          "locator": "G5 Pro (PoE) 规格列"
+        },
+        {
+          "id": "support",
+          "title": "Aqara G5 Pro PoE 官方帮助",
+          "url": "https://store-support.aqara.com/products/camera-hub-g5-pro",
+          "type": "official",
+          "locator": "AI 检测、RTSP、存储与 PoE"
+        },
+        {
+          "id": "release",
+          "title": "Aqara G5 Pro 全球发布公告",
+          "url": "https://www.aqara.com/us/news-us-2/aqara-camera-hub-g5-pro-released-to-global-markets/",
+          "type": "official",
+          "locator": "端侧 NPU、断网事件记录、局域网 RTSP"
+        }
+      ],
+      "image": {
+        "url": "https://www.aqara.com/wp-content/uploads/2025/02/2-1.jpg",
+        "alt": "Aqara 官方 G5 Pro 系列摄像机外观图",
+        "type": "official",
+        "sourceId": "product"
+      }
+    },
+    {
+      "origin": "中国",
+      "kind": "commercial",
+      "checkedAt": "2026-11-09",
+      "model": null,
+      "id": "xiaomi-su7-2026-standard",
+      "name": "新一代小米 SU7 标准版",
+      "brand": "小米汽车",
+      "category": "vehicle",
+      "tagline": "用量产车型理解激光雷达、车端算力与辅助驾驶系统",
+      "description": "本档案对应 2026 年 3 月发布的新一代 SU7 标准版。官方列出激光雷达、700 TOPS 辅助驾驶算力以及搭载 XLA 的 Xiaomi HAD。体验随软件版本、功能开放条件与使用环境变化。",
+      "aliases": [
+        "Xiaomi SU7 2026",
+        "新一代 SU7",
+        "小米 SU7 标准版"
+      ],
+      "tags": [
+        "出行",
+        "驾驶辅助",
+        "激光雷达",
+        "车端算力",
+        "Xiaomi HAD"
+      ],
+      "revision": "2026 年 3 月发布 · 中国大陆标准版",
+      "specs": [
+        {
+          "key": "platform",
+          "label": "辅助驾驶算力",
+          "value": "官方标称 700 TOPS，性能指标适用条件以原厂资料为准",
+          "sourceIds": [
+            "launch"
+          ]
+        },
+        {
+          "key": "sensors",
+          "label": "感知配置",
+          "value": "标配激光雷达",
+          "sourceIds": [
+            "config",
+            "launch"
+          ]
+        },
+        {
+          "key": "range",
+          "label": "CLTC 续航",
+          "value": "720 km，适用于标准版 19 英寸长续航胎配置",
+          "sourceIds": [
+            "config",
+            "launch"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Xiaomi HAD 辅助驾驶",
+          "input": "车载感知数据，包含激光雷达数据",
+          "compute": "device",
+          "output": "以车端感知和计算提供驾驶辅助",
+          "offline": "不同场景、地图、网络和 OTA 条件下的功能范围需查阅当前说明。使用过程中驾驶员仍需监督。",
+          "sourceIds": [
+            "pilot",
+            "launch"
+          ]
+        }
+      ],
+      "parts": [
+        {
+          "id": "lidar",
+          "name": "激光雷达",
+          "role": "采集用于辅助驾驶的环境距离信息",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "未公开",
+          "status": "confirmed",
+          "sample": null,
+          "sourceIds": [
+            "config",
+            "launch"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "config",
+          "title": "小米汽车新一代 SU7 参数配置",
+          "url": "https://www.xiaomiev.com/xiaomi/car-config",
+          "type": "official",
+          "locator": "标准版、辅助驾驶配置与续航条件"
+        },
+        {
+          "id": "pilot",
+          "title": "小米辅助驾驶官方技术介绍",
+          "url": "https://www.xiaomiev.com/pilot",
+          "type": "official",
+          "locator": "新一代 SU7 的 Xiaomi HAD 与适用条件"
+        },
+        {
+          "id": "launch",
+          "title": "小米集团 2025 年第四季度业绩演示",
+          "url": "https://ir.mi.com/system/files-encrypted/nasdaq_kms/assets/2026/03/24/6-22-11/Xiaomi%20Corp_25Q4_ER_CHN%20vF.pdf",
+          "type": "official",
+          "locator": "第 25 页，新一代 SU7 发布与全系配置"
+        },
+        {
+          "id": "appearance",
+          "title": "小米汽车新一代 SU7 产品页",
+          "url": "https://www.xiaomiev.com/su7",
+          "type": "official",
+          "locator": "外观设计，官方车系配图"
+        }
+      ],
+      "image": {
+        "url": "https://s1.xiaomiev.com/activity-outer-assets/0328/images/su7_20260319/pc/3-1.png",
+        "alt": "小米汽车官方新一代 SU7 车系外观图，配置见规格表",
+        "type": "official",
+        "sourceId": "appearance"
+      }
+    },
+    {
+      "origin": "中国",
+      "kind": "commercial",
+      "checkedAt": "2026-11-09",
+      "model": null,
+      "id": "seeed-recomputer-j3010",
+      "name": "Seeed reComputer J3010 边缘计算盒",
+      "brand": "Seeed Studio 矽递",
+      "category": "edge",
+      "tagline": "从 CSI 摄像头到 Jetson GPU，搭一条可复现实验的视觉链路",
+      "description": "reComputer J3010 Classic 配置 Jetson Orin Nano 4 GB 模组和 J401 载板。两个 CSI 接口可接视觉传感器，开发者可部署自己的目标检测等工作负载。算力记录以 Seeed 的基准配置为准，实际帧率需随模型和功耗模式测量。",
+      "aliases": [
+        "J3010",
+        "reComputer J30",
+        "Orin Nano 4GB",
+        "Jetson Orin Nano"
+      ],
+      "tags": [
+        "边缘推理",
+        "Jetson",
+        "目标检测",
+        "CSI",
+        "开发套件"
+      ],
+      "revision": "J30/40 Classic · J3010 4 GB · Seeed SKU 110110146",
+      "specs": [
+        {
+          "key": "platform",
+          "label": "处理平台",
+          "value": "Jetson Orin Nano 4 GB，512 核 Ampere GPU、16 个 Tensor Core",
+          "sourceIds": [
+            "wiki"
+          ]
+        },
+        {
+          "key": "ai-performance",
+          "label": "基准 AI 算力",
+          "value": "Seeed J30/40 原规格标称 20 TOPS，Super 模式另受固件和功耗配置约束",
+          "sourceIds": [
+            "wiki",
+            "store"
+          ]
+        },
+        {
+          "key": "storage",
+          "label": "存储",
+          "value": "128 GB NVMe SSD",
+          "sourceIds": [
+            "wiki"
+          ]
+        },
+        {
+          "key": "interfaces",
+          "label": "主要接口",
+          "value": "2 路 15 针 CSI、千兆以太网、4 个 USB-A 3.2、HDMI 2.1 和 CAN",
+          "sourceIds": [
+            "wiki"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "本地视觉推理部署",
+          "input": "接入的 CSI 摄像头或开发者提供的视频",
+          "compute": "device",
+          "output": "运行自行部署的目标检测等视觉任务",
+          "offline": "设备可执行本地处理。软件、权重和依赖的首次获取条件取决于所选工作负载。",
+          "sourceIds": [
+            "wiki"
+          ]
+        }
+      ],
+      "parts": [
+        {
+          "id": "module",
+          "name": "Jetson Orin Nano 4 GB 模组",
+          "role": "运行 Linux 和端侧推理任务",
+          "mpn": "Jetson Orin Nano 4GB",
+          "manufacturer": "NVIDIA",
+          "quantity": "1",
+          "status": "confirmed",
+          "sample": null,
+          "sourceIds": [
+            "wiki"
+          ]
+        },
+        {
+          "id": "carrier",
+          "name": "J401 载板",
+          "role": "提供 CSI、USB、显示和有线网络接口",
+          "mpn": "J401",
+          "manufacturer": "Seeed Studio",
+          "quantity": "1",
+          "status": "confirmed",
+          "sample": null,
+          "sourceIds": [
+            "wiki",
+            "interfaces",
+            "schematic"
+          ]
+        },
+        {
+          "id": "ssd",
+          "name": "128 GB NVMe SSD",
+          "role": "存放系统和模型文件",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "confirmed",
+          "sample": null,
+          "sourceIds": [
+            "wiki"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "wiki",
+          "title": "Seeed reComputer J30/40 开发文档",
+          "url": "https://wiki.seeedstudio.com/reComputer_J30_40_with_Jetson_getting_start/",
+          "type": "manual",
+          "locator": "J3010 规格列、Flash JetPack 与接口章节"
+        },
+        {
+          "id": "store",
+          "title": "Seeed reComputer J3010 官方商品页",
+          "url": "https://www.seeedstudio.com/reComputer-J3010-p-5589.html",
+          "type": "official",
+          "locator": "型号、SKU、Classic 与 Super 模式说明"
+        },
+        {
+          "id": "interfaces",
+          "title": "Seeed J401 载板接口使用说明",
+          "url": "https://wiki.seeedstudio.com/J401_carrierboard_Hardware_Interfaces_Usage/",
+          "type": "manual",
+          "locator": "CSI Cameras、CAN 和 USB 等接口"
+        },
+        {
+          "id": "schematic",
+          "title": "Seeed J401 V1.0 载板原理图",
+          "url": "https://files.seeedstudio.com/wiki/J401/reComputer_J401_SCH_V1.0.pdf",
+          "type": "manual",
+          "locator": "J30/40 开发文档 Resources 指向的 V1.0 载板设计"
+        }
+      ],
+      "build": {
+        "repo": "https://wiki.seeedstudio.com/reComputer_J30_40_with_Jetson_getting_start/",
+        "steps": [
+          "核对 J3010 Classic 的 Orin Nano 4 GB 模组、J401 载板与现有 JetPack 版本。",
+          "按载板接口章节接入匹配的 CSI 摄像头并验证视频流。",
+          "部署一个公开的轻量目标检测模型，记录模型版本、输入分辨率、时延与功耗模式。"
+        ],
+        "stepSourceIds": [
+          [
+            "wiki",
+            "store"
+          ],
+          [
+            "wiki",
+            "interfaces"
+          ],
+          []
+        ],
+        "note": "前两步有原厂文档。最后一步是可复现实验建议，性能仍需实测。"
+      }
+    },
+    {
+      "origin": "中国",
+      "kind": "commercial",
+      "checkedAt": "2026-11-09",
+      "model": null,
+      "id": "dji-osmo-pocket-3",
+      "name": "DJI Osmo Pocket 3",
+      "brand": "DJI 大疆",
+      "category": "imaging",
+      "tagline": "主体跟踪驱动三轴云台，适合独自拍摄时保持构图",
+      "description": "使用 1 英寸 CMOS 采集画面，通过 ActiveTrack 6.0 识别和跟随选定主体。相机触屏可启动跟踪，拍摄素材写入机身插入的 microSD 卡。",
+      "aliases": [
+        "大疆 Pocket 3",
+        "Osmo Pocket 3",
+        "ActiveTrack 6.0"
+      ],
+      "tags": [
+        "影像创作",
+        "主体追踪",
+        "三轴云台",
+        "本机拍摄"
+      ],
+      "revision": "Osmo Pocket 3 · 全球官方规格",
+      "specs": [
+        {
+          "key": "camera",
+          "label": "图像传感器",
+          "value": "1 英寸 CMOS，等效 20 mm、f/2.0",
+          "sourceIds": [
+            "specs"
+          ]
+        },
+        {
+          "key": "gimbal",
+          "label": "稳定机构",
+          "value": "三轴机械云台",
+          "sourceIds": [
+            "product",
+            "specs"
+          ]
+        },
+        {
+          "key": "weight",
+          "label": "机身重量",
+          "value": "179 g",
+          "sourceIds": [
+            "specs"
+          ]
+        },
+        {
+          "key": "video",
+          "label": "正常视频",
+          "value": "16:9 最高 4K/60fps，4K/120fps 适用于慢动作",
+          "sourceIds": [
+            "specs"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "ActiveTrack 6.0 主体跟踪",
+          "input": "相机画面与触屏选定目标",
+          "compute": "device",
+          "output": "驱动云台让主体保持在构图内",
+          "offline": "首次激活需要 DJI Mimo。可在机身触屏启动跟踪，支持范围随拍摄模式变化。",
+          "sourceIds": [
+            "product",
+            "faq"
+          ]
+        }
+      ],
+      "parts": [
+        {
+          "id": "camera",
+          "name": "1 英寸 CMOS",
+          "role": "采集用于拍摄及主体跟踪的画面",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "confirmed",
+          "sample": null,
+          "sourceIds": [
+            "specs"
+          ]
+        },
+        {
+          "id": "gimbal",
+          "name": "三轴机械云台",
+          "role": "稳定画面并调整朝向",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "confirmed",
+          "sample": null,
+          "sourceIds": [
+            "product",
+            "specs"
+          ]
+        },
+        {
+          "id": "microphones",
+          "name": "内置麦克风",
+          "role": "采集多个方向的声音",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "3",
+          "status": "confirmed",
+          "sample": null,
+          "sourceIds": [
+            "specs",
+            "faq"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "product",
+          "title": "DJI Osmo Pocket 3 官方产品页",
+          "url": "https://www.dji.com/osmo-pocket-3",
+          "type": "official",
+          "locator": "ActiveTrack 6.0、三轴机械云台与首次激活"
+        },
+        {
+          "id": "specs",
+          "title": "DJI Osmo Pocket 3 官方规格",
+          "url": "https://www.dji.com/osmo-pocket-3/specs",
+          "type": "official",
+          "locator": "General、Gimbal、Camera"
+        },
+        {
+          "id": "faq",
+          "title": "DJI Osmo Pocket 3 官方问答",
+          "url": "https://www.dji.com/osmo-pocket-3/faq",
+          "type": "official",
+          "locator": "ActiveTrack、激活及素材导出"
+        }
+      ],
+      "image": {
+        "url": "https://www-cdn.djiits.com/cms/uploads/8c6ec9b0dc4e170120dfd4ebf9f0ffd6@374*374.png",
+        "alt": "DJI 官网 Osmo Pocket 3 机身外观",
+        "type": "official",
+        "sourceId": "product"
+      }
+    },
+    {
+      "origin": "中国",
+      "kind": "commercial",
+      "checkedAt": "2026-11-09",
+      "model": null,
+      "id": "navimow-i105e",
+      "name": "Segway Navimow i105E 无线割草机器人",
+      "brand": "Segway Navimow",
+      "category": "outdoor",
+      "tagline": "用 RTK 与视觉生成虚拟边界，规划草坪养护路径",
+      "description": "i105E 是 Navimow i 系列欧洲型号。它用 EFLS 2.0 的 RTK 和视觉辅助定位，由 VisionFence 识别障碍，并在应用内设置分区、禁区与割草计划。",
+      "aliases": [
+        "Navimow i105",
+        "Segway i105E",
+        "九号 Navimow i105E"
+      ],
+      "tags": [
+        "庭院维护",
+        "无边界线",
+        "RTK",
+        "VisionFence",
+        "视觉避障"
+      ],
+      "revision": "欧洲 i105E 版本 · 官方 i 系列",
+      "specs": [
+        {
+          "key": "sensors",
+          "label": "定位与感知",
+          "value": "EFLS 2.0 融合 RTK 与视觉，支持 VisionFence 视觉避障",
+          "sourceIds": [
+            "product"
+          ]
+        },
+        {
+          "key": "cut-height",
+          "label": "切割高度",
+          "value": "20–60 mm，手动调节",
+          "sourceIds": [
+            "product"
+          ]
+        },
+        {
+          "key": "slope",
+          "label": "标称作业坡度",
+          "value": "最大 30%（约 17°），取自厂商条件",
+          "sourceIds": [
+            "product"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "AI 辅助建图与避障",
+          "input": "RTK 定位数据与视觉图像",
+          "compute": "unknown",
+          "output": "识别边界和障碍，依据已配置区域规划割草路径",
+          "offline": "需经 Navimow App 设置。断网后建图、计划执行和远程控制的范围未在产品页完整说明。",
+          "sourceIds": [
+            "product"
+          ]
+        }
+      ],
+      "parts": [
+        {
+          "id": "camera",
+          "name": "VisionFence 摄像头",
+          "role": "向边界识别和障碍规避提供画面",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "未公开",
+          "status": "confirmed",
+          "sample": null,
+          "sourceIds": [
+            "product"
+          ]
+        },
+        {
+          "id": "rtk",
+          "name": "RTK 定位组件",
+          "role": "与视觉定位协作，支持虚拟边界",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "未公开",
+          "status": "confirmed",
+          "sample": null,
+          "sourceIds": [
+            "product"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "product",
+          "title": "Segway Navimow i105E 官方产品页",
+          "url": "https://navimow.segway.com/products/navimow-i105?variant=52466691572017",
+          "type": "official",
+          "locator": "EFLS 2.0、AI-Assist Mapping、VisionFence 与规格"
+        }
+      ],
+      "image": {
+        "url": "https://navimow.segway.com/cdn/shop/files/Naivmow_i105_1000_1_8.png?v=1770228138&width=832",
+        "alt": "Segway Navimow 官方 i105E 割草机器人外观",
+        "type": "official",
+        "sourceId": "product"
+      }
+    },
+    {
+      "origin": "中国",
+      "kind": "commercial",
+      "checkedAt": "2026-11-09",
+      "model": null,
+      "id": "petkit-yumshare-dual-hopper-2",
+      "name": "PETKIT YumShare Dual-hopper 2 智能喂食器",
+      "brand": "PETKIT 小佩",
+      "category": "pet",
+      "tagline": "将双仓定时出粮和多猫进食识别放在同一台设备",
+      "description": "D4SH-2 双仓喂食器集成摄像头与手动出粮键。厂商应用提供多猫个体识别和进食事件回看。排程出粮、相机识别和远程回看是三条不同的功能路径，应分别核对网络、电源及服务条件。",
+      "aliases": [
+        "YumShare Dual-hopper 2",
+        "D4SH-2",
+        "小佩双仓摄像喂食器"
+      ],
+      "tags": [
+        "宠物照护",
+        "多猫识别",
+        "双仓",
+        "喂食计划",
+        "远程看护"
+      ],
+      "revision": "D4SH-2 · 全球版带摄像头型号",
+      "specs": [
+        {
+          "key": "capacity",
+          "label": "双仓总容量",
+          "value": "5 L，厂商产品页标称",
+          "sourceIds": [
+            "product"
+          ]
+        },
+        {
+          "key": "network",
+          "label": "联网与绑定",
+          "value": "通过 PETKIT App 配网，手册明确支持 5 GHz Wi-Fi",
+          "sourceIds": [
+            "manual"
+          ]
+        },
+        {
+          "key": "controls",
+          "label": "机身控制",
+          "value": "01 / 02 两个仓位分别支持机身按键出粮",
+          "sourceIds": [
+            "manual"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "多猫识别与进食事件记录",
+          "input": "喂食器摄像头画面",
+          "compute": "unknown",
+          "output": "在应用中按猫个体查看进食事件",
+          "offline": "厂商公开资料未披露个体识别的推理位置与断网能力。设备手册另说明机身按键可手动出粮。",
+          "sourceIds": [
+            "product",
+            "manual"
+          ]
+        }
+      ],
+      "parts": [
+        {
+          "id": "camera",
+          "name": "监控摄像头",
+          "role": "提供食盆和宠物活动画面",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "confirmed",
+          "sample": null,
+          "sourceIds": [
+            "product",
+            "manual"
+          ]
+        },
+        {
+          "id": "hopper",
+          "name": "储粮仓",
+          "role": "分仓存放食物并独立出粮",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "2",
+          "status": "confirmed",
+          "sample": null,
+          "sourceIds": [
+            "manual"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "product",
+          "title": "PETKIT YumShare Dual-hopper 2 官方产品页",
+          "url": "https://www.petkit.com/products/yumshare-dual-hopper-2-automatic-feeder-with-camera",
+          "type": "official",
+          "locator": "Multi-Cat Recognition、定时喂食与容量"
+        },
+        {
+          "id": "manual",
+          "title": "PETKIT D4SH-2 用户手册",
+          "url": "https://instructions.petkit.com/App%20Manual/D4sh-2/D4SH-2_User%20Manual_EN_V1.0_20251024_%20.pdf",
+          "type": "manual",
+          "locator": "第 4 章手动出粮与绑定、规格"
+        }
+      ],
+      "image": {
+        "url": "https://www.petkit.com/cdn/shop/files/petkit-yumshare-dual-hopper-2-cat-feeder-ai-camera-2-year-warranty.png?v=1773383821&width=800",
+        "alt": "PETKIT 官网 YumShare Dual-hopper 2 喂食器外观",
+        "type": "official",
+        "sourceId": "product"
+      }
     }
   ]
 }

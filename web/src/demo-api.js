@@ -56,8 +56,10 @@ function search(products, params) {
     }
     return true;
   });
+  const offset = Number(params.get('offset')) || 0;
+  const limit = Number(params.get('limit')) || 100;
   return {
-    products: found.slice(0, Number(params.get('limit')) || 100),
+    products: found.slice(offset, offset + limit),
     total: found.length,
     parts: parts.slice(0, 150),
     categories: categories.map(({ id, label }) => ({ id, label, count: counts.get(id) })),

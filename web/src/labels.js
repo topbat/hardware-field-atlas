@@ -1,4 +1,4 @@
-import { Cube, Eyeglasses, GridFour, Monitor, Robot, SpeakerHigh, SquaresFour } from '@phosphor-icons/react';
+import { Camera, Car, Circuitry, Cube, Eyeglasses, GraduationCap, GridFour, Headphones, Laptop, Microphone, Monitor, PawPrint, Robot, Shield, SpeakerHigh, SquaresFour, DeviceMobile, DeviceTablet, Printer, Tree, VirtualReality, Watch } from '@phosphor-icons/react';
 
 export const categories = [
   { id: 'toy', label: 'AI 玩具', english: 'COMPANIONS', icon: Robot },
@@ -7,6 +7,22 @@ export const categories = [
   { id: 'mirror', label: 'AI 镜子', english: 'MIRRORS', icon: GridFour },
   { id: 'cabinet', label: 'AI 柜子', english: 'CABINETS', icon: SquaresFour },
   { id: 'desk', label: 'AI 电脑桌', english: 'DESKS', icon: Monitor },
+  { id: 'phone', label: 'AI 手机', english: 'PHONES', icon: DeviceMobile },
+  { id: 'tablet', label: 'AI 平板', english: 'TABLETS', icon: DeviceTablet },
+  { id: 'computer', label: 'AI 电脑', english: 'COMPUTERS', icon: Laptop },
+  { id: 'wearable', label: '智能穿戴', english: 'WEARABLES', icon: Watch },
+  { id: 'earbuds', label: 'AI 耳机', english: 'AUDIO', icon: Headphones },
+  { id: 'recorder', label: 'AI 录音', english: 'RECORDERS', icon: Microphone },
+  { id: 'education', label: 'AI 学习设备', english: 'LEARNING', icon: GraduationCap },
+  { id: 'vacuum', label: '扫地机器人', english: 'CLEANING', icon: Robot },
+  { id: 'security', label: '智能安防', english: 'SECURITY', icon: Shield },
+  { id: 'vehicle', label: '智能出行', english: 'MOBILITY', icon: Car },
+  { id: 'edge', label: '边缘计算', english: 'EDGE AI', icon: Circuitry },
+  { id: 'imaging', label: 'AI 影像', english: 'IMAGING', icon: Camera },
+  { id: 'outdoor', label: '庭院机器人', english: 'OUTDOOR', icon: Tree },
+  { id: 'pet', label: '智能养宠', english: 'PETS', icon: PawPrint },
+  { id: 'fabrication', label: '智能制造', english: 'FABRICATION', icon: Printer },
+  { id: 'xr', label: '空间计算', english: 'SPATIAL', icon: VirtualReality },
 ];
 
 export function categoryFor(id) {

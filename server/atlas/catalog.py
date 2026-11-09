@@ -14,8 +14,17 @@ from pydantic import BaseModel, ConfigDict, Field, field_validator, model_valida
 CATEGORIES = {
     "toy": "AI 玩具", "glasses": "AI 眼镜", "speaker": "AI 音箱",
     "mirror": "AI 镜子", "cabinet": "AI 柜子", "desk": "AI 电脑桌",
+    "phone": "AI 手机", "tablet": "AI 平板", "computer": "AI 电脑",
+    "wearable": "智能穿戴", "earbuds": "AI 耳机", "recorder": "AI 录音",
+    "education": "AI 学习设备", "vacuum": "扫地机器人", "security": "智能安防",
+    "vehicle": "智能出行", "edge": "边缘计算", "imaging": "AI 影像",
+    "outdoor": "庭院机器人", "pet": "智能养宠", "fabrication": "智能制造", "xr": "空间计算",
 }
-Category = Literal["toy", "glasses", "speaker", "mirror", "cabinet", "desk"]
+Category = Literal[
+    "toy", "glasses", "speaker", "mirror", "cabinet", "desk", "phone", "tablet", "computer",
+    "wearable", "earbuds", "recorder", "education", "vacuum", "security", "vehicle",
+    "edge", "imaging", "outdoor", "pet", "fabrication", "xr",
+]
 Kind = Literal["commercial", "open", "reference", "module"]
 Compute = Literal["device", "phone", "lan", "cloud", "mixed", "unknown"]
 ID_PATTERN = r"^[a-z0-9][a-z0-9_-]{0,63}$"
@@ -318,7 +327,7 @@ def matches(term: str, value: str) -> bool:
 
 
 def filter_catalog(products: list[dict], query: str, category: str | None, kind: str | None,
-                   compute: str | None, model: bool | None, limit: int) -> dict:
+                   compute: str | None, model: bool | None, limit: int, offset: int = 0) -> dict:
     terms = normalize(query).split()
     found = []
     matched_parts = []
@@ -346,6 +355,6 @@ def filter_catalog(products: list[dict], query: str, category: str | None, kind:
             if terms and all(any(matches(term, value) for value in values) for term in terms):
                 matched_parts.append({"productId": product["id"], "productName": product["name"], "part": part})
     return {
-        "products": found[:limit], "total": len(found), "parts": matched_parts[:150],
+        "products": found[offset:offset + limit], "total": len(found), "parts": matched_parts[:150],
         "categories": [{"id": key, "label": label, "count": counts[key]} for key, label in CATEGORIES.items()],
     }

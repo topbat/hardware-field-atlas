@@ -1,10 +1,12 @@
 import { lazy, Suspense, useEffect, useState } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, ArrowUpRight, Check, Circuitry, Cube, DownloadSimple, Flask, GitDiff, ImageSquare, ListBullets, Target, WarningCircle } from '@phosphor-icons/react';
+import { ArrowLeft, ArrowRight, ArrowUpRight, Check, Circuitry, Cube, DownloadSimple, Flask, GitDiff, ImageSquare, ListBullets, MagnifyingGlass, Target, WarningCircle } from '@phosphor-icons/react';
 import { request, useResource } from '../api.js';
 import { bomPath, onlineDemo, sitePath } from '../deployment.js';
 import { Empty, External, ModelBadge, ProductVisual, SourceList, SourcesFor, Status } from '../components.jsx';
 import { categoryFor, computeLabels, imageLabels, kindLabels, modelLabels, partLabels, photoSource, productPhotos, researchUrl } from '../labels.js';
+
+import '../product-discovery.css';
 
 const ModelViewer = lazy(() => import('../ModelViewer.jsx'));
 const diagramIds = new Set(['xiaomi-glasses', 'xiaozhi-esp32', 'xiaomi-speaker-pro']);
@@ -94,23 +96,29 @@ function Schematic({ product, active, onSelect }) {
 
 function PhotoGallery({ product, photos }) {
   const [selectedUrl, setSelectedUrl] = useState(null);
+  const [loaded, setLoaded] = useState(() => new Set());
   const [failed, setFailed] = useState(() => new Set());
   const photo = photos.find(({ url }) => url === selectedUrl) || photos.find(({ url }) => !failed.has(url)) || photos[0];
   const source = photoSource(product, photo);
+  const index = photos.indexOf(photo);
   const recordFailure = (url) => setFailed((urls) => new Set(urls).add(url));
   if (!photo) return <Empty>暂无已收录的产品或实物拆解照片。</Empty>;
+
   return (
     <section className="photo-gallery" aria-labelledby="photos-title">
       <div className="panel-heading">
-        <div><h2 id="photos-title">产品与拆解照片</h2><p>核对外观、部件位置和照片对应的样机。</p></div>
+        <div><h2 id="photos-title">产品与拆解照片</h2><p>从外观到拆解，按图片标注核对来源与样机。</p></div>
         <span className="badge"><ImageSquare size={17} /> {photos.length} 张照片</span>
       </div>
-      <div className={`photo-layout${photos.length === 1 ? ' single-photo' : ''}`}>
+      <div className="photo-layout discovery-gallery">
         <figure className="photo-main">
           <div className="photo-stage">
             {failed.has(photo.url)
               ? <div className="photo-unavailable" role="status"><ImageSquare size={30} /><p>暂时无法加载照片。</p>{source ? <External className="button small" href={source.url}>查看来源页面</External> : null}</div>
-              : <img key={photo.url} src={photo.url} alt={photo.alt || product.name} referrerPolicy="no-referrer" onError={() => recordFailure(photo.url)} />}
+              : <>
+                {!loaded.has(photo.url) && <span className="discovery-photo-loading" role="status">正在载入来源图片…</span>}
+                <img key={photo.url} src={photo.url} alt={photo.alt || product.name} referrerPolicy="no-referrer" onLoad={() => setLoaded((urls) => new Set(urls).add(photo.url))} onError={() => recordFailure(photo.url)} />
+              </>}
           </div>
           <figcaption className="photo-caption">
             <span className="badge">{imageLabels[photo.type]}</span>
@@ -119,20 +127,30 @@ function PhotoGallery({ product, photos }) {
               {source ? <External className="inline-link" href={source.url}>{source.title}</External> : <small>图片来源待补</small>}
               {source?.locator ? <small>{source.locator}</small> : null}
             </div>
+            {!failed.has(photo.url) && (
+              <a className="inline-link discovery-photo-original" href={photo.url} target="_blank" rel="noopener noreferrer">查看原图 <ArrowUpRight size={15} /></a>
+            )}
           </figcaption>
         </figure>
-        {photos.length > 1 ? (
-          <div className="photo-picks" aria-label="选择照片">
-            {photos.map((item, index) => (
-              <button key={item.url} type="button" className="photo-pick" aria-label={`查看第 ${index + 1} 张照片，${item.alt || imageLabels[item.type]}`} aria-pressed={photo.url === item.url} onClick={() => setSelectedUrl(item.url)}>
-                {failed.has(item.url)
-                  ? <div className="photo-thumb-fallback"><ImageSquare size={21} /></div>
-                  : <img src={item.url} alt="" loading="lazy" referrerPolicy="no-referrer" onError={() => recordFailure(item.url)} />}
-                <span><small className="mono">{String(index + 1).padStart(2, '0')} / {imageLabels[item.type]}</small><strong>{item.alt || product.name}</strong></span>
-              </button>
-            ))}
+        {photos.length > 1 && (
+          <div className="discovery-gallery-nav">
+            <div className="discovery-gallery-controls" role="group" aria-label="切换照片">
+              <button type="button" className="icon-button" aria-label="上一张照片" disabled={index === 0} onClick={() => setSelectedUrl(photos[index - 1].url)}><ArrowLeft size={17} /></button>
+              <span className="mono" aria-live="polite">{String(index + 1).padStart(2, '0')} / {String(photos.length).padStart(2, '0')}</span>
+              <button type="button" className="icon-button" aria-label="下一张照片" disabled={index === photos.length - 1} onClick={() => setSelectedUrl(photos[index + 1].url)}><ArrowRight size={17} /></button>
+            </div>
+            <div className="photo-picks" role="group" aria-label="照片缩略图">
+              {photos.map((item, itemIndex) => (
+                <button key={item.url} type="button" className="photo-pick" aria-label={'查看第 ' + (itemIndex + 1) + ' 张照片，' + (item.alt || imageLabels[item.type])} aria-pressed={photo.url === item.url} onClick={() => setSelectedUrl(item.url)}>
+                  {failed.has(item.url)
+                    ? <div className="photo-thumb-fallback"><ImageSquare size={21} /></div>
+                    : <img src={item.url} alt="" loading="lazy" referrerPolicy="no-referrer" onError={() => recordFailure(item.url)} />}
+                  <span><small className="mono">{String(itemIndex + 1).padStart(2, '0')} / {imageLabels[item.type]}</small><strong>{item.alt || product.name}</strong></span>
+                </button>
+              ))}
+            </div>
           </div>
-        ) : null}
+        )}
       </div>
     </section>
   );
@@ -164,7 +182,7 @@ const productImageTypes = [
 
 function VisualCardGroup({ groupId, title, cards, product, failed, recordFailure }) {
   return (
-    <section className="product-breakdown" aria-labelledby={groupId}>
+    <section className="product-breakdown discovery-breakdown" aria-labelledby={groupId}>
       <div className="product-breakdown-heading">
         <h3 id={groupId}>{title}</h3>
         <span className="badge">{cards.length} 张</span>
@@ -180,12 +198,15 @@ function VisualCardGroup({ groupId, title, cards, product, failed, recordFailure
               </a>
             )}
             <figcaption>
-              <SourcesFor product={product} ids={card.sourceIds} />
-              {card.partId && (
-                <Link className="inline-link" to={'?view=structure&part=' + encodeURIComponent(card.partId)}>
-                  查看部件 <ArrowUpRight size={13} />
-                </Link>
-              )}
+              <div className="discovery-card-copy"><strong>{card.title}</strong><p>{card.caption}</p></div>
+              <div className="discovery-card-links">
+                <SourcesFor product={product} ids={card.sourceIds} />
+                {card.partId && (
+                  <Link className="inline-link" to={'?view=structure&part=' + encodeURIComponent(card.partId)}>
+                    查看部件 <ArrowUpRight size={13} />
+                  </Link>
+                )}
+              </div>
             </figcaption>
           </figure>
         ))}
@@ -198,14 +219,18 @@ function ProductImageGallery({ product }) {
   const { illustration } = product;
   const [failed, setFailed] = useState(() => new Set());
   const recordFailure = (key) => setFailed((items) => new Set(items).add(key));
+  const orderedPanels = illustration.breakdown
+    ? productImageTypes.filter(([key]) => key === 'overview')
+    : productImageTypes;
+  const specsUrl = illustration.panels.specs;
   return (
-    <section className="product-illustration" aria-labelledby="illustration-title">
+    <section className="product-illustration discovery-illustration" aria-labelledby="illustration-title">
       <div className="panel-heading">
         <div><h2 id="illustration-title">产品图解</h2><p>从完整外观到关键细节，每张图都可单独查看大图。</p></div>
         <span className="badge accent"><ImageSquare size={17} /> AI 生成配图</span>
       </div>
-      <div className="product-image-grid">
-        {productImageTypes.filter(([key]) => !illustration.breakdown || key === 'overview' || key === 'specs').map(([key, title, description], index) => {
+      <div className={'product-image-grid' + (illustration.breakdown ? ' discovery-lead-grid' : '')}>
+        {orderedPanels.map(([key, title, description], index) => {
           const url = illustration.panels[key];
           return (
             <figure className={`product-image-panel panel-${key}`} key={key}>
@@ -221,11 +246,33 @@ function ProductImageGallery({ product }) {
             </figure>
           );
         })}
+        {illustration.breakdown && (
+          <div className="discovery-media-note">
+            <span className="eyebrow"><span className="signal-dot" /> 阅读图解</span>
+            <h3>先看整机，再定位部件</h3>
+            <ol>
+              <li>总体图展示完整外观与使用场景。</li>
+              <li>关键部位图补充可核对的特征与结构。</li>
+              <li>多角度图帮助比较同一设备的不同视角。</li>
+            </ol>
+            <Link className="inline-link" to="?view=specs">查看规格与 AI 能力 <ArrowUpRight size={15} /></Link>
+          </div>
+        )}
       </div>
       {illustration.breakdown && (
         <>
           <VisualCardGroup groupId="detail-images" title="关键部位图" cards={illustration.breakdown.details} product={product} failed={failed} recordFailure={recordFailure} />
           <VisualCardGroup groupId="angle-images" title="多角度图" cards={illustration.breakdown.angles} product={product} failed={failed} recordFailure={recordFailure} />
+          {specsUrl && (
+            <details className="discovery-spec-image">
+              <summary>硬件规格信息图</summary>
+              {failed.has('specs') ? <Empty>暂时无法加载规格图。</Empty> : (
+                <a href={specsUrl} target="_blank" rel="noopener" aria-label="打开硬件规格信息图">
+                  <img src={specsUrl} alt={product.name + '的硬件规格信息图'} loading="lazy" onError={() => recordFailure('specs')} />
+                </a>
+              )}
+            </details>
+          )}
         </>
       )}
       <div className="illustration-caption product-image-sources">
@@ -343,6 +390,15 @@ function Specs({ product }) {
 }
 
 function Bom({ product, part, select, showStructure }) {
+  const [query, setQuery] = useState('');
+  const [status, setStatus] = useState('');
+  const terms = query.normalize('NFKC').toLowerCase().trim().split(/\s+/).filter(Boolean);
+  const parts = product.parts.filter((item) => {
+    if (status && item.status !== status) return false;
+    const fields = [item.name, item.mpn, item.manufacturer, item.role, item.sample].filter(Boolean).join(' ').normalize('NFKC').toLowerCase();
+    return terms.every((term) => fields.includes(term));
+  });
+
   return (
     <>
       <div className="panel-heading">
@@ -350,16 +406,23 @@ function Bom({ product, part, select, showStructure }) {
         <a className="button" href={bomPath(encodeURIComponent(product.id))} download={onlineDemo ? product.id + "-bom.csv" : undefined}><DownloadSimple size={17} /> 导出 CSV</a>
       </div>
       {product.parts.length ? <div className="structure-layout bom-layout">
-        <div className="table-scroll" tabIndex={0} aria-label="横向滚动物料清单">
-          <table className="data-table">
-            <thead><tr><th>部件</th><th>料号</th><th>数量</th><th>证据状态</th></tr></thead>
-            <tbody>{product.parts.map((item) => (
-              <tr key={item.id} className={part?.id === item.id ? 'active' : ''}>
-                <th scope="row"><button className="text-button" aria-pressed={part?.id === item.id} onClick={() => select(item.id)}>{item.name}</button>{item.sample ? <small>{item.sample}</small> : null}</th>
-                <td className="mono">{item.mpn || '—'}</td><td>{item.quantity || '—'}</td><td><span className="badge">{partLabels[item.status]}</span></td>
-              </tr>
-            ))}</tbody>
-          </table>
+        <div>
+          <div className="discovery-bom-filters">
+            <label><span className="sr-only">搜索物料清单</span><MagnifyingGlass aria-hidden="true" size={17} /><input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="查部件、料号、厂商" /></label>
+            <label><span className="sr-only">筛选核验状态</span><select value={status} onChange={(event) => setStatus(event.target.value)}><option value="">全部状态</option>{Object.entries(partLabels).map(([value, label]) => <option value={value} key={value}>{label}</option>)}</select></label>
+            <span className="mono muted" role="status">{parts.length} / {product.parts.length} 条</span>
+          </div>
+          {parts.length ? <div className="table-scroll" tabIndex={0} aria-label="横向滚动物料清单">
+            <table className="data-table">
+              <thead><tr><th>部件</th><th>料号</th><th>数量</th><th>证据状态</th></tr></thead>
+              <tbody>{parts.map((item) => (
+                <tr key={item.id} className={part?.id === item.id ? 'active' : ''}>
+                  <th scope="row"><button className="text-button" aria-pressed={part?.id === item.id} onClick={() => select(item.id)}>{item.name}</button>{item.sample ? <small>{item.sample}</small> : null}</th>
+                  <td className="mono">{item.mpn || '—'}</td><td>{item.quantity || '—'}</td><td><span className="badge">{partLabels[item.status]}</span></td>
+                </tr>
+              ))}</tbody>
+            </table>
+          </div> : <Empty>没有符合筛选条件的部件。</Empty>}
         </div>
         <div><PartInspector product={product} part={part} />{part ? <button className="button small bom-jump" onClick={showStructure}><Cube size={16} /> 在结构中查看</button> : null}</div>
       </div> : <Empty>暂无公开的部件记录。</Empty>}
@@ -404,7 +467,7 @@ function Correction({ product, part }) {
 }
 
 const sections = [
-  ['structure', '结构检视'], ['specs', '规格与 AI'], ['bom', '物料清单'], ['sources', '证据与来源'],
+  ['specs', '规格与 AI'], ['structure', '结构检视'], ['bom', '物料清单'], ['sources', '证据与来源'],
 ];
 
 function ProductContent({ product, selection }) {
@@ -418,7 +481,10 @@ function ProductContent({ product, selection }) {
     ...sections,
     ...(product.build ? [['build', '复现指南']] : []),
   ];
-  const defaultTab = part ? 'structure' : photos.length ? 'photos' : product.illustration ? 'illustration' : 'structure';
+  let defaultTab = product.specs.length || product.abilities.length ? 'specs' : 'structure';
+  if (product.illustration) defaultTab = 'illustration';
+  if (photos.length) defaultTab = 'photos';
+  if (part) defaultTab = 'structure';
   const tab = tabs.some(([value]) => value === requestedTab) ? requestedTab : defaultTab;
   const selected = selection.ids.includes(product.id);
   function setParameter(key, value) {
@@ -430,24 +496,58 @@ function ProductContent({ product, selection }) {
   }
   const select = (id) => setParameter('part', id);
   const showTab = (value) => setParameter('view', value);
+  const researchEntries = [
+    { id: 'specs', icon: Circuitry, label: '规格与 AI', detail: product.specs.length + ' 项规格' },
+    ...(product.model || product.cutaway || product.parts.length ? [{
+      id: 'structure', icon: Cube, label: '结构检视', detail: product.model ? '可交互 3D' : '部件索引',
+    }] : []),
+    ...(product.parts.length ? [{ id: 'bom', icon: ListBullets, label: '物料清单', detail: product.parts.length + ' 条部件记录' }] : []),
+    { id: 'sources', icon: ImageSquare, label: '证据与来源', detail: product.sources.length + ' 条资料' },
+  ];
+
+  function chapterLink(id) {
+    const next = new URLSearchParams(params);
+    next.set('view', id);
+    return '?' + next;
+  }
+
+  function jumpToChapters(event) {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
+    const chapters = document.getElementById('product-chapters');
+    chapters?.focus({ preventScroll: true });
+    chapters?.scrollIntoView({ block: 'start' });
+  }
 
   return (
     <div className="wrap product-page">
       <Link className="inline-link breadcrumb" to="/"><ArrowLeft size={16} /> 硬件档案</Link>
-      <section className="product-intro">
+      <section className="product-intro discovery-intro">
         <div>
           <div className="eyebrow"><span className="signal-dot" /> {categoryFor(product.category).english} / {product.brand}</div>
           <h1>{product.name}</h1>
-          <p>{product.description || product.tagline}</p>
-          <div className="detail-tags"><span className="badge">{kindLabels[product.kind]}</span>{product.model ? <ModelBadge /> : null}{product.tags.slice(0, 5).map((tag) => <span key={tag} className="badge">{tag}</span>)}</div>
+          <p className="discovery-tagline">{product.tagline}</p>
+          {product.description && product.description !== product.tagline ? <p className="discovery-description">{product.description}</p> : null}
+          <div className="detail-tags"><span className="badge">{kindLabels[product.kind]}</span>{product.model ? <ModelBadge /> : null}{product.tags.slice(0, 3).map((tag) => <span key={tag} className="badge">{tag}</span>)}</div>
           <div className="action-row">
             <Link className="button primary" to={researchUrl(product.id, part?.id)}><Flask size={18} /> 在研究室打开</Link>
             <button className={`button${selected ? ' selected' : ''}`} aria-pressed={selected} onClick={() => selection.toggle(product.id)} disabled={!selected && selection.ids.length >= 4}>{selected ? <Check size={18} /> : <GitDiff size={18} />} {selected ? '已加入对比' : '加入对比'}</button>
           </div>
         </div>
-        <dl className="archive-meta"><div><dt>档案号</dt><dd>{product.id}</dd></div><div><dt>版本</dt><dd>{product.revision}</dd></div><div><dt>来源地区</dt><dd>{product.origin}</dd></div><div><dt>最近核验</dt><dd>{product.checkedAt}</dd></div></dl>
+        <aside className="discovery-lab" aria-labelledby="discovery-lab-title">
+          <h2 id="discovery-lab-title">研发工作台</h2>
+          <div className="discovery-lab-links">
+            {researchEntries.map(({ id, icon: Icon, label, detail }) => (
+              <Link key={id} to={chapterLink(id)} onClick={jumpToChapters}>
+                <Icon aria-hidden="true" size={19} /><span><strong>{label}</strong><small>{detail}</small></span><ArrowUpRight aria-hidden="true" size={15} />
+              </Link>
+            ))}
+          </div>
+          <details className="discovery-meta"><summary>档案版本与核验时间</summary>
+            <dl className="archive-meta"><div><dt>档案号</dt><dd>{product.id}</dd></div><div><dt>版本</dt><dd>{product.revision}</dd></div><div><dt>来源地区</dt><dd>{product.origin}</dd></div><div><dt>最近核验</dt><dd>{product.checkedAt}</dd></div></dl>
+          </details>
+        </aside>
       </section>
-      <nav className="tab-strip" aria-label="档案章节">
+      <nav className="tab-strip" id="product-chapters" tabIndex={-1} aria-label="档案章节">
         {tabs.map(([id, label]) => <button key={id} className={id === tab ? 'active' : ''} aria-current={id === tab ? 'page' : undefined} onClick={() => showTab(id)}>{label}{id === 'photos' ? <span>{photos.length}</span> : id === 'bom' ? <span>{product.parts.length}</span> : null}</button>)}
       </nav>
       <section className="product-panel">
@@ -457,7 +557,7 @@ function ProductContent({ product, selection }) {
         {tab === 'specs' ? <Specs product={product} /> : null}
         {tab === 'bom' ? <Bom product={product} part={part} select={select} showStructure={() => showTab('structure')} /> : null}
         {tab === 'sources' ? <section className="surface"><h2>证据与来源</h2><SourceList sources={product.sources} /></section> : null}
-        {tab === 'build' && product.build ? <section className="surface"><h2>复现指南</h2><p>{product.build.note}</p><ol className="build-steps">{product.build.steps.map((step, index) => <li key={index}>{step}</li>)}</ol><div className="action-row"><External className="button" href={product.build.repo}>打开源项目</External><Link className="button" to={researchUrl(product.id, undefined, 'build')}><ListBullets size={17} /> 生成复现清单</Link></div></section> : null}
+        {tab === 'build' && product.build ? <section className="surface"><h2>复现指南</h2><p>{product.build.note}</p><ol className="build-steps">{product.build.steps.map((step, index) => <li key={index}>{step}<SourcesFor product={product} ids={product.build.stepSourceIds?.[index]} /></li>)}</ol><div className="action-row"><External className="button" href={product.build.repo}>打开源项目</External><Link className="button" to={researchUrl(product.id, undefined, 'build')}><ListBullets size={17} /> 生成复现清单</Link></div></section> : null}
       </section>
       {onlineDemo
         ? <a className="inline-link" href="https://github.com/topbat/hardware-field-atlas/issues/new" target="_blank" rel="noopener">在 GitHub 提交档案纠错 <ArrowUpRight size={15} /></a>

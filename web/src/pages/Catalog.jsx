@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { sitePath } from '../deployment.js';
 import { Link, useSearchParams } from 'react-router-dom';
-import { ArrowDownRight, ArrowRight, ArrowUpRight, Check, Cube, Eyeglasses, GitDiff, MagnifyingGlass, Sliders, X } from '@phosphor-icons/react';
+import { ArrowRight, ArrowUpRight, Check, Cube, GitDiff, MagnifyingGlass, Sliders, X } from '@phosphor-icons/react';
 import { useResource } from '../api.js';
-import { Empty, External, ModelBadge, ProductVisual, Status } from '../components.jsx';
-import { categories, categoryFor, computeLabels, imageLabels, kindLabels, partLabels, photoSource, productPhotos } from '../labels.js';
+import { Empty, ModelBadge, ProductVisual, Status } from '../components.jsx';
+import { categoryFor, computeLabels, kindLabels, partLabels } from '../labels.js';
+
+import '../catalog-discovery.css';
 
 const examples = ['ESP32-S3', 'BES2700H', '小米 AI 眼镜'];
 
@@ -20,26 +22,83 @@ function SearchForm({ query, onSearch }) {
   );
 }
 
+const scenes = [
+  { label: '随身与出行', categories: ['phone', 'wearable', 'earbuds', 'glasses', 'vehicle', 'imaging', 'xr'] },
+  { label: '家居与生活', categories: ['vacuum', 'security', 'speaker', 'mirror', 'toy', 'pet', 'outdoor', 'cabinet'] },
+  { label: '办公与学习', categories: ['computer', 'tablet', 'recorder', 'education', 'desk'] },
+  { label: '研发与拆解', categories: ['edge', 'fabrication', 'glasses', 'speaker', 'toy', 'computer'] },
+];
+
 function HeroVisual() {
-  const flagship = useResource('/products/xiaomi-glasses');
-  const [failed, setFailed] = useState(() => new Set());
-  const concept = sitePath('/assets/atlas-hero.webp');
-  const product = flagship.value;
-  const photo = productPhotos(product).find((item) => !failed.has(item.url) && photoSource(product, item));
-  const source = photoSource(product, photo);
-  const imageUrl = photo?.url || (!flagship.loading && !failed.has(concept) ? concept : null);
   return (
-    <figure className={`hero-visual${photo ? ' has-photo' : ''}`}>
-      {imageUrl
-        ? <img key={imageUrl} src={imageUrl} alt={photo?.alt || '智能眼镜的爆炸概念示意'} fetchPriority="high" referrerPolicy="no-referrer" onError={() => setFailed((urls) => new Set(urls).add(imageUrl))} />
-        : <div className="hero-visual-fallback" aria-hidden="true"><Eyeglasses weight="thin" size={166} /></div>}
+    <figure className="hero-visual">
+      <Link to="/products/xiaomi-glasses?view=structure" aria-label="拆开一副 AI 眼镜，查看 3D 结构">
+        <img src={sitePath('/assets/atlas-hero.webp')} alt="智能眼镜分离镜腿、主板和电池的概念示意" fetchPriority="high" />
+      </Link>
       <div className="hero-coordinate coordinate-left" aria-hidden="true">+</div>
       <div className="hero-coordinate coordinate-right" aria-hidden="true">+</div>
-      <figcaption>
-        {photo ? <Link className="inline-link" to={`/products/${product.id}`}>FIG. 01 / {product.name}</Link> : <span>FIG. 01 / 智能眼镜</span>}
-        <span>{photo ? imageLabels[photo.type] : imageUrl ? '概念示意' : '品类图标'}{source ? <> · <External className="inline-link" href={source.url}>图片来源</External></> : null}</span>
-      </figcaption>
+      <figcaption><Link className="inline-link" to="/products/xiaomi-glasses?view=structure">拆开一副 AI 眼镜 <ArrowUpRight size={14} /></Link><span>概念示意</span></figcaption>
     </figure>
+  );
+}
+
+function SceneBrowser({ category, selectCategory, counts }) {
+  const [sceneIndex, setSceneIndex] = useState(null);
+  const matchedScene = scenes.findIndex((scene) => scene.categories.includes(category));
+  const currentScene = scenes[sceneIndex];
+  const active = currentScene && (!category || currentScene.categories.includes(category))
+    ? sceneIndex : Math.max(0, matchedScene);
+  return (
+    <section className="scene-browser" aria-labelledby="scene-title">
+      <div className="scene-header"><h2 id="scene-title">你想了解哪类硬件？</h2><span className="mono">BROWSE BY USE</span></div>
+      <div className="scene-tabs" aria-label="按使用场景浏览">
+        {scenes.map((scene, index) => (
+          <button type="button" key={scene.label} aria-pressed={active === index} onClick={() => {
+            setSceneIndex(index);
+            if (category && !scene.categories.includes(category)) selectCategory('');
+          }}>{scene.label}</button>
+        ))}
+      </div>
+      <div className="scene-options" aria-label="按品类筛选">
+        <button type="button" aria-pressed={!category} onClick={() => selectCategory('')}>全部品类</button>
+        {scenes[active].categories.map((id) => {
+          const { icon: Icon, label } = categoryFor(id);
+          const count = counts?.find((item) => item.id === id)?.count;
+          return <button type="button" key={id} aria-pressed={category === id} onClick={() => selectCategory(category === id ? '' : id)}>
+            <Icon size={17} aria-hidden="true" />{label}{count != null && <small>{count}</small>}
+          </button>;
+        })}
+      </div>
+      {active === 3 && <div className="scene-tools">
+        <Link className="button small" to="/?model=true"><Cube size={16} /> 浏览可拆解模型</Link>
+        <Link className="button small" to="/research?workflow=build">打开复现工作流 <ArrowUpRight size={14} /></Link>
+      </div>}
+    </section>
+  );
+}
+
+const stories = [
+  { id: 'xiaomi-17-ultra', label: '随身 AI', title: '手机里的 AI 怎么工作？', view: 'specs' },
+  { id: 'xiaozhi-esp32', label: '研发入门', title: '从一块板做起', view: 'structure' },
+  { id: 'xiaomi-speaker-pro', label: '拆解笔记', title: '一个音箱里有什么？', view: 'illustration' },
+];
+
+function FeaturedStories({ products }) {
+  const visible = stories.map((story) => ({ ...story, product: products.find(({ id }) => id === story.id) }))
+    .filter(({ product }) => product);
+  if (!visible.length) return null;
+  return (
+    <section className="feature-shelf" aria-labelledby="feature-title">
+      <div className="scene-header"><h2 id="feature-title">从三个问题逛起</h2><span className="mono">FIELD NOTES</span></div>
+      <div className="feature-grid">
+        {visible.map(({ product, id, label, title, view }) => (
+          <Link className="feature-story" key={id} to={'/products/' + id + '?view=' + view}>
+            <ProductVisual product={product} />
+            <div><span className="eyebrow">{label}</span><h3>{title} <ArrowUpRight size={16} /></h3><p>{product.name}</p></div>
+          </Link>
+        ))}
+      </div>
+    </section>
   );
 }
 
@@ -71,18 +130,24 @@ export function Catalog({ selection }) {
   const compute = params.get('compute') || '';
   const model = params.get('model') === 'true';
   const filtered = Boolean(query || category || kind || compute || model);
-  const apiParams = new URLSearchParams({ limit: '100' });
+  const pageSize = 12;
+  const requestedPage = Number(params.get('page'));
+  const page = Number.isSafeInteger(requestedPage) && requestedPage > 0 ? requestedPage : 1;
+  const apiParams = new URLSearchParams({ limit: String(pageSize), offset: String((page - 1) * pageSize) });
   for (const key of ['q', 'category', 'kind', 'compute', 'model']) {
     const value = params.get(key);
     if (value) apiParams.set(key, value);
   }
   const resource = useResource(`/catalog?${apiParams}`);
   const data = resource.value;
+  const lastPage = Math.max(1, Math.ceil((data?.total || 0) / pageSize));
+  const featured = useResource(!filtered && page === 1 ? '/compare?ids=' + stories.map(({ id }) => id).join(',') : null);
   const update = (key, value) => {
     setParams((current) => {
       const next = new URLSearchParams(current);
       if (value) next.set(key, value);
       else next.delete(key);
+      if (key !== 'page') next.delete('page');
       return next;
     });
   };
@@ -94,23 +159,15 @@ export function Catalog({ selection }) {
         <div className="hero-content">
           <div className="eyebrow"><span className="signal-dot" /> FIELD GUIDE / CHINA</div>
           <h1>打开硬件，<br />看见<span>里面。</span></h1>
-          <p>从产品到零件，从结构到证据。查找、比较和研究国内 AI 硬件与开源项目。</p>
+          <p>手机如何在本地处理照片？扫地机器人靠什么避障？从日常用途出发，沿着硬件、结构和证据继续研究。</p>
           <SearchForm key={query} query={query} onSearch={search} />
           <div className="search-examples"><span>试着搜</span>{examples.map((example) => <button key={example} onClick={() => search(example)}>{example}<ArrowUpRight size={13} /></button>)}</div>
         </div>
         <HeroVisual />
       </section>
       <div className="wrap">
-        <section className="categories" aria-label="按品类浏览">
-          {categories.map(({ id, label, icon: Icon, english }, index) => (
-            <button key={id} className={`category-button${category === id ? ' active' : ''}`} aria-pressed={category === id} onClick={() => update('category', category === id ? '' : id)}>
-              <span className="category-index">{String(index + 1).padStart(2, '0')}</span>
-              <Icon size={24} weight="light" aria-hidden="true" />
-              <span className="category-text"><strong>{label}</strong><small>{english}</small></span>
-              <ArrowDownRight size={15} aria-hidden="true" className="category-arrow" />
-            </button>
-          ))}
-        </section>
+        <SceneBrowser category={category} selectCategory={(value) => update('category', value)} counts={data?.categories} />
+        {featured.value && <FeaturedStories products={featured.value.products} />}
         <section className="catalog-section" aria-labelledby="catalog-title">
           <div className="section-heading">
             <div><span className="eyebrow"><span className="signal-dot" /> INDEX 01</span><h2 id="catalog-title">{query ? `“${query}”的搜索结果` : category ? categoryFor(category).label : '硬件档案'}</h2></div>
@@ -137,6 +194,11 @@ export function Catalog({ selection }) {
           ) : null}
           {data && !data.products.length ? <Empty>没有符合条件的产品。试试去掉一个筛选条件。</Empty> : null}
           {data?.products.length ? <div className="catalog-grid">{data.products.map((product) => <ProductCard key={product.id} product={product} selection={selection} />)}</div> : null}
+          {data && (lastPage > 1 || page > 1) && <nav className="catalog-pagination" aria-label="目录分页">
+            <button type="button" className="button small" disabled={page <= 1} onClick={() => update('page', String(Math.max(1, Math.min(page - 1, lastPage))))}>上一页</button>
+            <span className="mono">第 {page} / {lastPage} 页</span>
+            <button type="button" className="button small" disabled={page >= lastPage} onClick={() => update('page', String(page + 1))}>下一页</button>
+          </nav>}
         </section>
       </div>
     </>
