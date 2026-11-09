@@ -154,6 +154,36 @@ function Cutaway({ product }) {
   );
 }
 
+function Illustration({ product }) {
+  const { illustration } = product;
+  const [failed, setFailed] = useState(false);
+  const technical = illustration.technical === 'teardown' ? '拆解示意' : '功能分区';
+  const concept = illustration.exterior === 'concept';
+  return (
+    <section className="product-illustration" aria-labelledby="illustration-title">
+      <div className="panel-heading">
+        <div><h2 id="illustration-title">产品图解</h2><p>一张图查看产品概览、不同视角和{technical}。</p></div>
+        <span className="badge accent"><ImageSquare size={17} /> AI 生成示意</span>
+      </div>
+      <figure className="cutaway-figure illustration-figure">
+        {failed
+          ? <Empty>暂时无法加载产品图解。</Empty>
+          : <a className="illustration-image" href={illustration.url} target="_blank" rel="noopener" aria-label="在新标签中查看产品图解大图">
+              <img src={illustration.url} alt={`${product.name}的产品概览、不同视角和${technical}，AI 生成示意`} onError={() => setFailed(true)} />
+            </a>}
+        <figcaption className="photo-caption">
+          <div className="illustration-caption">
+            <div className="detail-tags"><span className="badge">产品介绍</span><span className="badge">多角度</span><span className="badge">{technical}</span></div>
+            <small>{concept ? '外观为同类设备概念示意，准确型号外形待核对。' : '外观依公开资料绘制，比例和细节为近似。'}{illustration.technical === 'functional' ? '功能分区表示用途，内部装配未核实。' : '部件关系以实物拆解来源为准。'}</small>
+            <SourcesFor product={product} ids={illustration.sourceIds} />
+          </div>
+          {!failed ? <a className="button small" href={illustration.url} target="_blank" rel="noopener"><ArrowUpRight size={15} /> 查看大图</a> : null}
+        </figcaption>
+      </figure>
+    </section>
+  );
+}
+
 function PartInspector({ product, part }) {
   if (!part) return <div className="part-inspector"><span className="eyebrow"><span className="signal-dot" /> COMPONENT</span><h3>部件详情</h3><p className="muted">在结构图、模型或物料清单中选择一个部件。</p></div>;
   return (
@@ -302,10 +332,12 @@ function ProductContent({ product, selection }) {
   const photos = productPhotos(product);
   const tabs = [
     ...(photos.length || requestedTab === 'photos' ? [['photos', '实物照片']] : []),
+    ...(product.illustration ? [['illustration', 'AI 图解']] : []),
     ...sections,
     ...(product.build ? [['build', '复现指南']] : []),
   ];
-  const tab = tabs.some(([value]) => value === requestedTab) ? requestedTab : !part && photos.length ? 'photos' : 'structure';
+  const defaultTab = part ? 'structure' : photos.length ? 'photos' : product.illustration ? 'illustration' : 'structure';
+  const tab = tabs.some(([value]) => value === requestedTab) ? requestedTab : defaultTab;
   const selected = selection.ids.includes(product.id);
   function setParameter(key, value) {
     setParams((current) => {
@@ -338,6 +370,7 @@ function ProductContent({ product, selection }) {
       </nav>
       <section className="product-panel">
         {tab === 'photos' ? <PhotoGallery product={product} photos={photos} /> : null}
+        {tab === 'illustration' ? <Illustration product={product} /> : null}
         {tab === 'structure' ? <Structure product={product} part={part} select={select} /> : null}
         {tab === 'specs' ? <Specs product={product} /> : null}
         {tab === 'bom' ? <Bom product={product} part={part} select={select} showStructure={() => showTab('structure')} /> : null}

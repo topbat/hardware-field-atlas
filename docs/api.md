@@ -23,6 +23,7 @@
       image?: Photo,
       photos?: Photo[],
       cutaway?: { url: string, alt: string, type: "concept"|"reconstruction", note: string, sourceIds: string[] },
+      illustration?: { url: string, technical: "teardown"|"functional", exterior: "reference"|"concept", sourceIds: string[] },
       build?: { repo: string, steps: string[], note: string, stepSourceIds?: string[][] }
     }
 

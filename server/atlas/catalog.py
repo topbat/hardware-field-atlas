@@ -118,6 +118,15 @@ class CutawayAsset(EvidenceRecord):
     _validate_url = field_validator("url")(asset_url)
 
 
+class IllustrationPlate(EvidenceRecord):
+    url: str = Field(max_length=240)
+    technical: Literal["teardown", "functional"]
+    exterior: Literal["reference", "concept"]
+
+    _validate_url = field_validator("url")(asset_url)
+
+
+
 class BuildGuide(Record):
     repo: str = Field(max_length=1800)
     steps: list[str] = Field(max_length=24)
@@ -148,6 +157,7 @@ class Product(Record):
     image: ImageAsset | None = None
     photos: list[ImageAsset] = Field(default_factory=list, max_length=8)
     cutaway: CutawayAsset | None = None
+    illustration: IllustrationPlate | None = None
     build: BuildGuide | None = None
 
     @model_validator(mode="after")
@@ -169,6 +179,8 @@ class Product(Record):
                 raise ValueError("图片存在未定义的来源编号")
         if self.cutaway and (not self.cutaway.sourceIds or set(self.cutaway.sourceIds) - sources):
             raise ValueError("剖视图须关联有效来源")
+        if self.illustration and (not self.illustration.sourceIds or set(self.illustration.sourceIds) - sources):
+            raise ValueError("AI 图解须关联有效参考资料")
         for part in self.parts:
             if part.status in {"confirmed", "observed"} and not part.sourceIds:
                 raise ValueError(f"部件 {part.id} 缺少证据")

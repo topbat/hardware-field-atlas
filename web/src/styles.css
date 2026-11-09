@@ -200,6 +200,13 @@ dd { margin: 0; font-size: .88rem; overflow-wrap: anywhere; }
 .photo-pick small { color: var(--muted); font-size: .65rem; }
 .cutaway-figure { border: 0; border-radius: 0; }
 .cutaway-figure > img { width: 100%; max-height: 520px; object-fit: contain; background: var(--soft); }
+.illustration-figure { border: 1px solid var(--line); border-radius: 6px; }
+.illustration-image { display: block; }
+.illustration-image img { display: block; width: 100%; height: auto; background: var(--soft); }
+.illustration-figure .photo-caption { justify-content: space-between; flex-wrap: wrap; }
+.illustration-caption { flex: 1 1 280px; min-width: 0; }
+.illustration-caption .detail-tags { margin: 0 0 7px; }
+.illustration-caption .sources { margin-top: 9px; }
 .structure-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, .47fr); gap: 13px; margin-top: 15px; align-items: start; }
 .structure-graphic, .part-inspector, .surface { min-width: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; }
 .structure-graphic { overflow: hidden; }

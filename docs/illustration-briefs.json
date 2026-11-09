@@ -1,0 +1,109 @@
+{
+  "xiaomi-glasses": [
+    "Xiaomi M2442G1 black D-frame, clear lenses, opposite camera and indicator, match the black assembled photo.",
+    "Simplified evidence-based exploded view: wearer's left camera and temple PCB, right temple battery, one speaker per side, brow flex. No circuit trace detail.",
+    [
+      "photo-references/glasses-front.png",
+      "photo-references/glasses-parts.png"
+    ]
+  ],
+  "xiaozhi-esp32": [
+    "LCSC SZPI ESP32-S3 VA white landscape snap-fit kit: right 2-inch screen, one camera above left perforations and edge connectors.",
+    "Simplified exploded assembly: faceplate with empty single camera opening, one green PCB and one left camera, right display and white rear shell. No battery.",
+    [
+      "photo-references/board-retail.jpg",
+      "photo-references/board-retail-angle.jpg"
+    ]
+  ],
+  "xiaomi-speaker-pro": [
+    "Xiaomi Smart Speaker Pro 2025 OH2P, charcoal full-height woven square-rounded column, four top buttons, perimeter light, bottom I/O.",
+    "Simplified source-based exploded view: one upper front driver, two lateral passive radiators, rear blue mainboard, upper controls, bottom input. No battery.",
+    [
+      "photo-references/speaker-front.png",
+      "photo-references/speaker-parts.png"
+    ]
+  ],
+  "haivivi-bubblepal": [
+    "BubblePal compact white dome, pale blue base with side perforations, orange hanging loop. Match reference. Main image with plush accessory context.",
+    "Keep closed. External pictograms for voice input, response and audio output only, no speculative internals.",
+    [
+      "illustration-refs/haivivi-bubblepal.jpg"
+    ]
+  ],
+  "folotoy-magicbox": [
+    "FoloToy MagicBox choose reference red rectangular rounded cube, front large circular white button, holes and screws as visible. Nearby plain plush for scale, one red module throughout.",
+    "Keep closed with external mic/speaker/server pictograms. No simulated circuitry.",
+    [
+      "illustration-refs/folotoy-magicbox.png"
+    ]
+  ],
+  "sharge-a1": [
+    "SHARGE A1 black camera glasses, match the actual device on reference, no mannequin in final, lens aperture, indicator, touch temple, removable magnetic privacy cover.",
+    "Evidence-based simplified module view for visible camera cover, lens, speakers and microphone groups. Keep unknown PCB/battery positions unspecified.",
+    [
+      "illustration-refs/sharge-a1.jpg"
+    ]
+  ],
+  "rokid-glasses-2": [
+    "Rokid Glasses 2 classic black from ref, clear lenses, slim frame and temples, subtle optical grating.",
+    "Closed glasses with external optical path and camera/voice pictograms only, no hidden component placement.",
+    [
+      "illustration-refs/rokid-glasses-2.jpg"
+    ]
+  ],
+  "xiaomi-xiaoai-pro-legacy": [
+    "Earlier Xiaomi XiaoAI Speaker Pro LX06 tall dark softly rounded column, perforated lower grille, smooth top ring, top keys, rear AUX IN and DC. No cloth texture. Different from 2025 OH2P.",
+    "Separate known top control/mic group, speaker and rear I/O as small block symbols near closed housing. No PCB or wiring."
+  ],
+  "seeed-respeaker-xvf3800": [
+    "Exact Seeed reSpeaker XVF3800 USB four-mic round black board, match photos. No optional XIAO daughterboard.",
+    "Keep board intact with four mic nodes and USB output arrows, no false chip text or traces.",
+    [
+      "illustration-refs/seeed-respeaker-xvf3800.jpg"
+    ]
+  ],
+  "fiture-mini-plus": [
+    "FITURE Mini Plus floor exercise mirror slim dark aluminum frame, integrated display and independent rear support foot. Front and side/back match vendor photo.",
+    "Keep mirror closed. External pictograms show motion tracking, display, support, simple human gesture. No hidden construction.",
+    [
+      "illustration-refs/fiture-mini-plus.jpg"
+    ]
+  ],
+  "xiaodu-tiantianscreen-2201": [
+    "Exact enclosure is unverified. Illustrate an unbranded generic floor standing exercise display typology, simple graphite graphic, not a realistic exact product portrait.",
+    "Concept only: separate screen, exercise motion and guidance icon. Never draw camera, PCB, wiring or presumed positions."
+  ],
+  "orvibo-round-mirror": [
+    "Round wall-mounted ORVIBO touch bathroom mirror form, low profile circular shape and localized on-glass touch display. Keep unverified rear enclosure schematic and no added ring lighting.",
+    "Functional concept only: touch, display and smart home icons outside closed mirror. No internal electronics."
+  ],
+  "cloudpick-coolbinet": [
+    "Cloudpick upright Coolbinet glass front multi-shelf vending cabinet; match visible white body and dark door edge, closed front plus alternate open three quarter, consistent details.",
+    "Functional diagram only: shelf access and recognition/checkout pictograms outside the cabinet. No unverified camera mounting.",
+    [
+      "illustration-refs/cloudpick-coolbinet.jpg"
+    ]
+  ],
+  "hibianli-hi1000": [
+    "Exact enclosure is unverified. Unbranded generic glass-door vending cabinet typology, simple editorial line-render rather than exact product. Closed and open conceptual silhouettes.",
+    "Functional concept only: door open, goods recognition and payment pictograms outside. Do not draw camera positions or circuitry."
+  ],
+  "loctek-ai3": [
+    "Loctek AI3 adjustable desk with plain light rectangular top, lifting frame, touch/voice control area matching visible desk reference. Show alternate side and lowered profile.",
+    "Keep mechanism closed. Use functional overview of work surface, adjustable legs and accessible control. No imagined motor or PCB.",
+    [
+      "illustration-refs/loctek-ai3.jpg"
+    ]
+  ],
+  "boshiyoucheng-space1": [
+    "博士有成 Space One AI study desk, same semi-enclosed study top with upper light, shelves and embedded control screen as ref. Show coherent front and side.",
+    "Functional overlay for light, storage and control, no assumed sensor or internal electronics.",
+    [
+      "illustration-refs/boshiyoucheng-space1.jpg"
+    ]
+  ],
+  "9am-up": [
+    "9am UP adjustable workstation design typology from documented desktop, lifting frame and control area. Exact variant profile unverified; use coherent simplified industrial drawing.",
+    "Functional concepts: sit/stand height arrows and digital interface icon, no inferred motor, electronics or sensor technology."
+  ]
+}
