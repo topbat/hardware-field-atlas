@@ -2,7 +2,7 @@
 
 **[打开公网在线体验 →](https://topbat.github.io/hardware-field-atlas/)** · 无需登录或安装 Docker
 
-[直接看小米 AI 眼镜图解](https://topbat.github.io/hardware-field-atlas/#/products/xiaomi-glasses?view=illustration) · [打开在线研究室](https://topbat.github.io/hardware-field-atlas/#/research)
+[直接看小米 AI 眼镜图解](https://topbat.github.io/hardware-field-atlas/#/products/xiaomi-glasses?view=illustration) · [打开在线研究室](https://topbat.github.io/hardware-field-atlas/#/research) · [打开 PCB 研发工作台](https://topbat.github.io/hardware-field-atlas/#/products/esp32-s3-devkitc-1?view=engineering)
 
 **从一个零件料号，追到整机、拆解、3D 结构和原始证据。**
 
@@ -12,7 +12,7 @@
 
 ![硬件志首页，包含硬件与料号搜索和眼镜拆解概念示意](docs/screenshots/catalog.webp)
 
-想知道 AI 眼镜怎么塞进摄像头和电池、语音终端断网后还能做什么，或者两款设备到底差在哪？硬件志把散落在商品页、厂商资料、开源项目和拆解记录里的信息整理成可以搜索、比较、旋转和追溯的中文研究档案。当前收录 **33 款、22 个品类**，从手机、电脑、耳机和穿戴，扩展到清洁、安防、智能出行、空间计算与边缘研发。
+想知道 AI 眼镜怎么塞进摄像头和电池、语音终端断网后还能做什么，或者两款设备到底差在哪？硬件志把散落在商品页、厂商资料、开源项目和拆解记录里的信息整理成可以搜索、比较、旋转和追溯的中文研究档案。当前收录 **34 款、22 个品类**，从手机、电脑、耳机和穿戴，扩展到清洁、安防、智能出行、空间计算与边缘研发。
 
 ## 可以怎么玩
 
@@ -96,6 +96,7 @@ Windows 可运行 `pwsh -File scripts/start.ps1 -Build`，之后省略 `-Build` 
 
 - [个人、办公与学习设备](docs/research-personal-devices.md) 记录手机、平板、电脑、腕戴、耳机、录音和学习设备。市场出货和购买率用于筛选样本，持续使用、离线替代和任务后果需要单独测量。
 - [家庭、出行与边缘设备](docs/research-home-mobility.md) 覆盖清洁、安防、出行、影像、庭院、养宠和边缘计算。另收录 [拓竹 H2D Laser](https://topbat.github.io/hardware-field-atlas/#/products/bambu-h2d-laser) 与 [PICO 4 Ultra](https://topbat.github.io/hardware-field-atlas/#/products/pico-4-ultra)，展示打印异常监控与空间感知。
+- [版本化部件档案样本](docs/engineering-devkitc.md) 将乐鑫 ESP32-S3-DevKitC-1 的两版 PCB、SKU、固件、引脚、电源域和设计文件串起来，可在 PCB 位号与 BOM 间双向定位。
 - [研发工作台调研](docs/research-geek-workbench.md) 给出部件、BOM、原始设计文件和复现实验的交付顺序，并标出哪些能力已实现。
 
 ## 从调研到第一版
@@ -130,4 +131,4 @@ npm --prefix web run build
 
 ## English summary
 
-**Hardware Field Atlas** is an evidence-first, Chinese-language AI hardware research catalog. Explore 33 domestic-first hardware profiles across 22 categories, inspect sourced specifications and BOMs, rotate three Blender-based reconstructions, and follow citations through a local-first research workspace. The catalog works without model credentials. Run the published Linux/amd64 image at `ghcr.io/topbat/hardware-field-atlas:v0.1.1` or follow the source setup above.
+**Hardware Field Atlas** is an evidence-first, Chinese-language AI hardware research catalog. Explore 34 domestic-first hardware profiles across 22 categories, inspect sourced specifications and BOMs, rotate three Blender-based reconstructions, and follow citations through a local-first research workspace. The catalog works without model credentials. Run the published Linux/amd64 image at `ghcr.io/topbat/hardware-field-atlas:v0.1.1` or follow the source setup above.

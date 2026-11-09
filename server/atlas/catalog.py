@@ -170,6 +170,150 @@ class BuildGuide(Record):
     _validate_url = field_validator("repo")(public_url)
 
 
+class EngineeringEvidence(EvidenceRecord):
+    sourceIds: list[str] = Field(min_length=1, max_length=25)
+
+
+class EngineeringSku(EngineeringEvidence):
+    id: str = Field(pattern=ID_PATTERN)
+    code: str = Field(min_length=1, max_length=120)
+    module: str = Field(min_length=1, max_length=120)
+    flash: str = Field(min_length=1, max_length=100)
+    psram: str = Field(min_length=1, max_length=100)
+    spiVoltage: str | None = Field(default=None, max_length=80)
+
+
+class EngineeringFile(EngineeringEvidence):
+    id: str = Field(pattern=ID_PATTERN)
+    name: str = Field(min_length=1, max_length=160)
+    kind: Literal["schematic", "pcb", "gerber", "bom", "placement", "archive", "mechanical", "firmware", "datasheet"]
+    url: str = Field(max_length=1800)
+    note: str = Field(max_length=600)
+    sha256: str | None = Field(default=None, pattern=r"^[a-f0-9]{64}$")
+
+    _validate_url = field_validator("url")(public_url)
+
+
+class EngineeringFirmware(EngineeringEvidence):
+    name: str = Field(min_length=1, max_length=120)
+    version: str = Field(min_length=1, max_length=80)
+    fileId: str = Field(pattern=ID_PATTERN)
+    pinIds: list[str] = Field(min_length=1, max_length=64)
+    note: str = Field(max_length=700)
+
+
+class EngineeringRail(EngineeringEvidence):
+    id: str = Field(pattern=ID_PATTERN)
+    label: str = Field(min_length=1, max_length=120)
+    volts: float = Field(ge=-1000, le=1000)
+    note: str = Field(max_length=600)
+
+
+REFERENCE_PATTERN = r"^[A-Za-z][A-Za-z0-9_-]{0,23}$"
+
+
+class EngineeringPin(EngineeringEvidence):
+    id: str = Field(pattern=ID_PATTERN)
+    label: str = Field(min_length=1, max_length=120)
+    signal: str = Field(min_length=1, max_length=240)
+    railId: str | None = Field(default=None, pattern=ID_PATTERN)
+    ref: str | None = Field(default=None, pattern=REFERENCE_PATTERN)
+    note: str = Field(max_length=600)
+
+
+class EngineeringBomItem(EngineeringEvidence):
+    ref: str = Field(pattern=REFERENCE_PATTERN)
+    name: str = Field(min_length=1, max_length=160)
+    value: str = Field(max_length=220)
+    package: str = Field(max_length=140)
+    mpn: str | None = Field(default=None, max_length=180)
+    fit: Literal["fitted", "dnp", "unknown"]
+
+
+class EngineeringPlacement(Record):
+    ref: str = Field(pattern=REFERENCE_PATTERN)
+    x: float = Field(ge=0)
+    y: float = Field(ge=0)
+    side: Literal["top", "bottom"]
+    rotation: float | None = Field(default=None, ge=-360, le=360)
+
+
+class EngineeringBoard(EngineeringEvidence):
+    coordinateSource: Literal["placement", "projection"] = "projection"
+    width: float = Field(gt=0, le=3000)
+    height: float = Field(gt=0, le=3000)
+    placements: list[EngineeringPlacement] = Field(min_length=1, max_length=500)
+
+
+class EngineeringRevision(EngineeringEvidence):
+    id: str = Field(pattern=ID_PATTERN)
+    label: str = Field(min_length=1, max_length=100)
+    note: str = Field(min_length=1, max_length=1000)
+    skuIds: list[str] = Field(min_length=1, max_length=40)
+    firmware: list[EngineeringFirmware] = Field(max_length=20)
+    rails: list[EngineeringRail] = Field(max_length=64)
+    pins: list[EngineeringPin] = Field(max_length=200)
+    files: list[EngineeringFile] = Field(min_length=1, max_length=60)
+    bom: list[EngineeringBomItem] = Field(max_length=500)
+    board: EngineeringBoard | None = None
+
+    @model_validator(mode="after")
+    def verify_links(self):
+        files = {row.id: row for row in self.files}
+        pins = {row.id for row in self.pins}
+        rails = {row.id for row in self.rails}
+        refs = {row.ref for row in self.bom}
+        if (len(files) != len(self.files) or len(pins) != len(self.pins)
+                or len(rails) != len(self.rails) or len(refs) != len(self.bom)):
+            raise ValueError("版本内的文件、引脚、电源和 BOM 位号须唯一")
+        for firmware in self.firmware:
+            file = files.get(firmware.fileId)
+            if not file or file.kind != "firmware" or set(firmware.pinIds) - pins:
+                raise ValueError("固件须关联同一板版的固件源文件和引脚")
+        for pin in self.pins:
+            if (pin.railId and pin.railId not in rails) or (pin.ref and pin.ref not in refs):
+                raise ValueError("引脚须关联同一板版的电源域和 BOM 位号")
+        if self.board:
+            placements = self.board.placements
+            if len({point.ref for point in placements}) != len(placements):
+                raise ValueError("PCB 位号坐标须唯一")
+            for point in placements:
+                if point.ref not in refs or point.x > self.board.width or point.y > self.board.height:
+                    raise ValueError("PCB 位号须关联 BOM，坐标须落在板框内")
+        return self
+
+    def evidence(self):
+        yield self
+        yield from self.firmware
+        yield from self.rails
+        yield from self.pins
+        yield from self.files
+        yield from self.bom
+        if self.board:
+            yield self.board
+
+
+class EngineeringArchive(Record):
+    skus: list[EngineeringSku] = Field(min_length=1, max_length=40)
+    revisions: list[EngineeringRevision] = Field(min_length=1, max_length=30)
+
+    @model_validator(mode="after")
+    def verify_skus(self):
+        sku_ids = {sku.id for sku in self.skus}
+        if (len(sku_ids) != len(self.skus)
+                or len({revision.id for revision in self.revisions}) != len(self.revisions)):
+            raise ValueError("SKU 与板版编号须各自唯一")
+        for revision in self.revisions:
+            if len(set(revision.skuIds)) != len(revision.skuIds) or set(revision.skuIds) - sku_ids:
+                raise ValueError("板版须关联有效且唯一的 SKU")
+        return self
+
+    def evidence(self):
+        yield from self.skus
+        for revision in self.revisions:
+            yield from revision.evidence()
+
+
 class Product(Record):
     id: str = Field(pattern=ID_PATTERN)
     name: str = Field(min_length=1, max_length=160)
@@ -193,6 +337,7 @@ class Product(Record):
     cutaway: CutawayAsset | None = None
     illustration: IllustrationPlate | None = None
     build: BuildGuide | None = None
+    engineering: EngineeringArchive | None = None
 
     @model_validator(mode="after")
     def verify_evidence(self):
@@ -229,6 +374,8 @@ class Product(Record):
         for part in self.parts:
             if part.status in {"confirmed", "observed"} and not part.sourceIds:
                 raise ValueError(f"部件 {part.id} 缺少证据")
+        if self.engineering and any(set(row.sourceIds) - sources for row in self.engineering.evidence()):
+            raise ValueError("engineering 档案存在未定义的来源编号")
         if self.build and self.build.stepSourceIds is not None:
             if len(self.build.stepSourceIds) != len(self.build.steps):
                 raise ValueError("复现步骤及来源列表长度必须一致")
@@ -345,6 +492,8 @@ def filter_catalog(products: list[dict], query: str, category: str | None, kind:
                        CATEGORIES[product["category"]], product["revision"], *product["aliases"], *product["tags"]]
         fields = descriptors + [value for _, values in part_fields for value in values]
         fields += [row["name"] for row in product["abilities"]]
+        if product.get("engineering"):
+            fields += [value for sku in product["engineering"]["skus"] for value in (sku["code"], sku["module"])]
         if not all(any(matches(term, field) for field in fields) for term in terms):
             continue
         counts[product["category"]] += 1

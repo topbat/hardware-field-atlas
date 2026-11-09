@@ -46,6 +46,7 @@ function search(products, params) {
     const fields = [product.id, product.name, product.brand, product.tagline, product.revision,
       categoryNames.get(product.category), ...product.aliases, ...product.tags,
       ...product.parts.flatMap(partFields), ...product.abilities.map((row) => row.name)];
+    fields.push(...(product.engineering?.skus || []).flatMap((sku) => [sku.code, sku.module]));
     if (!matches(terms, fields)) return false;
     counts.set(product.category, counts.get(product.category) + 1);
     if (category && product.category !== category) return false;

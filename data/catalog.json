@@ -5714,6 +5714,3255 @@
         "type": "official",
         "sourceId": "product"
       }
+    },
+    {
+      "id": "esp32-s3-devkitc-1",
+      "name": "乐鑫 ESP32-S3-DevKitC-1",
+      "brand": "乐鑫 Espressif",
+      "category": "edge",
+      "kind": "reference",
+      "origin": "中国品牌",
+      "tagline": "用两版真实 PCB 练习从 SKU 找到引脚、固件和位号",
+      "description": "乐鑫 ESP32-S3 通用开发板。档案按 v1.0、v1.1 拆分官方引脚、供电、参考 BOM 与设计文件，可从 PCB 位号直接追到原理图中的部件。",
+      "aliases": [
+        "ESP32-S3-DevKitC-1",
+        "DevKitC",
+        "ESP32-S3 WROOM"
+      ],
+      "tags": [
+        "PCB 工作台",
+        "边缘研发",
+        "版本化档案"
+      ],
+      "revision": "官方 PCB v1.0 / v1.1 参考设计",
+      "checkedAt": "2026-11-09",
+      "model": null,
+      "specs": [
+        {
+          "key": "revisions",
+          "label": "板版",
+          "value": "v1.0、v1.1",
+          "sourceIds": [
+            "guide-v10",
+            "guide-v11"
+          ]
+        },
+        {
+          "key": "size",
+          "label": "参考板框",
+          "value": "25.40 × 62.74 mm",
+          "sourceIds": [
+            "mechanical-v11"
+          ]
+        },
+        {
+          "key": "rgb",
+          "label": "板载 RGB 数据脚",
+          "value": "v1.0 GPIO48；v1.1 GPIO38",
+          "sourceIds": [
+            "guide-v10",
+            "guide-v11"
+          ]
+        }
+      ],
+      "abilities": [],
+      "parts": [],
+      "sources": [
+        {
+          "id": "blink",
+          "title": "ESP-IDF v5.4.4 Blink 示例源码",
+          "url": "https://github.com/espressif/esp-idf/tree/296b6eab9445fd720e71aecab961e2d3fbca9944/examples/get-started/blink",
+          "type": "open",
+          "locator": "examples/get-started/blink；源码提交 296b6eab9445fd720e71aecab961e2d3fbca9944",
+          "note": "用于核对引脚配置的参考固件。出厂固件版本和烧录实测未核验。"
+        },
+        {
+          "id": "guide-v11",
+          "title": "ESP32-S3-DevKitC-1 v1.1 用户指南",
+          "url": "https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32s3/esp32-s3-devkitc-1/user_guide_v1.1.html",
+          "type": "official",
+          "locator": "Ordering Information、Power Supply Options、Header Block",
+          "note": null
+        },
+        {
+          "id": "schematic-v11",
+          "title": "v1.1 乐鑫原理图 PDF",
+          "url": "https://dl.espressif.com/dl/schematics/SCH_ESP32-S3-DevKitC-1_V1.1_20221130.pdf",
+          "type": "official",
+          "locator": null,
+          "note": "第 2 页提供元件符号、位号与 NC 标注；实际参考装配项见原厂 BOM V0.3。"
+        },
+        {
+          "id": "pcb-v11",
+          "title": "v1.1 乐鑫 PCB 布局 PDF",
+          "url": "https://dl.espressif.com/dl/schematics/PCB_ESP32-S3-DevKitC-1_V1.1_20220429.pdf",
+          "type": "official",
+          "locator": null,
+          "note": "原厂布局图，用于核对板框和版面。网页位号坐标使用参考设计包内的贴装表。"
+        },
+        {
+          "id": "mechanical-v11",
+          "title": "v1.1 乐鑫机械尺寸 DXF",
+          "url": "https://dl.espressif.com/dl/schematics/esp_idf/DXF_ESP32-S3-DevKitC-1_V1.1_20220429.dxf",
+          "type": "official",
+          "locator": null,
+          "note": "原始机械尺寸文件，用于核对参考板框。下载文件以厂商许可为准。"
+        },
+        {
+          "id": "guide-v10",
+          "title": "ESP32-S3-DevKitC-1 v1.0 用户指南",
+          "url": "https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32s3/esp32-s3-devkitc-1/user_guide_v1.0.html",
+          "type": "official",
+          "locator": "Ordering Information、Power Supply Options、Header Block",
+          "note": null
+        },
+        {
+          "id": "schematic-v10",
+          "title": "v1.0 乐鑫原理图 PDF",
+          "url": "https://dl.espressif.com/dl/SCH_ESP32-S3-DEVKITC-1_V1_20210312C.pdf",
+          "type": "official",
+          "locator": null,
+          "note": "第 2 页元件符号、位号、标称值和 NC 标注是本页参考 BOM 的出处。"
+        },
+        {
+          "id": "pcb-v10",
+          "title": "v1.0 乐鑫 PCB 布局 PDF",
+          "url": "https://dl.espressif.com/dl/PCB_ESP32-S3-DevKitC-1_V1_20210312CB.pdf",
+          "type": "official",
+          "locator": null,
+          "note": "第 1 页的位号文字中心用于投影。坐标用于浏览与定位。"
+        },
+        {
+          "id": "mechanical-v10",
+          "title": "v1.0 乐鑫机械尺寸 DXF",
+          "url": "https://dl.espressif.com/dl/DXF_ESP32-S3-DevKitC-1_V1_20210312CB.dxf",
+          "type": "official",
+          "locator": null,
+          "note": "原始机械尺寸文件，用于核对参考板框。下载文件以厂商许可为准。"
+        },
+        {
+          "id": "archive-v11",
+          "title": "乐鑫 v1.1 原始参考设计 ZIP",
+          "url": "https://documentation.espressif.com/api/resource/doc/file/0wyBg1eV/FILE/ESP32-S3-DevKitC-1_Reference_Design.zip",
+          "type": "official",
+          "locator": "01_Schematic、02_PCB、03_Gerber、04_PCB Fabrication Requirements"
+        },
+        {
+          "id": "bom-v11",
+          "title": "乐鑫 v1.1 官方 BOM（V0.3）",
+          "url": "https://documentation.espressif.com/api/resource/doc/file/0wyBg1eV/FILE/ESP32-S3-DevKitC-1_Reference_Design.zip",
+          "type": "official",
+          "locator": "05_BOM/BOM(V0.3)_ESP32-S3-DevKitC-1_XX_TTNNVV.xlsx"
+        },
+        {
+          "id": "placement-v11",
+          "title": "乐鑫 v1.1 原厂贴装参考点",
+          "url": "https://documentation.espressif.com/api/resource/doc/file/0wyBg1eV/FILE/ESP32-S3-DevKitC-1_Reference_Design.zip",
+          "type": "official",
+          "locator": "06_Placement/Placement_ESP32-S3-DevKitC-1_V1.1_20220429.html"
+        }
+      ],
+      "engineering": {
+        "skus": [
+          {
+            "id": "n16r8",
+            "code": "ESP32-S3-DevKitC-1-N16R8",
+            "module": "ESP32-S3-WROOM-1",
+            "flash": "16 MB",
+            "psram": "8 MB",
+            "spiVoltage": null,
+            "sourceIds": [
+              "guide-v11"
+            ]
+          },
+          {
+            "id": "n16r8-u",
+            "code": "ESP32-S3-DevKitC-1U-N16R8",
+            "module": "ESP32-S3-WROOM-1U",
+            "flash": "16 MB",
+            "psram": "8 MB",
+            "spiVoltage": null,
+            "sourceIds": [
+              "guide-v11"
+            ]
+          },
+          {
+            "id": "n8r8",
+            "code": "ESP32-S3-DevKitC-1-N8R8",
+            "module": "ESP32-S3-WROOM-1-N8R8",
+            "flash": "8 MB QD",
+            "psram": "8 MB OT",
+            "spiVoltage": "3.3 V",
+            "sourceIds": [
+              "guide-v10"
+            ]
+          },
+          {
+            "id": "n8r8-u",
+            "code": "ESP32-S3-DevKitC-1U-N8R8",
+            "module": "ESP32-S3-WROOM-1U-N8R8",
+            "flash": "8 MB QD",
+            "psram": "8 MB OT",
+            "spiVoltage": "3.3 V",
+            "sourceIds": [
+              "guide-v10"
+            ]
+          },
+          {
+            "id": "n32r16v",
+            "code": "ESP32-S3-DevKitC-1-N32R16V",
+            "module": "ESP32-S3-WROOM-2-N32R16V",
+            "flash": "32 MB OT",
+            "psram": "16 MB OT",
+            "spiVoltage": "1.8 V",
+            "sourceIds": [
+              "guide-v10",
+              "guide-v11"
+            ]
+          }
+        ],
+        "revisions": [
+          {
+            "id": "v11",
+            "label": "PCB v1.1",
+            "skuIds": [
+              "n16r8",
+              "n16r8-u",
+              "n32r16v"
+            ],
+            "firmware": [
+              {
+                "name": "Blink · 板载可寻址 RGB",
+                "version": "ESP-IDF v5.4.4",
+                "fileId": "blink",
+                "pinIds": [
+                  "rgb-data",
+                  "j3-10"
+                ],
+                "note": "ESP32-S3 目标，LED 类型选 LED strip，GPIO 配成 38。官方示例不是出厂固件；未进行实物烧录。",
+                "sourceIds": [
+                  "blink",
+                  "guide-v11"
+                ]
+              }
+            ],
+            "rails": [
+              {
+                "id": "gnd",
+                "label": "GND",
+                "volts": 0,
+                "note": "板级电源参考地。",
+                "sourceIds": [
+                  "guide-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "id": "v5",
+                "label": "5V",
+                "volts": 5,
+                "note": "板级供电输入之一。官方手册列出互斥供电方式。",
+                "sourceIds": [
+                  "guide-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "id": "v3v3",
+                "label": "3V3",
+                "volts": 3.3,
+                "note": "板级 3.3 V 电源。与 SKU 表里的模块内部 SPI 电压分开。",
+                "sourceIds": [
+                  "guide-v11",
+                  "schematic-v11"
+                ]
+              }
+            ],
+            "pins": [
+              {
+                "id": "rgb-data",
+                "label": "D6 · DIN",
+                "signal": "GPIO38 → 板载 RGB 数据输入",
+                "ref": "D6",
+                "note": "同一 GPIO 也引出到 J3.10 · 38。",
+                "sourceIds": [
+                  "guide-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "id": "j1-1",
+                "label": "J1.1 · 3V3",
+                "signal": "3.3 V power supply",
+                "railId": "v3v3",
+                "ref": "J1",
+                "note": "手册标记：P。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j1-2",
+                "label": "J1.2 · 3V3",
+                "signal": "3.3 V power supply",
+                "railId": "v3v3",
+                "ref": "J1",
+                "note": "手册标记：P。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j1-3",
+                "label": "J1.3 · RST",
+                "signal": "EN",
+                "railId": null,
+                "ref": "J1",
+                "note": "手册标记：I。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j1-4",
+                "label": "J1.4 · 4",
+                "signal": "RTC_GPIO4, GPIO4, TOUCH4, ADC1_CH3",
+                "railId": null,
+                "ref": "J1",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j1-5",
+                "label": "J1.5 · 5",
+                "signal": "RTC_GPIO5, GPIO5, TOUCH5, ADC1_CH4",
+                "railId": null,
+                "ref": "J1",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j1-6",
+                "label": "J1.6 · 6",
+                "signal": "RTC_GPIO6, GPIO6, TOUCH6, ADC1_CH5",
+                "railId": null,
+                "ref": "J1",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j1-7",
+                "label": "J1.7 · 7",
+                "signal": "RTC_GPIO7, GPIO7, TOUCH7, ADC1_CH6",
+                "railId": null,
+                "ref": "J1",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j1-8",
+                "label": "J1.8 · 15",
+                "signal": "RTC_GPIO15, GPIO15, U0RTS, ADC2_CH4, XTAL_32K_P",
+                "railId": null,
+                "ref": "J1",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j1-9",
+                "label": "J1.9 · 16",
+                "signal": "RTC_GPIO16, GPIO16, U0CTS, ADC2_CH5, XTAL_32K_N",
+                "railId": null,
+                "ref": "J1",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j1-10",
+                "label": "J1.10 · 17",
+                "signal": "RTC_GPIO17, GPIO17, U1TXD, ADC2_CH6",
+                "railId": null,
+                "ref": "J1",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j1-11",
+                "label": "J1.11 · 18",
+                "signal": "RTC_GPIO18, GPIO18, U1RXD, ADC2_CH7, CLK_OUT3",
+                "railId": null,
+                "ref": "J1",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j1-12",
+                "label": "J1.12 · 8",
+                "signal": "RTC_GPIO8, GPIO8, TOUCH8, ADC1_CH7, SUBSPICS1",
+                "railId": null,
+                "ref": "J1",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j1-13",
+                "label": "J1.13 · 3",
+                "signal": "RTC_GPIO3, GPIO3, TOUCH3, ADC1_CH2",
+                "railId": null,
+                "ref": "J1",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j1-14",
+                "label": "J1.14 · 46",
+                "signal": "GPIO46",
+                "railId": null,
+                "ref": "J1",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j1-15",
+                "label": "J1.15 · 9",
+                "signal": "RTC_GPIO9, GPIO9, TOUCH9, ADC1_CH8, FSPIHD, SUBSPIHD",
+                "railId": null,
+                "ref": "J1",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j1-16",
+                "label": "J1.16 · 10",
+                "signal": "RTC_GPIO10, GPIO10, TOUCH10, ADC1_CH9, FSPICS0, FSPIIO4, SUBSPICS0",
+                "railId": null,
+                "ref": "J1",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j1-17",
+                "label": "J1.17 · 11",
+                "signal": "RTC_GPIO11, GPIO11, TOUCH11, ADC2_CH0, FSPID, FSPIIO5, SUBSPID",
+                "railId": null,
+                "ref": "J1",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j1-18",
+                "label": "J1.18 · 12",
+                "signal": "RTC_GPIO12, GPIO12, TOUCH12, ADC2_CH1, FSPICLK, FSPIIO6, SUBSPICLK",
+                "railId": null,
+                "ref": "J1",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j1-19",
+                "label": "J1.19 · 13",
+                "signal": "RTC_GPIO13, GPIO13, TOUCH13, ADC2_CH2, FSPIQ, FSPIIO7, SUBSPIQ",
+                "railId": null,
+                "ref": "J1",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j1-20",
+                "label": "J1.20 · 14",
+                "signal": "RTC_GPIO14, GPIO14, TOUCH14, ADC2_CH3, FSPIWP, FSPIDQS, SUBSPIWP",
+                "railId": null,
+                "ref": "J1",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j1-21",
+                "label": "J1.21 · 5V",
+                "signal": "5 V power supply",
+                "railId": "v5",
+                "ref": "J1",
+                "note": "手册标记：P。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j1-22",
+                "label": "J1.22 · G",
+                "signal": "Ground",
+                "railId": "gnd",
+                "ref": "J1",
+                "note": "手册标记：G。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j3-1",
+                "label": "J3.1 · G",
+                "signal": "Ground",
+                "railId": "gnd",
+                "ref": "J3",
+                "note": "手册标记：G。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j3-2",
+                "label": "J3.2 · TX",
+                "signal": "U0TXD, GPIO43, CLK_OUT1",
+                "railId": null,
+                "ref": "J3",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j3-3",
+                "label": "J3.3 · RX",
+                "signal": "U0RXD, GPIO44, CLK_OUT2",
+                "railId": null,
+                "ref": "J3",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j3-4",
+                "label": "J3.4 · 1",
+                "signal": "RTC_GPIO1, GPIO1, TOUCH1, ADC1_CH0",
+                "railId": null,
+                "ref": "J3",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j3-5",
+                "label": "J3.5 · 2",
+                "signal": "RTC_GPIO2, GPIO2, TOUCH2, ADC1_CH1",
+                "railId": null,
+                "ref": "J3",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j3-6",
+                "label": "J3.6 · 42",
+                "signal": "MTMS, GPIO42",
+                "railId": null,
+                "ref": "J3",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j3-7",
+                "label": "J3.7 · 41",
+                "signal": "MTDI, GPIO41, CLK_OUT1",
+                "railId": null,
+                "ref": "J3",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j3-8",
+                "label": "J3.8 · 40",
+                "signal": "MTDO, GPIO40, CLK_OUT2",
+                "railId": null,
+                "ref": "J3",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j3-9",
+                "label": "J3.9 · 39",
+                "signal": "MTCK, GPIO39, CLK_OUT3, SUBSPICS1",
+                "railId": null,
+                "ref": "J3",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j3-10",
+                "label": "J3.10 · 38",
+                "signal": "GPIO38, FSPIWP, SUBSPIWP, RGB LED",
+                "railId": null,
+                "ref": "J3",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j3-11",
+                "label": "J3.11 · 37",
+                "signal": "SPIDQS, GPIO37, FSPIQ, SUBSPIQ",
+                "railId": null,
+                "ref": "J3",
+                "note": "手册标记：I/O/T。 带 Octal Flash/PSRAM 的相应模组会内部占用此引脚，按所选 SKU 核对。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j3-12",
+                "label": "J3.12 · 36",
+                "signal": "SPIIO7, GPIO36, FSPICLK, SUBSPICLK",
+                "railId": null,
+                "ref": "J3",
+                "note": "手册标记：I/O/T。 带 Octal Flash/PSRAM 的相应模组会内部占用此引脚，按所选 SKU 核对。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j3-13",
+                "label": "J3.13 · 35",
+                "signal": "SPIIO6, GPIO35, FSPID, SUBSPID",
+                "railId": null,
+                "ref": "J3",
+                "note": "手册标记：I/O/T。 带 Octal Flash/PSRAM 的相应模组会内部占用此引脚，按所选 SKU 核对。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j3-14",
+                "label": "J3.14 · 0",
+                "signal": "RTC_GPIO0, GPIO0",
+                "railId": null,
+                "ref": "J3",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j3-15",
+                "label": "J3.15 · 45",
+                "signal": "GPIO45",
+                "railId": null,
+                "ref": "J3",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j3-16",
+                "label": "J3.16 · 48",
+                "signal": "GPIO48, SPICLK_N, SUBSPICLK_N_DIFF",
+                "railId": null,
+                "ref": "J3",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j3-17",
+                "label": "J3.17 · 47",
+                "signal": "GPIO47, SPICLK_P, SUBSPICLK_P_DIFF",
+                "railId": null,
+                "ref": "J3",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j3-18",
+                "label": "J3.18 · 21",
+                "signal": "RTC_GPIO21, GPIO21",
+                "railId": null,
+                "ref": "J3",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j3-19",
+                "label": "J3.19 · 20",
+                "signal": "RTC_GPIO20, GPIO20, U1CTS, ADC2_CH9, CLK_OUT1, USB_D+",
+                "railId": null,
+                "ref": "J3",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j3-20",
+                "label": "J3.20 · 19",
+                "signal": "RTC_GPIO19, GPIO19, U1RTS, ADC2_CH8, CLK_OUT2, USB_D-",
+                "railId": null,
+                "ref": "J3",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j3-21",
+                "label": "J3.21 · G",
+                "signal": "Ground",
+                "railId": "gnd",
+                "ref": "J3",
+                "note": "手册标记：G。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              },
+              {
+                "id": "j3-22",
+                "label": "J3.22 · G",
+                "signal": "Ground",
+                "railId": "gnd",
+                "ref": "J3",
+                "note": "手册标记：G。",
+                "sourceIds": [
+                  "guide-v11"
+                ]
+              }
+            ],
+            "files": [
+              {
+                "id": "reference-zip",
+                "name": "乐鑫 v1.1 原始参考设计 ZIP",
+                "kind": "archive",
+                "url": "https://documentation.espressif.com/api/resource/doc/file/0wyBg1eV/FILE/ESP32-S3-DevKitC-1_Reference_Design.zip",
+                "sha256": "25b16b894c4e104ad62640ceaf60ba7ead356105567f9471da4ce3c66ddb871a",
+                "note": "含原理图 .DSN、PCB .PCB/.ASC、Gerber、加工要求、BOM .xlsx、贴装 .html 与装配 .pdf。原文件由乐鑫提供。",
+                "sourceIds": [
+                  "archive-v11",
+                  "bom-v11",
+                  "placement-v11"
+                ]
+              },
+              {
+                "id": "schematic",
+                "name": "v1.1 乐鑫原理图 PDF",
+                "kind": "schematic",
+                "url": "https://dl.espressif.com/dl/schematics/SCH_ESP32-S3-DevKitC-1_V1.1_20221130.pdf",
+                "note": "第 2 页提供元件符号、位号与 NC 标注；实际参考装配项见原厂 BOM V0.3。",
+                "sha256": "f116b5d9f1fdce126e9a63d8450388eb11295d8322d831502fbc9729442b72e4",
+                "sourceIds": [
+                  "schematic-v11"
+                ]
+              },
+              {
+                "id": "pcb",
+                "name": "v1.1 乐鑫 PCB 布局 PDF",
+                "kind": "pcb",
+                "url": "https://dl.espressif.com/dl/schematics/PCB_ESP32-S3-DevKitC-1_V1.1_20220429.pdf",
+                "note": "原厂布局图，用于核对板框和版面。网页位号坐标使用参考设计包内的贴装表。",
+                "sha256": "3f67160841a5a730297b754befab33344c8fce5318950d688717dfc999dca562",
+                "sourceIds": [
+                  "pcb-v11"
+                ]
+              },
+              {
+                "id": "mechanical",
+                "name": "v1.1 乐鑫机械尺寸 DXF",
+                "kind": "mechanical",
+                "url": "https://dl.espressif.com/dl/schematics/esp_idf/DXF_ESP32-S3-DevKitC-1_V1.1_20220429.dxf",
+                "note": "原始机械尺寸文件，用于核对参考板框。下载文件以厂商许可为准。",
+                "sha256": "02c88dea5acf89ef20c8073acd19f1c5fd1ac908fc57a5c0fd005cd021304983",
+                "sourceIds": [
+                  "mechanical-v11"
+                ]
+              },
+              {
+                "id": "blink",
+                "name": "ESP-IDF Blink 源码",
+                "kind": "firmware",
+                "url": "https://github.com/espressif/esp-idf/tree/296b6eab9445fd720e71aecab961e2d3fbca9944/examples/get-started/blink",
+                "note": "固定到 ESP-IDF v5.4.4 的源码提交。",
+                "sourceIds": [
+                  "blink"
+                ]
+              }
+            ],
+            "bom": [
+              {
+                "ref": "C1",
+                "name": "电容",
+                "value": "10uF/25V(20%)",
+                "package": "C0603",
+                "mpn": "GRM188R61E106MA73D",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "C2",
+                "name": "电容",
+                "value": "0.1uF/50V(10%)",
+                "package": "C0402",
+                "mpn": "C0402X5R104K500NTC / CL05A104KB5NNNC / GRM155R71H104KE14D",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "C3",
+                "name": "电容",
+                "value": "10uF/25V(20%)",
+                "package": "C0603",
+                "mpn": "GRM188R61E106MA73D",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "C6",
+                "name": "电容",
+                "value": "1uF/16V(10%)",
+                "package": "C0402",
+                "mpn": "GRM155C81C105KE11D",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "C7",
+                "name": "电容",
+                "value": "10uF/25V(20%)",
+                "package": "C0603",
+                "mpn": "GRM188R61E106MA73D",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "C8",
+                "name": "电容",
+                "value": "0.1uF/50V(10%)",
+                "package": "C0402",
+                "mpn": "C0402X5R104K500NTC / CL05A104KB5NNNC / GRM155R71H104KE14D",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "C9",
+                "name": "电容",
+                "value": "0.1uF/50V(10%)",
+                "package": "C0402",
+                "mpn": "C0402X5R104K500NTC / CL05A104KB5NNNC / GRM155R71H104KE14D",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "C10",
+                "name": "电容",
+                "value": "10uF/25V(20%)",
+                "package": "C0603",
+                "mpn": "GRM188R61E106MA73D",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "C11",
+                "name": "电容",
+                "value": "10uF/25V(20%)",
+                "package": "C0603",
+                "mpn": "GRM188R61E106MA73D",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "C12",
+                "name": "电容",
+                "value": "1uF/16V(10%)",
+                "package": "C0402",
+                "mpn": "GRM155C81C105KE11D",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "C13",
+                "name": "电容",
+                "value": "0.1uF/50V(10%)(NC)",
+                "package": "",
+                "mpn": null,
+                "fit": "dnp",
+                "sourceIds": [
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "C14",
+                "name": "电容",
+                "value": "0.1uF/50V(10%)(NC)",
+                "package": "",
+                "mpn": null,
+                "fit": "dnp",
+                "sourceIds": [
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "C15",
+                "name": "电容",
+                "value": "10uF/25V(20%)(NC)",
+                "package": "",
+                "mpn": null,
+                "fit": "dnp",
+                "sourceIds": [
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "D1",
+                "name": "二极管",
+                "value": "1N5819HW-7-F",
+                "package": "SOD123",
+                "mpn": "1N5819HW-7-F",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "D2",
+                "name": "二极管",
+                "value": "LESD5D5.0CT1G",
+                "package": "SOD523",
+                "mpn": "LESD5D5.0CT1G",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "D3",
+                "name": "二极管",
+                "value": "LESD5D5.0CT1G",
+                "package": "SOD523",
+                "mpn": "LESD5D5.0CT1G",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "D4",
+                "name": "二极管",
+                "value": "LESD5D5.0CT1G",
+                "package": "SOD523",
+                "mpn": "LESD5D5.0CT1G",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "D5",
+                "name": "电源指示灯",
+                "value": "RED LED",
+                "package": "LED0603",
+                "mpn": "FC-DA1608HRK-620D / BD-PT0603R6C-C01-4T",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "D6",
+                "name": "可寻址 RGB 灯",
+                "value": "SK68XXMINI-HS",
+                "package": "LED3535B",
+                "mpn": "WS2812B-Mini-V3",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "D7",
+                "name": "二极管",
+                "value": "1N5819HW-7-F",
+                "package": "SOD123",
+                "mpn": "1N5819HW-7-F",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "D8",
+                "name": "二极管",
+                "value": "LESD5D5.0CT1G",
+                "package": "SOD523",
+                "mpn": "LESD5D5.0CT1G",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "D9",
+                "name": "二极管",
+                "value": "LESD5D5.0CT1G",
+                "package": "SOD523",
+                "mpn": "LESD5D5.0CT1G",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "D10",
+                "name": "二极管",
+                "value": "LESD5D5.0CT1G",
+                "package": "SOD523",
+                "mpn": "LESD5D5.0CT1G",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "J1",
+                "name": "22 针排针 J1",
+                "value": "CON22X1",
+                "package": "CON22X1_2P54",
+                "mpn": null,
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "J2",
+                "name": "Micro USB 接口 J2",
+                "value": "MICRO USB",
+                "package": "USB_5P_MICRO_F_ML",
+                "mpn": "1110-205001 / I42-0531-3121",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "J3",
+                "name": "22 针排针 J3",
+                "value": "CON22X1",
+                "package": "CON22X1_2P54",
+                "mpn": null,
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "J4",
+                "name": "Micro USB 接口 J4",
+                "value": "MICRO USB",
+                "package": "USB_5P_MICRO_F_ML",
+                "mpn": "1110-205001 / I42-0531-3121",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "Q1",
+                "name": "三极管",
+                "value": "L8050QLT1G",
+                "package": "SOT23-3",
+                "mpn": "L8050QLT1G",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "Q2",
+                "name": "三极管",
+                "value": "L8050QLT1G",
+                "package": "SOT23-3",
+                "mpn": "L8050QLT1G",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "R5",
+                "name": "电阻",
+                "value": "10K(1%)",
+                "package": "R0402",
+                "mpn": "0402WGF1002TCE / RC0402FR-0710KL",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "R7",
+                "name": "电阻",
+                "value": "0(1%)",
+                "package": "R0402",
+                "mpn": "0402WGF0000TCE / RC0402FR-070RL",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "R8",
+                "name": "电阻",
+                "value": "0(1%)",
+                "package": "R0402",
+                "mpn": "0402WGF0000TCE / RC0402FR-070RL",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "R9",
+                "name": "电阻",
+                "value": "0(1%)",
+                "package": "R0402",
+                "mpn": "0402WGF0000TCE / RC0402FR-070RL",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "R10",
+                "name": "电阻",
+                "value": "10K(1%)",
+                "package": "R0402",
+                "mpn": "0402WGF1002TCE / RC0402FR-0710KL",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "R11",
+                "name": "电阻",
+                "value": "5.1K(1%)",
+                "package": "R0402",
+                "mpn": "0402WGF5101TCE / RC0402FR-075K1L",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "R12",
+                "name": "电阻",
+                "value": "10K(1%)",
+                "package": "R0402",
+                "mpn": "0402WGF1002TCE / RC0402FR-0710KL",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "R13",
+                "name": "电阻",
+                "value": "0(1%)",
+                "package": "R0402",
+                "mpn": "0402WGF0000TCE / RC0402FR-070RL",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "R14",
+                "name": "电阻",
+                "value": "10K(1%)(NC)",
+                "package": "",
+                "mpn": null,
+                "fit": "dnp",
+                "sourceIds": [
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "R16",
+                "name": "电阻",
+                "value": "1K(1%)",
+                "package": "R0402",
+                "mpn": "0402WGF1001TCE / RC0402FR-071KL",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "R17",
+                "name": "电阻",
+                "value": "0(1%)",
+                "package": "R0402",
+                "mpn": "0402WGF0000TCE / RC0402FR-070RL",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "R18",
+                "name": "电阻",
+                "value": "47.5K(1%)",
+                "package": "R0402",
+                "mpn": "0402WGF4752TCE",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "R19",
+                "name": "电阻",
+                "value": "22.1K(1%)",
+                "package": "R0402",
+                "mpn": "0402WGF2212TCE / RC0402FR-0722K1L",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "R24",
+                "name": "电阻",
+                "value": "0(1%)",
+                "package": "R0603",
+                "mpn": "0603WAF0000T5E / RC0603FR-070RL",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "SW1",
+                "name": "按键",
+                "value": "NTC013-AT1J-A160T",
+                "package": "SW4-4P2X3P2X2P5-SMT",
+                "mpn": "NTC013-AT1J-A160T",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "SW2",
+                "name": "按键",
+                "value": "NTC013-AT1J-A160T",
+                "package": "SW4-4P2X3P2X2P5-SMT",
+                "mpn": "NTC013-AT1J-A160T",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "U2",
+                "name": "3.3 V 线性稳压器",
+                "value": "SGM2212-3.3XKC3G/TR",
+                "package": "SOT223",
+                "mpn": "SGM2212-3.3XKC3G/TR",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "U3",
+                "name": "USB 转 UART 桥",
+                "value": "CP2102N-A02-GQFN28",
+                "package": "QFN28_0P5_5",
+                "mpn": "CP2102N-A02-GQFN28",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "U4",
+                "name": "ESP32-S3 模组",
+                "value": "ESP32-S3-WROOM-1",
+                "package": "ESP32-S3-WROOM_NEW",
+                "mpn": "ESP32-S3-WROOM-1/ESP32-S3-WROOM-2",
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11",
+                  "schematic-v11"
+                ]
+              },
+              {
+                "ref": "PCB",
+                "name": "裸 PCB",
+                "value": "双层 · 62.74 × 25.40 × 1.60 mm",
+                "package": "",
+                "mpn": null,
+                "fit": "fitted",
+                "sourceIds": [
+                  "bom-v11"
+                ]
+              }
+            ],
+            "board": {
+              "width": 25.4,
+              "height": 62.74,
+              "placements": [
+                {
+                  "ref": "C1",
+                  "x": 6.528,
+                  "y": 23.065,
+                  "side": "top",
+                  "rotation": 90.0
+                },
+                {
+                  "ref": "C2",
+                  "x": 7.036,
+                  "y": 27.129,
+                  "side": "top",
+                  "rotation": 270.0
+                },
+                {
+                  "ref": "C3",
+                  "x": 12.725,
+                  "y": 49.681,
+                  "side": "top",
+                  "rotation": 0.0
+                },
+                {
+                  "ref": "C6",
+                  "x": 12.497,
+                  "y": 22.303,
+                  "side": "top",
+                  "rotation": 0.0
+                },
+                {
+                  "ref": "C7",
+                  "x": 7.29,
+                  "y": 28.907,
+                  "side": "top",
+                  "rotation": 180.0
+                },
+                {
+                  "ref": "C8",
+                  "x": 8.306,
+                  "y": 27.129,
+                  "side": "top",
+                  "rotation": 90.0
+                },
+                {
+                  "ref": "C9",
+                  "x": 6.147,
+                  "y": 27.129,
+                  "side": "top",
+                  "rotation": 270.0
+                },
+                {
+                  "ref": "C10",
+                  "x": 7.29,
+                  "y": 25.351,
+                  "side": "top",
+                  "rotation": 180.0
+                },
+                {
+                  "ref": "C11",
+                  "x": 7.239,
+                  "y": 40.312,
+                  "side": "top",
+                  "rotation": 180.0
+                },
+                {
+                  "ref": "C12",
+                  "x": 8.255,
+                  "y": 42.217,
+                  "side": "top",
+                  "rotation": 270.0
+                },
+                {
+                  "ref": "C13",
+                  "x": 6.248,
+                  "y": 51.281,
+                  "side": "top",
+                  "rotation": 0.0
+                },
+                {
+                  "ref": "C14",
+                  "x": 19.075,
+                  "y": 51.281,
+                  "side": "top",
+                  "rotation": 180.0
+                },
+                {
+                  "ref": "C15",
+                  "x": 12.725,
+                  "y": 47.906,
+                  "side": "top",
+                  "rotation": 0.0
+                },
+                {
+                  "ref": "D1",
+                  "x": 10.439,
+                  "y": 53.79,
+                  "side": "top",
+                  "rotation": 180.0
+                },
+                {
+                  "ref": "D2",
+                  "x": 4.59,
+                  "y": 53.74,
+                  "side": "top",
+                  "rotation": 270.0
+                },
+                {
+                  "ref": "D3",
+                  "x": 5.994,
+                  "y": 53.74,
+                  "side": "top",
+                  "rotation": 270.0
+                },
+                {
+                  "ref": "D4",
+                  "x": 7.01,
+                  "y": 53.74,
+                  "side": "top",
+                  "rotation": 270.0
+                },
+                {
+                  "ref": "D5",
+                  "x": 19.101,
+                  "y": 27.764,
+                  "side": "top",
+                  "rotation": 270.0
+                },
+                {
+                  "ref": "D6",
+                  "x": 7.493,
+                  "y": 33.657,
+                  "side": "top",
+                  "rotation": 270.0
+                },
+                {
+                  "ref": "D7",
+                  "x": 14.884,
+                  "y": 53.79,
+                  "side": "top",
+                  "rotation": 0.0
+                },
+                {
+                  "ref": "D8",
+                  "x": 17.55,
+                  "y": 53.74,
+                  "side": "top",
+                  "rotation": 270.0
+                },
+                {
+                  "ref": "D9",
+                  "x": 19.07,
+                  "y": 53.74,
+                  "side": "top",
+                  "rotation": 270.0
+                },
+                {
+                  "ref": "D10",
+                  "x": 20.09,
+                  "y": 53.74,
+                  "side": "top",
+                  "rotation": 270.0
+                },
+                {
+                  "ref": "J1",
+                  "x": 1.27,
+                  "y": 1.44,
+                  "side": "bottom",
+                  "rotation": 270.0
+                },
+                {
+                  "ref": "J2",
+                  "x": 6.0,
+                  "y": 57.773,
+                  "side": "top",
+                  "rotation": 90.0
+                },
+                {
+                  "ref": "J3",
+                  "x": 24.13,
+                  "y": 1.44,
+                  "side": "bottom",
+                  "rotation": 270.0
+                },
+                {
+                  "ref": "J4",
+                  "x": 19.4,
+                  "y": 57.773,
+                  "side": "top",
+                  "rotation": 90.0
+                },
+                {
+                  "ref": "Q1",
+                  "x": 17.78,
+                  "y": 33.657,
+                  "side": "top",
+                  "rotation": 90.0
+                },
+                {
+                  "ref": "Q2",
+                  "x": 12.573,
+                  "y": 33.657,
+                  "side": "top",
+                  "rotation": 90.0
+                },
+                {
+                  "ref": "R5",
+                  "x": 10.465,
+                  "y": 22.303,
+                  "side": "top",
+                  "rotation": 180.0
+                },
+                {
+                  "ref": "R7",
+                  "x": 18.669,
+                  "y": 41.709,
+                  "side": "top",
+                  "rotation": 0.0
+                },
+                {
+                  "ref": "R8",
+                  "x": 13.97,
+                  "y": 36.959,
+                  "side": "top",
+                  "rotation": 180.0
+                },
+                {
+                  "ref": "R9",
+                  "x": 18.669,
+                  "y": 42.979,
+                  "side": "top",
+                  "rotation": 0.0
+                },
+                {
+                  "ref": "R10",
+                  "x": 16.383,
+                  "y": 36.959,
+                  "side": "top",
+                  "rotation": 0.0
+                },
+                {
+                  "ref": "R11",
+                  "x": 19.101,
+                  "y": 24.335,
+                  "side": "top",
+                  "rotation": 270.0
+                },
+                {
+                  "ref": "R12",
+                  "x": 18.669,
+                  "y": 36.959,
+                  "side": "top",
+                  "rotation": 180.0
+                },
+                {
+                  "ref": "R13",
+                  "x": 11.684,
+                  "y": 36.959,
+                  "side": "top",
+                  "rotation": 180.0
+                },
+                {
+                  "ref": "R14",
+                  "x": 6.731,
+                  "y": 44.884,
+                  "side": "top",
+                  "rotation": 180.0
+                },
+                {
+                  "ref": "R16",
+                  "x": 6.731,
+                  "y": 43.995,
+                  "side": "top",
+                  "rotation": 180.0
+                },
+                {
+                  "ref": "R17",
+                  "x": 8.89,
+                  "y": 36.959,
+                  "side": "top",
+                  "rotation": 180.0
+                },
+                {
+                  "ref": "R18",
+                  "x": 6.731,
+                  "y": 41.709,
+                  "side": "top",
+                  "rotation": 180.0
+                },
+                {
+                  "ref": "R19",
+                  "x": 6.731,
+                  "y": 42.725,
+                  "side": "top",
+                  "rotation": 0.0
+                },
+                {
+                  "ref": "R24",
+                  "x": 8.179,
+                  "y": 23.065,
+                  "side": "top",
+                  "rotation": 90.0
+                },
+                {
+                  "ref": "SW1",
+                  "x": 7.525,
+                  "y": 48.781,
+                  "side": "top",
+                  "rotation": 180.0
+                },
+                {
+                  "ref": "SW2",
+                  "x": 17.905,
+                  "y": 48.781,
+                  "side": "top",
+                  "rotation": 180.0
+                },
+                {
+                  "ref": "U2",
+                  "x": 10.338,
+                  "y": 26.367,
+                  "side": "top",
+                  "rotation": 270.0
+                },
+                {
+                  "ref": "U3",
+                  "x": 13.589,
+                  "y": 42.598,
+                  "side": "top",
+                  "rotation": 270.0
+                },
+                {
+                  "ref": "U4",
+                  "x": 3.75,
+                  "y": 1.09,
+                  "side": "top",
+                  "rotation": 0.0
+                }
+              ],
+              "sourceIds": [
+                "placement-v11",
+                "mechanical-v11"
+              ],
+              "coordinateSource": "placement"
+            },
+            "note": "板载 RGB 走 GPIO38。BOM 以原厂 V0.3 表为基线，原理图 NC 项单列。U4 的实际模组按 SKU 查。位号使用厂商贴装参考点，连接器参考点可在首针处。",
+            "sourceIds": [
+              "guide-v11",
+              "schematic-v11",
+              "pcb-v11",
+              "archive-v11"
+            ]
+          },
+          {
+            "id": "v10",
+            "label": "PCB v1.0",
+            "skuIds": [
+              "n8r8",
+              "n8r8-u",
+              "n32r16v"
+            ],
+            "firmware": [
+              {
+                "name": "Blink · 板载可寻址 RGB",
+                "version": "ESP-IDF v5.4.4",
+                "fileId": "blink",
+                "pinIds": [
+                  "rgb-data",
+                  "j3-16"
+                ],
+                "note": "ESP32-S3 目标，LED 类型选 LED strip，GPIO 配成 48。官方示例不是出厂固件；未进行实物烧录。",
+                "sourceIds": [
+                  "blink",
+                  "guide-v10"
+                ]
+              }
+            ],
+            "rails": [
+              {
+                "id": "gnd",
+                "label": "GND",
+                "volts": 0,
+                "note": "板级电源参考地。",
+                "sourceIds": [
+                  "guide-v10",
+                  "schematic-v10"
+                ]
+              },
+              {
+                "id": "v5",
+                "label": "5V",
+                "volts": 5,
+                "note": "板级供电输入之一。官方手册列出互斥供电方式。",
+                "sourceIds": [
+                  "guide-v10",
+                  "schematic-v10"
+                ]
+              },
+              {
+                "id": "v3v3",
+                "label": "3V3",
+                "volts": 3.3,
+                "note": "板级 3.3 V 电源。与 SKU 表里的模块内部 SPI 电压分开。",
+                "sourceIds": [
+                  "guide-v10",
+                  "schematic-v10"
+                ]
+              }
+            ],
+            "pins": [
+              {
+                "id": "rgb-data",
+                "label": "D6 · DIN",
+                "signal": "GPIO48 → 板载 RGB 数据输入",
+                "ref": "D6",
+                "note": "同一 GPIO 也引出到 J3.16 · 48。",
+                "sourceIds": [
+                  "guide-v10",
+                  "schematic-v10"
+                ]
+              },
+              {
+                "id": "j1-1",
+                "label": "J1.1 · 3V3",
+                "signal": "3.3 V power supply",
+                "railId": "v3v3",
+                "ref": "J1",
+                "note": "手册标记：P。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j1-2",
+                "label": "J1.2 · 3V3",
+                "signal": "3.3 V power supply",
+                "railId": "v3v3",
+                "ref": "J1",
+                "note": "手册标记：P。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j1-3",
+                "label": "J1.3 · RST",
+                "signal": "EN",
+                "railId": null,
+                "ref": "J1",
+                "note": "手册标记：I。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j1-4",
+                "label": "J1.4 · 4",
+                "signal": "RTC_GPIO4, GPIO4, TOUCH4, ADC1_CH3",
+                "railId": null,
+                "ref": "J1",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j1-5",
+                "label": "J1.5 · 5",
+                "signal": "RTC_GPIO5, GPIO5, TOUCH5, ADC1_CH4",
+                "railId": null,
+                "ref": "J1",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j1-6",
+                "label": "J1.6 · 6",
+                "signal": "RTC_GPIO6, GPIO6, TOUCH6, ADC1_CH5",
+                "railId": null,
+                "ref": "J1",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j1-7",
+                "label": "J1.7 · 7",
+                "signal": "RTC_GPIO7, GPIO7, TOUCH7, ADC1_CH6",
+                "railId": null,
+                "ref": "J1",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j1-8",
+                "label": "J1.8 · 15",
+                "signal": "RTC_GPIO15, GPIO15, U0RTS, ADC2_CH4, XTAL_32K_P",
+                "railId": null,
+                "ref": "J1",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j1-9",
+                "label": "J1.9 · 16",
+                "signal": "RTC_GPIO16, GPIO16, U0CTS, ADC2_CH5, XTAL_32K_N",
+                "railId": null,
+                "ref": "J1",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j1-10",
+                "label": "J1.10 · 17",
+                "signal": "RTC_GPIO17, GPIO17, U1TXD, ADC2_CH6",
+                "railId": null,
+                "ref": "J1",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j1-11",
+                "label": "J1.11 · 18",
+                "signal": "RTC_GPIO18, GPIO18, U1RXD, ADC2_CH7, CLK_OUT3",
+                "railId": null,
+                "ref": "J1",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j1-12",
+                "label": "J1.12 · 8",
+                "signal": "RTC_GPIO8, GPIO8, TOUCH8, ADC1_CH7, SUBSPICS1",
+                "railId": null,
+                "ref": "J1",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j1-13",
+                "label": "J1.13 · 3",
+                "signal": "RTC_GPIO3, GPIO3, TOUCH3, ADC1_CH2",
+                "railId": null,
+                "ref": "J1",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j1-14",
+                "label": "J1.14 · 46",
+                "signal": "GPIO46",
+                "railId": null,
+                "ref": "J1",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j1-15",
+                "label": "J1.15 · 9",
+                "signal": "RTC_GPIO9, GPIO9, TOUCH9, ADC1_CH8, FSPIHD, SUBSPIHD",
+                "railId": null,
+                "ref": "J1",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j1-16",
+                "label": "J1.16 · 10",
+                "signal": "RTC_GPIO10, GPIO10, TOUCH10, ADC1_CH9, FSPICS0, FSPIIO4, SUBSPICS0",
+                "railId": null,
+                "ref": "J1",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j1-17",
+                "label": "J1.17 · 11",
+                "signal": "RTC_GPIO11, GPIO11, TOUCH11, ADC2_CH0, FSPID, FSPIIO5, SUBSPID",
+                "railId": null,
+                "ref": "J1",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j1-18",
+                "label": "J1.18 · 12",
+                "signal": "RTC_GPIO12, GPIO12, TOUCH12, ADC2_CH1, FSPICLK, FSPIIO6, SUBSPICLK",
+                "railId": null,
+                "ref": "J1",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j1-19",
+                "label": "J1.19 · 13",
+                "signal": "RTC_GPIO13, GPIO13, TOUCH13, ADC2_CH2, FSPIQ, FSPIIO7, SUBSPIQ",
+                "railId": null,
+                "ref": "J1",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j1-20",
+                "label": "J1.20 · 14",
+                "signal": "RTC_GPIO14, GPIO14, TOUCH14, ADC2_CH3, FSPIWP, FSPIDQS, SUBSPIWP",
+                "railId": null,
+                "ref": "J1",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j1-21",
+                "label": "J1.21 · 5V",
+                "signal": "5 V power supply",
+                "railId": "v5",
+                "ref": "J1",
+                "note": "手册标记：P。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j1-22",
+                "label": "J1.22 · G",
+                "signal": "Ground",
+                "railId": "gnd",
+                "ref": "J1",
+                "note": "手册标记：G。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j3-1",
+                "label": "J3.1 · G",
+                "signal": "Ground",
+                "railId": "gnd",
+                "ref": "J3",
+                "note": "手册标记：G。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j3-2",
+                "label": "J3.2 · TX",
+                "signal": "U0TXD, GPIO43, CLK_OUT1",
+                "railId": null,
+                "ref": "J3",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j3-3",
+                "label": "J3.3 · RX",
+                "signal": "U0RXD, GPIO44, CLK_OUT2",
+                "railId": null,
+                "ref": "J3",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j3-4",
+                "label": "J3.4 · 1",
+                "signal": "RTC_GPIO1, GPIO1, TOUCH1, ADC1_CH0",
+                "railId": null,
+                "ref": "J3",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j3-5",
+                "label": "J3.5 · 2",
+                "signal": "RTC_GPIO2, GPIO2, TOUCH2, ADC1_CH1",
+                "railId": null,
+                "ref": "J3",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j3-6",
+                "label": "J3.6 · 42",
+                "signal": "MTMS, GPIO42",
+                "railId": null,
+                "ref": "J3",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j3-7",
+                "label": "J3.7 · 41",
+                "signal": "MTDI, GPIO41, CLK_OUT1",
+                "railId": null,
+                "ref": "J3",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j3-8",
+                "label": "J3.8 · 40",
+                "signal": "MTDO, GPIO40, CLK_OUT2",
+                "railId": null,
+                "ref": "J3",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j3-9",
+                "label": "J3.9 · 39",
+                "signal": "MTCK, GPIO39, CLK_OUT3, SUBSPICS1",
+                "railId": null,
+                "ref": "J3",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j3-10",
+                "label": "J3.10 · 38",
+                "signal": "GPIO38, FSPIWP, SUBSPIWP",
+                "railId": null,
+                "ref": "J3",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j3-11",
+                "label": "J3.11 · 37",
+                "signal": "SPIDQS, GPIO37, FSPIQ, SUBSPIQ",
+                "railId": null,
+                "ref": "J3",
+                "note": "手册标记：I/O/T。 带 Octal Flash/PSRAM 的相应模组会内部占用此引脚，按所选 SKU 核对。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j3-12",
+                "label": "J3.12 · 36",
+                "signal": "SPIIO7, GPIO36, FSPICLK, SUBSPICLK",
+                "railId": null,
+                "ref": "J3",
+                "note": "手册标记：I/O/T。 带 Octal Flash/PSRAM 的相应模组会内部占用此引脚，按所选 SKU 核对。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j3-13",
+                "label": "J3.13 · 35",
+                "signal": "SPIIO6, GPIO35, FSPID, SUBSPID",
+                "railId": null,
+                "ref": "J3",
+                "note": "手册标记：I/O/T。 带 Octal Flash/PSRAM 的相应模组会内部占用此引脚，按所选 SKU 核对。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j3-14",
+                "label": "J3.14 · 0",
+                "signal": "RTC_GPIO0, GPIO0",
+                "railId": null,
+                "ref": "J3",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j3-15",
+                "label": "J3.15 · 45",
+                "signal": "GPIO45",
+                "railId": null,
+                "ref": "J3",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j3-16",
+                "label": "J3.16 · 48",
+                "signal": "GPIO48, SPICLK_N, SUBSPICLK_N_DIFF, RGB LED",
+                "railId": null,
+                "ref": "J3",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j3-17",
+                "label": "J3.17 · 47",
+                "signal": "GPIO47, SPICLK_P, SUBSPICLK_P_DIFF",
+                "railId": null,
+                "ref": "J3",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j3-18",
+                "label": "J3.18 · 21",
+                "signal": "RTC_GPIO21, GPIO21",
+                "railId": null,
+                "ref": "J3",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j3-19",
+                "label": "J3.19 · 20",
+                "signal": "RTC_GPIO20, GPIO20, U1CTS, ADC2_CH9, CLK_OUT1, USB_D+",
+                "railId": null,
+                "ref": "J3",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j3-20",
+                "label": "J3.20 · 19",
+                "signal": "RTC_GPIO19, GPIO19, U1RTS, ADC2_CH8, CLK_OUT2, USB_D-",
+                "railId": null,
+                "ref": "J3",
+                "note": "手册标记：I/O/T。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j3-21",
+                "label": "J3.21 · G",
+                "signal": "Ground",
+                "railId": "gnd",
+                "ref": "J3",
+                "note": "手册标记：G。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              },
+              {
+                "id": "j3-22",
+                "label": "J3.22 · G",
+                "signal": "Ground",
+                "railId": "gnd",
+                "ref": "J3",
+                "note": "手册标记：G。",
+                "sourceIds": [
+                  "guide-v10"
+                ]
+              }
+            ],
+            "files": [
+              {
+                "id": "schematic",
+                "name": "v1.0 乐鑫原理图 PDF",
+                "kind": "schematic",
+                "url": "https://dl.espressif.com/dl/SCH_ESP32-S3-DEVKITC-1_V1_20210312C.pdf",
+                "note": "第 2 页元件符号、位号、标称值和 NC 标注是本页参考 BOM 的出处。",
+                "sha256": "a878f5a4c5c52acb649390fcdad181a5776e795d3473e9ef504d222ec8660bd1",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "id": "pcb",
+                "name": "v1.0 乐鑫 PCB 布局 PDF",
+                "kind": "pcb",
+                "url": "https://dl.espressif.com/dl/PCB_ESP32-S3-DevKitC-1_V1_20210312CB.pdf",
+                "note": "第 1 页的位号文字中心用于投影。坐标用于浏览与定位。",
+                "sha256": "1e9f54915673dc0a9abf39c8b68eaba48cee6481ffea57c9787fc8b74e9795b7",
+                "sourceIds": [
+                  "pcb-v10"
+                ]
+              },
+              {
+                "id": "mechanical",
+                "name": "v1.0 乐鑫机械尺寸 DXF",
+                "kind": "mechanical",
+                "url": "https://dl.espressif.com/dl/DXF_ESP32-S3-DevKitC-1_V1_20210312CB.dxf",
+                "note": "原始机械尺寸文件，用于核对参考板框。下载文件以厂商许可为准。",
+                "sha256": "0a700d9d1cd4a8f3d98a434b120d685524a9962916320b3bb98d74486789fda1",
+                "sourceIds": [
+                  "mechanical-v10"
+                ]
+              },
+              {
+                "id": "blink",
+                "name": "ESP-IDF Blink 源码",
+                "kind": "firmware",
+                "url": "https://github.com/espressif/esp-idf/tree/296b6eab9445fd720e71aecab961e2d3fbca9944/examples/get-started/blink",
+                "note": "固定到 ESP-IDF v5.4.4 的源码提交。",
+                "sourceIds": [
+                  "blink"
+                ]
+              }
+            ],
+            "bom": [
+              {
+                "ref": "C1",
+                "name": "电容",
+                "value": "10uF/25V(20%)",
+                "package": "",
+                "mpn": null,
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "C2",
+                "name": "电容",
+                "value": "0.1uF/50V(10%)",
+                "package": "",
+                "mpn": null,
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "C3",
+                "name": "电容",
+                "value": "10uF/25V(20%)",
+                "package": "",
+                "mpn": null,
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "C6",
+                "name": "电容",
+                "value": "1uF/16V(10%)",
+                "package": "",
+                "mpn": null,
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "C7",
+                "name": "电容",
+                "value": "10uF/25V(20%)",
+                "package": "",
+                "mpn": null,
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "C8",
+                "name": "电容",
+                "value": "0.1uF/50V(10%)",
+                "package": "",
+                "mpn": null,
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "C9",
+                "name": "电容",
+                "value": "0.1uF/50V(10%)",
+                "package": "",
+                "mpn": null,
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "C10",
+                "name": "电容",
+                "value": "10uF/25V(20%)",
+                "package": "",
+                "mpn": null,
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "C11",
+                "name": "电容",
+                "value": "10uF/25V(20%)",
+                "package": "",
+                "mpn": null,
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "C12",
+                "name": "电容",
+                "value": "1uF/16V(10%)",
+                "package": "",
+                "mpn": null,
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "C13",
+                "name": "电容",
+                "value": "0.1uF/50V(10%)(NC)",
+                "package": "",
+                "mpn": null,
+                "fit": "dnp",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "C14",
+                "name": "电容",
+                "value": "0.1uF/50V(10%)(NC)",
+                "package": "",
+                "mpn": null,
+                "fit": "dnp",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "C15",
+                "name": "电容",
+                "value": "10uF/25V(20%)(NC)",
+                "package": "",
+                "mpn": null,
+                "fit": "dnp",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "D1",
+                "name": "二极管",
+                "value": "1N5819HW-7-F",
+                "package": "",
+                "mpn": "1N5819HW-7-F",
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "D2",
+                "name": "二极管",
+                "value": "LESD5D5.0CT1G",
+                "package": "",
+                "mpn": "LESD5D5.0CT1G",
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "D3",
+                "name": "二极管",
+                "value": "LESD5D5.0CT1G",
+                "package": "",
+                "mpn": "LESD5D5.0CT1G",
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "D4",
+                "name": "二极管",
+                "value": "LESD5D5.0CT1G",
+                "package": "",
+                "mpn": "LESD5D5.0CT1G",
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "D5",
+                "name": "电源指示灯",
+                "value": "RED LED",
+                "package": "",
+                "mpn": null,
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "D6",
+                "name": "可寻址 RGB 灯",
+                "value": "SK68XXMINI-HS",
+                "package": "",
+                "mpn": "SK68XXMINI-HS",
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "D7",
+                "name": "二极管",
+                "value": "1N5819HW-7-F",
+                "package": "",
+                "mpn": "1N5819HW-7-F",
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "D8",
+                "name": "二极管",
+                "value": "LESD5D5.0CT1G",
+                "package": "",
+                "mpn": "LESD5D5.0CT1G",
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "D9",
+                "name": "二极管",
+                "value": "LESD5D5.0CT1G",
+                "package": "",
+                "mpn": "LESD5D5.0CT1G",
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "D10",
+                "name": "二极管",
+                "value": "LESD5D5.0CT1G",
+                "package": "",
+                "mpn": "LESD5D5.0CT1G",
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "J1",
+                "name": "22 针排针 J1",
+                "value": "CON22X1",
+                "package": "",
+                "mpn": null,
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "J2",
+                "name": "Micro USB 接口 J2",
+                "value": "MICRO USB",
+                "package": "",
+                "mpn": null,
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "J3",
+                "name": "22 针排针 J3",
+                "value": "CON22X1",
+                "package": "",
+                "mpn": null,
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "J4",
+                "name": "Micro USB 接口 J4",
+                "value": "MICRO USB",
+                "package": "",
+                "mpn": null,
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "Q1",
+                "name": "三极管",
+                "value": "L8050QLT1G",
+                "package": "",
+                "mpn": "L8050QLT1G",
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "Q2",
+                "name": "三极管",
+                "value": "L8050QLT1G",
+                "package": "",
+                "mpn": "L8050QLT1G",
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "R5",
+                "name": "电阻",
+                "value": "10K(1%)",
+                "package": "",
+                "mpn": null,
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "R7",
+                "name": "电阻",
+                "value": "0(1%)",
+                "package": "",
+                "mpn": null,
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "R8",
+                "name": "电阻",
+                "value": "0(1%)",
+                "package": "",
+                "mpn": null,
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "R9",
+                "name": "电阻",
+                "value": "0(1%)",
+                "package": "",
+                "mpn": null,
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "R10",
+                "name": "电阻",
+                "value": "10K(1%)",
+                "package": "",
+                "mpn": null,
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "R11",
+                "name": "电阻",
+                "value": "5.1K(1%)",
+                "package": "",
+                "mpn": null,
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "R12",
+                "name": "电阻",
+                "value": "10K(1%)",
+                "package": "",
+                "mpn": null,
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "R13",
+                "name": "电阻",
+                "value": "0(1%)",
+                "package": "",
+                "mpn": null,
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "R14",
+                "name": "电阻",
+                "value": "10K(1%)(NC)",
+                "package": "",
+                "mpn": null,
+                "fit": "dnp",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "R16",
+                "name": "电阻",
+                "value": "1K(1%)",
+                "package": "",
+                "mpn": null,
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "R17",
+                "name": "电阻",
+                "value": "0(1%)",
+                "package": "",
+                "mpn": null,
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "R18",
+                "name": "电阻",
+                "value": "47.5K(1%)",
+                "package": "",
+                "mpn": null,
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "R19",
+                "name": "电阻",
+                "value": "22.1K(1%)",
+                "package": "",
+                "mpn": null,
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "R24",
+                "name": "电阻",
+                "value": "0(1%)",
+                "package": "",
+                "mpn": null,
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "SW1",
+                "name": "按键",
+                "value": "NTC013-AT1J-A160T",
+                "package": "",
+                "mpn": "NTC013-AT1J-A160T",
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "SW2",
+                "name": "按键",
+                "value": "NTC013-AT1J-A160T",
+                "package": "",
+                "mpn": "NTC013-AT1J-A160T",
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "U2",
+                "name": "3.3 V 线性稳压器",
+                "value": "SGM2212-3.3XKC3G/TR",
+                "package": "",
+                "mpn": "SGM2212-3.3XKC3G/TR",
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "U3",
+                "name": "USB 转 UART 桥",
+                "value": "CP2102N-A02-GQFN28",
+                "package": "GQFN28（料号）",
+                "mpn": "CP2102N-A02-GQFN28",
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              },
+              {
+                "ref": "U4",
+                "name": "ESP32-S3 模组",
+                "value": "ESP32-S3-WROOM-1",
+                "package": "",
+                "mpn": null,
+                "fit": "unknown",
+                "sourceIds": [
+                  "schematic-v10"
+                ]
+              }
+            ],
+            "board": {
+              "width": 25.4,
+              "height": 62.74,
+              "placements": [
+                {
+                  "ref": "C1",
+                  "x": 6.528,
+                  "y": 23.059,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "C2",
+                  "x": 7.036,
+                  "y": 27.144,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "C3",
+                  "x": 12.725,
+                  "y": 49.663,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "C6",
+                  "x": 12.497,
+                  "y": 22.359,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "C7",
+                  "x": 7.29,
+                  "y": 28.93,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "C8",
+                  "x": 8.306,
+                  "y": 27.144,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "C9",
+                  "x": 6.147,
+                  "y": 27.144,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "C10",
+                  "x": 7.29,
+                  "y": 25.381,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "C11",
+                  "x": 7.239,
+                  "y": 40.312,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "C12",
+                  "x": 8.255,
+                  "y": 42.202,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "C13",
+                  "x": 6.248,
+                  "y": 51.279,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "C14",
+                  "x": 19.075,
+                  "y": 51.279,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "C15",
+                  "x": 12.725,
+                  "y": 47.892,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "D1",
+                  "x": 10.439,
+                  "y": 53.77,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "D2",
+                  "x": 4.59,
+                  "y": 53.706,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "D3",
+                  "x": 5.994,
+                  "y": 53.706,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "D4",
+                  "x": 7.01,
+                  "y": 53.706,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "D5",
+                  "x": 19.101,
+                  "y": 27.749,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "D6",
+                  "x": 7.493,
+                  "y": 33.576,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "D7",
+                  "x": 14.884,
+                  "y": 53.77,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "D8",
+                  "x": 17.55,
+                  "y": 53.706,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "D9",
+                  "x": 19.07,
+                  "y": 53.706,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "D10",
+                  "x": 20.09,
+                  "y": 53.706,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "J1",
+                  "x": 1.27,
+                  "y": 26.543,
+                  "side": "bottom",
+                  "rotation": null
+                },
+                {
+                  "ref": "J2",
+                  "x": 6.0,
+                  "y": 59.73,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "J3",
+                  "x": 24.13,
+                  "y": 26.543,
+                  "side": "bottom",
+                  "rotation": null
+                },
+                {
+                  "ref": "J4",
+                  "x": 19.4,
+                  "y": 59.73,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "Q1",
+                  "x": 17.78,
+                  "y": 33.602,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "Q2",
+                  "x": 12.573,
+                  "y": 33.602,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "R5",
+                  "x": 10.465,
+                  "y": 22.359,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "R7",
+                  "x": 18.669,
+                  "y": 41.726,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "R8",
+                  "x": 13.97,
+                  "y": 36.985,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "R9",
+                  "x": 18.669,
+                  "y": 42.993,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "R10",
+                  "x": 16.383,
+                  "y": 36.985,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "R11",
+                  "x": 19.101,
+                  "y": 24.356,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "R12",
+                  "x": 18.669,
+                  "y": 36.985,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "R13",
+                  "x": 11.684,
+                  "y": 36.985,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "R14",
+                  "x": 6.731,
+                  "y": 44.894,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "R16",
+                  "x": 6.731,
+                  "y": 44.007,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "R17",
+                  "x": 8.89,
+                  "y": 36.985,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "R18",
+                  "x": 6.731,
+                  "y": 41.726,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "R19",
+                  "x": 6.731,
+                  "y": 42.74,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "R24",
+                  "x": 8.179,
+                  "y": 23.059,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "SW1",
+                  "x": 7.526,
+                  "y": 48.712,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "SW2",
+                  "x": 17.906,
+                  "y": 48.712,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "U2",
+                  "x": 13.513,
+                  "y": 26.243,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "U3",
+                  "x": 13.651,
+                  "y": 42.46,
+                  "side": "top",
+                  "rotation": null
+                },
+                {
+                  "ref": "U4",
+                  "x": 12.75,
+                  "y": 5.932,
+                  "side": "top",
+                  "rotation": null
+                }
+              ],
+              "sourceIds": [
+                "pcb-v10",
+                "mechanical-v10"
+              ],
+              "coordinateSource": "projection"
+            },
+            "note": "板载 RGB 走 GPIO48。参考 BOM 按官方原理图位号整理，原厂装配明细待核验。U4 的实际模组按 SKU 查。位置使用官方 PDF 位号文字投影。",
+            "sourceIds": [
+              "guide-v10",
+              "schematic-v10",
+              "pcb-v10"
+            ]
+          }
+        ]
+      },
+      "image": {
+        "url": "https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32s3/_images/esp32-s3-devkitc-1-v1.1-isometric.png",
+        "alt": "乐鑫 ESP32-S3-DevKitC-1 v1.1 开发板官方外观",
+        "type": "official",
+        "sourceId": "guide-v11"
+      }
     }
   ]
 }

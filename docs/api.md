@@ -26,6 +26,7 @@
       illustration?: { url: string, technical: "teardown"|"functional", exterior: "reference"|"concept", sourceIds: string[],
                        panels?: { overview: string, detail: string, specs: string, angles: string },
                        breakdown?: { details: VisualCard[], angles: VisualCard[] } },
+      engineering?: EngineeringArchive,
       build?: { repo: string, steps: string[], note: string, stepSourceIds?: string[][] }
     }
 
@@ -62,3 +63,11 @@ Product ID 稳定，部件 ID 在产品内部唯一。给同一位置的替代�
 - `GET /api/research/notes` → `{notes:[{id,text,createdAt}]}`；`POST /api/research/notes` 接收 `{text}` 返回新 Note；`DELETE /api/research/notes/{id}` → 204。记忆由用户主动加入；仅在 useMemory 为真时可用。
 
 图片不会落盘。模型不可用时以目录证据继续工作并标明模式。模型接口地址只可由部署环境配置。
+
+## 版本化部件档案
+
+产品的可选字段 engineering 由 skus 与 revisions 组成。SKU 包含订货码、模组、Flash、PSRAM 和可选的模块 SPI 电压。各板版分别记录适用 skuIds、板级电源 rails、引脚 pins、固件 firmware、文件 files、BOM bom 和可选的 PCB board。与产品的普通 parts 及 BOM CSV 并存。公网体验版随目录快照发布同一份档案。
+
+- 固件 fileId 指向本版的固件文件，pinIds 指向本版引脚。引脚可按 railId 和 ref 追到本版电源和 BOM。
+- board.placements 按 ref 关联本版 BOM。x、y 是正面视角下从左上角起算的毫米坐标，背面展示时横向镜像。coordinateSource 区分原厂贴装参考点和 PDF 位号投影，未核验的旋转角留空。
+- 每份技术资料通过 sourceIds 引用产品来源，文件可附 SHA-256。fit 区分参考装配、不装配和未列出。选定 SKU 的实际物料仍以对应原厂资料为准。

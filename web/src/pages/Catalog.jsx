@@ -70,6 +70,7 @@ function SceneBrowser({ category, selectCategory, counts }) {
         })}
       </div>
       {active === 3 && <div className="scene-tools">
+        <Link className="button small primary" to="/products/esp32-s3-devkitc-1?view=engineering">打开 ESP32-S3 PCB 工作台 <ArrowUpRight size={14} /></Link>
         <Link className="button small" to="/?model=true"><Cube size={16} /> 浏览可拆解模型</Link>
         <Link className="button small" to="/research?workflow=build">打开复现工作流 <ArrowUpRight size={14} /></Link>
       </div>}

@@ -107,3 +107,51 @@ def test_photos_and_cutaways_keep_provenance_separate(seed):
     assert verified.image.type == "retail"
     assert verified.cutaway.type == "reconstruction"
 
+
+
+@pytest.fixture
+def engineering_seed(seed):
+    product = json.loads(seed.read_text(encoding="utf-8"))["products"][0]
+    evidence = {"sourceIds": ["s1"]}
+    product["engineering"] = {
+        "skus": [{"id": "n8", "code": "BOARD-N8", "module": "MODULE-N8",
+                  "flash": "8 MB", "psram": "无", **evidence}],
+        "revisions": [{
+            "id": "v11", "label": "v1.1", "note": "参考板", "skuIds": ["n8"], **evidence,
+            "files": [{"id": "blink", "name": "Blink", "kind": "firmware", "note": "",
+                       "url": "https://example.com/blink", **evidence}],
+            "firmware": [{"name": "Blink", "version": "1", "fileId": "blink",
+                          "pinIds": ["led"], "note": "参考示例", **evidence}],
+            "rails": [{"id": "3v3", "label": "3V3", "volts": 3.3, "note": "", **evidence}],
+            "pins": [{"id": "led", "label": "LED", "signal": "GPIO38", "railId": "3v3",
+                      "ref": "D1", "note": "", **evidence}],
+            "bom": [{"ref": "D1", "name": "LED", "value": "RGB", "package": "5050",
+                     "fit": "fitted", **evidence}],
+            "board": {"width": 20, "height": 40, **evidence,
+                      "placements": [{"ref": "D1", "x": 4, "y": 8, "side": "top", "rotation": 90}]},
+        }],
+    }
+    return product
+
+
+def test_engineering_bundle_preserves_versioned_references(engineering_seed):
+    board = Product.model_validate(engineering_seed).engineering.revisions[0]
+    assert board.board.placements[0].ref == board.bom[0].ref == board.pins[0].ref
+    assert board.firmware[0].pinIds == [board.pins[0].id]
+
+
+@pytest.mark.parametrize("invalid", ["ref", "position", "pin", "source", "sku"])
+def test_engineering_rejects_inconsistent_revision(engineering_seed, invalid):
+    revision = engineering_seed["engineering"]["revisions"][0]
+    if invalid == "ref":
+        revision["board"]["placements"][0]["ref"] = "D2"
+    elif invalid == "position":
+        revision["board"]["placements"][0]["x"] = 21
+    elif invalid == "pin":
+        revision["firmware"][0]["pinIds"] = ["missing"]
+    elif invalid == "source":
+        revision["bom"][0]["sourceIds"] = ["unregistered"]
+    else:
+        revision["skuIds"] = ["unregistered"]
+    with pytest.raises(ValidationError, match="engineering"):
+        Product.model_validate(engineering_seed)

@@ -6,6 +6,7 @@ import { bomPath, onlineDemo, sitePath } from '../deployment.js';
 import { Empty, External, ModelBadge, ProductVisual, SourceList, SourcesFor, Status } from '../components.jsx';
 import { categoryFor, computeLabels, imageLabels, kindLabels, modelLabels, partLabels, photoSource, productPhotos, researchUrl } from '../labels.js';
 
+import { EngineeringWorkbench } from './EngineeringWorkbench.jsx';
 import '../product-discovery.css';
 
 const ModelViewer = lazy(() => import('../ModelViewer.jsx'));
@@ -478,12 +479,18 @@ function ProductContent({ product, selection }) {
   const tabs = [
     ...(photos.length || requestedTab === 'photos' ? [['photos', '实物照片']] : []),
     ...(product.illustration ? [['illustration', 'AI 图解']] : []),
-    ...sections,
+    ...(product.engineering ? [['engineering', '版本化部件档案']] : []),
+    ...sections.filter(([id]) => {
+      if (!product.engineering || product.parts.length) return true;
+      if (id === 'bom') return false;
+      return id !== 'structure' || Boolean(product.model || product.cutaway);
+    }),
     ...(product.build ? [['build', '复现指南']] : []),
   ];
   let defaultTab = product.specs.length || product.abilities.length ? 'specs' : 'structure';
   if (product.illustration) defaultTab = 'illustration';
   if (photos.length) defaultTab = 'photos';
+  if (product.engineering) defaultTab = 'engineering';
   if (part) defaultTab = 'structure';
   const tab = tabs.some(([value]) => value === requestedTab) ? requestedTab : defaultTab;
   const selected = selection.ids.includes(product.id);
@@ -497,6 +504,7 @@ function ProductContent({ product, selection }) {
   const select = (id) => setParameter('part', id);
   const showTab = (value) => setParameter('view', value);
   const researchEntries = [
+    ...(product.engineering ? [{ id: 'engineering', icon: Circuitry, label: '版本化部件档案', detail: '板版、引脚与 PCB / BOM' }] : []),
     { id: 'specs', icon: Circuitry, label: '规格与 AI', detail: product.specs.length + ' 项规格' },
     ...(product.model || product.cutaway || product.parts.length ? [{
       id: 'structure', icon: Cube, label: '结构检视', detail: product.model ? '可交互 3D' : '部件索引',
@@ -551,6 +559,7 @@ function ProductContent({ product, selection }) {
         {tabs.map(([id, label]) => <button key={id} className={id === tab ? 'active' : ''} aria-current={id === tab ? 'page' : undefined} onClick={() => showTab(id)}>{label}{id === 'photos' ? <span>{photos.length}</span> : id === 'bom' ? <span>{product.parts.length}</span> : null}</button>)}
       </nav>
       <section className="product-panel">
+        {tab === 'engineering' && product.engineering ? <EngineeringWorkbench product={product} /> : null}
         {tab === 'photos' ? <PhotoGallery product={product} photos={photos} /> : null}
         {tab === 'illustration' ? product.illustration.panels ? <ProductImageGallery product={product} /> : <Illustration product={product} /> : null}
         {tab === 'structure' ? <Structure product={product} part={part} select={select} /> : null}
