@@ -18,7 +18,29 @@ export const computeLabels = { device: '设备端', phone: '手机端', lan: '�
 export const sourceLabels = { official: '官方', teardown: '实物拆解', open: '开源', manual: '手册', other: '参考' };
 export const partLabels = { confirmed: '已确认', observed: '拆解观察', inferred: '推断', unknown: '待核验' };
 export const modelLabels = { reconstruction: '依据拆解重建', concept: '概念示意', official: '原厂模型', scan: '实物扫描' };
-export const imageLabels = { concept: '概念示意', official: '官方图片', teardown: '实物拆解' };
+export const imageLabels = {
+  concept: '概念示意',
+  reconstruction: '重建示意',
+  official: '官方产品照片',
+  retail: '销售页面图片',
+  photo: '实物实拍',
+  teardown: '实物拆解照片',
+};
+
+export function productPhotos(product) {
+  const candidates = [product?.image, ...(product?.photos || [])];
+  const photos = new Map();
+  for (const candidate of candidates) {
+    if (!candidate?.url || !['official', 'retail', 'photo', 'teardown'].includes(candidate.type)) continue;
+    const previous = photos.get(candidate.url);
+    if (!previous || (!previous.sourceId && candidate.sourceId)) photos.set(candidate.url, candidate);
+  }
+  return [...photos.values()];
+}
+
+export function photoSource(product, photo) {
+  return product?.sources?.find(({ id }) => id === photo?.sourceId);
+}
 
 export function safeLink(value) {
   try {

@@ -26,6 +26,7 @@ Windows 也可以运行 `pwsh -File scripts/start.ps1 -Build`，之后省略 `-B
 - 研究历史和主动记忆按浏览器随机凭证隔离。同一浏览器的站点存储需要保留，清除站点存储后原凭证无法从应用找回。工作区提供独立删除操作。
 - 使用 `ATLAS_ADMIN_TOKEN` 启用内容审核页 /admin 和审核 API。目录种子由 data/catalog.json 管理，线上产品修订、纠错和研究记录保存在 `ATLAS_DATA_DIR`（默认 runtime/）下的 SQLite 数据库。备份时使用 SQLite 在线备份，或停止应用后复制整个目录。
 - 三个 Blender 原件在 assets/blender，网页 GLB 和二维图在 web/public/assets。模型以近似结构或概念标注。脚本可用 Blender 5.2 运行 `blender --background --python-exit-code 1 --python scripts/build_models.py` 重建。
+- 实物、原厂及电商图在目录和照片图库标明来源。受限的拆解图保留原文入口。三张 ImageGen 剖视图按公开资料重绘，位于 web/public/assets/cutaways；建模的主要证据见 [旗舰视觉依据](docs/flagship-visual-evidence.md)。
 - 首页概念图由 Codex ImageGen 生成。提示词指定通用深色 AI 摄像眼镜、分离的镜腿、电池和电路板、米白工程工作台和无品牌字样。商品样机信息以档案中的原始出处为准。
 
 ## 单机部署

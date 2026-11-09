@@ -2,13 +2,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" id="xiaozhi-esp32-root" viewBox="0 0 850 347" role="img"
      aria-labelledby="xiaozhi-esp32-title xiaozhi-esp32-desc">
 <title id="xiaozhi-esp32-title">小智 ESP32 语音样机结构总览</title>
-<desc id="xiaozhi-esp32-desc">依据参考板资料构思装配，外壳尺寸与固定点待实物验证。 图例编号对应档案部件。</desc>
+<desc id="xiaozhi-esp32-desc">依据立创白色套件实物及开发板资料，内部模块位置为示意。 图例编号对应档案部件。</desc>
 <defs>
   <pattern id="xiaozhi-esp32-grid" width="18" height="18" patternUnits="userSpaceOnUse">
     <path d="M18 0H0v18" fill="none" stroke="#e6dfd0" stroke-width="0.8"/>
   </pattern>
   <style>
     #xiaozhi-esp32-root text { font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif; fill: #262522; }
+    #xiaozhi-esp32-root .caption { font-size: 12px; fill: #6d6257; }
     #xiaozhi-esp32-root .legend { font-size: 16px; }
     #xiaozhi-esp32-root .serial { fill: #bf451d; font-family: "Consolas", monospace; font-size: 13px; font-weight: 700; }
     #xiaozhi-esp32-root .pin circle { fill: #f8f4ea; stroke: #bf451d; stroke-width: 1.4; }
@@ -21,41 +22,46 @@
 <rect width="850" height="347" fill="#f8f4ea"/>
 <text x="26" y="29" class="serial">FIG. 02</text>
 <text x="112" y="30" font-size="21" font-weight="700">小智 ESP32 语音样机</text>
-<text x="823" y="29" text-anchor="end" font-size="13" font-weight="700" fill="#bf451d">原创概念</text>
+<text x="823" y="29" text-anchor="end" font-size="13" font-weight="700" fill="#bf451d">重建示意</text>
 <path d="M26 46H824M26 308H824M615 59V296" stroke="#d8cbb8" fill="none"/>
 <rect x="26" y="61" width="574" height="236" fill="url(#xiaozhi-esp32-grid)"/>
 <g aria-hidden="true">
 
 <g class="trace">
-  <path d="M202 238V130m241 98V128M223 202v54m221-51v42m34-36v38"/>
-</g>
-<path class="object" d="M129 244q0-10 10-10h320q12 0 12 12v37q0 15-15 15H145q-16 0-16-15Z" fill="#d8cebd"/>
-<path class="object" d="M137 244q0-6 9-6h310q8 0 8 7v27q0 7-9 7H147q-10 0-10-7Z" fill="#eee6d7"/>
-<path class="detail" d="M156 280h291m-258-28h64m-64 6h64m-64 6h64"/>
-<g class="object" fill="#e7ded0">
-  <path d="M190 180h230l16 8-13 21H204l-14-8Z"/>
-  <path d="M200 184h218l8 5-7 13H206l-6-5Z" fill="#f2c6b2"/>
-  <rect x="262" y="187" width="47" height="11" rx="2" fill="#f7e3d7"/>
-  <path d="M212 188h10m-10 7h22m86-8h26m-26 7h34" class="detail"/>
-</g>
-<g class="object" fill="#d4c8b6">
-  <circle cx="448" cy="183" r="6"/><circle cx="462" cy="183" r="6"/>
-  <circle cx="448" cy="183" r="2" fill="#f8f4ea"/><circle cx="462" cy="183" r="2" fill="#f8f4ea"/>
-  <ellipse cx="481" cy="248" rx="25" ry="16"/>
-  <ellipse cx="481" cy="247" rx="18" ry="11" fill="#f8f4ea"/>
-  <ellipse cx="481" cy="247" rx="8" ry="4" fill="#e1d5c3"/>
+  <path d="M161 172l33 27m219-28-15 24M120 210l71-9m229 7 52 6"/>
 </g>
 <g class="object">
-  <rect x="174" y="92" width="299" height="48" rx="13" fill="#e4dbcc"/>
-  <rect x="225" y="99" width="194" height="31" rx="6" fill="#363735"/>
-  <rect x="236" y="105" width="172" height="20" rx="3" fill="#5d625c"/>
-  <path d="M242 115h39l7-5 7 9 8-6 8 2h89" fill="none" stroke="#e7d5bb"/>
+  <rect x="147" y="85" width="284" height="102" rx="13" fill="#d7d9d5"/>
+  <rect x="147" y="81" width="284" height="96" rx="13" fill="#f1f2ee"/>
+  <rect x="228" y="91" width="188" height="75" rx="5" fill="#242627"/>
+  <rect x="237" y="97" width="169" height="62" rx="3" fill="#434951"/>
+  <circle cx="181" cy="106" r="9" fill="#262f32"/>
+  <circle cx="181" cy="106" r="4" fill="#75928f"/>
+  <rect x="226" y="179" width="29" height="4" rx="1" fill="#555853"/>
+  <rect x="267" y="179" width="24" height="4" rx="1" fill="#555853"/>
 </g>
+<g fill="#777a75">
+  <circle cx="170" cy="129" r="1.5"/><circle cx="177" cy="129" r="1.5"/><circle cx="184" cy="129" r="1.5"/><circle cx="191" cy="129" r="1.5"/>
+  <circle cx="170" cy="136" r="1.5"/><circle cx="177" cy="136" r="1.5"/><circle cx="184" cy="136" r="1.5"/><circle cx="191" cy="136" r="1.5"/>
+  <circle cx="170" cy="143" r="1.5"/><circle cx="177" cy="143" r="1.5"/><circle cx="184" cy="143" r="1.5"/><circle cx="191" cy="143" r="1.5"/>
+  <circle cx="170" cy="150" r="1.5"/><circle cx="177" cy="150" r="1.5"/><circle cx="184" cy="150" r="1.5"/><circle cx="191" cy="150" r="1.5"/>
+</g>
+<g class="object">
+  <path d="M191 204h203l29 22-27 23H215l-24-17Z" fill="#5e7875"/>
+  <rect x="249" y="211" width="54" height="23" rx="2" fill="#d4d7d1"/>
+  <rect x="314" y="218" width="23" height="13" rx="2" fill="#323835"/>
+  <path d="M203 212h24m-16 23h25m125-22h26m-27 19h34" class="detail"/>
+  <rect x="92" y="209" width="62" height="33" rx="8" fill="#565a55"/>
+  <rect x="99" y="216" width="48" height="20" rx="8" fill="#888985"/>
+  <rect x="466" y="215" width="18" height="13" rx="3" fill="#b7b5a6"/>
+  <rect x="502" y="215" width="18" height="13" rx="3" fill="#b7b5a6"/>
+</g>
+<text x="174" y="278" class="caption">开发板及音频模块 · 相对布局示意</text>
 
 </g>
-<g data-part-id="shell" class="pin"><title>原创外壳</title><circle cx="133" cy="257" r="10"/><text x="133" y="260.8">01</text></g><g data-part-id="board" class="pin"><title>立创实战派 S3</title><circle cx="276" cy="195" r="10"/><text x="276" y="198.8">02</text></g><g data-part-id="mic" class="pin"><title>双模拟麦克风</title><circle cx="435" cy="186" r="10"/><text x="435" y="189.8">03</text></g><g data-part-id="speaker" class="pin"><title>音腔喇叭</title><circle cx="470" cy="247" r="10"/><text x="470" y="250.8">04</text></g><g data-part-id="display" class="pin"><title>IPS 彩屏</title><circle cx="331" cy="110" r="10"/><text x="331" y="113.8">05</text></g>
+<g data-part-id="shell" class="pin"><title>原配白色外壳</title><circle cx="162" cy="92" r="10"/><text x="162" y="95.8">01</text></g><g data-part-id="board" class="pin"><title>立创实战派 S3</title><circle cx="348" cy="221" r="10"/><text x="348" y="224.8">02</text></g><g data-part-id="mic" class="pin"><title>模拟麦克风</title><circle cx="495" cy="216" r="10"/><text x="495" y="219.8">03</text></g><g data-part-id="speaker" class="pin"><title>扬声器</title><circle cx="109" cy="224" r="10"/><text x="109" y="227.8">04</text></g><g data-part-id="display" class="pin"><title>IPS 彩屏</title><circle cx="395" cy="115" r="10"/><text x="395" y="118.8">05</text></g><g data-part-id="camera" class="pin"><title>GC0308 摄像头</title><circle cx="209" cy="102" r="10"/><text x="209" y="105.8">06</text></g>
 <text x="635" y="79" font-size="14" font-weight="700">部件索引</text>
-<g><text class="serial" x="635" y="110">01</text><text class="legend" x="664" y="110">原创外壳</text></g><g><text class="serial" x="635" y="137">02</text><text class="legend" x="664" y="137">立创实战派 S3</text></g><g><text class="serial" x="635" y="164">03</text><text class="legend" x="664" y="164">双模拟麦克风</text></g><g><text class="serial" x="635" y="191">04</text><text class="legend" x="664" y="191">音腔喇叭</text></g><g><text class="serial" x="635" y="218">05</text><text class="legend" x="664" y="218">IPS 彩屏</text></g>
-<text x="26" y="330" font-size="13" fill="#625b50">依据参考板资料构思装配，外壳尺寸与固定点待实物验证。</text>
+<g><text class="serial" x="635" y="110">01</text><text class="legend" x="664" y="110">原配白色外壳</text></g><g><text class="serial" x="635" y="137">02</text><text class="legend" x="664" y="137">立创实战派 S3</text></g><g><text class="serial" x="635" y="164">03</text><text class="legend" x="664" y="164">模拟麦克风</text></g><g><text class="serial" x="635" y="191">04</text><text class="legend" x="664" y="191">扬声器</text></g><g><text class="serial" x="635" y="218">05</text><text class="legend" x="664" y="218">IPS 彩屏</text></g><g><text class="serial" x="635" y="245">06</text><text class="legend" x="664" y="245">GC0308 摄像头</text></g>
+<text x="26" y="330" font-size="13" fill="#625b50">依据立创白色套件实物及开发板资料，内部模块位置为示意。</text>
 <text x="824" y="330" text-anchor="end" class="serial">HARDWARE ATLAS</text>
 </svg>

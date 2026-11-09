@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ArrowDown, ArrowSquareOut, Cube, Database, Info, SpinnerGap, WarningCircle } from '@phosphor-icons/react';
-import { categoryFor, imageLabels, safeLink, sourceLabels } from './labels.js';
+import { categoryFor, imageLabels, productPhotos, safeLink, sourceLabels } from './labels.js';
 
 export function Status({ resource }) {
   if (resource.loading) return <div className="state-panel" role="status"><SpinnerGap className="spinner" size={23} /> 正在载入档案…</div>;
@@ -41,18 +41,19 @@ export function SourcesFor({ product, ids = [] }) {
   return <details className="field-sources"><summary><Info size={14} /> {sources.length} 条来源</summary><SourceList sources={sources} compact /></details>;
 }
 
-export function ProductVisual({ product, hero = false }) {
-  const [failed, setFailed] = useState(false);
+export function ProductVisual({ product }) {
+  const [failed, setFailed] = useState(() => new Set());
   const category = categoryFor(product.category);
   const Icon = category.icon;
-  const graphic = product.image;
-  const showImage = graphic?.url && !failed;
+  const photo = productPhotos(product).find(({ url }) => !failed.has(url));
+  const illustration = ['concept', 'reconstruction'].includes(product.image?.type) ? product.image : null;
+  const graphic = photo || (illustration?.url && !failed.has(illustration.url) ? illustration : null);
   return (
-    <figure className={`product-visual theme-${product.category}${hero ? ' hero-image' : ''}`}>
-      {showImage
-        ? <img src={graphic.url} alt={graphic.alt || product.name} loading={hero ? 'eager' : 'lazy'} onError={() => setFailed(true)} />
+    <figure className={`product-visual theme-${product.category}${photo ? ' has-photo' : ''}`}>
+      {graphic
+        ? <img key={graphic.url} src={graphic.url} alt={graphic.alt || product.name} loading="lazy" referrerPolicy="no-referrer" onError={() => setFailed((urls) => new Set(urls).add(graphic.url))} />
         : <div className="product-art" aria-hidden="true"><span className="art-cross cross-top">+</span><Icon weight="thin" /><span className="art-cross cross-bottom">+</span><span>{category.english}</span></div>}
-      <figcaption>{showImage ? imageLabels[graphic.type] || '参考图片' : '品类图标'}</figcaption>
+      <figcaption>{graphic ? imageLabels[graphic.type] : '品类图标'}</figcaption>
     </figure>
   );
 }

@@ -7,113 +7,145 @@ INK = "#262522"
 PAPER = "#f8f4ea"
 ORANGE = "#bf451d"
 LABELS = {
-    "xiaomi-glasses": ("小米 AI 眼镜", "重建示意", "依据公开拆解整理位置关系，形状与比例为近似。", [
-        ("frame", "镜框与铰链", 273, 224), ("left-arm", "左镜腿壳体", 109, 111),
-        ("right-arm", "右镜腿壳体", 563, 111), ("camera", "摄像头模组", 485, 212),
-        ("board", "左镜腿主板", 165, 148), ("battery", "右镜腿电池组", 518, 148),
-        ("flex", "镜框排线", 347, 196), ("speakers", "镜腿扬声器", 158, 194),
+    "xiaomi-glasses": ("小米 AI 眼镜", "重建示意", "佩戴者左右已标明，模块位置依据公开拆解，尺寸与比例为近似。", [
+        ("frame", "镜框与铰链", 332, 251), ("left-arm", "左镜腿壳体", 539, 111),
+        ("right-arm", "右镜腿壳体", 132, 111), ("camera", "左侧摄像头", 495, 210),
+        ("board", "左镜腿主板", 491, 145), ("battery", "右镜腿电池组", 166, 146),
+        ("flex", "镜框排线", 349, 188), ("speakers", "镜腿扬声器", 143, 181),
     ]),
-    "xiaozhi-esp32": ("小智 ESP32 语音样机", "原创概念", "依据参考板资料构思装配，外壳尺寸与固定点待实物验证。", [
-        ("shell", "原创外壳", 133, 257), ("board", "立创实战派 S3", 276, 195),
-        ("mic", "双模拟麦克风", 435, 186), ("speaker", "音腔喇叭", 470, 247),
-        ("display", "IPS 彩屏", 331, 110),
+    "xiaozhi-esp32": ("小智 ESP32 语音样机", "重建示意", "依据立创白色套件实物及开发板资料，内部模块位置为示意。", [
+        ("shell", "原配白色外壳", 162, 92), ("board", "立创实战派 S3", 348, 221),
+        ("mic", "模拟麦克风", 495, 216), ("speaker", "扬声器", 109, 224),
+        ("display", "IPS 彩屏", 395, 115), ("camera", "GC0308 摄像头", 209, 102),
     ]),
-    "xiaomi-speaker-pro": ("Xiaomi 智能音箱 Pro", "重建示意", "依据 OH2P 公开拆解整理位置关系，音腔与零件比例为近似。", [
-        ("shell", "外壳与织物罩", 154, 167), ("top", "顶部副板与盖板", 348, 103),
-        ("board", "音频主板", 524, 198), ("speaker", "全频扬声器", 318, 219),
-        ("radiators", "两侧无源辐射器", 409, 218),
+    "xiaomi-speaker-pro": ("Xiaomi 智能音箱 Pro", "重建示意", "依据 OH2P 实物拆解，前后和两侧部件分开绘制，比例为近似。", [
+        ("shell", "织物外壳", 114, 166), ("top", "顶盖与副板", 344, 98),
+        ("board", "背面音频主板", 520, 179), ("speaker", "正面全频扬声器", 300, 167),
+        ("radiators", "两侧无源辐射器", 421, 222), ("chamber", "独立音腔", 347, 239),
+        ("io", "底部接口小板", 367, 275),
     ]),
 }
 
 GLASSES = """
-<g class="trace">
-  <path d="M154 170L184 228M532 170l-48 58M135 197l49 40M541 194l-58 44"/>
-  <path d="M159 107l30 96M507 107l-32 94"/>
+<g class="caption" text-anchor="middle">
+  <text x="150" y="85">佩戴者右侧</text>
+  <text x="520" y="85">佩戴者左侧</text>
 </g>
-<g class="object" fill="#dfd7c9">
+<g class="trace">
+  <path d="M155 174l31 43m339-43-33 43M149 195l34 37m351-37-43 37"/>
+  <path d="M160 108l29 94m315-94-32 94"/>
+</g>
+<g class="object" fill="#454544">
   <path d="M85 104l107 6 15 16-34 3-88-12q-10-6 0-13Z"/>
   <path d="M585 104l-107 6-15 16 34 3 88-12q10-6 0-13Z"/>
 </g>
 <g class="object">
-  <path d="M142 139h58l11 7-8 11h-61l-8-7Z" fill="#f0c6b2"/>
-  <path d="M148 144h11v7h-11m20-7h18v7h-18m25-7h7" fill="none"/>
-  <rect x="475" y="140" width="63" height="16" rx="7" fill="#dfd7c9"/>
-  <path d="M485 144v8m45-8v8" class="detail"/>
-  <rect x="128" y="184" width="26" height="15" rx="6" fill="#d9d0c0"/>
-  <rect x="523" y="184" width="26" height="15" rx="6" fill="#d9d0c0"/>
-  <path d="M134 190h14m381 0h14" class="detail"/>
+  <rect x="143" y="139" width="61" height="16" rx="5" fill="#8a8884"/>
+  <path d="M181 141v12m8-12v12" class="detail"/>
+  <path d="M475 139h58l11 7-8 11h-61l-8-7Z" fill="#78919a"/>
+  <path d="M482 144h11v7h-11m18-7h16v7h-16m21-7h9" class="detail"/>
+  <rect x="129" y="174" width="27" height="15" rx="6" fill="#d9d0c0"/>
+  <rect x="522" y="174" width="27" height="15" rx="6" fill="#d9d0c0"/>
+  <path d="M134 181h16m377 0h16" class="detail"/>
 </g>
-<path d="M182 221h-19l-12 12m33-19 27-18h102l24 11 24-11h99l30 17 25 16" fill="none" stroke="#bf451d" stroke-width="3" stroke-dasharray="4 4"/>
-<path class="object" fill="#e4dbcc" fill-rule="evenodd"
- d="M177 226q4-13 20-15 43-6 92 0 29 3 47 18 18-15 47-18 49-6 92 0 17 2 20 15l-9 39q-5 16-22 19-38 6-78 0-26-4-35-26l-8-14q-7-8-14 0l-8 14q-9 22-35 26-40 6-78 0-17-3-22-19Zm19 2q-6 2-5 8l6 24q3 12 14 13 37 5 72 0 19-3 26-18l7-14q-11-11-29-13-51-7-91 0Zm280 0q-40-7-91 0-18 2-29 13l7 14q7 15 26 18 35 5 72 0 11-1 14-13l6-24q1-6-5-8Z"/>
-<g class="object" fill="#f1c2ad">
-  <rect x="481" y="207" width="17" height="16" rx="4"/>
-  <circle cx="489.5" cy="215" r="4.5" fill="#f8f4ea"/>
+<path d="M180 209l31-18h102l24 11 24-11h99l30 17" fill="none" stroke="#bf451d" stroke-width="3" stroke-dasharray="4 4"/>
+<path class="object" fill="#383938" fill-rule="evenodd"
+ d="M176 224q5-13 20-15 42-7 92 0 29 3 49 18 18-15 47-18 49-7 92 0 15 3 19 15l-9 42q-4 15-22 18-38 6-78 0-26-4-35-25l-8-15q-7-8-14 0l-8 15q-9 21-35 25-40 6-78 0-18-3-22-18Zm20 3q-6 2-5 8l6 24q3 12 14 13 37 5 72 0 19-3 26-18l7-14q-11-11-29-13-51-7-91 0Zm280 0q-40-7-91 0-18 2-29 13l7 14q7 15 26 18 35 5 72 0 11-1 14-13l6-24q1-6-5-8Z"/>
+<g class="object">
+  <circle cx="188" cy="221" r="5" fill="#dfd9c5"/>
+  <circle cx="487" cy="221" r="7" fill="#252925"/>
+  <circle cx="487" cy="221" r="3.5" fill="#78919a"/>
 </g>
+<text x="86" y="254" class="caption">录制指示灯</text>
+<path d="M146 249l26-8 13-16" class="trace"/>
 """
 
 TOY = """
 <g class="trace">
-  <path d="M202 238V130m241 98V128M223 202v54m221-51v42m34-36v38"/>
-</g>
-<path class="object" d="M129 244q0-10 10-10h320q12 0 12 12v37q0 15-15 15H145q-16 0-16-15Z" fill="#d8cebd"/>
-<path class="object" d="M137 244q0-6 9-6h310q8 0 8 7v27q0 7-9 7H147q-10 0-10-7Z" fill="#eee6d7"/>
-<path class="detail" d="M156 280h291m-258-28h64m-64 6h64m-64 6h64"/>
-<g class="object" fill="#e7ded0">
-  <path d="M190 180h230l16 8-13 21H204l-14-8Z"/>
-  <path d="M200 184h218l8 5-7 13H206l-6-5Z" fill="#f2c6b2"/>
-  <rect x="262" y="187" width="47" height="11" rx="2" fill="#f7e3d7"/>
-  <path d="M212 188h10m-10 7h22m86-8h26m-26 7h34" class="detail"/>
-</g>
-<g class="object" fill="#d4c8b6">
-  <circle cx="448" cy="183" r="6"/><circle cx="462" cy="183" r="6"/>
-  <circle cx="448" cy="183" r="2" fill="#f8f4ea"/><circle cx="462" cy="183" r="2" fill="#f8f4ea"/>
-  <ellipse cx="481" cy="248" rx="25" ry="16"/>
-  <ellipse cx="481" cy="247" rx="18" ry="11" fill="#f8f4ea"/>
-  <ellipse cx="481" cy="247" rx="8" ry="4" fill="#e1d5c3"/>
+  <path d="M161 172l33 27m219-28-15 24M120 210l71-9m229 7 52 6"/>
 </g>
 <g class="object">
-  <rect x="174" y="92" width="299" height="48" rx="13" fill="#e4dbcc"/>
-  <rect x="225" y="99" width="194" height="31" rx="6" fill="#363735"/>
-  <rect x="236" y="105" width="172" height="20" rx="3" fill="#5d625c"/>
-  <path d="M242 115h39l7-5 7 9 8-6 8 2h89" fill="none" stroke="#e7d5bb"/>
+  <rect x="147" y="85" width="284" height="102" rx="13" fill="#d7d9d5"/>
+  <rect x="147" y="81" width="284" height="96" rx="13" fill="#f1f2ee"/>
+  <rect x="228" y="91" width="188" height="75" rx="5" fill="#242627"/>
+  <rect x="237" y="97" width="169" height="62" rx="3" fill="#434951"/>
+  <circle cx="181" cy="106" r="9" fill="#262f32"/>
+  <circle cx="181" cy="106" r="4" fill="#75928f"/>
+  <rect x="226" y="179" width="29" height="4" rx="1" fill="#555853"/>
+  <rect x="267" y="179" width="24" height="4" rx="1" fill="#555853"/>
 </g>
+<g fill="#777a75">
+  <circle cx="170" cy="129" r="1.5"/><circle cx="177" cy="129" r="1.5"/><circle cx="184" cy="129" r="1.5"/><circle cx="191" cy="129" r="1.5"/>
+  <circle cx="170" cy="136" r="1.5"/><circle cx="177" cy="136" r="1.5"/><circle cx="184" cy="136" r="1.5"/><circle cx="191" cy="136" r="1.5"/>
+  <circle cx="170" cy="143" r="1.5"/><circle cx="177" cy="143" r="1.5"/><circle cx="184" cy="143" r="1.5"/><circle cx="191" cy="143" r="1.5"/>
+  <circle cx="170" cy="150" r="1.5"/><circle cx="177" cy="150" r="1.5"/><circle cx="184" cy="150" r="1.5"/><circle cx="191" cy="150" r="1.5"/>
+</g>
+<g class="object">
+  <path d="M191 204h203l29 22-27 23H215l-24-17Z" fill="#5e7875"/>
+  <rect x="249" y="211" width="54" height="23" rx="2" fill="#d4d7d1"/>
+  <rect x="314" y="218" width="23" height="13" rx="2" fill="#323835"/>
+  <path d="M203 212h24m-16 23h25m125-22h26m-27 19h34" class="detail"/>
+  <rect x="92" y="209" width="62" height="33" rx="8" fill="#565a55"/>
+  <rect x="99" y="216" width="48" height="20" rx="8" fill="#888985"/>
+  <rect x="466" y="215" width="18" height="13" rx="3" fill="#b7b5a6"/>
+  <rect x="502" y="215" width="18" height="13" rx="3" fill="#b7b5a6"/>
+</g>
+<text x="174" y="278" class="caption">开发板及音频模块 · 相对布局示意</text>
 """
 
 SPEAKER = """
+<defs>
+  <pattern id="speaker-weave" width="5" height="5" patternUnits="userSpaceOnUse">
+    <rect width="5" height="5" fill="#464847"/>
+    <path d="M0 0l5 5m0-5-5 5" stroke="#85847c" stroke-opacity=".4" stroke-width=".55"/>
+  </pattern>
+</defs>
 <g class="trace">
-  <path d="M177 134H531m-338 115h341M279 128v17m101-15v18m58 19h58m-52 54h56"/>
+  <path d="M180 130h65m-64 117h65m142-80h87m-88 62h87M273 105v25m90-24v24m-87 126v15m89-16v16"/>
 </g>
 <g class="object">
-  <path d="M124 145q0-13 17-16h62q17 2 17 17v117q-1 16-19 18h-60q-17-3-17-17Z" fill="#dfd6c7"/>
-  <path d="M124 145q6 10 23 10h49q16-1 24-9m-96 117q6 8 22 8h49q17-1 25-8" class="detail"/>
-  <path d="M138 159v103m9-100v103m10-103v103m10-103v103m10-103v103m10-103v103m10-103v103m9-106v103" class="detail"/>
+  <rect x="86" y="122" width="99" height="142" rx="17" fill="url(#speaker-weave)"/>
+  <path d="M87 139q0-18 18-18h60q18 0 19 18q-18 6-49 6-26 0-48-6Z" fill="#535655"/>
+  <path d="M99 138h73" fill="none" stroke="#ab9281"/>
 </g>
 <g class="object">
-  <path d="M274 162q0-13 15-16h70q13 2 15 13v108q0 15-15 18h-70q-15-3-15-16Z" fill="#dfd6c7"/>
-  <path d="M274 163q8 9 22 10h55q15-2 23-11" class="detail"/>
-  <circle cx="324" cy="218" r="34" fill="#f0c6b2"/>
-  <circle cx="324" cy="218" r="28" fill="#e5ab90"/>
-  <circle cx="324" cy="218" r="15" fill="#cf8666"/>
-  <circle cx="324" cy="218" r="7" fill="#b96646"/>
-  <rect x="376" y="174" width="22" height="91" rx="10" fill="#d4c8b6"/>
-  <rect x="415" y="174" width="22" height="91" rx="10" fill="#d4c8b6"/>
-  <path d="M382 184v70m39-70v70" class="detail"/>
+  <path d="M251 128h123l20 19v89l-18 18H249l-7-10V140Z" fill="#535654"/>
+  <path d="M255 141h101v101H255Z" fill="#6e706b"/>
+  <path d="M356 141l18-13 20 19v89l-18 18-20-12Z" fill="#3b3f3d"/>
+  <circle cx="302" cy="172" r="29" fill="#a58e81"/>
+  <circle cx="302" cy="172" r="23" fill="#393d3c"/>
+  <circle cx="302" cy="172" r="15" fill="#777a77"/>
+  <circle cx="302" cy="172" r="8" fill="#3b3c3a"/>
 </g>
 <g class="object">
-  <rect x="497" y="154" width="59" height="113" rx="5" fill="#e0d5c3"/>
-  <rect x="511" y="180" width="28" height="26" rx="3" fill="#f4eadb"/>
-  <path d="M508 164h36m-37 48h39m-37 9h22m-21 11h23m-25 18h39" class="detail"/>
+  <rect x="214" y="174" width="22" height="61" rx="10" fill="#686b66"/>
+  <rect x="219" y="181" width="12" height="47" rx="6" fill="#a5a097"/>
+  <rect x="410" y="174" width="22" height="61" rx="10" fill="#686b66"/>
+  <rect x="415" y="181" width="12" height="47" rx="6" fill="#a5a097"/>
 </g>
 <g class="object">
-  <path d="M279 100q0-12 14-12h67q13 0 14 12v10q-2 10-16 11h-66q-13-2-13-11Z" fill="#e7ddca"/>
-  <path d="M279 100q5 9 15 9h63q11-1 17-9" class="detail"/>
-  <path d="M299 98h55" stroke="#bf451d" stroke-width="2"/>
-  <circle cx="311" cy="102" r="2.5" fill="#262522"/>
-  <circle cx="325" cy="102" r="2.5" fill="#262522"/>
-  <circle cx="339" cy="102" r="2.5" fill="#262522"/>
+  <rect x="485" y="144" width="75" height="93" rx="5" fill="#456c82"/>
+  <rect x="504" y="161" width="35" height="28" rx="2" fill="#e1dace"/>
+  <rect x="499" y="198" width="14" height="16" rx="2" fill="#bfc5bf"/>
+  <path d="M493 151h15m31 41h13m-30 27h29m-57 9h29" class="detail"/>
+</g>
+<g class="object">
+  <rect x="261" y="85" width="113" height="24" rx="10" fill="#d8d6cd"/>
+  <path d="M266 100h102" fill="none" stroke="#a17063" stroke-width="2"/>
+  <circle cx="298" cy="93" r="1.8" fill="#373834"/>
+  <circle cx="311" cy="93" r="1.8" fill="#373834"/>
+  <circle cx="324" cy="93" r="1.8" fill="#373834"/>
+  <rect x="262" y="266" width="110" height="16" rx="5" fill="#444846"/>
+  <rect x="279" y="271" width="26" height="6" rx="2" fill="#b8b8ab"/>
+  <circle cx="328" cy="274" r="3.5" fill="#b8b8ab"/>
+</g>
+<g class="caption" text-anchor="middle">
+  <text x="132" y="281">整机轮廓</text>
+  <text x="318" y="299">音腔正面</text>
+  <text x="522" y="255">背面</text>
 </g>
 """
+
 
 PLATES = {"xiaomi-glasses": GLASSES, "xiaozhi-esp32": TOY, "xiaomi-speaker-pro": SPEAKER}
 
@@ -140,6 +172,7 @@ def render(slug, number):
   </pattern>
   <style>
     #{slug}-root text {{ font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif; fill: {INK}; }}
+    #{slug}-root .caption {{ font-size: 12px; fill: #6d6257; }}
     #{slug}-root .legend {{ font-size: 16px; }}
     #{slug}-root .serial {{ fill: {ORANGE}; font-family: "Consolas", monospace; font-size: 13px; font-weight: 700; }}
     #{slug}-root .pin circle {{ fill: {PAPER}; stroke: {ORANGE}; stroke-width: 1.4; }}

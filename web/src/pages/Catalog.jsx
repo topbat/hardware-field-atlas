@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { ArrowDownRight, ArrowRight, ArrowUpRight, Check, Cube, Eyeglasses, GitDiff, MagnifyingGlass, Sliders, X } from '@phosphor-icons/react';
 import { useResource } from '../api.js';
-import { Empty, ModelBadge, ProductVisual, Status } from '../components.jsx';
-import { categories, categoryFor, computeLabels, kindLabels, partLabels } from '../labels.js';
+import { Empty, External, ModelBadge, ProductVisual, Status } from '../components.jsx';
+import { categories, categoryFor, computeLabels, imageLabels, kindLabels, partLabels, photoSource, productPhotos } from '../labels.js';
 
 const examples = ['ESP32-S3', 'BES2700H', '小米 AI 眼镜'];
 
@@ -20,15 +20,24 @@ function SearchForm({ query, onSearch }) {
 }
 
 function HeroVisual() {
-  const [failed, setFailed] = useState(false);
+  const flagship = useResource('/products/xiaomi-glasses');
+  const [failed, setFailed] = useState(() => new Set());
+  const concept = '/assets/atlas-hero.webp';
+  const product = flagship.value;
+  const photo = productPhotos(product).find((item) => !failed.has(item.url) && photoSource(product, item));
+  const source = photoSource(product, photo);
+  const imageUrl = photo?.url || (!flagship.loading && !failed.has(concept) ? concept : null);
   return (
-    <figure className="hero-visual">
-      {failed
-        ? <div className="hero-visual-fallback" aria-hidden="true"><Eyeglasses weight="thin" size={166} /></div>
-        : <img src="/assets/atlas-hero.webp" alt="由镜框、镜腿、镜片和电子组件组成的智能眼镜爆炸概念示意" fetchPriority="high" onError={() => setFailed(true)} />}
+    <figure className={`hero-visual${photo ? ' has-photo' : ''}`}>
+      {imageUrl
+        ? <img key={imageUrl} src={imageUrl} alt={photo?.alt || '智能眼镜的爆炸概念示意'} fetchPriority="high" referrerPolicy="no-referrer" onError={() => setFailed((urls) => new Set(urls).add(imageUrl))} />
+        : <div className="hero-visual-fallback" aria-hidden="true"><Eyeglasses weight="thin" size={166} /></div>}
       <div className="hero-coordinate coordinate-left" aria-hidden="true">+</div>
       <div className="hero-coordinate coordinate-right" aria-hidden="true">+</div>
-      <figcaption><span>FIG. 01 / 智能眼镜</span><span>{failed ? '品类图标' : '概念示意'}</span></figcaption>
+      <figcaption>
+        {photo ? <Link className="inline-link" to={`/products/${product.id}`}>FIG. 01 / {product.name}</Link> : <span>FIG. 01 / 智能眼镜</span>}
+        <span>{photo ? imageLabels[photo.type] : imageUrl ? '概念示意' : '品类图标'}{source ? <> · <External className="inline-link" href={source.url}>图片来源</External></> : null}</span>
+      </figcaption>
     </figure>
   );
 }

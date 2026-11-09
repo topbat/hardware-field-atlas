@@ -1,9 +1,9 @@
 import { lazy, Suspense, useEffect, useState } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, ArrowUpRight, Check, Circuitry, Cube, DownloadSimple, Flask, GitDiff, ListBullets, Target, WarningCircle } from '@phosphor-icons/react';
+import { ArrowLeft, ArrowRight, ArrowUpRight, Check, Circuitry, Cube, DownloadSimple, Flask, GitDiff, ImageSquare, ListBullets, Target, WarningCircle } from '@phosphor-icons/react';
 import { request, useResource } from '../api.js';
 import { Empty, External, ModelBadge, ProductVisual, SourceList, SourcesFor, Status } from '../components.jsx';
-import { categoryFor, computeLabels, kindLabels, modelLabels, partLabels, researchUrl } from '../labels.js';
+import { categoryFor, computeLabels, imageLabels, kindLabels, modelLabels, partLabels, photoSource, productPhotos, researchUrl } from '../labels.js';
 
 const ModelViewer = lazy(() => import('../ModelViewer.jsx'));
 const diagramIds = new Set(['xiaomi-glasses', 'xiaozhi-esp32', 'xiaomi-speaker-pro']);
@@ -91,6 +91,69 @@ function Schematic({ product, active, onSelect }) {
   );
 }
 
+function PhotoGallery({ product, photos }) {
+  const [selectedUrl, setSelectedUrl] = useState(null);
+  const [failed, setFailed] = useState(() => new Set());
+  const photo = photos.find(({ url }) => url === selectedUrl) || photos.find(({ url }) => !failed.has(url)) || photos[0];
+  const source = photoSource(product, photo);
+  const recordFailure = (url) => setFailed((urls) => new Set(urls).add(url));
+  if (!photo) return <Empty>暂无已收录的产品或实物拆解照片。</Empty>;
+  return (
+    <section className="photo-gallery" aria-labelledby="photos-title">
+      <div className="panel-heading">
+        <div><h2 id="photos-title">产品与拆解照片</h2><p>核对外观、部件位置和照片对应的样机。</p></div>
+        <span className="badge"><ImageSquare size={17} /> {photos.length} 张照片</span>
+      </div>
+      <div className={`photo-layout${photos.length === 1 ? ' single-photo' : ''}`}>
+        <figure className="photo-main">
+          <div className="photo-stage">
+            {failed.has(photo.url)
+              ? <div className="photo-unavailable" role="status"><ImageSquare size={30} /><p>暂时无法加载照片。</p>{source ? <External className="button small" href={source.url}>查看来源页面</External> : null}</div>
+              : <img key={photo.url} src={photo.url} alt={photo.alt || product.name} referrerPolicy="no-referrer" onError={() => recordFailure(photo.url)} />}
+          </div>
+          <figcaption className="photo-caption">
+            <span className="badge">{imageLabels[photo.type]}</span>
+            <div>
+              <strong>{photo.alt || product.name}</strong>
+              {source ? <External className="inline-link" href={source.url}>{source.title}</External> : <small>图片来源待补</small>}
+              {source?.locator ? <small>{source.locator}</small> : null}
+            </div>
+          </figcaption>
+        </figure>
+        {photos.length > 1 ? (
+          <div className="photo-picks" aria-label="选择照片">
+            {photos.map((item, index) => (
+              <button key={item.url} type="button" className="photo-pick" aria-label={`查看第 ${index + 1} 张照片，${item.alt || imageLabels[item.type]}`} aria-pressed={photo.url === item.url} onClick={() => setSelectedUrl(item.url)}>
+                {failed.has(item.url)
+                  ? <div className="photo-thumb-fallback"><ImageSquare size={21} /></div>
+                  : <img src={item.url} alt="" loading="lazy" referrerPolicy="no-referrer" onError={() => recordFailure(item.url)} />}
+                <span><small className="mono">{String(index + 1).padStart(2, '0')} / {imageLabels[item.type]}</small><strong>{item.alt || product.name}</strong></span>
+              </button>
+            ))}
+          </div>
+        ) : null}
+      </div>
+    </section>
+  );
+}
+
+function Cutaway({ product }) {
+  const cutaway = product.cutaway;
+  const [failed, setFailed] = useState(false);
+  return (
+    <figure className="cutaway-figure">
+      <div className="asset-label"><span className="badge accent">{imageLabels[cutaway.type]}</span></div>
+      {failed
+        ? <Empty>暂时无法加载剖视图。</Empty>
+        : <img src={cutaway.url} alt={cutaway.alt} referrerPolicy="no-referrer" onError={() => setFailed(true)} />}
+      <figcaption className="photo-caption">
+        <span className="badge">剖视图</span>
+        <div><strong>{cutaway.alt}</strong>{cutaway.note ? <small>{cutaway.note}</small> : null}<SourcesFor product={product} ids={cutaway.sourceIds} /></div>
+      </figcaption>
+    </figure>
+  );
+}
+
 function PartInspector({ product, part }) {
   if (!part) return <div className="part-inspector"><span className="eyebrow"><span className="signal-dot" /> COMPONENT</span><h3>部件详情</h3><p className="muted">在结构图、模型或物料清单中选择一个部件。</p></div>;
   return (
@@ -112,14 +175,15 @@ function PartInspector({ product, part }) {
 }
 
 function Structure({ product, part, select }) {
-  const [view, setView] = useState(product.model ? '3d' : '2d');
+  const [view, setView] = useState(() => part && product.model ? '3d' : '2d');
   return (
     <>
       <div className="panel-heading">
-        <div><h2>结构检视台</h2><p>{product.model?.note || '根据已收录资料查看部件和来源。'}</p></div>
+        <div><h2>结构检视台</h2><p>{view === '3d' ? product.model?.note : '查看部件位置、结构和来源。'}</p></div>
         <div className="segmented" aria-label="结构视图">
-          {product.model ? <button aria-pressed={view === '3d'} onClick={() => setView('3d')}><Cube size={17} /> 3D 模型</button> : null}
           <button aria-pressed={view === '2d'} onClick={() => setView('2d')}><Circuitry size={17} /> 2D 部件</button>
+          {product.cutaway ? <button aria-pressed={view === 'cutaway'} onClick={() => setView('cutaway')}><ImageSquare size={17} /> 剖视图</button> : null}
+          {product.model ? <button aria-pressed={view === '3d'} onClick={() => setView('3d')}><Cube size={17} /> 3D 模型</button> : null}
         </div>
       </div>
       <div className="structure-layout">
@@ -130,7 +194,9 @@ function Structure({ product, part, select }) {
               <Suspense fallback={<Empty>正在准备 3D 检视台…</Empty>}><ModelViewer url={product.model.url} ids={product.parts.map(({ id }) => id)} active={part?.id} onSelect={select} /></Suspense>
               {product.parts.length ? <div className="parts-index" aria-label="模型部件">{product.parts.map((item) => <button key={item.id} className={part?.id === item.id ? 'active' : ''} aria-pressed={part?.id === item.id} onClick={() => select(item.id)}>{item.name}</button>)}</div> : null}
             </>
-          ) : <Schematic product={product} active={part?.id} onSelect={select} />}
+          ) : view === 'cutaway' && product.cutaway
+            ? <Cutaway product={product} />
+            : <Schematic product={product} active={part?.id} onSelect={select} />}
         </div>
         <PartInspector product={product} part={part} />
       </div>
@@ -232,8 +298,14 @@ const sections = [
 function ProductContent({ product, selection }) {
   const [params, setParams] = useSearchParams();
   const requestedTab = params.get('view');
-  const tab = [...sections.map(([value]) => value), ...(product.build ? ['build'] : [])].includes(requestedTab) ? requestedTab : 'structure';
   const part = product.parts.find((item) => item.id === params.get('part'));
+  const photos = productPhotos(product);
+  const tabs = [
+    ...(photos.length || requestedTab === 'photos' ? [['photos', '实物照片']] : []),
+    ...sections,
+    ...(product.build ? [['build', '复现指南']] : []),
+  ];
+  const tab = tabs.some(([value]) => value === requestedTab) ? requestedTab : !part && photos.length ? 'photos' : 'structure';
   const selected = selection.ids.includes(product.id);
   function setParameter(key, value) {
     setParams((current) => {
@@ -262,9 +334,10 @@ function ProductContent({ product, selection }) {
         <dl className="archive-meta"><div><dt>档案号</dt><dd>{product.id}</dd></div><div><dt>版本</dt><dd>{product.revision}</dd></div><div><dt>来源地区</dt><dd>{product.origin}</dd></div><div><dt>最近核验</dt><dd>{product.checkedAt}</dd></div></dl>
       </section>
       <nav className="tab-strip" aria-label="档案章节">
-        {[...sections, ...(product.build ? [['build', '复现指南']] : [])].map(([id, label]) => <button key={id} className={id === tab ? 'active' : ''} aria-current={id === tab ? 'page' : undefined} onClick={() => showTab(id)}>{label}{id === 'bom' ? <span>{product.parts.length}</span> : null}</button>)}
+        {tabs.map(([id, label]) => <button key={id} className={id === tab ? 'active' : ''} aria-current={id === tab ? 'page' : undefined} onClick={() => showTab(id)}>{label}{id === 'photos' ? <span>{photos.length}</span> : id === 'bom' ? <span>{product.parts.length}</span> : null}</button>)}
       </nav>
       <section className="product-panel">
+        {tab === 'photos' ? <PhotoGallery product={product} photos={photos} /> : null}
         {tab === 'structure' ? <Structure product={product} part={part} select={select} /> : null}
         {tab === 'specs' ? <Specs product={product} /> : null}
         {tab === 'bom' ? <Bom product={product} part={part} select={select} showStructure={() => showTab('structure')} /> : null}

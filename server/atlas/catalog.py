@@ -100,12 +100,22 @@ class ModelAsset(Record):
 class ImageAsset(Record):
     url: str = Field(max_length=1800)
     alt: str = Field(min_length=1, max_length=240)
-    type: Literal["concept", "official", "teardown"]
+    type: Literal["concept", "official", "retail", "photo", "teardown"]
+    sourceId: str | None = Field(default=None, max_length=64)
 
     @field_validator("url")
     @classmethod
     def validate_url(cls, value: str) -> str:
         return asset_url(value) if value.startswith("/") else public_url(value)
+
+
+class CutawayAsset(EvidenceRecord):
+    url: str = Field(max_length=240)
+    alt: str = Field(min_length=1, max_length=240)
+    type: Literal["concept", "reconstruction"]
+    note: str = Field(min_length=1, max_length=1200)
+
+    _validate_url = field_validator("url")(asset_url)
 
 
 class BuildGuide(Record):
@@ -136,6 +146,8 @@ class Product(Record):
     sources: list[Source] = Field(min_length=1, max_length=60)
     model: ModelAsset | None
     image: ImageAsset | None = None
+    photos: list[ImageAsset] = Field(default_factory=list, max_length=8)
+    cutaway: CutawayAsset | None = None
     build: BuildGuide | None = None
 
     @model_validator(mode="after")
@@ -150,6 +162,13 @@ class Product(Record):
         for row in [*self.specs, *self.abilities, *self.parts]:
             if set(row.sourceIds) - sources:
                 raise ValueError("存在未定义的来源编号")
+        for photo in [*self.photos, *([self.image] if self.image else [])]:
+            if photo.type != "concept" and not photo.sourceId:
+                raise ValueError("实物图片须关联来源")
+            if photo.sourceId is not None and photo.sourceId not in sources:
+                raise ValueError("图片存在未定义的来源编号")
+        if self.cutaway and (not self.cutaway.sourceIds or set(self.cutaway.sourceIds) - sources):
+            raise ValueError("剖视图须关联有效来源")
         for part in self.parts:
             if part.status in {"confirmed", "observed"} and not part.sourceIds:
                 raise ValueError(f"部件 {part.id} 缺少证据")

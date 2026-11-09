@@ -4,7 +4,9 @@ import json
 
 import pytest
 from fastapi.testclient import TestClient
+from pydantic import ValidationError
 
+from atlas.catalog import Product
 from atlas.main import create_app
 
 
@@ -73,4 +75,24 @@ def test_moderation_and_revisions_persist(seed, tmp_path, monkeypatch):
         assert client.get("/api/admin/corrections", headers=headers).json()["corrections"][0]["status"] == "accepted"
         snapshots = client.get("/api/admin/products/one/revisions", headers=headers).json()["revisions"]
         assert snapshots[0]["previous"]["name"] == "实验眼镜"
+
+
+def test_photos_and_cutaways_keep_provenance_separate(seed):
+    product = json.loads(seed.read_text(encoding="utf-8"))["products"][0]
+    product["image"] = {"url": "https://example.com/product.png", "alt": "样机外观", "type": "retail"}
+    with pytest.raises(ValidationError, match="实物图片须关联来源"):
+        Product.model_validate(product)
+
+    product["image"]["sourceId"] = "s1"
+    product["cutaway"] = {
+        "url": "/assets/cutaways/one.webp", "alt": "结构重绘",
+        "type": "reconstruction", "note": "结构位置近似", "sourceIds": ["wrong"],
+    }
+    with pytest.raises(ValidationError, match="剖视图须关联有效来源"):
+        Product.model_validate(product)
+
+    product["cutaway"]["sourceIds"] = ["s1"]
+    verified = Product.model_validate(product)
+    assert verified.image.type == "retail"
+    assert verified.cutaway.type == "reconstruction"
 

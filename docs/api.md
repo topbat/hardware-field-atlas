@@ -20,9 +20,15 @@
       sources: [{ id: string, title: string, url: string, type: "official"|"teardown"|"open"|"manual"|"other",
                   locator?: string, note?: string }],
       model: null | { url: string, type: "reconstruction"|"concept"|"official"|"scan", note: string },
-      image?: { url: string, alt: string, type: "concept"|"official"|"teardown" },
+      image?: Photo,
+      photos?: Photo[],
+      cutaway?: { url: string, alt: string, type: "concept"|"reconstruction", note: string, sourceIds: string[] },
       build?: { repo: string, steps: string[], note: string, stepSourceIds?: string[][] }
     }
+
+    Photo = { url: string, alt: string, type: "concept"|"official"|"retail"|"photo"|"teardown", sourceId?: string }
+
+实物图片必须关联原商品页、原厂文档或原作者来源。剖视插图是依据这些资料整理出的解释性视图，独立记录来源与近似说明。
 
 Product ID 稳定，部件 ID 在产品内部唯一。给同一位置的替代样机证据不同部件 ID（例如 `storage-a`、`storage-b`）。规格 key 尽量对齐，例如 `weight`、`battery`、`connectivity`。3D 模型有 `part_id` extras，部件 ID 保留短横线。组件可同组多个对象。产品没有模型时 UI 可用部件清单和来源作为结构视图。三种模型 URL 与产品 id 对应。
 

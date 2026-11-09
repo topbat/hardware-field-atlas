@@ -72,6 +72,14 @@
             "soc",
             "storage-b"
           ]
+        },
+        {
+          "key": "appearance",
+          "label": "外观与接口",
+          "value": "黑色 M2442G1 样机为 D 形镜框，镜框角部有摄像头与录制指示灯。右镜腿有点阵触控条及顶端拍摄键，尾端 USB-C 供电，左镜腿尾端为电源键。",
+          "sourceIds": [
+            "teardown"
+          ]
         }
       ],
       "abilities": [
@@ -356,6 +364,20 @@
           "url": "https://news.qq.com/rain/a/20260321A03LRD00",
           "type": "teardown",
           "locator": "02 拆解洞察，亮点二"
+        },
+        {
+          "id": "photo-jd",
+          "title": "京东 · 小米 AI 眼镜黑色标准版商品列表",
+          "url": "https://www.jd.com/hprm/6521360c52ee7a1e04f.html",
+          "type": "other",
+          "locator": "匹配条目：小米 AI 智能眼镜黑色标准版。"
+        },
+        {
+          "id": "photo-ithome-green",
+          "title": "IT之家 · 小米 AI 眼镜鹦鹉绿实拍",
+          "url": "https://www.ithome.com/0/864/705.htm",
+          "type": "other",
+          "locator": "独立开箱，鹦鹉绿样机；黑色样机的结构与物料请查看我爱音频网。"
         }
       ],
       "model": {
@@ -364,9 +386,30 @@
         "note": "依据公开拆解重建部件位置，几何为示意。"
       },
       "image": {
-        "url": "/assets/diagrams/xiaomi-glasses.svg",
-        "alt": "小米 AI 眼镜结构示意图",
-        "type": "concept"
+        "url": "https://img10.360buyimg.com/n0/jfs/t1/518855/6/7971/76996/6aa3d976F003f7927/0083320320ec0efa.jpg",
+        "alt": "京东小米 AI 眼镜黑色标准版佩戴商品图",
+        "type": "retail",
+        "sourceId": "photo-jd"
+      },
+      "photos": [
+        {
+          "url": "https://img.ithome.com/newsuploadfiles/2025/6/51c19794-9b84-4767-aa05-1c3d78a55057.jpg?x-bce-process=image/format,f_auto",
+          "alt": "小米 AI 眼镜鹦鹉绿开箱实拍（与黑色拆解样机分开）",
+          "type": "photo",
+          "sourceId": "photo-ithome-green"
+        }
+      ],
+      "cutaway": {
+        "url": "/assets/cutaways/xiaomi-glasses.webp",
+        "type": "reconstruction",
+        "alt": "小米 AI 眼镜 AI 生成结构剖视示意",
+        "note": "AI 生图依据黑色 M2442G1 样机外观和公开拆解重建位置关系。零件比例、走线细节和剖切位置为示意。",
+        "sourceIds": [
+          "teardown",
+          "battery-label",
+          "soc",
+          "connector"
+        ]
       }
     },
     {
@@ -377,7 +420,7 @@
       "kind": "open",
       "origin": "中国",
       "tagline": "可刷机、可换壳、可自建后端",
-      "description": "开源固件和立创实战派 S3 的参考组合。外壳用于展示装配思路，所列料件来自已明确的开发板型号。",
+      "description": "小智开源固件与立创实战派 S3 的参考组合。立创零售套件配白色原厂外壳、显示屏和摄像头，零件资料对应明确的开发板型号。",
       "aliases": [
         "小智AI",
         "xiaozhi",
@@ -442,6 +485,14 @@
           "sourceIds": [
             "board"
           ]
+        },
+        {
+          "key": "appearance",
+          "label": "外观与接口",
+          "value": "立创实战派 S3 零售套件使用白色预装外壳，正面右侧为 2 英寸触控屏，左侧有 GC0308 摄像头与声孔。小智 ESP32 是独立软件项目，本档案记录该硬件参考组合。",
+          "sourceIds": [
+            "photo-retail"
+          ]
         }
       ],
       "abilities": [
@@ -471,15 +522,15 @@
       "parts": [
         {
           "id": "shell",
-          "name": "原创外壳",
-          "role": "拟用于放置开发板和预留声孔；尺寸配合待验证",
+          "name": "原配白色外壳",
+          "role": "随参考开发板预装交付，留有显示屏、摄像头和声孔",
           "mpn": null,
-          "manufacturer": null,
+          "manufacturer": "立创开发板",
           "quantity": "1",
-          "status": "inferred",
-          "sample": "本站概念方案",
+          "status": "observed",
+          "sample": "立创商城实战派 S3 零售套件",
           "sourceIds": [
-            "board"
+            "photo-retail"
           ]
         },
         {
@@ -598,6 +649,19 @@
           "sourceIds": [
             "board"
           ]
+        },
+        {
+          "id": "camera",
+          "name": "参考板摄像头",
+          "role": "30 万像素图像采集；与小智固件中实际启用的功能分别核验",
+          "mpn": "GC0308",
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "confirmed",
+          "sample": "立创实战派 S3 零售套件",
+          "sourceIds": [
+            "photo-retail"
+          ]
         }
       ],
       "sources": [
@@ -628,29 +692,77 @@
           "url": "https://github.com/xinnan-tech/xiaozhi-esp32-server",
           "type": "open",
           "locator": "部署及模型配置"
+        },
+        {
+          "id": "photo-retail",
+          "title": "立创商城 · LCKFB-SZPI-ESP32-S3-VA 商品",
+          "url": "https://item.szlcsc.com/43285221.html",
+          "type": "other",
+          "locator": "实物图及商品编号 C41430228。"
         }
       ],
       "model": {
         "url": "/assets/models/xiaozhi-esp32.glb",
-        "type": "concept",
-        "note": "原创外壳和装配示意。部件清单采用立创参考板资料，外壳未进行制造验证。"
+        "type": "reconstruction",
+        "note": "依据立创实战派 S3 零售实物和公开板级资料重建。小智 ESP32 是独立固件项目，内部排布、几何和零件间距为近似。"
       },
       "image": {
-        "url": "/assets/diagrams/xiaozhi-esp32.svg",
-        "alt": "小智 ESP32 语音样机装配概念图",
-        "type": "concept"
+        "url": "https://alimg.szlcsc.com/upload/public/product/source/20241016/0A3B1BB53A096FF24AFEBD14BCC4C492.jpg",
+        "alt": "立创实战派 S3 零售参考板和原配白色外壳",
+        "type": "retail",
+        "sourceId": "photo-retail"
       },
       "build": {
         "repo": "https://github.com/78/xiaozhi-esp32",
-        "stepSourceIds": [["board"], ["flash"], ["server"], ["firmware", "server"], []],
+        "stepSourceIds": [
+          [
+            "board"
+          ],
+          [
+            "flash"
+          ],
+          [
+            "server"
+          ],
+          [
+            "firmware",
+            "server"
+          ],
+          []
+        ],
         "steps": [
           "按立创硬件参数核对板型为实战派 S3。",
           "按立创烧录教程使用匹配固件，确认屏幕和音频输出。",
           "按开源后端文档部署语音服务并配置设备接入。",
           "分别测试有网问答和断网唤醒，记录固件和后端版本。",
-          "有实物尺寸后校核外壳、声孔、排线与固定点。"
+          "如更换外壳，按零售实物校核声孔、相机窗、排线与固定点。"
         ],
         "note": "该条目是复现资料，不代表本站实物已制作或完成验收。"
+      },
+      "photos": [
+        {
+          "url": "https://alimg.szlcsc.com/upload/public/product/breviary/20241016/D3D762B4EB5B8A0EF8A962CF8FD9AF6D.jpg",
+          "alt": "立创实战派 S3 同商品另一视角",
+          "type": "retail",
+          "sourceId": "photo-retail"
+        },
+        {
+          "url": "https://alimg.szlcsc.com/upload/public/product/breviary/20241016/5AD91F3A67AE1C6FE6B2AEC0EBCB1C29.jpg",
+          "alt": "立创实战派 S3 同商品细节",
+          "type": "retail",
+          "sourceId": "photo-retail"
+        }
+      ],
+      "cutaway": {
+        "url": "/assets/cutaways/xiaozhi-esp32.webp",
+        "type": "reconstruction",
+        "alt": "立创实战派 S3 小智参考硬件的 AI 生成剖视示意",
+        "note": "AI 生图依据立创实战派 S3 零售实物与公开硬件文档重建。板、屏、摄像头和声学部件用来表达结构关系，内部位置和尺寸为近似。小智固件是独立开源项目。",
+        "sourceIds": [
+          "photo-retail",
+          "board",
+          "flash"
+        ]
       }
     },
     {
@@ -723,6 +835,14 @@
           "key": "speaker-rating",
           "label": "喇叭标签",
           "value": "12 W / 4 Ω",
+          "sourceIds": [
+            "teardown"
+          ]
+        },
+        {
+          "key": "appearance",
+          "label": "外观与接口",
+          "value": "OH2P 为编织网布包覆的圆角方柱体，顶面有按键与拾音孔，顶部边缘有灯带；底部为 USB-C 音频口和 DC 电源口。",
           "sourceIds": [
             "teardown"
           ]
@@ -895,6 +1015,34 @@
           "sourceIds": [
             "controls"
           ]
+        },
+        {
+          "id": "chamber",
+          "name": "独立音腔",
+          "role": "容纳全频扬声器，两侧安装无源辐射器，背面有主板",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "1",
+          "status": "observed",
+          "sample": "我爱音频网 OH2P 拆解样机",
+          "sourceIds": [
+            "teardown-original",
+            "acoustics"
+          ]
+        },
+        {
+          "id": "io",
+          "name": "底部音频输入小板与电源口",
+          "role": "USB-C 为音频输入小板；旁边的 DC 口是电源输入",
+          "mpn": null,
+          "manufacturer": null,
+          "quantity": "1 组",
+          "status": "observed",
+          "sample": "我爱音频网 OH2P 拆解样机",
+          "sourceIds": [
+            "teardown-original",
+            "teardown"
+          ]
         }
       ],
       "sources": [
@@ -938,6 +1086,20 @@
           "url": "https://www.52audio.com/archives/232202.html",
           "type": "other",
           "locator": "实际使用与语音交互"
+        },
+        {
+          "id": "photo-jd",
+          "title": "京东 · Xiaomi 智能音箱 Pro OH2P 商品",
+          "url": "https://item.jd.com/product/S9Y0jn2RfoEUBLgu_XJSWQ.html",
+          "type": "other",
+          "locator": "商品标题明确列出型号 OH2P。"
+        },
+        {
+          "id": "teardown-original",
+          "title": "我爱音频网 · Xiaomi 智能音箱 Pro 实物拆解原文",
+          "url": "https://www.52audio.com/archives/234243.html",
+          "type": "teardown",
+          "locator": "第二节，分解腔体、无源辐射器与音频输入小板。"
         }
       ],
       "model": {
@@ -946,9 +1108,32 @@
         "note": "依据公开拆解重建结构。音腔和零件间距为示意。"
       },
       "image": {
-        "url": "/assets/diagrams/xiaomi-speaker-pro.svg",
-        "alt": "Xiaomi 智能音箱 Pro 结构示意图",
-        "type": "concept"
+        "url": "https://img10.360buyimg.com/n0/jfs/t1/255247/26/25698/85649/67bfddf6Fc876745c/1b06cd2074740286.png",
+        "alt": "京东 Xiaomi 智能音箱 Pro OH2P 商品图库",
+        "type": "retail",
+        "sourceId": "photo-jd"
+      },
+      "photos": [
+        {
+          "url": "https://img10.360buyimg.com/imgzone/jfs/t1/255145/22/26230/69281/67bfddf5F54e2cd70/536e1659ae0565b3.png",
+          "alt": "京东 Xiaomi 智能音箱 Pro OH2P 商品图库另一视图",
+          "type": "retail",
+          "sourceId": "photo-jd"
+        }
+      ],
+      "cutaway": {
+        "url": "/assets/cutaways/xiaomi-speaker-pro.webp",
+        "type": "reconstruction",
+        "alt": "Xiaomi 智能音箱 Pro OH2P AI 生成结构剖视示意",
+        "note": "AI 生图依据 OH2P 商品外观和实物拆解重建结构。扬声器和双无源辐射器的位置仅供理解，音腔比例和零件间距为近似。",
+        "sourceIds": [
+          "photo-jd",
+          "teardown",
+          "acoustics",
+          "board",
+          "controls",
+          "teardown-original"
+        ]
       }
     },
     {
@@ -979,6 +1164,14 @@
           "sourceIds": [
             "official"
           ]
+        },
+        {
+          "key": "appearance",
+          "label": "外观与接口",
+          "value": "挂件是圆顶小球状设备，实拍样本可见白色上盖、浅蓝底座、侧面的声孔与橙色挂绳。",
+          "sourceIds": [
+            "photo-sina"
+          ]
         }
       ],
       "abilities": [
@@ -1000,9 +1193,37 @@
           "title": "跃然创新 BubblePal 产品页",
           "url": "https://www.haivivi.cn/product/bubblepal",
           "type": "official"
+        },
+        {
+          "id": "photo-review",
+          "title": "我爱音频网 · BubblePal 实物评测",
+          "url": "https://www.52audio.com/archives/248836.html",
+          "type": "other",
+          "locator": "外观、操作与实物照片。"
+        },
+        {
+          "id": "photo-sina",
+          "title": "新浪众测 · 跃然创新 BubblePal 实物开箱",
+          "url": "https://zhongce.sina.com.cn/article/view/184515",
+          "type": "other",
+          "locator": "挂件开箱、侧面和配件实拍。"
         }
       ],
-      "model": null
+      "model": null,
+      "image": {
+        "url": "https://zhongces3.sina.com.cn/product/20240730/8b67e4e27016946abfeb02fc220a89ce.jpeg",
+        "alt": "BubblePal 实物侧面，可见球形上盖、底部声孔与橙色挂绳",
+        "type": "photo",
+        "sourceId": "photo-sina"
+      },
+      "photos": [
+        {
+          "url": "https://zhongces3.sina.com.cn/product/20240730/29e8e0a998700d4f6c1d45a70fc4e1b4.jpeg",
+          "alt": "BubblePal 包装内的挂件和配件实拍",
+          "type": "photo",
+          "sourceId": "photo-sina"
+        }
+      ]
     },
     {
       "id": "folotoy-magicbox",
@@ -1033,6 +1254,14 @@
           "sourceIds": [
             "official"
           ]
+        },
+        {
+          "key": "appearance",
+          "label": "外观与接口",
+          "value": "独立对话盒子，可与自制外壳或玩偶组合。盒子与毛绒玩具外观分别展示。",
+          "sourceIds": [
+            "photo-oem"
+          ]
         }
       ],
       "abilities": [
@@ -1062,9 +1291,23 @@
           "title": "FoloToy 自建服务文档",
           "url": "https://docs.folotoy.com/",
           "type": "manual"
+        },
+        {
+          "id": "photo-oem",
+          "title": "FoloToy · MagicBox 智能对话盒子",
+          "url": "https://folotoy.com/zh/products/magicbox/",
+          "type": "official",
+          "locator": "具体产品页及外观图。"
         }
       ],
-      "model": null
+      "model": null,
+      "image": {
+        "url": "https://folotoy.com/_astro/magicbox.425f814e_Z1hDQ1s.avif",
+        "alt": "FoloToy 官方 MagicBox 智能对话盒子产品图",
+        "type": "official",
+        "sourceId": "photo-oem"
+      },
+      "photos": []
     },
     {
       "id": "sharge-a1",
@@ -1119,6 +1362,14 @@
           "sourceIds": [
             "teardown"
           ]
+        },
+        {
+          "key": "appearance",
+          "label": "外观与接口",
+          "value": "黑色镜框，两侧分别布置摄像头与指示灯；附可磁吸遮盖镜头的盖板，镜腿侧有触控区。",
+          "sourceIds": [
+            "teardown"
+          ]
         }
       ],
       "abilities": [
@@ -1168,9 +1419,22 @@
           "url": "https://www.52audio.com/archives/228930.html",
           "type": "teardown",
           "locator": "包装标签、镜框开箱与拆解总结"
+        },
+        {
+          "id": "photo-realab",
+          "title": "阅真实验室 · 闪极 A1 测试样机",
+          "url": "https://www.realab.com/data/1739812713728.html",
+          "type": "other",
+          "locator": "对应 SHARGE/闪极 AI 拍拍镜 A1。"
         }
       ],
-      "model": null
+      "model": null,
+      "image": {
+        "url": "https://static.realab.com/uploads/2025/02/18/d7uw37qwy6mlnjvrwy.jpg",
+        "alt": "阅真实验室的闪极 A1 智能眼镜测试样机图",
+        "type": "photo",
+        "sourceId": "photo-realab"
+      }
     },
     {
       "id": "rokid-glasses-2",
@@ -1200,6 +1464,14 @@
           "sourceIds": [
             "official"
           ]
+        },
+        {
+          "key": "appearance",
+          "label": "外观与接口",
+          "value": "原厂展示经典黑和优雅玳瑁两种镜框，本档案主图选用经典黑。镜片包含显示光栅区。",
+          "sourceIds": [
+            "official"
+          ]
         }
       ],
       "abilities": [
@@ -1223,7 +1495,21 @@
           "type": "official"
         }
       ],
-      "model": null
+      "model": null,
+      "image": {
+        "url": "https://www.rokid.com/_next/image?url=%2Fmedia%2Fglasses-2%2Fad1b75f20284.webp&w=3840&q=75",
+        "alt": "乐奇 Rokid Glasses 2 经典黑色镜框原厂外观图",
+        "type": "official",
+        "sourceId": "official"
+      },
+      "photos": [
+        {
+          "url": "https://www.rokid.com/_next/image?url=%2Fmedia%2Fglasses-2%2F323ce.webp&w=3840&q=75",
+          "alt": "乐奇 Rokid Glasses 2 镜框与镜腿细节",
+          "type": "official",
+          "sourceId": "official"
+        }
+      ]
     },
     {
       "id": "xiaomi-xiaoai-pro-legacy",
@@ -1252,6 +1538,14 @@
           "value": "带语音控制的智能音箱",
           "sourceIds": [
             "official"
+          ]
+        },
+        {
+          "key": "appearance",
+          "label": "外观与接口",
+          "value": "LX06 样机为深色竖柱，顶面有环形灯带、六处麦克风拾音孔与控制键，后部为 AUX IN 与 DC 供电口。",
+          "sourceIds": [
+            "teardown"
           ]
         }
       ],
@@ -1323,6 +1617,14 @@
           "sourceIds": [
             "wiki"
           ]
+        },
+        {
+          "key": "appearance",
+          "label": "外观与接口",
+          "value": "平板式四麦克风阵列，USB 模组可作为设备语音前端使用。原厂同时展示带扩展主控的不同套装。",
+          "sourceIds": [
+            "wiki"
+          ]
         }
       ],
       "abilities": [
@@ -1374,7 +1676,14 @@
           "locator": "概述、产品参数与固件"
         }
       ],
-      "model": null
+      "model": null,
+      "image": {
+        "url": "https://files.seeedstudio.com/wiki/respeaker_xvf3800_usb/no-xiao-xvf.jpg",
+        "alt": "矽递 reSpeaker XVF3800 四麦模组，未安装 XIAO 扩展板",
+        "type": "official",
+        "sourceId": "wiki"
+      },
+      "photos": []
     },
     {
       "id": "fiture-mini-plus",
@@ -1405,6 +1714,14 @@
           "sourceIds": [
             "official"
           ]
+        },
+        {
+          "key": "appearance",
+          "label": "外观与接口",
+          "value": "落地全身镜与 32 英寸屏幕结合，厂商展示独立支撑脚和铝质框体。",
+          "sourceIds": [
+            "photo-oem"
+          ]
         }
       ],
       "abilities": [
@@ -1433,9 +1750,30 @@
           "url": "https://www.fiture.com/us/questions",
           "type": "official",
           "locator": "产品技术和隐私章节；美国站，国内型号待核验"
+        },
+        {
+          "id": "photo-oem",
+          "title": "FITURE · 沸彻魔镜 Mini Plus 产品图与设计",
+          "url": "https://www.fiture.com/cn/product-mini-plus.html",
+          "type": "official",
+          "locator": "Mini Plus 国内产品介绍及外观素材。"
         }
       ],
-      "model": null
+      "model": null,
+      "image": {
+        "url": "https://static.fiture.com/h1t86b7ie7cof7hsefcr42dg/static/22.97ee427d.jpg",
+        "alt": "FITURE Mini Plus 立式健身魔镜官方产品展示图",
+        "type": "official",
+        "sourceId": "photo-oem"
+      },
+      "photos": [
+        {
+          "url": "https://static.fiture.com/h1t86b7ie7cof7hsefcr42dg/static/2.58078851.jpg",
+          "alt": "FITURE Mini Plus 镜面和屏幕官方展示图",
+          "type": "official",
+          "sourceId": "photo-oem"
+        }
+      ]
     },
     {
       "id": "xiaodu-tiantianscreen-2201",
@@ -1470,6 +1808,14 @@
           "key": "maker",
           "label": "生产企业",
           "value": "上海小度技术有限公司",
+          "sourceIds": [
+            "inspection"
+          ]
+        },
+        {
+          "key": "appearance",
+          "label": "外观与接口",
+          "value": "官方抽查记录锁定 XD-SDE00-2201 健身镜型号。市面有多个同名版本，2201 外观仍待同型号实拍确认。",
           "sourceIds": [
             "inspection"
           ]
@@ -1522,6 +1868,14 @@
           "key": "control",
           "label": "操作",
           "value": "防水镜面多点触控、语音",
+          "sourceIds": [
+            "official"
+          ]
+        },
+        {
+          "key": "appearance",
+          "label": "外观与接口",
+          "value": "圆形防水触控镜面，配有用于查看信息和控制家居的显示区域。",
           "sourceIds": [
             "official"
           ]
@@ -1579,6 +1933,14 @@
           "sourceIds": [
             "official"
           ]
+        },
+        {
+          "key": "appearance",
+          "label": "外观与接口",
+          "value": "产品资料展示立式视觉贩售柜，前门和多层货架用于开门自助取货。机内相机位置随具体机型核验。",
+          "sourceIds": [
+            "official"
+          ]
         }
       ],
       "abilities": [
@@ -1602,7 +1964,14 @@
           "type": "official"
         }
       ],
-      "model": null
+      "model": null,
+      "image": {
+        "url": "https://www.cloudpick.com/Public/Uploads/uploadfile/images/20220714/fsj_img7.jpg",
+        "alt": "云拿科技 Coolbinet 视觉贩售机原厂产品图",
+        "type": "official",
+        "sourceId": "official"
+      },
+      "photos": []
     },
     {
       "id": "hibianli-hi1000",
@@ -1629,6 +1998,14 @@
           "key": "model",
           "label": "型号",
           "value": "HI1000",
+          "sourceIds": [
+            "official"
+          ]
+        },
+        {
+          "key": "appearance",
+          "label": "外观与接口",
+          "value": "原厂资料标记 HI1000 视觉智能柜型号。柜体、门型和实际装配版本待同型号图片核对。",
           "sourceIds": [
             "official"
           ]
@@ -1694,6 +2071,14 @@
           "sourceIds": [
             "manual"
           ]
+        },
+        {
+          "key": "appearance",
+          "label": "外观与接口",
+          "value": "体验样机是升降桌架配桌板的办公桌，桌面控制部可用于触控和语音操作。不同面板尺寸以选定商品为准。",
+          "sourceIds": [
+            "photo-review"
+          ]
         }
       ],
       "abilities": [],
@@ -1705,9 +2090,30 @@
           "url": "https://service.loctek.com/install/mounts",
           "type": "manual",
           "locator": "智能升降家居桌椅"
+        },
+        {
+          "id": "photo-review",
+          "title": "新浪众测 · 乐歌乐桌 AI3 实机体验",
+          "url": "https://zhongce.sina.com.cn/article/view/129485/",
+          "type": "other",
+          "locator": "作者体验文章与实机照片。"
         }
       ],
-      "model": null
+      "model": null,
+      "image": {
+        "url": "https://zhongces3.sina.com.cn/product/20220427/2af3b1b4aebf2aa189a5f8aff7a1d20a.jpeg",
+        "alt": "乐歌乐桌 AI3 使用场景实拍，桌面上可见控制器",
+        "type": "photo",
+        "sourceId": "photo-review"
+      },
+      "photos": [
+        {
+          "url": "https://zhongces3.sina.com.cn/product/20220427/5df91eb880cda11cc93af1b00a93f8a6.jpeg",
+          "alt": "乐歌乐桌 AI3 桌面控制器实拍",
+          "type": "photo",
+          "sourceId": "photo-review"
+        }
+      ]
     },
     {
       "id": "boshiyoucheng-space1",
@@ -1746,6 +2152,14 @@
           "sourceIds": [
             "official"
           ]
+        },
+        {
+          "key": "appearance",
+          "label": "外观与接口",
+          "value": "半包围学习台面，带上部灯光系统、多层收纳和嵌入式电子操控屏。该型号属于学习桌。",
+          "sourceIds": [
+            "official"
+          ]
         }
       ],
       "abilities": [
@@ -1769,7 +2183,21 @@
           "type": "official"
         }
       ],
-      "model": null
+      "model": null,
+      "image": {
+        "url": "https://www.bs-yc.com/upload/202311/%E5%A4%AA%E7%A9%BA1%E5%8F%B7.jpg",
+        "alt": "博士有成太空一号 AI 智能学习桌原厂产品图",
+        "type": "official",
+        "sourceId": "official"
+      },
+      "photos": [
+        {
+          "url": "https://www.bs-yc.com/upload/202311/%E5%A4%AA%E7%A9%BA1%E5%8F%B72.jpg",
+          "alt": "博士有成太空一号 AI 智能学习桌原厂另一视图",
+          "type": "official",
+          "sourceId": "official"
+        }
+      ]
     },
     {
       "id": "9am-up",
@@ -1797,6 +2225,14 @@
           "key": "form",
           "label": "形态",
           "value": "数字化升降工位",
+          "sourceIds": [
+            "official"
+          ]
+        },
+        {
+          "key": "appearance",
+          "label": "外观与接口",
+          "value": "可升降台面与数字交互部件组合的办公工位。不同系列的台面和桌架配置以方案页为准。",
           "sourceIds": [
             "official"
           ]
