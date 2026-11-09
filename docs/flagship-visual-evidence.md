@@ -31,7 +31,7 @@
 
 硬件基线为 LCKFB-SZPI-ESP32-S3-VA，立创商品编号 C41430228。商品「发货清单」确认白色外壳已组装，并在「商品参数」说明采用 3D 打印粘贴工艺。正面图深色屏幕在右，左边小摄像头在穿孔区上方。这个商品外形属于所选立创套件，档案内的「小智」指部署在这块板上的固件及样机方案。立创技术文档也提供独立外壳设计入口。当前可读页面未核实外壳 CAD 的具体许可，不据此复制或分发 CAD 文件。[立创商城商品](https://item.szlcsc.com/43285221.html) · [正面商品图](https://alimg.szlcsc.com/upload/public/product/breviary/20241016/0A3B1BB53A096FF24AFEBD14BCC4C492.jpg) · [视角 2](https://alimg.szlcsc.com/upload/public/product/breviary/20241016/D3D762B4EB5B8A0EF8A962CF8FD9AF6D.jpg) · [视角 3](https://alimg.szlcsc.com/upload/public/product/breviary/20241016/5AD91F3A67AE1C6FE6B2AEC0EBCB1C29.jpg) · [立创开源硬件与外壳入口](https://wiki.lckfb.com/zh-hans/szpi-esp32s3/open-source-hardware/)
 
-立创硬件介绍列出 ESP32-S3-WROOM-1-N16R8、2.0 英寸 IPS 触摸屏、GC0308 摄像头、双路麦克风、ES7210 和 1 W 喇叭。其「总体介绍」将音频输出芯片写为 ES8311，「电路介绍」正文写为 ES8310。模型先标音频输出，不锁定该芯片丝印。PCB 形状及板面元件放置以立创「开发板资源介绍」或开源工程的板图为准。原理图证明连接关系，三维坐标和内部紧固细节须另有对应视图。[立创硬件介绍](https://wiki.lckfb.com/zh-hans/szpi-esp32s3/beginner/introduction.html) · [立创开源工程](https://oshwhub.com/li-chuang-kai-fa-ban/li-chuang-shi-zhan-pai-esp32-s3-kai-fa-ban) · [小智固件](https://github.com/78/xiaozhi-esp32)
+立创规格书 WJ1510776 第 2 页「资源标注图」给出绿色 PCB 两面的实物照片，摄像头侧有短凸翼，主控模组邻近摄像头，MicroSD 与 Type-C 位于对侧边缘。两面标注了 ESP32-S3-WROOM-1-N16R8、GC0308、双麦克风、ES7210、ES8311 等，图示触摸屏为 2.0 英寸。教程「电路介绍」正文有一处写成 ES8310，规格书 PCB 图与教程「总体介绍」均标 ES8311。第 3 页标注已装配外壳为 69 × 41 × 15 mm。第 7 页有外壳拆分和主板照片，第 9 页有整机、裸板和壳体多视图。规格书提供整机标注和板面照片，模型图仍保留未测得的板厚、装配公差及内部几何为近似。[立创规格书 WJ1510776](https://atta.szlcsc.com/upload/public/pdf/source/20241206/2135D3F1EFA99CB590678658F575DB23.pdf) · [立创硬件介绍](https://wiki.lckfb.com/zh-hans/szpi-esp32s3/beginner/introduction.html) · [立创开源工程](https://oshwhub.com/li-chuang-kai-fa-ban/li-chuang-shi-zhan-pai-esp32-s3-kai-fa-ban) · [小智固件](https://github.com/78/xiaozhi-esp32)
 
 ## 图片与模型使用
 
