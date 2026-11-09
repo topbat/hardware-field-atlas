@@ -2002,7 +2002,13 @@
         "exterior": "concept",
         "sourceIds": [
           "inspection"
-        ]
+        ],
+        "panels": {
+          "overview": "/assets/product-studies/xiaodu-tiantianscreen-2201/overview.webp",
+          "detail": "/assets/product-studies/xiaodu-tiantianscreen-2201/detail.webp",
+          "specs": "/assets/product-studies/xiaodu-tiantianscreen-2201/specs.svg",
+          "angles": "/assets/product-studies/xiaodu-tiantianscreen-2201/angles.webp"
+        }
       }
     },
     {
@@ -2080,7 +2086,13 @@
         "exterior": "reference",
         "sourceIds": [
           "official"
-        ]
+        ],
+        "panels": {
+          "overview": "/assets/product-studies/orvibo-round-mirror/overview.webp",
+          "detail": "/assets/product-studies/orvibo-round-mirror/detail.webp",
+          "specs": "/assets/product-studies/orvibo-round-mirror/specs.svg",
+          "angles": "/assets/product-studies/orvibo-round-mirror/angles.webp"
+        }
       }
     },
     {
@@ -2157,7 +2169,13 @@
         "exterior": "reference",
         "sourceIds": [
           "official"
-        ]
+        ],
+        "panels": {
+          "overview": "/assets/product-studies/cloudpick-coolbinet/overview.webp",
+          "detail": "/assets/product-studies/cloudpick-coolbinet/detail.webp",
+          "specs": "/assets/product-studies/cloudpick-coolbinet/specs.svg",
+          "angles": "/assets/product-studies/cloudpick-coolbinet/angles.webp"
+        }
       }
     },
     {
@@ -2233,8 +2251,15 @@
         "technical": "functional",
         "exterior": "concept",
         "sourceIds": [
-          "official"
-        ]
+          "official",
+          "algorithm"
+        ],
+        "panels": {
+          "overview": "/assets/product-studies/hibianli-hi1000/overview.webp",
+          "detail": "/assets/product-studies/hibianli-hi1000/detail.webp",
+          "specs": "/assets/product-studies/hibianli-hi1000/specs.svg",
+          "angles": "/assets/product-studies/hibianli-hi1000/angles.webp"
+        }
       }
     },
     {
@@ -2314,8 +2339,15 @@
         "technical": "functional",
         "exterior": "reference",
         "sourceIds": [
-          "photo-review"
-        ]
+          "photo-review",
+          "manual"
+        ],
+        "panels": {
+          "overview": "/assets/product-studies/loctek-ai3/overview.webp",
+          "detail": "/assets/product-studies/loctek-ai3/detail.webp",
+          "specs": "/assets/product-studies/loctek-ai3/specs.svg",
+          "angles": "/assets/product-studies/loctek-ai3/angles.webp"
+        }
       }
     },
     {
@@ -2407,7 +2439,13 @@
         "exterior": "reference",
         "sourceIds": [
           "official"
-        ]
+        ],
+        "panels": {
+          "overview": "/assets/product-studies/boshiyoucheng-space1/overview.webp",
+          "detail": "/assets/product-studies/boshiyoucheng-space1/detail.webp",
+          "specs": "/assets/product-studies/boshiyoucheng-space1/specs.svg",
+          "angles": "/assets/product-studies/boshiyoucheng-space1/angles.webp"
+        }
       }
     },
     {
@@ -2478,7 +2516,13 @@
         "exterior": "concept",
         "sourceIds": [
           "official"
-        ]
+        ],
+        "panels": {
+          "overview": "/assets/product-studies/9am-up/overview.webp",
+          "detail": "/assets/product-studies/9am-up/detail.webp",
+          "specs": "/assets/product-studies/9am-up/specs.svg",
+          "angles": "/assets/product-studies/9am-up/angles.webp"
+        }
       }
     }
   ]
