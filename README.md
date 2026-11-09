@@ -27,7 +27,7 @@ Windows 也可以运行 `pwsh -File scripts/start.ps1 -Build`，之后省略 `-B
 - 使用 `ATLAS_ADMIN_TOKEN` 启用内容审核页 /admin 和审核 API。目录种子由 data/catalog.json 管理，线上产品修订、纠错和研究记录保存在 `ATLAS_DATA_DIR`（默认 runtime/）下的 SQLite 数据库。备份时使用 SQLite 在线备份，或停止应用后复制整个目录。
 - 三个 Blender 原件在 assets/blender，网页 GLB 和二维图在 web/public/assets。模型以近似结构或概念标注。脚本可用 Blender 5.2 运行 `blender --background --python-exit-code 1 --python scripts/build_models.py` 重建。
 - 实物、原厂及电商图在目录和照片图库标明来源。受限的拆解图保留原文入口。三张 ImageGen 剖视图按公开资料重绘，位于 web/public/assets/cutaways；建模的主要证据见 [旗舰视觉依据](docs/flagship-visual-evidence.md)。
-- 档案中的「AI 图解」使用 Codex 内置 ImageGen 生成，位于 web/public/assets/illustrations。图版包含产品介绍、两个补充视角和拆解或功能示意，标注参考来源。没有核实的内部装配只画功能关系，没有核实的外壳标为概念示意。[逐款生图约束与参考素材](docs/illustration-briefs.json)
+- 档案中的「AI 图解」提供总体图、关键部位图、硬件规格信息图和多角度图四张独立图片，位于 web/public/assets/product-studies。四张的视觉配图使用 Codex 内置 ImageGen，规格文字从已核验档案排版。未核实的结构与外观按示意处理。[生图版式和风格](docs/product-image-directions.json) · [逐款资料约束](docs/illustration-briefs.json)
 - 首页概念图由 Codex ImageGen 生成。提示词指定通用深色 AI 摄像眼镜、分离的镜腿、电池和电路板、米白工程工作台和无品牌字样。商品样机信息以档案中的原始出处为准。
 
 ## 单机部署

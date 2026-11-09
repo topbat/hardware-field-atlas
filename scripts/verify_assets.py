@@ -27,6 +27,7 @@ def main():
     checked = 0
     photos = 0
     illustrations = 0
+    panel_count = 0
     for product in catalog["products"]:
         product_id = product["id"]
         sources = {source["id"] for source in product["sources"]}
@@ -53,6 +54,21 @@ def main():
             if not plate["sourceIds"] or set(plate["sourceIds"]) - sources:
                 raise ValueError(f"Illustration evidence missing for {product_id}")
             illustrations += 1
+            if panels := plate.get("panels"):
+                if set(panels) != {"overview", "detail", "specs", "angles"}:
+                    raise ValueError(f"Missing product image types: {product_id}")
+                for key, url in panels.items():
+                    image = PUBLIC / url.removeprefix("/")
+                    if key == "specs":
+                        svg = ET.parse(image)
+                        if svg.getroot().tag != "{http://www.w3.org/2000/svg}svg":
+                            raise ValueError(f"Invalid specifications graphic: {image}")
+                    else:
+                        with image.open("rb") as file:
+                            header = file.read(12)
+                        if header[:4] != b"RIFF" or header[8:] != b"WEBP":
+                            raise ValueError(f"Invalid product WebP: {image}")
+                    panel_count += 1
         if not product["model"]:
             continue
         groups = verify_glb(PUBLIC / product["model"]["url"].removeprefix("/"))
@@ -68,7 +84,7 @@ def main():
     if not checked:
         raise ValueError("No 3D assets in the catalog")
     print(f"{photos} product image references linked to sources")
-    print(f"{illustrations} sourced illustration plates verified")
+    print(f"{illustrations} sourced illustration plates verified; {panel_count} independent product images")
 
 
 if __name__ == "__main__":

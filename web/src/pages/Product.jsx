@@ -154,6 +154,49 @@ function Cutaway({ product }) {
   );
 }
 
+const productImageTypes = [
+  ['overview', '总体图', '完整外观和使用场景'],
+  ['detail', '关键部位图', '关键外观、部件或功能细节'],
+  ['specs', '硬件规格信息图', '已核验的参数与型号信息'],
+  ['angles', '多角度图', '对照不同视角下的外形'],
+];
+
+function ProductImageGallery({ product }) {
+  const { illustration } = product;
+  const [failed, setFailed] = useState(() => new Set());
+  const recordFailure = (key) => setFailed((items) => new Set(items).add(key));
+  return (
+    <section className="product-illustration" aria-labelledby="illustration-title">
+      <div className="panel-heading">
+        <div><h2 id="illustration-title">产品图解</h2><p>从完整外观到关键细节，每张图都可单独查看大图。</p></div>
+        <span className="badge accent"><ImageSquare size={17} /> AI 生成配图</span>
+      </div>
+      <div className="product-image-grid">
+        {productImageTypes.map(([key, title, description], index) => {
+          const url = illustration.panels[key];
+          return (
+            <figure className={`product-image-panel panel-${key}`} key={key}>
+              <figcaption>
+                <div><span className="mono">0{index + 1}</span><h3>{title}</h3><p>{description}</p></div>
+                {!failed.has(key) && <a href={url} target="_blank" rel="noopener" className="button small" aria-label={`打开${title}大图`}>大图 <ArrowUpRight size={15} /></a>}
+              </figcaption>
+              {failed.has(key) ? <Empty>暂时无法加载此图。</Empty> : (
+                <a href={url} target="_blank" rel="noopener" aria-label={`查看${product.name}${title}`}>
+                  <img src={url} alt={`${product.name} · ${title}`} loading={key === 'overview' ? 'eager' : 'lazy'} onError={() => recordFailure(key)} />
+                </a>
+              )}
+            </figure>
+          );
+        })}
+      </div>
+      <div className="illustration-caption product-image-sources">
+        <p>{illustration.exterior === 'concept' ? '外观为同类设备概念示意，准确型号外形待核对。' : '外观按公开资料重绘，比例和细节为近似。'}{illustration.technical === 'teardown' ? '部件关系以实物拆解来源为准。' : '关键部位图仅展示公开可见特征和功能。'}规格信息图使用已核验资料排版。</p>
+        <SourcesFor product={product} ids={illustration.sourceIds} />
+      </div>
+    </section>
+  );
+}
+
 function Illustration({ product }) {
   const { illustration } = product;
   const [failed, setFailed] = useState(false);
@@ -370,7 +413,7 @@ function ProductContent({ product, selection }) {
       </nav>
       <section className="product-panel">
         {tab === 'photos' ? <PhotoGallery product={product} photos={photos} /> : null}
-        {tab === 'illustration' ? <Illustration product={product} /> : null}
+        {tab === 'illustration' ? product.illustration.panels ? <ProductImageGallery product={product} /> : <Illustration product={product} /> : null}
         {tab === 'structure' ? <Structure product={product} part={part} select={select} /> : null}
         {tab === 'specs' ? <Specs product={product} /> : null}
         {tab === 'bom' ? <Bom product={product} part={part} select={select} showStructure={() => showTab('structure')} /> : null}

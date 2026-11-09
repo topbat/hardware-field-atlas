@@ -118,10 +118,20 @@ class CutawayAsset(EvidenceRecord):
     _validate_url = field_validator("url")(asset_url)
 
 
+class IllustrationPanels(Record):
+    overview: str = Field(max_length=240)
+    detail: str = Field(max_length=240)
+    specs: str = Field(max_length=240)
+    angles: str = Field(max_length=240)
+
+    _validate_urls = field_validator("overview", "detail", "specs", "angles")(asset_url)
+
+
 class IllustrationPlate(EvidenceRecord):
     url: str = Field(max_length=240)
     technical: Literal["teardown", "functional"]
     exterior: Literal["reference", "concept"]
+    panels: IllustrationPanels | None = None
 
     _validate_url = field_validator("url")(asset_url)
 

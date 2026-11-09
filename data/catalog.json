@@ -417,8 +417,19 @@
         "exterior": "reference",
         "sourceIds": [
           "teardown",
-          "photo-jd"
-        ]
+          "photo-jd",
+          "battery-label",
+          "storage-a",
+          "storage-b",
+          "soc",
+          "official"
+        ],
+        "panels": {
+          "overview": "/assets/product-studies/xiaomi-glasses/overview.webp",
+          "detail": "/assets/product-studies/xiaomi-glasses/detail.webp",
+          "specs": "/assets/product-studies/xiaomi-glasses/specs.svg",
+          "angles": "/assets/product-studies/xiaomi-glasses/angles.webp"
+        }
       }
     },
     {
@@ -779,8 +790,17 @@
         "exterior": "reference",
         "sourceIds": [
           "board",
-          "photo-retail"
-        ]
+          "photo-retail",
+          "firmware",
+          "flash",
+          "server"
+        ],
+        "panels": {
+          "overview": "/assets/product-studies/xiaozhi-esp32/overview.webp",
+          "detail": "/assets/product-studies/xiaozhi-esp32/detail.webp",
+          "specs": "/assets/product-studies/xiaozhi-esp32/specs.svg",
+          "angles": "/assets/product-studies/xiaozhi-esp32/angles.webp"
+        }
       }
     },
     {
@@ -1160,8 +1180,18 @@
         "sourceIds": [
           "teardown-original",
           "teardown",
-          "photo-jd"
-        ]
+          "photo-jd",
+          "mijia",
+          "controls",
+          "acoustics",
+          "test"
+        ],
+        "panels": {
+          "overview": "/assets/product-studies/xiaomi-speaker-pro/overview.webp",
+          "detail": "/assets/product-studies/xiaomi-speaker-pro/detail.webp",
+          "specs": "/assets/product-studies/xiaomi-speaker-pro/specs.svg",
+          "angles": "/assets/product-studies/xiaomi-speaker-pro/angles.webp"
+        }
       }
     },
     {
@@ -1257,8 +1287,15 @@
         "technical": "functional",
         "exterior": "reference",
         "sourceIds": [
-          "photo-sina"
-        ]
+          "photo-sina",
+          "official"
+        ],
+        "panels": {
+          "overview": "/assets/product-studies/haivivi-bubblepal/overview.webp",
+          "detail": "/assets/product-studies/haivivi-bubblepal/detail.webp",
+          "specs": "/assets/product-studies/haivivi-bubblepal/specs.svg",
+          "angles": "/assets/product-studies/haivivi-bubblepal/angles.webp"
+        }
       }
     },
     {
@@ -1349,8 +1386,16 @@
         "technical": "functional",
         "exterior": "reference",
         "sourceIds": [
-          "photo-oem"
-        ]
+          "photo-oem",
+          "official",
+          "server"
+        ],
+        "panels": {
+          "overview": "/assets/product-studies/folotoy-magicbox/overview.webp",
+          "detail": "/assets/product-studies/folotoy-magicbox/detail.webp",
+          "specs": "/assets/product-studies/folotoy-magicbox/specs.svg",
+          "angles": "/assets/product-studies/folotoy-magicbox/angles.webp"
+        }
       }
     },
     {
@@ -1486,7 +1531,13 @@
         "sourceIds": [
           "teardown",
           "photo-realab"
-        ]
+        ],
+        "panels": {
+          "overview": "/assets/product-studies/sharge-a1/overview.webp",
+          "detail": "/assets/product-studies/sharge-a1/detail.webp",
+          "specs": "/assets/product-studies/sharge-a1/specs.svg",
+          "angles": "/assets/product-studies/sharge-a1/angles.webp"
+        }
       }
     },
     {
@@ -1569,7 +1620,13 @@
         "exterior": "reference",
         "sourceIds": [
           "official"
-        ]
+        ],
+        "panels": {
+          "overview": "/assets/product-studies/rokid-glasses-2/overview.webp",
+          "detail": "/assets/product-studies/rokid-glasses-2/detail.webp",
+          "specs": "/assets/product-studies/rokid-glasses-2/specs.svg",
+          "angles": "/assets/product-studies/rokid-glasses-2/angles.webp"
+        }
       }
     },
     {
@@ -1644,8 +1701,15 @@
         "technical": "functional",
         "exterior": "reference",
         "sourceIds": [
-          "teardown"
-        ]
+          "teardown",
+          "official"
+        ],
+        "panels": {
+          "overview": "/assets/product-studies/xiaomi-xiaoai-pro-legacy/overview.webp",
+          "detail": "/assets/product-studies/xiaomi-xiaoai-pro-legacy/detail.webp",
+          "specs": "/assets/product-studies/xiaomi-xiaoai-pro-legacy/specs.svg",
+          "angles": "/assets/product-studies/xiaomi-xiaoai-pro-legacy/angles.webp"
+        }
       }
     },
     {
@@ -1759,7 +1823,13 @@
         "exterior": "reference",
         "sourceIds": [
           "wiki"
-        ]
+        ],
+        "panels": {
+          "overview": "/assets/product-studies/seeed-respeaker-xvf3800/overview.webp",
+          "detail": "/assets/product-studies/seeed-respeaker-xvf3800/detail.webp",
+          "specs": "/assets/product-studies/seeed-respeaker-xvf3800/specs.svg",
+          "angles": "/assets/product-studies/seeed-respeaker-xvf3800/angles.webp"
+        }
       }
     },
     {
@@ -1856,8 +1926,16 @@
         "technical": "functional",
         "exterior": "reference",
         "sourceIds": [
-          "photo-oem"
-        ]
+          "photo-oem",
+          "official",
+          "tech"
+        ],
+        "panels": {
+          "overview": "/assets/product-studies/fiture-mini-plus/overview.webp",
+          "detail": "/assets/product-studies/fiture-mini-plus/detail.webp",
+          "specs": "/assets/product-studies/fiture-mini-plus/specs.svg",
+          "angles": "/assets/product-studies/fiture-mini-plus/angles.webp"
+        }
       }
     },
     {

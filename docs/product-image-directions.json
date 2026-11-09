@@ -1,0 +1,22 @@
+{
+  "template": "Create ONE landscape 1536×1024 editorial image CONTACT SHEET with EXACTLY four equally sized independent image panels in a precise 2×2 grid. The dividing lines are exactly at 50% of image width and height, with a narrow 12 pixel solid neutral gutter. Each quadrant is individually composed as a 3:2 landscape picture and must keep all its elements at least 35 pixels from the grid lines and edge. This sheet will be sliced mechanically into four standalone files, so nothing may cross a dividing line. Each quadrant should have its own complete scene and background. No text, letters, digits, watermarks, logos or measurements. TOP LEFT: compelling clean overall product portrait with contextual scene and whole object; TOP RIGHT: one or two enlarged real key parts, as macro closeup or honest evidence-based exploded feature; BOTTOM LEFT: premium product specification plate art with the object small on the LEFT, ample clean blank space to its RIGHT, delicate technical or grid backdrop, NO numbers, NO text, NO pretend measurements; BOTTOM RIGHT: three consistent alternate product angles (front, side, rear or 3/4), side by side in one neutral panel. Keep same exact variant and color in all panels. No unverified internals, interfaces or controls. Art direction: ",
+  "styles": {
+    "xiaomi-glasses": "dark charcoal studio, deep graphite gradients, diagonal silver rim light, compact luxe optical lab",
+    "xiaozhi-esp32": "pale aqua workbench, mint grid, precise electronics macro, soft daylight",
+    "xiaomi-speaker-pro": "inky navy acoustic lab, radial light wave accents, navy and cobalt, high material detail",
+    "haivivi-bubblepal": "pastel sky blue and coral playroom, playful soft plush texture, daylight",
+    "folotoy-magicbox": "coral and terracotta maker table, lively red module, unbranded felt accessories",
+    "sharge-a1": "deep navy and electric lime wearable field-testing aesthetic, high contrast detailed black frame",
+    "rokid-glasses-2": "cool indigo and violet optics studio, clear focused highlights, premium optical details",
+    "xiaomi-xiaoai-pro-legacy": "warm graphite and muted sage residential acoustic studio, brushed surfaces",
+    "seeed-respeaker-xvf3800": "clean cobalt-and-white electronics bench, precision macro solder-mask and components",
+    "fiture-mini-plus": "warm greige fitness space with gentle natural daylight, restrained teal functional accents",
+    "xiaodu-tiantianscreen-2201": "conceptual thin graphite linework on lavender and white, no realistic exact product",
+    "orvibo-round-mirror": "calm sand and seafoam bath studio, realistic vanity scene with uncluttered neutral palette",
+    "cloudpick-coolbinet": "bright white and cobalt retail lab, colored packaged items with no labels",
+    "hibianli-hi1000": "unbranded concept ink sketches and sage blocks, industrial retail storyboard",
+    "loctek-ai3": "natural blond wood and navy workplace, decisive side daylight and clearly shown controls",
+    "boshiyoucheng-space1": "warm pastel apricot and powder-blue study space, natural window light, product focused",
+    "9am-up": "neutral monochrome product-design studio with forest-green accents, concept rather than exact product"
+  }
+}
