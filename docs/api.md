@@ -24,11 +24,14 @@
       photos?: Photo[],
       cutaway?: { url: string, alt: string, type: "concept"|"reconstruction", note: string, sourceIds: string[] },
       illustration?: { url: string, technical: "teardown"|"functional", exterior: "reference"|"concept", sourceIds: string[],
-                       panels?: { overview: string, detail: string, specs: string, angles: string } },
+                       panels?: { overview: string, detail: string, specs: string, angles: string },
+                       breakdown?: { details: VisualCard[], angles: VisualCard[] } },
       build?: { repo: string, steps: string[], note: string, stepSourceIds?: string[][] }
     }
 
     Photo = { url: string, alt: string, type: "concept"|"official"|"retail"|"photo"|"teardown", sourceId?: string }
+
+图解中的 `VisualCard` 含 `url`、`title`、`caption`、`sourceIds` 和可选的 `partId`。每个图卡 URL 对应一张带中文说明的独立图。
 
 实物图片必须关联原商品页、原厂文档或原作者来源。剖视插图是依据这些资料整理出的解释性视图，独立记录来源与近似说明。
 

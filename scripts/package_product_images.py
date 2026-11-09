@@ -98,6 +98,8 @@ def package(product):
                 specs_art(product, Path(scratch) / "specs-art.webp", path)
             paths[key] = f"/assets/product-studies/{identifier}/{path.name}"
     illustration = product["illustration"]
+    if illustration.get("breakdown"):
+        paths["overview"] = illustration["panels"]["overview"]
     illustration["panels"] = paths
     source_ids = [*illustration["sourceIds"]]
     source_ids.extend(source for record in product["specs"] for source in record["sourceIds"])

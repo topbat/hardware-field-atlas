@@ -1,0 +1,496 @@
+{
+  "details": {
+    "xiaomi-glasses": [
+      [
+        "摄像头",
+        "位于镜框一侧，用于第一人称拍摄。",
+        "corner camera on black D-frame, attached to the frame",
+        "camera"
+      ],
+      [
+        "左镜腿主板",
+        "左侧镜腿内有细长主板与屏蔽结构。",
+        "single narrow left-temple PCB next to its left housing only",
+        "board"
+      ],
+      [
+        "右镜腿电池",
+        "右侧镜腿中的长条锂电池组，图示为相对位置。",
+        "one black slender pouch battery next to its right temple shell",
+        "battery"
+      ],
+      [
+        "开放式扬声器",
+        "两侧镜腿各有扬声器；这张图只展示单侧单元。",
+        "one tiny oval temple speaker and its grille, no second unit",
+        "speakers"
+      ],
+      [
+        "镜框柔性排线",
+        "柔性排线沿镜框连接两侧组件。",
+        "one brow flex ribbon and its basic contour, no new connectors",
+        "flex"
+      ],
+      [
+        "铰链与镜框",
+        "铰链连接 D 形镜框与镜腿。",
+        "hinge joint and D-frame corner macro, no invented screw count",
+        "frame"
+      ]
+    ],
+    "xiaozhi-esp32": [
+      [
+        "2 英寸触控屏",
+        "实战派 S3 套件屏幕位于正面右侧。",
+        "the black right-side 2-inch touchscreen bezel",
+        "display"
+      ],
+      [
+        "GC0308 摄像头",
+        "摄像头开窗位于正面左侧、声孔上方。",
+        "single circular camera opening left of the screen, speaker holes below",
+        "camera"
+      ],
+      [
+        "ESP32-S3 主板",
+        "单块绿色主板搭载 ESP32-S3 模组。",
+        "single green PCB from the opened kit, no fictitious chip labels",
+        "board"
+      ],
+      [
+        "扬声器",
+        "扬声器通过外壳声孔出声。",
+        "speaker perforations and one simplified speaker block only",
+        "speaker"
+      ],
+      [
+        "双麦克风",
+        "原厂资料列出两颗模拟麦克风。图为功能示意。",
+        "two anonymous tiny microphone package icons separated from board, no exact board positions",
+        "mic"
+      ],
+      [
+        "白色卡扣外壳",
+        "零售套件的白色外壳采用卡扣装配。",
+        "white snap-fit shell front/back with no screws",
+        "shell"
+      ]
+    ],
+    "xiaomi-speaker-pro": [
+      [
+        "全频扬声器",
+        "一只全频扬声器位于音腔正面上部。",
+        "single upper front round driver shown mounted in its rectangular chamber",
+        "speaker"
+      ],
+      [
+        "无源辐射器",
+        "音腔两侧各有一只无源辐射器。此图展示单侧。",
+        "single dark oval passive radiator mounted on one side of acoustic chamber",
+        "radiators"
+      ],
+      [
+        "背面主板",
+        "蓝色主板位于音腔背面。",
+        "single blue rear main PCB with silver shield on rear face",
+        "board"
+      ],
+      [
+        "顶部按键",
+        "控制区位于机身顶面，用于音量等常用操作。",
+        "rounded-square top control cap with four buttons and slim perimeter light",
+        "top"
+      ],
+      [
+        "底部接口",
+        "底部凹槽内有 USB-C 音频与 DC 供电接口。",
+        "bottom recess with one USB-C audio and one round DC power inlet",
+        "io"
+      ],
+      [
+        "独立音腔",
+        "外壳内设独立音腔，支撑声学单元。",
+        "inner black rectangular acoustic chamber detached from cloth sleeve",
+        "chamber"
+      ]
+    ],
+    "haivivi-bubblepal": [
+      [
+        "圆顶外壳",
+        "白色圆顶与浅蓝底座构成挂件外观。",
+        "white dome shell join to pale blue base"
+      ],
+      [
+        "侧面声孔",
+        "底座侧面的开孔用于出声。",
+        "close-up side acoustic perforations in blue base"
+      ],
+      [
+        "挂绳",
+        "橙色挂绳用于把设备附着在玩偶上。",
+        "orange attachment loop and its connection to base"
+      ]
+    ],
+    "folotoy-magicbox": [
+      [
+        "对话模组",
+        "模组可独立使用，也可装入自制玩偶。",
+        "red square module casing and corner hardware, no internals"
+      ],
+      [
+        "正面圆形控件",
+        "正面大号白色圆形控件按原厂图示意。",
+        "large white circular front control and casing texture"
+      ],
+      [
+        "外部接口区域",
+        "展示原厂图中可见的外部接口，具体功能以资料为准。",
+        "close-up only of the visibly photographed lower front port and edge"
+      ]
+    ],
+    "sharge-a1": [
+      [
+        "摄像头开窗",
+        "镜框角部有摄像头开窗，位置按实物照片示意。",
+        "one front corner camera aperture on the black frame only"
+      ],
+      [
+        "磁吸遮盖片",
+        "磁吸盖可遮挡摄像头。",
+        "separate removable magnetic privacy cover adjacent to the single camera aperture"
+      ],
+      [
+        "镜腿触控区",
+        "镜腿外侧有可操作的触控区域。",
+        "macro of temple touch surface only, no invented symbols"
+      ]
+    ],
+    "rokid-glasses-2": [
+      [
+        "镜片显示区",
+        "镜片含显示光栅区，图示位置供理解。",
+        "subtle display grating in clear lens, no bright fictitious HUD"
+      ],
+      [
+        "镜框摄像头区域",
+        "展示框上摄像头区域，不推断内部光学堆叠。",
+        "visible front camera corner of exact classic black device"
+      ],
+      [
+        "鼻托",
+        "鼻托位于镜框中部，支撑镜框并影响佩戴贴合。",
+        "macro clear nose pads and slim temple shape, keep frame closed"
+      ]
+    ],
+    "xiaomi-xiaoai-pro-legacy": [
+      [
+        "顶部控制区",
+        "顶部有控制键、环形灯带和麦克风拾音孔。",
+        "dark smooth top with buttons, microphone openings and thin light ring"
+      ],
+      [
+        "扬声区域",
+        "外壳下部的开孔覆盖出声区域。",
+        "dark perforated lower speaker grille macro"
+      ],
+      [
+        "背部接口",
+        "背部接口包括 AUX IN 和 DC 电源口。",
+        "rear recessed aux and DC openings, only two, no printed labels"
+      ]
+    ],
+    "seeed-respeaker-xvf3800": [
+      [
+        "麦克风阵列",
+        "平板模组有四麦阵列，用于远场拾音。",
+        "exact black circular board with four mic positions, no daughterboard"
+      ],
+      [
+        "USB 接口",
+        "USB 模组可作为设备语音前端。",
+        "one visible USB connector on edge, macro only"
+      ],
+      [
+        "电路板边缘",
+        "显示板边连接器和可见元件。图示不用于识别料号。",
+        "board edge and visible low-profile connectors, no pin labels"
+      ]
+    ],
+    "fiture-mini-plus": [
+      [
+        "镜面与显示",
+        "镜面结合内置显示，用于展示训练内容。",
+        "front tall slim dark mirror with subtle fitness display, no text"
+      ],
+      [
+        "落地支撑",
+        "侧面可见独立支撑脚。",
+        "single rear support foot and slim frame junction"
+      ],
+      [
+        "动作反馈",
+        "界面可反馈动作。人物与界面为功能示意。",
+        "simple reflected fitness silhouette on glass, no location of sensors"
+      ]
+    ],
+    "xiaodu-tiantianscreen-2201": [
+      [
+        "显示区域示意",
+        "用于展示运动指导。该型号正面外观待实拍核对。",
+        "generic exercise display surface drawn as linework, not exact product"
+      ],
+      [
+        "动作反馈示意",
+        "用动作和提示图形说明使用场景，不标传感器位置。",
+        "isolated simple pose feedback schematic without cameras"
+      ],
+      [
+        "立式设备示意",
+        "落地支撑仅用于解释形态，不代表该型号的实际装配。",
+        "generic stand diagram, no mounting hardware claims"
+      ]
+    ],
+    "orvibo-round-mirror": [
+      [
+        "圆形镜面",
+        "圆形卫浴镜面可显示信息。",
+        "thin circular bathroom mirror edge and reflective surface"
+      ],
+      [
+        "镜面触控区",
+        "镜面支持多点触控，画面为交互示意。",
+        "fingertip on a restrained surface control region, no text"
+      ],
+      [
+        "家居控制示意",
+        "镜面交互可用于控制智能家居。",
+        "one simple home-control symbol beside intact glass, no electronics"
+      ]
+    ],
+    "cloudpick-coolbinet": [
+      [
+        "透明柜门",
+        "开门后可自助取货。",
+        "glass front door and handle, open close-up"
+      ],
+      [
+        "多层货架",
+        "多层货架用于陈列商品。",
+        "shelf levels and packaged items, no invented hardware"
+      ],
+      [
+        "视觉结算示意",
+        "以视觉识别辅助结算，图中不指定摄像头位置。",
+        "single selected item against shelves, recognition bracket icons, no mounted cameras"
+      ]
+    ],
+    "hibianli-hi1000": [
+      [
+        "柜门示意",
+        "开门取货流程图，柜门实际外形待核对。",
+        "generic glass door outline and handle, linework only"
+      ],
+      [
+        "货架示意",
+        "以货架说明商品陈列方式，层数不是规格。",
+        "generic shelf with packaged goods, neutral outline"
+      ],
+      [
+        "识别结算示意",
+        "用识别和结算图标表达流程，不推断装配。",
+        "item recognition and payment symbols, no placement of cameras"
+      ]
+    ],
+    "loctek-ai3": [
+      [
+        "台面",
+        "升降桌台面用于办公，桌板尺寸以所选版本为准。",
+        "wood desktop surface and edge, close-up"
+      ],
+      [
+        "升降桌架",
+        "立柱支撑台面并调节高度，未展示内部电机。",
+        "external telescoping desk column and floor foot, no internals"
+      ],
+      [
+        "控制部",
+        "桌面控制部用于触控和语音操作，界面为示意。",
+        "visible desk control area as in the reference, no fake button labels"
+      ]
+    ],
+    "boshiyoucheng-space1": [
+      [
+        "上部灯光",
+        "上方灯光覆盖学习台面。",
+        "integrated upper task lamp and hood close-up"
+      ],
+      [
+        "分层收纳",
+        "桌面后方与侧边提供分层收纳空间。",
+        "close-up of shelving and storage only"
+      ],
+      [
+        "电子操控区",
+        "可通过电子操控区和语音控制使用。",
+        "embedded control screen close-up, no text or fake metrics"
+      ]
+    ],
+    "9am-up": [
+      [
+        "办公台面示意",
+        "台面用于布置办公设备，型号配置以方案为准。",
+        "generic workstation desktop surface, forest green accents, concept"
+      ],
+      [
+        "升降桌架示意",
+        "外部立柱示意坐站高度调节，不绘制内部驱动。",
+        "closed telescoping support column only"
+      ],
+      [
+        "交互区示意",
+        "表现数字交互和久坐提醒的使用概念。",
+        "simple control region or seated reminder icon, no specific sensor claim"
+      ]
+    ]
+  },
+  "angles": [
+    [
+      "正面图",
+      "从正面观察外形和主要可见布局。",
+      "straight-on front elevation showing the exact silhouette"
+    ],
+    [
+      "侧面图",
+      "从侧面观察厚度、支撑或外部轮廓。",
+      "exact 90-degree side profile, distinct from front"
+    ],
+    [
+      "斜视图",
+      "从斜前方观察立体外形和相邻表面。",
+      "three-quarter view from front right, not a rear view"
+    ]
+  ],
+  "angleCaptions": {
+    "xiaomi-glasses": [
+      "观察黑色镜框，以及分布在镜框两侧的摄像头和指示灯区域。",
+      "从侧面看镜腿厚度，以及镜腿和前框的连接。",
+      "同时观察透明镜片、镜框边角与展开的镜腿。"
+    ],
+    "xiaozhi-esp32": [
+      "从正面看触控屏、摄像头和扬声孔的相对位置。",
+      "从侧面看外壳厚度与接口区域。",
+      "同时观察触控屏和白色卡扣外壳的轮廓。"
+    ],
+    "xiaomi-speaker-pro": [
+      "从正面观察音箱的织物外罩和机身轮廓。",
+      "从侧面观察机身进深和转角。",
+      "从斜上方同时观察顶部控制区和织物外罩。"
+    ],
+    "haivivi-bubblepal": [
+      "从正面观察圆顶和底部外壳的分区。",
+      "从侧面观察圆顶厚度与挂绳区域。",
+      "结合圆顶、侧面声孔和挂绳观察整体外形。"
+    ],
+    "folotoy-magicbox": [
+      "从正面看圆形控件和下方接口区域的布局。",
+      "从侧面看盒体厚度和圆形控件的凸出量。",
+      "从斜前方观察对话模组盒体及控件布局。"
+    ],
+    "sharge-a1": [
+      "从正面观察镜框轮廓及摄像头开窗。",
+      "从侧面观察镜腿与镜框的连接和镜腿长度。",
+      "同时观察前框与镜腿的穿戴结构。"
+    ],
+    "rokid-glasses-2": [
+      "从正面看双镜片和镜框轮廓。",
+      "从侧面观察镜腿与镜框的连接。",
+      "从斜前方对照镜片、鼻托与镜腿的关系。"
+    ],
+    "xiaomi-xiaoai-pro-legacy": [
+      "从正面观察立式音箱的轮廓与扬声区域。",
+      "从侧面观察机身进深。",
+      "从斜上方对照顶部控制区和机身外形。"
+    ],
+    "seeed-respeaker-xvf3800": [
+      "从主要工作面观察麦克风阵列和板面布局。",
+      "从侧面观察板层厚度与接口高度。",
+      "从斜上方同时观察阵列、板面及边缘接口。"
+    ],
+    "fiture-mini-plus": [
+      "从正面观察训练时使用的镜面与显示区域。",
+      "从侧面观察镜体厚度与落地支撑。",
+      "从斜前方观察镜体、边框和落地结构。"
+    ],
+    "xiaodu-tiantianscreen-2201": [
+      "以立式屏幕示意训练或互动时的显示面。",
+      "示意立式设备的机身厚度和摆放轮廓。",
+      "示意观看屏幕与靠近设备时的空间关系。"
+    ],
+    "orvibo-round-mirror": [
+      "从正面观察圆形镜面及可交互区域。",
+      "从侧面观察镜体与安装面的距离关系。",
+      "从斜前方观察圆形镜面与边框。"
+    ],
+    "cloudpick-coolbinet": [
+      "从正面看透明柜门和多层商品陈列。",
+      "从侧面观察柜体进深及底座。",
+      "从斜前方同时观察陈列面与柜体外形。"
+    ],
+    "hibianli-hi1000": [
+      "示意智能零售柜的可视陈列面。",
+      "示意立式柜体的进深和摆放轮廓。",
+      "从斜前方示意柜门、陈列面和机身侧面。"
+    ],
+    "loctek-ai3": [
+      "从正面观察桌面、升降桌架和操作位置。",
+      "从侧面观察台面进深和桌脚的支撑。",
+      "从斜前方观察台面、桌腿及控制部。"
+    ],
+    "boshiyoucheng-space1": [
+      "从正面观察灯光区和分层收纳布局。",
+      "从侧面观察柜体进深与层架外形。",
+      "从斜前方对照收纳层和柜体占用空间。"
+    ],
+    "9am-up": [
+      "示意可升降工位的台面与双腿支撑。",
+      "示意台面进深与桌脚的占地轮廓。",
+      "从斜前方示意工作面与升降桌架的关系。"
+    ]
+  },
+  "supplementalDetails": [
+    [
+      "xiaomi-glasses",
+      "拍摄指示灯",
+      "指示灯与摄像头分置在镜框两侧，用于提示拍摄状态。"
+    ],
+    [
+      "xiaomi-glasses",
+      "左镜腿壳体",
+      "镜腿壳体容纳左侧电子组件，并与镜框铰接。",
+      "left-arm"
+    ],
+    [
+      "xiaomi-speaker-pro",
+      "顶部灯带",
+      "顶面周边的灯带用于显示音箱工作状态。",
+      "top"
+    ],
+    [
+      "xiaomi-speaker-pro",
+      "麦克风阵列",
+      "顶部麦克风阵列用于拾取语音。图中布局为示意。",
+      "mic-array"
+    ],
+    [
+      "rokid-glasses-2",
+      "镜腿",
+      "从侧面观察镜腿形状和连接前框的铰接区域。"
+    ],
+    [
+      "seeed-respeaker-xvf3800",
+      "音频处理器",
+      "XVF3800 负责麦克风阵列的语音信号处理。",
+      "dsp"
+    ]
+  ]
+}

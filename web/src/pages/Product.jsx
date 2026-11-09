@@ -161,6 +161,38 @@ const productImageTypes = [
   ['angles', '多角度图', '对照不同视角下的外形'],
 ];
 
+function VisualCardGroup({ groupId, title, cards, product, failed, recordFailure }) {
+  return (
+    <section className="product-breakdown" aria-labelledby={groupId}>
+      <div className="product-breakdown-heading">
+        <h3 id={groupId}>{title}</h3>
+        <span className="badge">{cards.length} 张</span>
+      </div>
+      <div className="product-breakdown-grid">
+        {cards.map((card) => (
+          <figure className="product-breakdown-card" key={card.url}>
+            {failed.has(card.url) ? (
+              <Empty>{card.title}暂时无法加载。</Empty>
+            ) : (
+              <a href={card.url} target="_blank" rel="noopener" aria-label={'打开' + card.title + '大图'}>
+                <img src={card.url} alt={card.title + '。' + card.caption} loading="lazy" onError={() => recordFailure(card.url)} />
+              </a>
+            )}
+            <figcaption>
+              <SourcesFor product={product} ids={card.sourceIds} />
+              {card.partId && (
+                <Link className="inline-link" to={'?view=structure&part=' + encodeURIComponent(card.partId)}>
+                  查看部件 <ArrowUpRight size={13} />
+                </Link>
+              )}
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function ProductImageGallery({ product }) {
   const { illustration } = product;
   const [failed, setFailed] = useState(() => new Set());
@@ -172,7 +204,7 @@ function ProductImageGallery({ product }) {
         <span className="badge accent"><ImageSquare size={17} /> AI 生成配图</span>
       </div>
       <div className="product-image-grid">
-        {productImageTypes.map(([key, title, description], index) => {
+        {productImageTypes.filter(([key]) => !illustration.breakdown || key === 'overview' || key === 'specs').map(([key, title, description], index) => {
           const url = illustration.panels[key];
           return (
             <figure className={`product-image-panel panel-${key}`} key={key}>
@@ -189,6 +221,12 @@ function ProductImageGallery({ product }) {
           );
         })}
       </div>
+      {illustration.breakdown && (
+        <>
+          <VisualCardGroup groupId="detail-images" title="关键部位图" cards={illustration.breakdown.details} product={product} failed={failed} recordFailure={recordFailure} />
+          <VisualCardGroup groupId="angle-images" title="多角度图" cards={illustration.breakdown.angles} product={product} failed={failed} recordFailure={recordFailure} />
+        </>
+      )}
       <div className="illustration-caption product-image-sources">
         <p>{illustration.exterior === 'concept' ? '外观为同类设备概念示意，准确型号外形待核对。' : '外观按公开资料重绘，比例和细节为近似。'}{illustration.technical === 'teardown' ? '部件关系以实物拆解来源为准。' : '关键部位图仅展示公开可见特征和功能。'}规格信息图使用已核验资料排版。</p>
         <SourcesFor product={product} ids={illustration.sourceIds} />

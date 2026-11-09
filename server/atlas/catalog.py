@@ -127,11 +127,26 @@ class IllustrationPanels(Record):
     _validate_urls = field_validator("overview", "detail", "specs", "angles")(asset_url)
 
 
+class VisualCard(EvidenceRecord):
+    url: str = Field(max_length=240)
+    title: str = Field(min_length=1, max_length=120)
+    caption: str = Field(min_length=1, max_length=400)
+    partId: str | None = Field(default=None, pattern=ID_PATTERN)
+
+    _validate_url = field_validator("url")(asset_url)
+
+
+class VisualBreakdown(Record):
+    details: list[VisualCard] = Field(min_length=1, max_length=30)
+    angles: list[VisualCard] = Field(min_length=2, max_length=12)
+
+
 class IllustrationPlate(EvidenceRecord):
     url: str = Field(max_length=240)
     technical: Literal["teardown", "functional"]
     exterior: Literal["reference", "concept"]
     panels: IllustrationPanels | None = None
+    breakdown: VisualBreakdown | None = None
 
     _validate_url = field_validator("url")(asset_url)
 
@@ -191,6 +206,17 @@ class Product(Record):
             raise ValueError("剖视图须关联有效来源")
         if self.illustration and (not self.illustration.sourceIds or set(self.illustration.sourceIds) - sources):
             raise ValueError("AI 图解须关联有效参考资料")
+        if self.illustration and self.illustration.breakdown:
+            breakdown = self.illustration.breakdown
+            cards = [*breakdown.details, *breakdown.angles]
+            part_ids = {part.id for part in self.parts}
+            if len({card.url for card in cards}) != len(cards):
+                raise ValueError("图卡须使用独立图片")
+            for card in cards:
+                if not card.sourceIds or set(card.sourceIds) - sources:
+                    raise ValueError("图卡须关联有效参考资料")
+                if card.partId and card.partId not in part_ids:
+                    raise ValueError("图卡须关联有效部件")
         for part in self.parts:
             if part.status in {"confirmed", "observed"} and not part.sourceIds:
                 raise ValueError(f"部件 {part.id} 缺少证据")

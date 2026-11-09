@@ -405,3 +405,20 @@ textarea { resize: vertical; min-height: 64px; }
   .product-image-grid { grid-template-columns: minmax(0, 1fr); gap: 12px; }
   .product-image-panel figcaption { padding: 11px 12px; }
 }
+
+.product-image-panel.panel-overview img[src$=".svg"] { aspect-ratio: auto; }
+.product-breakdown { margin-top: 30px; }
+.product-breakdown-heading { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.product-breakdown-heading h3 { margin: 0; }
+.product-breakdown-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.product-breakdown-card { min-width: 0; margin: 0; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.product-breakdown-card > a { display: block; }
+.product-breakdown-card > a:focus-visible { outline-offset: -4px; }
+.product-breakdown-card img { display: block; width: 100%; height: auto; }
+.product-breakdown-card figcaption { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-top: auto; padding: 9px 11px; font-size: .75rem; }
+@media (max-width: 960px) {
+  .product-breakdown-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .product-breakdown-grid { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+}
