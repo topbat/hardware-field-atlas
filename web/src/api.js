@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { onlineDemo } from './deployment.js';
 
 const workspaceKey = 'hardware-atlas.workspace.v1';
 let sessionToken;
@@ -27,6 +28,10 @@ function workspaceToken() {
 }
 
 export async function request(path, { body, method = 'GET', signal, workspace = false } = {}) {
+  if (onlineDemo) {
+    const { demoRequest } = await import('./demo-api.js');
+    return demoRequest(path, { method, body, signal });
+  }
   const headers = { Accept: 'application/json' };
   if (body !== undefined) headers['Content-Type'] = 'application/json';
   if (workspace) headers.Authorization = `Bearer ${workspaceToken()}`;

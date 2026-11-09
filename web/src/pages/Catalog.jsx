@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { sitePath } from '../deployment.js';
 import { Link, useSearchParams } from 'react-router-dom';
 import { ArrowDownRight, ArrowRight, ArrowUpRight, Check, Cube, Eyeglasses, GitDiff, MagnifyingGlass, Sliders, X } from '@phosphor-icons/react';
 import { useResource } from '../api.js';
@@ -22,7 +23,7 @@ function SearchForm({ query, onSearch }) {
 function HeroVisual() {
   const flagship = useResource('/products/xiaomi-glasses');
   const [failed, setFailed] = useState(() => new Set());
-  const concept = '/assets/atlas-hero.webp';
+  const concept = sitePath('/assets/atlas-hero.webp');
   const product = flagship.value;
   const photo = productPhotos(product).find((item) => !failed.has(item.url) && photoSource(product, item));
   const source = photoSource(product, photo);

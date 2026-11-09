@@ -1,11 +1,12 @@
 import { lazy, Suspense, useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter, Link, NavLink, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Link, NavLink, Route, Routes, useLocation } from 'react-router-dom';
 import { ArrowUpRight, Atom, Cube, Flask, GitDiff, ListMagnifyingGlass, X } from '@phosphor-icons/react';
 import { Catalog } from './pages/Catalog.jsx';
 import { Compare } from './pages/Compare.jsx';
 import { Product } from './pages/Product.jsx';
 import { Research } from './pages/Research.jsx';
+import { onlineDemo } from './deployment.js';
 import './styles.css';
 
 const Admin = lazy(() => import('./pages/Admin.jsx').then((module) => ({ default: module.Admin })));
@@ -44,7 +45,10 @@ function App() {
 
   return (
     <>
-      <a className="skip-link" href="#main-content">跳到内容</a>
+      <a className="skip-link" href="#main-content" onClick={onlineDemo ? (event) => {
+        event.preventDefault();
+        document.getElementById('main-content')?.focus();
+      } : undefined}>跳到内容</a>
       <header className="topbar">
         <div className="wrap topbar-inner">
           <Link to="/" className="brand" aria-label="硬件志首页">
@@ -59,13 +63,13 @@ function App() {
           <Link className="header-cta" to="/research">开始研究 <ArrowUpRight size={15} /></Link>
         </div>
       </header>
-      <main id="main-content" className="main-content">
+      <main id="main-content" className="main-content" tabIndex={onlineDemo ? -1 : undefined}>
         <Routes>
           <Route path="/" element={<Catalog selection={selection} />} />
           <Route path="/products/:id" element={<Product selection={selection} />} />
           <Route path="/compare" element={<Compare selection={selection} />} />
           <Route path="/research" element={<Research />} />
-          <Route path="/admin" element={<Suspense fallback={<div className="wrap page-top" role="status">正在打开内容审核…</div>}><Admin /></Suspense>} />
+          {!onlineDemo && <Route path="/admin" element={<Suspense fallback={<div className="wrap page-top" role="status">正在打开内容审核…</div>}><Admin /></Suspense>} />}
           <Route path="*" element={<div className="wrap page-top"><h1>找不到这个页面</h1><Link className="button" to="/">返回硬件档案</Link></div>} />
         </Routes>
       </main>
@@ -87,4 +91,5 @@ function App() {
   );
 }
 
-createRoot(document.getElementById('root')).render(<BrowserRouter><App /></BrowserRouter>);
+const Router = onlineDemo ? HashRouter : BrowserRouter;
+createRoot(document.getElementById('root')).render(<Router><App /></Router>);

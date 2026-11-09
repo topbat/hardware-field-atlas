@@ -1,5 +1,9 @@
 # Hardware Field Atlas · 硬件志
 
+**[打开公网在线体验 →](https://topbat.github.io/hardware-field-atlas/)** · 无需登录或安装 Docker
+
+[直接看小米 AI 眼镜图解](https://topbat.github.io/hardware-field-atlas/#/products/xiaomi-glasses?view=illustration) · [打开在线研究室](https://topbat.github.io/hardware-field-atlas/#/research)
+
 **从一个零件料号，追到整机、拆解、3D 结构和原始证据。**
 
 [下载最新版](https://github.com/topbat/hardware-field-atlas/releases/latest) · [三分钟启动](#三分钟启动) · [看看界面](#界面实拍) · [版本记录](CHANGELOG.md) · [English summary](#english-summary)
@@ -20,6 +24,8 @@
 | 比较多个方案 | 把产品加入对比，查看硬件规格、AI 能力、计算位置和离线行为，并追溯字段出处 |
 | 把资料整理成一个问题 | 在研究室选定范围，使用证据问答或复现工作流；已有笔记经主动选择后可作为上下文。目录模式开箱即用 |
 | 补充一条新证据 | 在档案提交纠错，管理员在审核页处理并保存修订记录 |
+
+在线版提供全部公开档案、搜索、对比、图解、3D 和 BOM 下载。研究室在浏览器检索档案并保存笔记。接入模型、图像识别或管理员审核时，可部署下方完整版。
 
 ## 三分钟启动
 
@@ -102,7 +108,7 @@ Windows 可运行 `pwsh -File scripts/start.ps1 -Build`，之后省略 `-Build` 
 - `web/src/` 界面，`web/public/assets/` 已打包的 GLB、二维图和图卡。
 - `data/catalog.json` 版本化种子目录，`assets/blender/` 三个可编辑的 Blender 源文件。
 - `scripts/` 资产生成、核验和启动脚本。可用 `blender --background --python-exit-code 1 --python scripts/build_models.py` 重建 Blender/GLB，重新打包图卡需要已有 ImageGen 源图。
-- `.github/workflows/delivery.yml` 在主分支、PR 和版本标签校验项目。标签通过后测试容器并发布到 GHCR 和 GitHub Releases。自托管按需拉取指定版本。
+- `.github/workflows/delivery.yml` 在主分支、PR 和版本标签校验项目。标签通过后测试容器并发布到 GHCR 和 GitHub Releases。自托管按需拉取指定版本。每次推送到主分支并通过检查后，GitHub Actions 自动更新公网体验版。
 
 ```sh
 uv run --locked pytest -q

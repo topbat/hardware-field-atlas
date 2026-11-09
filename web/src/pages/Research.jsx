@@ -5,6 +5,7 @@ import {
   Flask, GitDiff, ImageSquare, ListChecks, MagnifyingGlass, SpinnerGap, Trash, X,
 } from '@phosphor-icons/react';
 import { request, useResource } from '../api.js';
+import { onlineDemo } from '../deployment.js';
 import { Empty, External, Status } from '../components.jsx';
 
 const workflows = [
@@ -232,7 +233,7 @@ export function Research() {
   return (
     <div className="wrap page-top research-page">
       <Link className="inline-link breadcrumb" to="/"><ArrowLeft size={16} /> 硬件档案</Link>
-      <div className="page-intro"><span className="eyebrow"><span className="signal-dot" /> LAB / 03</span><h1>硬件研究室。</h1><p>带上一个问题，沿着型号、部件和证据继续研究。</p></div>
+      <div className="page-intro"><span className="eyebrow"><span className="signal-dot" /> LAB / 03</span><h1>硬件研究室。</h1><p>带上一个问题，沿着型号、部件和证据继续研究。</p>{onlineDemo && <p className="muted">在线版检索公开档案。笔记和记录保存在当前浏览器。</p>}</div>
       <ResearchWorkspace key={params.toString()} initialProducts={productIds} initialPart={part} initialWorkflow={initialWorkflow} />
     </div>
   );

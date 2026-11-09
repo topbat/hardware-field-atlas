@@ -5,6 +5,7 @@ __pycache__/
 *.blend1
 node_modules/
 dist/
+web/dist-pages/
 runtime/
 .env
 .env.*

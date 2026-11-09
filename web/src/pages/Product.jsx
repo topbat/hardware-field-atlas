@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect, useState } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, ArrowUpRight, Check, Circuitry, Cube, DownloadSimple, Flask, GitDiff, ImageSquare, ListBullets, Target, WarningCircle } from '@phosphor-icons/react';
 import { request, useResource } from '../api.js';
+import { bomPath, onlineDemo, sitePath } from '../deployment.js';
 import { Empty, External, ModelBadge, ProductVisual, SourceList, SourcesFor, Status } from '../components.jsx';
 import { categoryFor, computeLabels, imageLabels, kindLabels, modelLabels, partLabels, photoSource, productPhotos, researchUrl } from '../labels.js';
 
@@ -30,7 +31,7 @@ function PartChallenge({ product, onSelect }) {
 }
 
 function PartDiagram({ product, active, onSelect }) {
-  const url = `/assets/diagrams/${product.id}.svg`;
+  const url = sitePath('/assets/diagrams/' + product.id + '.svg');
   const [pins, setPins] = useState([]);
   const [failed, setFailed] = useState(false);
   useEffect(() => {
@@ -346,7 +347,7 @@ function Bom({ product, part, select, showStructure }) {
     <>
       <div className="panel-heading">
         <div><h2>物料清单</h2><p>{product.parts.length} 条部件记录。型号、样机与核验状态分别保存。</p></div>
-        <a className="button" href={`/api/products/${encodeURIComponent(product.id)}/bom.csv`}><DownloadSimple size={17} /> 导出 CSV</a>
+        <a className="button" href={bomPath(encodeURIComponent(product.id))} download={onlineDemo ? product.id + "-bom.csv" : undefined}><DownloadSimple size={17} /> 导出 CSV</a>
       </div>
       {product.parts.length ? <div className="structure-layout bom-layout">
         <div className="table-scroll" tabIndex={0} aria-label="横向滚动物料清单">
@@ -458,7 +459,9 @@ function ProductContent({ product, selection }) {
         {tab === 'sources' ? <section className="surface"><h2>证据与来源</h2><SourceList sources={product.sources} /></section> : null}
         {tab === 'build' && product.build ? <section className="surface"><h2>复现指南</h2><p>{product.build.note}</p><ol className="build-steps">{product.build.steps.map((step, index) => <li key={index}>{step}</li>)}</ol><div className="action-row"><External className="button" href={product.build.repo}>打开源项目</External><Link className="button" to={researchUrl(product.id, undefined, 'build')}><ListBullets size={17} /> 生成复现清单</Link></div></section> : null}
       </section>
-      <Correction product={product} part={part} />
+      {onlineDemo
+        ? <a className="inline-link" href="https://github.com/topbat/hardware-field-atlas/issues/new" target="_blank" rel="noopener">在 GitHub 提交档案纠错 <ArrowUpRight size={15} /></a>
+        : <Correction product={product} part={part} />}
     </div>
   );
 }
